@@ -1,0 +1,8 @@
+[2m7:38:03 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31merror while updating dependencies:
+Error: EPERM: operation not permitted, rename 'C:\Users\ACER\OneDrive\Courses\CS50\travel-website\.vite-cache\deps_temp_f281d8da' -> 'C:\Users\ACER\OneDrive\Courses\CS50\travel-website\.vite-cache\deps'[39m
+[33m(!) Experimental optimizeDeps.disabled and deps pre-bundling during build were removed in Vite 5.1.
+    To disable the deps optimizer, set optimizeDeps.noDiscovery to true and optimizeDeps.include as undefined or empty.
+    Please remove optimizeDeps.disabled from your config.
+    
+  [39m
+[31mError: EPERM: operation not permitted, rename 'C:\Users\ACER\OneDrive\Courses\CS50\travel-website\.vite-cache\deps_temp_378b040d' -> 'C:\Users\ACER\OneDrive\Courses\CS50\travel-website\.vite-cache\deps'[39m
