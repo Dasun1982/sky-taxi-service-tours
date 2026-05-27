@@ -10062,9 +10062,231 @@ html[dir="rtl"] .package-slide {
 
 @media (max-width: 768px) {
   html,
-  body {
+  body,
+  #root {
+    width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+  }
+
+  .has-premium-cursor,
+  .has-premium-cursor * {
+    cursor: auto !important;
+  }
+
+  .premium-cursor,
+  .premium-cursor *,
+  .custom-cursor,
+  .cursor-glow {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .app::before,
+  .app::after {
+    display: none !important;
+    content: none !important;
+    filter: none !important;
+  }
+
+  .taxi-vehicles-section,
+  .vehicle-rental-section,
+  .airport-pricing-section {
+    overflow-x: hidden;
+    isolation: isolate;
+  }
+
+  .taxi-vehicles-section::before,
+  .taxi-vehicles-section::after,
+  .vehicle-rental-section::before,
+  .vehicle-rental-section::after,
+  .airport-pricing-section::before,
+  .airport-pricing-section::after {
+    display: none !important;
+    content: none !important;
+    filter: none !important;
+  }
+
+  .taxi-vehicle-grid,
+  .vehicle-rental-grid,
+  .airport-transfer-grid,
+  .taxi-vehicle-grid > .reveal,
+  .vehicle-rental-grid > .reveal,
+  .airport-transfer-grid > .reveal {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    transform: none !important;
+    filter: none !important;
+    will-change: auto !important;
+    opacity: 1 !important;
+  }
+
+  .taxi-vehicle-grid,
+  .vehicle-rental-grid,
+  .airport-transfer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .taxi-vehicle-card,
+  .taxi-vehicle-card.feature-card,
+  .vehicle-rental-card,
+  .airport-transfer-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    contain: paint !important;
+    isolation: isolate !important;
+    transform: none !important;
+    transform-style: flat !important;
+    backface-visibility: visible !important;
+    perspective: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    will-change: auto !important;
+    background:
+      linear-gradient(var(--surface), var(--surface)) padding-box,
+      linear-gradient(135deg, rgba(37, 38, 111, 0.14), rgba(239, 150, 165, 0.22), rgba(255, 210, 184, 0.26)) border-box !important;
+  }
+
+  .app[data-theme="dark"] .taxi-vehicle-card,
+  .app[data-theme="dark"] .taxi-vehicle-card.feature-card,
+  .app[data-theme="dark"] .vehicle-rental-card,
+  .app[data-theme="dark"] .airport-transfer-card {
+    background:
+      linear-gradient(#161528, #161528) padding-box,
+      linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(247, 169, 182, 0.18), rgba(255, 212, 187, 0.14)) border-box !important;
+  }
+
+  .taxi-vehicle-card:hover,
+  .taxi-vehicle-card:active,
+  .taxi-vehicle-card.is-tilting,
+  .taxi-vehicle-card.feature-card:hover,
+  .taxi-vehicle-card.feature-card:active,
+  .taxi-vehicle-card.feature-card.is-tilting,
+  .vehicle-rental-card:hover,
+  .vehicle-rental-card:active,
+  .vehicle-rental-card.is-tilting,
+  .airport-transfer-card:hover,
+  .airport-transfer-card:active,
+  .airport-transfer-card.is-tilting {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .taxi-vehicle-card::before,
+  .taxi-vehicle-card::after,
+  .taxi-vehicle-card.feature-card::before,
+  .taxi-vehicle-card.feature-card::after,
+  .vehicle-rental-card::before,
+  .vehicle-rental-card::after,
+  .airport-transfer-card::before,
+  .airport-transfer-card::after {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    background: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .taxi-vehicle-media,
+  .vehicle-rental-card__media,
+  .airport-transfer-card__media {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    will-change: auto !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .app[data-theme="dark"] .taxi-vehicle-media,
+  .app[data-theme="dark"] .vehicle-rental-card__media,
+  .app[data-theme="dark"] .airport-transfer-card__media {
+    background: #ffffff !important;
+  }
+
+  .taxi-vehicle-image,
+  .vehicle-rental-card__media img,
+  .airport-transfer-card__media img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    transform: none !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    transition: none !important;
+    will-change: auto !important;
+    backface-visibility: visible !important;
+  }
+
+  .taxi-vehicle-card:hover .taxi-vehicle-image,
+  .taxi-vehicle-card:active .taxi-vehicle-image,
+  .vehicle-rental-card:hover .vehicle-rental-card__media img,
+  .vehicle-rental-card:active .vehicle-rental-card__media img,
+  .airport-transfer-card:hover .airport-transfer-card__media img,
+  .airport-transfer-card:active .airport-transfer-card__media img {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .taxi-vehicle-body,
+  .vehicle-rental-card__body,
+  .airport-transfer-card__body {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    transform: none !important;
+    filter: none !important;
+    will-change: auto !important;
+  }
+
+  .taxi-vehicle-card h3,
+  .taxi-vehicle-card p,
+  .taxi-vehicle-capacity,
+  .taxi-vehicle-features,
+  .taxi-vehicle-features span,
+  .taxi-vehicle-button,
+  .vehicle-rental-card h3,
+  .vehicle-rental-card p,
+  .vehicle-rental-card__prices,
+  .vehicle-rental-card__prices div,
+  .vehicle-rental-card__button,
+  .airport-transfer-card h3,
+  .airport-transfer-card__meta,
+  .airport-transfer-card__meta span,
+  .airport-transfer-card__prices,
+  .airport-transfer-card__prices div,
+  .airport-transfer-card__button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .taxi-vehicle-features span,
+  .airport-transfer-card__meta span,
+  .vehicle-rental-card__prices div,
+  .airport-transfer-card__prices div {
+    flex-wrap: wrap;
   }
 
   .vehicle-rentals-page,
