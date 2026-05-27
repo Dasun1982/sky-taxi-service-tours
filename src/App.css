@@ -10060,6 +10060,166 @@ html[dir="rtl"] .package-slide {
   }
 }
 
+@media (max-width: 768px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .vehicle-rentals-page,
+  .vehicle-rentals-page * {
+    box-sizing: border-box;
+  }
+
+  .vehicle-rentals-page {
+    max-width: 100%;
+    overflow-x: hidden;
+    padding-bottom: calc(104px + env(safe-area-inset-bottom));
+  }
+
+  .vehicle-rentals-page .section,
+  .vehicle-rentals-page .section__inner,
+  .vehicle-rentals-page .vehicle-rental-section,
+  .vehicle-rentals-page .vehicle-rental-grid,
+  .vehicle-rentals-page .vehicle-rental-grid > .reveal {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-section {
+    padding-bottom: calc(132px + env(safe-area-inset-bottom));
+  }
+
+  .vehicle-rentals-page .vehicle-rental-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    contain: layout paint;
+    isolation: isolate;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    transform-style: flat !important;
+    backface-visibility: visible;
+    will-change: auto !important;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card::after {
+    display: none !important;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card:hover,
+  .vehicle-rentals-page .vehicle-rental-card:active,
+  .vehicle-rentals-page .vehicle-rental-card.is-tilting {
+    transform: none !important;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card__media {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: clamp(178px, 52vw, 232px);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.74);
+    transform: none !important;
+    filter: none !important;
+    will-change: auto !important;
+  }
+
+  .app[data-theme="dark"] .vehicle-rentals-page .vehicle-rental-card__media {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card__media img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card:hover .vehicle-rental-card__media img,
+  .vehicle-rentals-page .vehicle-rental-card:active .vehicle-rental-card__media img {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card__media span {
+    left: 12px;
+    right: auto;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card__body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: auto;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card h3,
+  .vehicle-rentals-page .vehicle-rental-card p,
+  .vehicle-rentals-page .vehicle-rental-card__prices span,
+  .vehicle-rentals-page .vehicle-rental-card__prices strong {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card__prices,
+  .vehicle-rentals-page .vehicle-rental-card__button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-card__prices div {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-custom,
+  .vehicle-rentals-page .vehicle-rental-custom__panel,
+  .vehicle-rentals-page .rental-faq-panel,
+  .vehicle-rentals-page .rental-overview-strip,
+  .vehicle-rentals-page .rental-overview-strip > span {
+    max-width: 100%;
+    overflow: hidden;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .vehicle-rentals-page .vehicle-rental-custom__glow,
+  .vehicle-rentals-page .rental-faq-panel__glow,
+  .vehicle-rentals-page .vehicle-rental-section::before {
+    opacity: 0.16;
+    filter: none !important;
+  }
+}
+
 /* Urgent modal repair: keep blur on the backdrop only and keep tour details readable above it. */
 .one-day-modal,
 .round-modal {
