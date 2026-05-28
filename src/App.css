@@ -10671,6 +10671,211 @@ body.sky-scroll-lock .premium-cursor[data-cursor="card"] {
   --cursor-glow-opacity: 0.46;
 }
 
+.colombo-airport-page .page-hero {
+  background:
+    radial-gradient(circle at 16% 16%, rgba(255, 210, 184, 0.26), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(239, 150, 165, 0.22), transparent 32%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 248, 250, 0.86));
+}
+
+.app[data-theme="dark"] .colombo-airport-page .page-hero {
+  background:
+    radial-gradient(circle at 16% 16%, rgba(255, 210, 184, 0.14), transparent 32%),
+    radial-gradient(circle at 82% 18%, rgba(140, 87, 153, 0.22), transparent 34%),
+    linear-gradient(135deg, rgba(16, 16, 29, 0.96), rgba(28, 22, 43, 0.9));
+}
+
+.colombo-airport-page .page-hero__image {
+  object-position: center;
+}
+
+.colombo-airport-summary {
+  display: grid;
+  gap: 16px;
+}
+
+.colombo-airport-summary article,
+.colombo-airport-route-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, rgba(37, 38, 111, 0.12), rgba(239, 150, 165, 0.22), rgba(255, 210, 184, 0.3)) border-box;
+  border: 1px solid transparent;
+  border-radius: 28px;
+  box-shadow: 0 22px 62px rgba(37, 38, 111, 0.1);
+}
+
+.colombo-airport-summary article {
+  padding: 22px;
+}
+
+.colombo-airport-summary span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: var(--coral);
+  background: rgba(239, 150, 165, 0.11);
+  border-radius: 16px;
+  margin-bottom: 14px;
+}
+
+.colombo-airport-summary h3,
+.colombo-airport-route-card h3 {
+  margin: 0 0 10px;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.colombo-airport-summary p,
+.colombo-airport-route-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.colombo-airport-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.colombo-airport-link-row button,
+.colombo-airport-link-row a,
+.colombo-airport-route-card a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  color: #25266f;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 950;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, color 180ms ease;
+}
+
+.colombo-airport-link-row button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.colombo-airport-link-row button:hover,
+.colombo-airport-link-row a:hover,
+.colombo-airport-route-card a:hover {
+  color: #8c5799;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(140, 87, 153, 0.14);
+}
+
+.colombo-airport-route-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.colombo-airport-route-card {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.9fr) minmax(0, 1.1fr);
+  min-height: 270px;
+}
+
+.colombo-airport-route-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 270px;
+  display: block;
+  object-fit: cover;
+  transition: transform 650ms ease, filter 240ms ease;
+}
+
+.colombo-airport-route-card:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.colombo-airport-route-card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+}
+
+.colombo-airport-route-card a {
+  align-self: flex-start;
+  margin-top: 18px;
+}
+
+.colombo-airport-vehicles .airport-transfer-card p {
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0 0 18px;
+}
+
+.colombo-airport-faq .faq-list {
+  display: grid;
+  gap: 16px;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.colombo-airport-faq .faq-item {
+  padding: 22px;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, rgba(37, 38, 111, 0.12), rgba(239, 150, 165, 0.2), rgba(255, 210, 184, 0.28)) border-box;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  box-shadow: 0 18px 44px rgba(37, 38, 111, 0.08);
+}
+
+.colombo-airport-faq .faq-item h3 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.colombo-airport-faq .faq-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 980px) {
+  .colombo-airport-route-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .colombo-airport-route-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .colombo-airport-route-card img {
+    height: 210px;
+    min-height: 210px;
+  }
+
+  .colombo-airport-route-card div,
+  .colombo-airport-summary article,
+  .colombo-airport-faq .faq-item {
+    padding: 20px;
+  }
+
+  .colombo-airport-link-row,
+  .colombo-airport-link-row button,
+  .colombo-airport-link-row a,
+  .colombo-airport-route-card a {
+    width: 100%;
+  }
+}
+
 @keyframes modalLuxuryIn {
   from {
     opacity: 0;

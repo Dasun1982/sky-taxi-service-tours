@@ -189,6 +189,11 @@ export const pageMeta = {
     description:
       "Rent clean private vehicles with friendly local driver support for day trips, airport transfers, round tours, and custom Sri Lanka travel plans.",
   },
+  "colombo-airport-taxi": {
+    title: "Colombo Airport Taxi Service | SKY Taxi Sri Lanka",
+    description:
+      "Book Colombo Airport taxi service in Sri Lanka. Private airport transfers to Ella, Kandy, Galle and more. 24/7 reliable taxi service.",
+  },
 };
 
 export const heroSlides = [

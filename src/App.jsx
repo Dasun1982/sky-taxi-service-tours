@@ -19,6 +19,7 @@ import TaxiService from "./pages/TaxiService";
 import Tours from "./pages/Tours";
 import About from "./pages/About";
 import VehicleRentals from "./pages/VehicleRentals";
+import ColomboAirportTaxi from "./pages/ColomboAirportTaxi";
 
 const pages = {
   home: Home,
@@ -34,10 +35,13 @@ const pages = {
   contact: Contact,
   rentals: VehicleRentals,
   "vehicle-rentals": VehicleRentals,
+  "colombo-airport-taxi": ColomboAirportTaxi,
 };
 
 function getPageFromHash() {
-  const page = window.location.hash.replace("#/", "").replace("#", "") || "home";
+  const hashPage = window.location.hash.replace("#/", "").replace("#", "");
+  const pathPage = window.location.pathname.replace(/^\/+|\/+$/g, "");
+  const page = hashPage || pathPage || "home";
   if (page === "rentals") return "vehicle-rentals";
   return pages[page] ? page : "home";
 }
