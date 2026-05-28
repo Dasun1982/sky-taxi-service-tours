@@ -20,6 +20,8 @@ import Tours from "./pages/Tours";
 import About from "./pages/About";
 import VehicleRentals from "./pages/VehicleRentals";
 import ColomboAirportTaxi from "./pages/ColomboAirportTaxi";
+import AirportTransferSriLanka from "./pages/AirportTransferSriLanka";
+import EllaTaxiService from "./pages/EllaTaxiService";
 
 const pages = {
   home: Home,
@@ -36,6 +38,8 @@ const pages = {
   rentals: VehicleRentals,
   "vehicle-rentals": VehicleRentals,
   "colombo-airport-taxi": ColomboAirportTaxi,
+  "airport-transfer-sri-lanka": AirportTransferSriLanka,
+  "ella-taxi-service": EllaTaxiService,
 };
 
 function getPageFromHash() {
