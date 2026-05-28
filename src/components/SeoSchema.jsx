@@ -89,15 +89,30 @@ function makeFaqSchema(page) {
   const faqs = schemaFaqs[page];
   if (!faqs?.length) return null;
 
+  const pageLabel = schemaPageLabels[page] || pageMeta[page]?.title?.split("|")[0]?.trim() || "FAQ";
+  const validFaqs = faqs
+    .map((faq) => ({
+      question: String(faq.question || "").trim(),
+      answer: String(faq.answer || "").trim(),
+    }))
+    .filter((faq) => faq.question && faq.answer);
+
+  if (!validFaqs.length) return null;
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${pageUrl(page)}#faq`,
-    mainEntity: faqs.map((faq) => ({
+    name: `${pageLabel} FAQ`,
+    url: pageUrl(page),
+    inLanguage: "en",
+    mainEntity: validFaqs.map((faq, index) => ({
       "@type": "Question",
+      "@id": `${pageUrl(page)}#faq-question-${index + 1}`,
       name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
+        "@id": `${pageUrl(page)}#faq-answer-${index + 1}`,
         text: faq.answer,
       },
     })),
