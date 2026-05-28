@@ -4,6 +4,7 @@ export const schemaPageLabels = {
   "airport-to-ella": "Airport to Ella Taxi",
   "airport-to-galle": "Airport to Galle Taxi",
   "airport-to-kandy": "Airport to Kandy Taxi",
+  "airport-to-mirissa": "Airport to Mirissa Taxi",
   "airport-transfer-sri-lanka": "Airport Transfer Sri Lanka",
   "ella-taxi-service": "Ella Taxi Service",
   "kandy-taxi-service": "Kandy Taxi Service",
@@ -117,6 +118,33 @@ export const schemaFaqs = {
     },
     {
       question: "Is the Colombo Airport to Kandy taxi price fixed online?",
+      answer:
+        "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
+    },
+  ],
+  "airport-to-mirissa": [
+    {
+      question: "How long does a Colombo Airport to Mirissa taxi take?",
+      answer:
+        "A Colombo Airport to Mirissa taxi usually takes around 2.5 to 3.5 hours by Southern Expressway depending on traffic, pickup time, comfort stops, and the exact Mirissa hotel location.",
+    },
+    {
+      question: "Can I book an airport to Mirissa taxi after a late flight?",
+      answer:
+        "Yes. SKY Taxi Service & Tours can arrange Mirissa airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+    },
+    {
+      question: "Does the taxi use the Southern Expressway?",
+      answer:
+        "Yes. Most private transfers from Colombo Airport to Mirissa use the Southern Expressway for a faster beach transfer, with highway ticket costs confirmed in your WhatsApp quote.",
+    },
+    {
+      question: "Can I book a whale watching transfer Mirissa pickup?",
+      answer:
+        "Yes. We can arrange early morning whale watching transfer Mirissa support, harbor drop-off, hotel pickup, and return travel depending on your schedule.",
+    },
+    {
+      question: "Is the Colombo Airport to Mirissa taxi price fixed online?",
       answer:
         "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
     },
