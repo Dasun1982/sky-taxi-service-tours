@@ -35,6 +35,7 @@ import SriLankaRoundTours from "./pages/SriLankaRoundTours";
 import DayToursSriLanka from "./pages/DayToursSriLanka";
 import YalaSafariTransfer from "./pages/YalaSafariTransfer";
 import UnawatunaTaxiService from "./pages/UnawatunaTaxiService";
+import WeligamaTaxiService from "./pages/WeligamaTaxiService";
 
 const pages = {
   home: Home,
@@ -66,6 +67,7 @@ const pages = {
   "day-tours-sri-lanka": DayToursSriLanka,
   "yala-safari-transfer": YalaSafariTransfer,
   "unawatuna-taxi-service": UnawatunaTaxiService,
+  "weligama-taxi-service": WeligamaTaxiService,
 };
 
 function getPageFromHash() {

@@ -269,6 +269,11 @@ export const pageMeta = {
     description:
       "Book Unawatuna taxi service with SKY Taxi Service & Tours. Airport transfers, Galle trips, Mirissa transfers, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "weligama-taxi-service": {
+    title: "Weligama Taxi Service | Airport Transfers & Private Taxi",
+    description:
+      "Book Weligama taxi service with SKY Taxi Service & Tours. Colombo airport transfers, Mirissa trips, Galle routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
