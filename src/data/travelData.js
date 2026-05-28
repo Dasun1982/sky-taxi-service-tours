@@ -284,6 +284,11 @@ export const pageMeta = {
     description:
       "Book Nuwara Eliya taxi service with SKY Taxi Service & Tours. Colombo airport transfers, hill country routes, tea plantation trips, private drivers, and 24/7 WhatsApp booking.",
   },
+  "bentota-taxi-service": {
+    title: "Bentota Taxi Service | Airport Transfers & Private Taxi",
+    description:
+      "Book Bentota taxi service with SKY Taxi Service & Tours. Colombo airport transfers, beach routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
