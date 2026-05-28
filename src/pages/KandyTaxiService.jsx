@@ -272,7 +272,7 @@ export default function KandyTaxiService({ setPage }) {
         </div>
       </section>
 
-      <section className="section kandy-faq-section" itemScope itemType="https://schema.org/FAQPage">
+      <section className="section kandy-faq-section">
         <div className="section__inner">
           <SectionHeader
             eyebrow="Kandy taxi FAQ"
@@ -281,10 +281,10 @@ export default function KandyTaxiService({ setPage }) {
           />
           <div className="faq-list">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                <h3 itemProp="name">{faq.question}</h3>
-                <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                  <p itemProp="text">{faq.answer}</p>
+              <article className="faq-item" key={faq.question}>
+                <h3>{faq.question}</h3>
+                <div>
+                  <p>{faq.answer}</p>
                 </div>
               </article>
             ))}
