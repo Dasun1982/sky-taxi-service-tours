@@ -11286,3 +11286,180 @@ body.sky-scroll-lock .premium-cursor[data-cursor="card"] {
     content: none !important;
   }
 }
+
+@keyframes seoHeroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes seoHeroBadgeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) {
+  --seo-ease: cubic-bezier(0.2, 0.86, 0.25, 1);
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content .eyebrow,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content h1,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content p,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-actions {
+  opacity: 0;
+  animation: seoHeroFadeUp 720ms var(--seo-ease) both;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content h1 {
+  animation-delay: 90ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content p {
+  animation-delay: 170ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-actions {
+  animation-delay: 250ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-badges span {
+  opacity: 0;
+  animation: seoHeroBadgeIn 560ms var(--seo-ease) both;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-badges span:nth-child(1) {
+  animation-delay: 320ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-badges span:nth-child(2) {
+  animation-delay: 380ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-badges span:nth-child(3) {
+  animation-delay: 440ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-badges span:nth-child(4) {
+  animation-delay: 500ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .reveal {
+  transition:
+    opacity 640ms var(--seo-ease),
+    transform 640ms var(--seo-ease);
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-route-grid > .reveal:nth-child(2),
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .airport-transfer-grid > .reveal:nth-child(2),
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-summary > .reveal:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-route-grid > .reveal:nth-child(3),
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .airport-transfer-grid > .reveal:nth-child(3),
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-summary > .reveal:nth-child(3) {
+  transition-delay: 150ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-route-grid > .reveal:nth-child(4),
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .airport-transfer-grid > .reveal:nth-child(4) {
+  transition-delay: 220ms;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-route-card,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .airport-transfer-card,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-summary article,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .faq-item {
+  transition:
+    transform 220ms var(--seo-ease),
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-route-card:hover,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .airport-transfer-card:hover,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-summary article:hover,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .faq-item:hover {
+  transform: translateY(-7px);
+  box-shadow:
+    0 26px 68px rgba(37, 38, 111, 0.13),
+    0 0 0 1px rgba(239, 150, 165, 0.08);
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .airport-transfer-card__media img {
+  transition: transform 620ms var(--seo-ease), filter 220ms ease;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .airport-transfer-card:hover .airport-transfer-card__media img {
+  transform: scale(1.045);
+  filter: saturate(1.04) contrast(1.03);
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .button,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-route-card a,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-link-row a,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-link-row button {
+  transition:
+    transform 190ms var(--seo-ease),
+    box-shadow 190ms ease,
+    border-color 190ms ease,
+    background 190ms ease,
+    color 190ms ease;
+}
+
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .button:hover,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-route-card a:hover,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-link-row a:hover,
+:where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-link-row button:hover {
+  box-shadow:
+    0 18px 42px rgba(140, 87, 153, 0.18),
+    0 0 0 7px rgba(239, 150, 165, 0.1);
+}
+
+@media (max-width: 768px) {
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content .eyebrow,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content h1,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content p,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-actions,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-badges span {
+    animation-duration: 420ms;
+    animation-delay: 0ms;
+  }
+
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .reveal {
+    transition-duration: 420ms;
+    transition-delay: 0ms !important;
+  }
+
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-route-card:hover,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .airport-transfer-card:hover,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .colombo-airport-summary article:hover,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .faq-item:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content .eyebrow,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content h1,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .page-hero__content p,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-actions,
+  :where(.colombo-airport-page:not(.airport-transfer-sri-lanka-page):not(.ella-taxi-page):not(.galle-taxi-page):not(.kandy-taxi-page), .airport-transfer-sri-lanka-page, .ella-taxi-page) .premium-hero-badges span {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+}
