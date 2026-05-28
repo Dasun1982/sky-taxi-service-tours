@@ -249,6 +249,11 @@ export const pageMeta = {
     description:
       "Book Sri Lanka private tours with SKY Taxi Service & Tours. Custom day tours, round tours, private driver service, airport pickup, and 24/7 WhatsApp booking.",
   },
+  "sri-lanka-round-tours": {
+    title: "Sri Lanka Round Tours | Private Driver Round Trips",
+    description:
+      "Book Sri Lanka round tours with SKY Taxi Service & Tours. Private driver round trips, custom routes, airport pickup, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
