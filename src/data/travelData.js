@@ -224,6 +224,11 @@ export const pageMeta = {
     description:
       "Book a private taxi to Mirissa Sri Lanka with SKY Taxi Service & Tours. Airport transfers, beach routes, whale watching transfers, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "private-driver-sri-lanka": {
+    title: "Private Driver Sri Lanka | Chauffeur & Taxi Service",
+    description:
+      "Hire a private driver in Sri Lanka with SKY Taxi Service & Tours. Airport transfers, day tours, round tours, clean vehicles, flexible routes, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
