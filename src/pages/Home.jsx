@@ -138,6 +138,43 @@ export default function Home({ setPage }) {
   const { t } = useLanguage();
   const carouselRef = useRef(null);
 
+  const renderTaxiRouteCard = (route, isClone = false) => {
+    const linkProps = isClone ? { tabIndex: -1 } : {};
+    const cardContent = (
+      <>
+        <a className="home-seo-route-card__media" href={route.href} aria-label={route.title} {...linkProps}>
+          <img src={route.image} alt={route.title} loading="lazy" />
+        </a>
+        <div className="home-seo-route-card__body">
+          <h3>
+            <a href={route.href} {...linkProps}>
+              {route.title}
+            </a>
+          </h3>
+          <p>{route.description}</p>
+          <a className="home-seo-route-card__button" href={route.href} {...linkProps}>
+            View Route
+            <ArrowRight size={16} />
+          </a>
+        </div>
+      </>
+    );
+
+    if (isClone) {
+      return (
+        <article className="home-seo-route-card" key={`clone-${route.href}`}>
+          {cardContent}
+        </article>
+      );
+    }
+
+    return (
+      <Reveal as="article" className="home-seo-route-card" key={route.href}>
+        {cardContent}
+      </Reveal>
+    );
+  };
+
   const scrollTours = (direction) => {
     carouselRef.current?.scrollBy({ left: direction * 360, behavior: "smooth" });
   };
@@ -270,24 +307,13 @@ export default function Home({ setPage }) {
             text="Plan your most requested airport transfers, private taxi routes, and island-wide Sri Lanka travel options."
           />
 
-          <div className="home-seo-route-grid">
-            {taxiRouteLinks.map((route) => (
-              <Reveal className="home-seo-route-card" key={route.href}>
-                <a className="home-seo-route-card__media" href={route.href} aria-label={route.title}>
-                  <img src={route.image} alt={route.title} loading="lazy" />
-                </a>
-                <div className="home-seo-route-card__body">
-                  <h3>
-                    <a href={route.href}>{route.title}</a>
-                  </h3>
-                  <p>{route.description}</p>
-                  <a className="home-seo-route-card__button" href={route.href}>
-                    View Route
-                    <ArrowRight size={16} />
-                  </a>
-                </div>
-              </Reveal>
-            ))}
+          <div className="home-seo-route-grid" aria-label="Popular Sri Lanka Taxi Routes">
+            <div className="home-seo-route-track">
+              <div className="home-seo-route-group">{taxiRouteLinks.map((route) => renderTaxiRouteCard(route))}</div>
+              <div className="home-seo-route-group home-seo-route-group--clone" aria-hidden="true">
+                {taxiRouteLinks.map((route) => renderTaxiRouteCard(route, true))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -1622,13 +1622,34 @@ body.sky-scroll-lock {
 
 .home-seo-route-grid {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  padding: 6px 0 28px;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.home-seo-route-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: homeSeoRouteSlide 58s linear infinite;
+}
+
+.home-seo-route-grid:hover .home-seo-route-track,
+.home-seo-route-grid:focus-within .home-seo-route-track {
+  animation-play-state: paused;
+}
+
+.home-seo-route-group {
+  display: flex;
+  flex: 0 0 auto;
   gap: 22px;
+  padding-right: 22px;
 }
 
 .home-seo-route-card {
   position: relative;
+  flex: 0 0 clamp(295px, 28vw, 380px);
   overflow: hidden;
   background:
     linear-gradient(var(--surface), var(--surface)) padding-box,
@@ -1754,6 +1775,16 @@ body.sky-scroll-lock {
 
 .app[data-theme="dark"] .home-seo-route-card h3 a {
   color: #ffffff;
+}
+
+@keyframes homeSeoRouteSlide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .destination-showcase-grid {
@@ -10034,6 +10065,40 @@ html[dir="rtl"] .package-slide {
   .pricing-grid,
   .contact-method-grid {
     gap: 20px;
+  }
+
+  .home-seo-route-grid {
+    overflow-x: auto;
+    padding: 6px 2px 28px;
+    mask-image: none;
+    -webkit-mask-image: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-seo-route-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-seo-route-track {
+    animation: none;
+    will-change: auto;
+  }
+
+  .home-seo-route-group {
+    gap: 18px;
+    padding-right: 0;
+  }
+
+  .home-seo-route-group--clone {
+    display: none;
+  }
+
+  .home-seo-route-card {
+    flex-basis: min(86vw, 370px);
+    scroll-snap-align: start;
   }
 }
 
