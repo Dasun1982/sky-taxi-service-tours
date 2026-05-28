@@ -6,6 +6,7 @@ export const schemaPageLabels = {
   "airport-to-kandy": "Airport to Kandy Taxi",
   "airport-to-mirissa": "Airport to Mirissa Taxi",
   "airport-to-sigiriya": "Airport to Sigiriya Taxi",
+  "airport-to-unawatuna": "Airport to Unawatuna Taxi",
   "airport-transfer-sri-lanka": "Airport Transfer Sri Lanka",
   "ella-taxi-service": "Ella Taxi Service",
   "kandy-taxi-service": "Kandy Taxi Service",
@@ -173,6 +174,33 @@ export const schemaFaqs = {
     },
     {
       question: "Is the Colombo Airport to Sigiriya taxi price fixed online?",
+      answer:
+        "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
+    },
+  ],
+  "airport-to-unawatuna": [
+    {
+      question: "How long does a Colombo Airport to Unawatuna taxi take?",
+      answer:
+        "A Colombo Airport to Unawatuna taxi usually takes around 2 to 2.5 hours by Southern Expressway depending on traffic, pickup time, comfort stops, and the exact Unawatuna hotel location.",
+    },
+    {
+      question: "Can I book an airport to Unawatuna taxi after a late flight?",
+      answer:
+        "Yes. SKY Taxi Service & Tours can arrange Unawatuna airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+    },
+    {
+      question: "Does the taxi use the Southern Expressway?",
+      answer:
+        "Yes. Most private transfers from Colombo Airport to Unawatuna use the Southern Expressway for a faster beach transfer, with highway ticket costs confirmed in your WhatsApp quote.",
+    },
+    {
+      question: "Can I continue from Unawatuna to Dalawella, Jungle Beach, or Galle Fort?",
+      answer:
+        "Yes. Your private transfer to Unawatuna can continue to Dalawella, Jungle Beach, Mihiripenna, Galle Fort, or nearby south coast hotels.",
+    },
+    {
+      question: "Is the Colombo Airport to Unawatuna taxi price fixed online?",
       answer:
         "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
     },
