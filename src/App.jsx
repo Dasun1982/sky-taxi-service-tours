@@ -5,6 +5,7 @@ import BottomActionBar from "./components/BottomActionBar";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import PremiumCursor from "./components/PremiumCursor";
+import SeoSchema from "./components/SeoSchema";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { pageMeta } from "./data/travelData";
 import AirportTransfers from "./pages/AirportTransfers";
@@ -342,6 +343,7 @@ function AppShell() {
   return (
     <div className="app" data-theme={darkMode ? "dark" : "light"} data-language={language} dir={direction}>
       <AppLoader isLoading={isLoading} />
+      <SeoSchema activePage={activePage} />
       <Navbar activePage={activePage} setPage={setPage} />
       <main>
         <ActivePage setPage={setPage} />
