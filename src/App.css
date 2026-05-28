@@ -1605,6 +1605,157 @@ body.sky-scroll-lock {
   margin-top: 16px;
 }
 
+.home-seo-routes-section {
+  position: relative;
+}
+
+.home-seo-routes-section::before {
+  content: "";
+  position: absolute;
+  inset: 9% auto auto 4%;
+  width: 260px;
+  height: 260px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(239, 150, 165, 0.2), transparent 68%);
+  filter: blur(6px);
+}
+
+.home-seo-route-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.home-seo-route-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, rgba(37, 38, 111, 0.15), rgba(239, 150, 165, 0.3), rgba(255, 210, 184, 0.38)) border-box;
+  background-size: auto, 180% 180%;
+  border: 1px solid transparent;
+  border-radius: 28px;
+  box-shadow: 0 22px 58px rgba(37, 38, 111, 0.1);
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.86, 0.25, 1),
+    box-shadow 220ms ease,
+    background-position 420ms ease,
+    border-color 220ms ease;
+}
+
+.home-seo-route-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.36), transparent 34%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.home-seo-route-card:hover {
+  background-position: 0 0, 100% 50%;
+  transform: translateY(-8px);
+  box-shadow: 0 32px 78px rgba(37, 38, 111, 0.15);
+}
+
+.home-seo-route-card:hover::before {
+  opacity: 1;
+}
+
+.home-seo-route-card__media {
+  position: relative;
+  display: block;
+  height: 190px;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-seo-route-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 620ms ease, filter 260ms ease;
+}
+
+.home-seo-route-card:hover .home-seo-route-card__media img {
+  transform: scale(1.06);
+  filter: saturate(1.06) contrast(1.02);
+}
+
+.home-seo-route-card__body {
+  position: relative;
+  z-index: 2;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+}
+
+.home-seo-route-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.16rem;
+  line-height: 1.2;
+}
+
+.home-seo-route-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.home-seo-route-card h3 a:hover {
+  color: var(--purple);
+}
+
+.home-seo-route-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.66;
+}
+
+.home-seo-route-card__button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 0 17px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #25266f, #8c5799 58%, #ef96a5);
+  border-radius: 999px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.home-seo-route-card__button:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.04);
+  box-shadow: 0 16px 34px rgba(140, 87, 153, 0.3), 0 0 0 7px rgba(239, 150, 165, 0.12);
+}
+
+.app[data-theme="dark"] .home-seo-route-card {
+  background:
+    linear-gradient(rgba(25, 24, 45, 0.9), rgba(25, 24, 45, 0.9)) padding-box,
+    linear-gradient(135deg, rgba(255, 210, 184, 0.22), rgba(239, 150, 165, 0.34), rgba(140, 87, 153, 0.4)) border-box;
+  box-shadow: 0 24px 68px rgba(0, 0, 0, 0.3);
+}
+
+.app[data-theme="dark"] .home-seo-route-card::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 36%);
+}
+
+.app[data-theme="dark"] .home-seo-route-card h3 a {
+  color: #ffffff;
+}
+
 .destination-showcase-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr 0.85fr;
@@ -7053,6 +7204,7 @@ html[dir="rtl"] .bottom-action-bar .language-selector__panel {
   }
 
   .home-service-card,
+  .home-seo-route-card,
   .home-tour-card,
   .destination-showcase-card,
   .home-experience-card,
@@ -7635,6 +7787,7 @@ html[dir="rtl"] .bottom-action-bar .language-selector__panel {
   .tour-type-grid--two,
   .starter-package-grid,
   .home-service-grid,
+  .home-seo-route-grid,
   .destination-showcase-grid,
   .airport-visual-grid,
   .taxi-vehicle-grid,
@@ -7832,6 +7985,7 @@ html[dir="rtl"] .bottom-action-bar .language-selector__panel {
   .tour-type-grid--two,
   .starter-package-grid,
   .home-service-grid,
+  .home-seo-route-grid,
   .destination-showcase-grid,
   .home-experience-grid,
   .tour-category-grid,
@@ -7886,6 +8040,14 @@ html[dir="rtl"] .bottom-action-bar .language-selector__panel {
 
   .home-service-card__image {
     height: 230px;
+  }
+
+  .home-seo-route-card__media {
+    height: 220px;
+  }
+
+  .home-seo-route-card__body {
+    min-height: auto;
   }
 
   .destination-showcase-card,
@@ -9494,6 +9656,7 @@ html[dir="rtl"] .package-slide {
 
 .app :where(
   .home-service-card,
+  .home-seo-route-card,
   .home-tour-card,
   .destination-showcase-card,
   .home-experience-card,
@@ -9524,6 +9687,7 @@ html[dir="rtl"] .package-slide {
 
 .app[data-theme="dark"] :where(
   .home-service-card,
+  .home-seo-route-card,
   .home-tour-card,
   .destination-showcase-card,
   .home-experience-card,
@@ -9554,6 +9718,7 @@ html[dir="rtl"] .package-slide {
 @media (hover: hover) and (pointer: fine) {
   .app :where(
     .home-service-card,
+    .home-seo-route-card,
     .home-tour-card,
     .tour-type-card,
     .tour-idea-card,
@@ -9627,6 +9792,7 @@ html[dir="rtl"] .package-slide {
 
 .app :where(
   .home-service-card,
+  .home-seo-route-card,
   .home-tour-card,
   .destination-showcase-card,
   .home-experience-card,
@@ -9664,6 +9830,7 @@ html[dir="rtl"] .package-slide {
 
 .app :where(
   .home-service-card,
+  .home-seo-route-card,
   .home-tour-card,
   .destination-showcase-card,
   .home-experience-card,
@@ -9691,6 +9858,7 @@ html[dir="rtl"] .package-slide {
 
 .app[data-theme="dark"] :where(
   .home-service-card,
+  .home-seo-route-card,
   .home-tour-card,
   .destination-showcase-card,
   .home-experience-card,
@@ -9747,6 +9915,7 @@ html[dir="rtl"] .package-slide {
 }
 
 .home-service-grid > .reveal:nth-child(2),
+.home-seo-route-grid > .reveal:nth-child(2),
 .feature-grid > .reveal:nth-child(2),
 .pricing-grid > .reveal:nth-child(2),
 .one-day-grid > .reveal:nth-child(2),
@@ -9758,6 +9927,7 @@ html[dir="rtl"] .package-slide {
 }
 
 .home-service-grid > .reveal:nth-child(3),
+.home-seo-route-grid > .reveal:nth-child(3),
 .feature-grid > .reveal:nth-child(3),
 .pricing-grid > .reveal:nth-child(3),
 .one-day-grid > .reveal:nth-child(3),
@@ -9769,6 +9939,7 @@ html[dir="rtl"] .package-slide {
 }
 
 .home-service-grid > .reveal:nth-child(4),
+.home-seo-route-grid > .reveal:nth-child(4),
 .feature-grid > .reveal:nth-child(4),
 .one-day-grid > .reveal:nth-child(4),
 .round-tour-grid > .reveal:nth-child(4),
@@ -9788,6 +9959,7 @@ html[dir="rtl"] .package-slide {
 
   .app :where(
     .home-service-card,
+    .home-seo-route-card,
     .home-tour-card,
     .tour-type-card,
     .tour-idea-card,
@@ -9857,6 +10029,7 @@ html[dir="rtl"] .package-slide {
   .airport-benefit-grid,
   .vehicle-rental-grid,
   .home-service-grid,
+  .home-seo-route-grid,
   .taxi-vehicle-grid,
   .pricing-grid,
   .contact-method-grid {
@@ -9894,6 +10067,7 @@ html[dir="rtl"] .package-slide {
   }
 
   .home-service-card,
+  .home-seo-route-card,
   .home-tour-card,
   .tour-type-card,
   .tour-idea-card,
@@ -9917,6 +10091,7 @@ html[dir="rtl"] .package-slide {
   }
 
   .home-service-card__body,
+  .home-seo-route-card__body,
   .tour-type-card__body,
   .tour-idea-card__body,
   .one-day-card__body,
@@ -9930,6 +10105,7 @@ html[dir="rtl"] .package-slide {
   }
 
   .home-service-card__image,
+  .home-seo-route-card__media,
   .tour-type-card__media,
   .tour-idea-card__media,
   .one-day-card__media,
@@ -9957,6 +10133,7 @@ html[dir="rtl"] .package-slide {
   }
 
   .home-service-grid,
+  .home-seo-route-grid,
   .one-day-grid,
   .round-tour-grid,
   .airport-transfer-grid,

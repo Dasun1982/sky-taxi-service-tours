@@ -77,6 +77,63 @@ const services = [
 
 const whyIcons = [Wallet, HeartHandshake, CheckCircle2, MessageCircle, MapPin, ShieldCheck];
 
+const taxiRouteLinks = [
+  {
+    title: "Colombo Airport Taxi",
+    description: "Book private Colombo Airport taxi service with clean vehicles, fair route-based prices, and WhatsApp confirmation.",
+    image: images.airportWelcome,
+    href: "/colombo-airport-taxi",
+  },
+  {
+    title: "Ella Taxi Service",
+    description: "Travel to Ella with a reliable private driver, scenic hill country stops, and comfortable island-wide pickup support.",
+    image: images.nineArchBridge,
+    href: "/ella-taxi-service",
+  },
+  {
+    title: "Kandy Taxi Service",
+    description: "Private taxi rides to Kandy for Temple of the Tooth, hill country routes, airport transfers, and hotel pickups.",
+    image: images.kandyTemple,
+    href: "/kandy-taxi-service",
+  },
+  {
+    title: "Galle Taxi Service",
+    description: "Easy private taxi service to Galle Fort, Unawatuna, south coast beaches, hotels, and Colombo Airport.",
+    image: images.galleFort,
+    href: "/galle-taxi-service",
+  },
+  {
+    title: "Mirissa Taxi Service",
+    description: "Comfortable taxi transfers to Mirissa for beach stays, whale watching, Weligama, Galle, and airport routes.",
+    image: images.whaleWatching,
+    href: "/mirissa-taxi-service",
+  },
+  {
+    title: "Sigiriya Taxi Service",
+    description: "Private taxi to Sigiriya, Dambulla, Pidurangala, and Cultural Triangle routes with friendly local driver support.",
+    image: images.sigiriya,
+    href: "/sigiriya-taxi-service",
+  },
+  {
+    title: "Airport Transfer Sri Lanka",
+    description: "Island-wide airport transfers with flight-time planning, clean private vehicles, and quick WhatsApp booking.",
+    image: images.airportTransfer,
+    href: "/airport-transfer-sri-lanka",
+  },
+  {
+    title: "Sri Lanka Round Tours",
+    description: "Flexible Sri Lanka round tours with private driver support, custom routes, hotel stops, and fair WhatsApp quotes.",
+    image: images.trainRide,
+    href: "/sri-lanka-round-tours",
+  },
+  {
+    title: "Budget Taxi Sri Lanka",
+    description: "Affordable Sri Lanka taxi service for airport transfers, long-distance rides, private drivers, and fair prices.",
+    image: images.toyotaPrius,
+    href: "/budget-taxi-sri-lanka",
+  },
+];
+
 export default function Home({ setPage }) {
   const { t } = useLanguage();
   const carouselRef = useRef(null);
@@ -200,6 +257,36 @@ export default function Home({ setPage }) {
                   </button>
                 </div>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section home-seo-routes-section">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="Taxi routes"
+            title="Popular Sri Lanka Taxi Routes"
+            text="Plan your most requested airport transfers, private taxi routes, and island-wide Sri Lanka travel options."
+          />
+
+          <div className="home-seo-route-grid">
+            {taxiRouteLinks.map((route) => (
+              <Reveal className="home-seo-route-card" key={route.href}>
+                <a className="home-seo-route-card__media" href={route.href} aria-label={route.title}>
+                  <img src={route.image} alt={route.title} loading="lazy" />
+                </a>
+                <div className="home-seo-route-card__body">
+                  <h3>
+                    <a href={route.href}>{route.title}</a>
+                  </h3>
+                  <p>{route.description}</p>
+                  <a className="home-seo-route-card__button" href={route.href}>
+                    View Route
+                    <ArrowRight size={16} />
+                  </a>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
