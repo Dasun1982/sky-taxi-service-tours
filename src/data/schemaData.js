@@ -5,6 +5,7 @@ export const schemaPageLabels = {
   "airport-to-galle": "Airport to Galle Taxi",
   "airport-to-kandy": "Airport to Kandy Taxi",
   "airport-to-mirissa": "Airport to Mirissa Taxi",
+  "airport-to-sigiriya": "Airport to Sigiriya Taxi",
   "airport-transfer-sri-lanka": "Airport Transfer Sri Lanka",
   "ella-taxi-service": "Ella Taxi Service",
   "kandy-taxi-service": "Kandy Taxi Service",
@@ -145,6 +146,33 @@ export const schemaFaqs = {
     },
     {
       question: "Is the Colombo Airport to Mirissa taxi price fixed online?",
+      answer:
+        "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
+    },
+  ],
+  "airport-to-sigiriya": [
+    {
+      question: "How long does a Colombo Airport to Sigiriya taxi take?",
+      answer:
+        "A Colombo Airport to Sigiriya taxi usually takes around 3.5 to 4.5 hours depending on traffic, pickup time, comfort stops, and the exact Sigiriya hotel location.",
+    },
+    {
+      question: "Can I book an airport to Sigiriya taxi after a late flight?",
+      answer:
+        "Yes. SKY Taxi Service & Tours can arrange Sigiriya airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+    },
+    {
+      question: "Can the taxi stop at Dambulla or Pidurangala?",
+      answer:
+        "Yes. Your taxi from Colombo airport to Sigiriya can include flexible stops for Dambulla Cave Temple, Pidurangala, Habarana, food breaks, and rest stops depending on time and route.",
+    },
+    {
+      question: "Can I continue to other Cultural Triangle destinations?",
+      answer:
+        "Yes. Your private transfer to Sigiriya can continue to Dambulla, Habarana, Polonnaruwa, Anuradhapura, Kandy, or nearby Cultural Triangle hotels.",
+    },
+    {
+      question: "Is the Colombo Airport to Sigiriya taxi price fixed online?",
       answer:
         "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
     },

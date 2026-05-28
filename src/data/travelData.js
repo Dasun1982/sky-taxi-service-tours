@@ -214,6 +214,11 @@ export const pageMeta = {
     description:
       "Book a private taxi from Colombo Airport to Mirissa with SKY Taxi Service & Tours. Safe beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
   },
+  "airport-to-sigiriya": {
+    title: "Colombo Airport to Sigiriya Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Sigiriya with SKY Taxi Service & Tours. Cultural Triangle transfer, clean vehicles, private drivers, and 24/7 WhatsApp booking.",
+  },
   "airport-transfer-sri-lanka": {
     title: "Airport Transfer Sri Lanka | Private Taxi & Driver Service",
     description:

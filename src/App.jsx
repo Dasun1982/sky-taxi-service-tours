@@ -25,6 +25,7 @@ import AirportToEllaTaxi from "./pages/AirportToEllaTaxi";
 import AirportToGalleTaxi from "./pages/AirportToGalleTaxi";
 import AirportToKandyTaxi from "./pages/AirportToKandyTaxi";
 import AirportToMirissaTaxi from "./pages/AirportToMirissaTaxi";
+import AirportToSigiriyaTaxi from "./pages/AirportToSigiriyaTaxi";
 import AirportTransferSriLanka from "./pages/AirportTransferSriLanka";
 import EllaTaxiService from "./pages/EllaTaxiService";
 import KandyTaxiService from "./pages/KandyTaxiService";
@@ -66,6 +67,7 @@ const pages = {
   "airport-to-galle": AirportToGalleTaxi,
   "airport-to-kandy": AirportToKandyTaxi,
   "airport-to-mirissa": AirportToMirissaTaxi,
+  "airport-to-sigiriya": AirportToSigiriyaTaxi,
   "airport-transfer-sri-lanka": AirportTransferSriLanka,
   "ella-taxi-service": EllaTaxiService,
   "kandy-taxi-service": KandyTaxiService,
