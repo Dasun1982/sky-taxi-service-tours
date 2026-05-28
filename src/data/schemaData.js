@@ -1,6 +1,7 @@
 export const schemaPageLabels = {
   home: "Home",
   "colombo-airport-taxi": "Colombo Airport Taxi",
+  "airport-to-ella": "Airport to Ella Taxi",
   "airport-transfer-sri-lanka": "Airport Transfer Sri Lanka",
   "ella-taxi-service": "Ella Taxi Service",
   "kandy-taxi-service": "Kandy Taxi Service",
@@ -35,6 +36,33 @@ export const schemaFaqs = {
       question: "Is the final airport taxi price fixed online?",
       answer:
         "The final price is confirmed on WhatsApp depending on route, pickup time, passengers, luggage, vehicle type, waiting time, and highway tickets.",
+    },
+  ],
+  "airport-to-ella": [
+    {
+      question: "How long does a Colombo Airport to Ella taxi take?",
+      answer:
+        "A Colombo Airport to Ella taxi usually takes around 5.5 to 7 hours depending on traffic, weather, comfort stops, pickup time, and the exact Ella hotel location.",
+    },
+    {
+      question: "Can I book an airport to Ella taxi after a late flight?",
+      answer:
+        "Yes. SKY Taxi Service & Tours can arrange Ella airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+    },
+    {
+      question: "Can we stop on the scenic route to Ella?",
+      answer:
+        "Yes. Your taxi from Colombo airport to Ella can include flexible stops for tea country views, waterfalls, food breaks, photos, and rest stops depending on time and route.",
+    },
+    {
+      question: "What vehicles are available for a private transfer to Ella?",
+      answer:
+        "You can request a private car, SUV, or van depending on passengers, luggage, comfort needs, and availability. The final vehicle and price are confirmed on WhatsApp.",
+    },
+    {
+      question: "Is the Colombo Airport to Ella taxi price fixed online?",
+      answer:
+        "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
     },
   ],
   "airport-transfer-sri-lanka": [
