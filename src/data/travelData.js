@@ -294,6 +294,11 @@ export const pageMeta = {
     description:
       "Book Negombo taxi service with SKY Taxi Service & Tours. Colombo airport transfers, beach routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "arugam-bay-taxi-service": {
+    title: "Arugam Bay Taxi Service | Airport Transfers & Private Taxi",
+    description:
+      "Book Arugam Bay taxi service with SKY Taxi Service & Tours. Colombo airport transfers, surf trips, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [

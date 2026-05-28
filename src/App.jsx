@@ -40,6 +40,7 @@ import HiriketiyaTaxiService from "./pages/HiriketiyaTaxiService";
 import NuwaraEliyaTaxiService from "./pages/NuwaraEliyaTaxiService";
 import BentotaTaxiService from "./pages/BentotaTaxiService";
 import NegomboTaxiService from "./pages/NegomboTaxiService";
+import ArugamBayTaxiService from "./pages/ArugamBayTaxiService";
 
 const pages = {
   home: Home,
@@ -76,6 +77,7 @@ const pages = {
   "nuwara-eliya-taxi-service": NuwaraEliyaTaxiService,
   "bentota-taxi-service": BentotaTaxiService,
   "negombo-taxi-service": NegomboTaxiService,
+  "arugam-bay-taxi-service": ArugamBayTaxiService,
 };
 
 function getPageFromHash() {
