@@ -22,6 +22,7 @@ import About from "./pages/About";
 import VehicleRentals from "./pages/VehicleRentals";
 import ColomboAirportTaxi from "./pages/ColomboAirportTaxi";
 import AirportToEllaTaxi from "./pages/AirportToEllaTaxi";
+import AirportToKandyTaxi from "./pages/AirportToKandyTaxi";
 import AirportTransferSriLanka from "./pages/AirportTransferSriLanka";
 import EllaTaxiService from "./pages/EllaTaxiService";
 import KandyTaxiService from "./pages/KandyTaxiService";
@@ -60,6 +61,7 @@ const pages = {
   "vehicle-rentals": VehicleRentals,
   "colombo-airport-taxi": ColomboAirportTaxi,
   "airport-to-ella": AirportToEllaTaxi,
+  "airport-to-kandy": AirportToKandyTaxi,
   "airport-transfer-sri-lanka": AirportTransferSriLanka,
   "ella-taxi-service": EllaTaxiService,
   "kandy-taxi-service": KandyTaxiService,

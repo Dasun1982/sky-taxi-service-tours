@@ -2,6 +2,7 @@ export const schemaPageLabels = {
   home: "Home",
   "colombo-airport-taxi": "Colombo Airport Taxi",
   "airport-to-ella": "Airport to Ella Taxi",
+  "airport-to-kandy": "Airport to Kandy Taxi",
   "airport-transfer-sri-lanka": "Airport Transfer Sri Lanka",
   "ella-taxi-service": "Ella Taxi Service",
   "kandy-taxi-service": "Kandy Taxi Service",
@@ -61,6 +62,33 @@ export const schemaFaqs = {
     },
     {
       question: "Is the Colombo Airport to Ella taxi price fixed online?",
+      answer:
+        "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
+    },
+  ],
+  "airport-to-kandy": [
+    {
+      question: "How long does a Colombo Airport to Kandy taxi take?",
+      answer:
+        "A Colombo Airport to Kandy taxi usually takes around 3 to 4.5 hours depending on traffic, pickup time, comfort stops, and the exact Kandy hotel location.",
+    },
+    {
+      question: "Can I book an airport to Kandy taxi after a late flight?",
+      answer:
+        "Yes. SKY Taxi Service & Tours can arrange Kandy airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+    },
+    {
+      question: "Can we stop at Temple of the Tooth or hill country viewpoints?",
+      answer:
+        "Yes. Your taxi from Colombo airport to Kandy can include flexible stops for Temple of the Tooth, Peradeniya Botanical Gardens, viewpoints, food breaks, and rest stops depending on time and route.",
+    },
+    {
+      question: "What vehicles are available for a private transfer to Kandy?",
+      answer:
+        "You can request a private car, SUV, or van depending on passengers, luggage, comfort needs, and availability. The final vehicle and price are confirmed on WhatsApp.",
+    },
+    {
+      question: "Is the Colombo Airport to Kandy taxi price fixed online?",
       answer:
         "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
     },

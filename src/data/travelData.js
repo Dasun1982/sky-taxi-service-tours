@@ -199,6 +199,11 @@ export const pageMeta = {
     description:
       "Book a private taxi from Colombo Airport to Ella with SKY Taxi Service & Tours. Scenic hill country transfer, clean vehicles, flexible stops, and 24/7 WhatsApp booking.",
   },
+  "airport-to-kandy": {
+    title: "Colombo Airport to Kandy Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Kandy with SKY Taxi Service & Tours. Comfortable airport transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+  },
   "airport-transfer-sri-lanka": {
     title: "Airport Transfer Sri Lanka | Private Taxi & Driver Service",
     description:
