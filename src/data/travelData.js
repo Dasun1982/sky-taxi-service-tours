@@ -209,6 +209,11 @@ export const pageMeta = {
     description:
       "Book a private taxi to Kandy Sri Lanka with SKY Taxi Service & Tours. Colombo airport transfers, hill country trips, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "galle-taxi-service": {
+    title: "Galle Taxi Service | Private Taxi to Galle Sri Lanka",
+    description:
+      "Book a private taxi to Galle Sri Lanka with SKY Taxi Service & Tours. Colombo airport transfers, Galle Fort trips, beach routes, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [

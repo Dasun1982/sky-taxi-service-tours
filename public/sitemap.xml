@@ -20,4 +20,8 @@
     <loc>https://skytaxisrilanka.com/kandy-taxi-service</loc>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/galle-taxi-service</loc>
+    <priority>0.9</priority>
+  </url>
 </urlset>
