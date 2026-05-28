@@ -264,6 +264,11 @@ export const pageMeta = {
     description:
       "Book a private Yala safari transfer with SKY Taxi Service & Tours. Taxi to Yala National Park, airport pickup, safari transport, private drivers, and 24/7 WhatsApp booking.",
   },
+  "unawatuna-taxi-service": {
+    title: "Unawatuna Taxi Service | Airport Transfers & Private Taxi",
+    description:
+      "Book Unawatuna taxi service with SKY Taxi Service & Tours. Airport transfers, Galle trips, Mirissa transfers, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
