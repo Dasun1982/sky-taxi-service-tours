@@ -7,6 +7,7 @@ export const schemaPageLabels = {
   "airport-to-mirissa": "Airport to Mirissa Taxi",
   "airport-to-sigiriya": "Airport to Sigiriya Taxi",
   "airport-to-unawatuna": "Airport to Unawatuna Taxi",
+  "airport-to-weligama": "Airport to Weligama Taxi",
   "airport-transfer-sri-lanka": "Airport Transfer Sri Lanka",
   "ella-taxi-service": "Ella Taxi Service",
   "kandy-taxi-service": "Kandy Taxi Service",
@@ -203,6 +204,33 @@ export const schemaFaqs = {
       question: "Is the Colombo Airport to Unawatuna taxi price fixed online?",
       answer:
         "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
+    },
+  ],
+  "airport-to-weligama": [
+    {
+      question: "How long does a Colombo Airport to Weligama taxi take?",
+      answer:
+        "A Colombo Airport to Weligama taxi usually takes around 2.5 to 3 hours by Southern Expressway depending on traffic, pickup time, comfort stops, and the exact Weligama hotel location.",
+    },
+    {
+      question: "Can I book an airport to Weligama taxi after a late flight?",
+      answer:
+        "Yes. SKY Taxi Service & Tours can arrange Weligama airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+    },
+    {
+      question: "Does the taxi use the Southern Expressway?",
+      answer:
+        "Yes. Most private transfers from Colombo Airport to Weligama use the Southern Expressway for a faster surf beach transfer, with highway ticket costs confirmed in your WhatsApp quote.",
+    },
+    {
+      question: "Can I continue from Weligama to Mirissa, Ahangama, or Galle?",
+      answer:
+        "Yes. Your private transfer to Weligama can continue to Mirissa, Ahangama, Midigama, Galle, Unawatuna, or nearby south coast hotels.",
+    },
+    {
+      question: "Is the Colombo Airport to Weligama taxi price fixed online?",
+      answer:
+        "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, surfboards, and special requests.",
     },
   ],
   "airport-transfer-sri-lanka": [

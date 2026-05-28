@@ -224,6 +224,11 @@ export const pageMeta = {
     description:
       "Book a private taxi from Colombo Airport to Unawatuna with SKY Taxi Service & Tours. Safe beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
   },
+  "airport-to-weligama": {
+    title: "Colombo Airport to Weligama Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Weligama with SKY Taxi Service & Tours. Safe surf beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+  },
   "airport-transfer-sri-lanka": {
     title: "Airport Transfer Sri Lanka | Private Taxi & Driver Service",
     description:
