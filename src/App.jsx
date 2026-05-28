@@ -23,6 +23,7 @@ import VehicleRentals from "./pages/VehicleRentals";
 import ColomboAirportTaxi from "./pages/ColomboAirportTaxi";
 import AirportToEllaTaxi from "./pages/AirportToEllaTaxi";
 import AirportToGalleTaxi from "./pages/AirportToGalleTaxi";
+import AirportToHiriketiyaTaxi from "./pages/AirportToHiriketiyaTaxi";
 import AirportToKandyTaxi from "./pages/AirportToKandyTaxi";
 import AirportToMirissaTaxi from "./pages/AirportToMirissaTaxi";
 import AirportToSigiriyaTaxi from "./pages/AirportToSigiriyaTaxi";
@@ -67,6 +68,7 @@ const pages = {
   "colombo-airport-taxi": ColomboAirportTaxi,
   "airport-to-ella": AirportToEllaTaxi,
   "airport-to-galle": AirportToGalleTaxi,
+  "airport-to-hiriketiya": AirportToHiriketiyaTaxi,
   "airport-to-kandy": AirportToKandyTaxi,
   "airport-to-mirissa": AirportToMirissaTaxi,
   "airport-to-sigiriya": AirportToSigiriyaTaxi,

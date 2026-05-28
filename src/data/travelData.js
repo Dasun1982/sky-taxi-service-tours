@@ -204,6 +204,11 @@ export const pageMeta = {
     description:
       "Book a private taxi from Colombo Airport to Galle with SKY Taxi Service & Tours. Safe coastal transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
   },
+  "airport-to-hiriketiya": {
+    title: "Colombo Airport to Hiriketiya Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Hiriketiya with SKY Taxi Service & Tours. Safe surf beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+  },
   "airport-to-kandy": {
     title: "Colombo Airport to Kandy Taxi | Private Transfer Sri Lanka",
     description:

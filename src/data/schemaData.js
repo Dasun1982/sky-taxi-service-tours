@@ -3,6 +3,7 @@ export const schemaPageLabels = {
   "colombo-airport-taxi": "Colombo Airport Taxi",
   "airport-to-ella": "Airport to Ella Taxi",
   "airport-to-galle": "Airport to Galle Taxi",
+  "airport-to-hiriketiya": "Airport to Hiriketiya Taxi",
   "airport-to-kandy": "Airport to Kandy Taxi",
   "airport-to-mirissa": "Airport to Mirissa Taxi",
   "airport-to-sigiriya": "Airport to Sigiriya Taxi",
@@ -96,6 +97,33 @@ export const schemaFaqs = {
       question: "Is the Colombo Airport to Galle taxi price fixed online?",
       answer:
         "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
+    },
+  ],
+  "airport-to-hiriketiya": [
+    {
+      question: "How long does a Colombo Airport to Hiriketiya taxi take?",
+      answer:
+        "A Colombo Airport to Hiriketiya taxi usually takes around 3 to 4 hours by Southern Expressway depending on traffic, pickup time, comfort stops, and the exact Hiriketiya hotel location.",
+    },
+    {
+      question: "Can I book an airport to Hiriketiya taxi after a late flight?",
+      answer:
+        "Yes. SKY Taxi Service & Tours can arrange Hiriketiya airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+    },
+    {
+      question: "Does the taxi use the Southern Expressway?",
+      answer:
+        "Yes. Most private transfers from Colombo Airport to Hiriketiya use the Southern Expressway for a faster surf beach transfer, with highway ticket costs confirmed in your WhatsApp quote.",
+    },
+    {
+      question: "Can I continue from Hiriketiya to Dickwella or Tangalle?",
+      answer:
+        "Yes. Your private transfer to Hiriketiya can continue to Dickwella, Tangalle, Kudawella, Nilwella, Mirissa, Weligama, or nearby south coast hotels.",
+    },
+    {
+      question: "Is the Colombo Airport to Hiriketiya taxi price fixed online?",
+      answer:
+        "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, surfboards, and special requests.",
     },
   ],
   "airport-to-kandy": [
