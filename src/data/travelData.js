@@ -219,6 +219,11 @@ export const pageMeta = {
     description:
       "Book a private taxi to Sigiriya Sri Lanka with SKY Taxi Service & Tours. Airport transfers, cultural triangle trips, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "mirissa-taxi-service": {
+    title: "Mirissa Taxi Service | Private Taxi to Mirissa Sri Lanka",
+    description:
+      "Book a private taxi to Mirissa Sri Lanka with SKY Taxi Service & Tours. Airport transfers, beach routes, whale watching transfers, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
