@@ -259,6 +259,11 @@ export const pageMeta = {
     description:
       "Book private day tours in Sri Lanka with SKY Taxi Service & Tours. Ella, Kandy, Galle, Sigiriya, Mirissa, Yala, airport pickup, and 24/7 WhatsApp booking.",
   },
+  "yala-safari-transfer": {
+    title: "Yala Safari Transfer | Taxi to Yala National Park Sri Lanka",
+    description:
+      "Book a private Yala safari transfer with SKY Taxi Service & Tours. Taxi to Yala National Park, airport pickup, safari transport, private drivers, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
