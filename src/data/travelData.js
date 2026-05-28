@@ -254,6 +254,11 @@ export const pageMeta = {
     description:
       "Book Sri Lanka round tours with SKY Taxi Service & Tours. Private driver round trips, custom routes, airport pickup, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "day-tours-sri-lanka": {
+    title: "Day Tours Sri Lanka | Private One Day Trips with Driver",
+    description:
+      "Book private day tours in Sri Lanka with SKY Taxi Service & Tours. Ella, Kandy, Galle, Sigiriya, Mirissa, Yala, airport pickup, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [

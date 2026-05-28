@@ -32,6 +32,7 @@ import SriLankaTourDriver from "./pages/SriLankaTourDriver";
 import SriLankaTaxiService from "./pages/SriLankaTaxiService";
 import SriLankaPrivateTours from "./pages/SriLankaPrivateTours";
 import SriLankaRoundTours from "./pages/SriLankaRoundTours";
+import DayToursSriLanka from "./pages/DayToursSriLanka";
 
 const pages = {
   home: Home,
@@ -60,6 +61,7 @@ const pages = {
   "sri-lanka-taxi-service": SriLankaTaxiService,
   "sri-lanka-private-tours": SriLankaPrivateTours,
   "sri-lanka-round-tours": SriLankaRoundTours,
+  "day-tours-sri-lanka": DayToursSriLanka,
 };
 
 function getPageFromHash() {
