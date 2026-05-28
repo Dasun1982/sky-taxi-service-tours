@@ -274,6 +274,11 @@ export const pageMeta = {
     description:
       "Book Weligama taxi service with SKY Taxi Service & Tours. Colombo airport transfers, Mirissa trips, Galle routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "hiriketiya-taxi-service": {
+    title: "Hiriketiya Taxi Service | Airport Transfers & Private Taxi",
+    description:
+      "Book Hiriketiya taxi service with SKY Taxi Service & Tours. Colombo airport transfers, surf beach transfers, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
