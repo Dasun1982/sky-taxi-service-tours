@@ -204,6 +204,11 @@ export const pageMeta = {
     description:
       "Book a private taxi to Ella Sri Lanka with SKY Taxi Service & Tours. Airport transfers, scenic hill country rides, flexible stops, and 24/7 WhatsApp booking.",
   },
+  "kandy-taxi-service": {
+    title: "Kandy Taxi Service | Private Taxi to Kandy Sri Lanka",
+    description:
+      "Book a private taxi to Kandy Sri Lanka with SKY Taxi Service & Tours. Colombo airport transfers, hill country trips, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
