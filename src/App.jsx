@@ -39,6 +39,7 @@ import WeligamaTaxiService from "./pages/WeligamaTaxiService";
 import HiriketiyaTaxiService from "./pages/HiriketiyaTaxiService";
 import NuwaraEliyaTaxiService from "./pages/NuwaraEliyaTaxiService";
 import BentotaTaxiService from "./pages/BentotaTaxiService";
+import NegomboTaxiService from "./pages/NegomboTaxiService";
 
 const pages = {
   home: Home,
@@ -74,6 +75,7 @@ const pages = {
   "hiriketiya-taxi-service": HiriketiyaTaxiService,
   "nuwara-eliya-taxi-service": NuwaraEliyaTaxiService,
   "bentota-taxi-service": BentotaTaxiService,
+  "negombo-taxi-service": NegomboTaxiService,
 };
 
 function getPageFromHash() {

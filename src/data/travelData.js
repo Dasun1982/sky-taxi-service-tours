@@ -289,6 +289,11 @@ export const pageMeta = {
     description:
       "Book Bentota taxi service with SKY Taxi Service & Tours. Colombo airport transfers, beach routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "negombo-taxi-service": {
+    title: "Negombo Taxi Service | Airport Transfers & Private Taxi",
+    description:
+      "Book Negombo taxi service with SKY Taxi Service & Tours. Colombo airport transfers, beach routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
