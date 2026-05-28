@@ -239,6 +239,11 @@ export const pageMeta = {
     description:
       "Hire a Sri Lanka tour driver with SKY Taxi Service & Tours. Private chauffeur tours, airport pickups, flexible itineraries, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "sri-lanka-taxi-service": {
+    title: "Sri Lanka Taxi Service | Private Taxi & Airport Transfers",
+    description:
+      "Book a reliable Sri Lanka taxi service with SKY Taxi Service & Tours. Airport transfers, private drivers, city rides, long-distance taxis, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
