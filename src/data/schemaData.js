@@ -2,6 +2,7 @@ export const schemaPageLabels = {
   home: "Home",
   "colombo-airport-taxi": "Colombo Airport Taxi",
   "airport-to-ella": "Airport to Ella Taxi",
+  "airport-to-galle": "Airport to Galle Taxi",
   "airport-to-kandy": "Airport to Kandy Taxi",
   "airport-transfer-sri-lanka": "Airport Transfer Sri Lanka",
   "ella-taxi-service": "Ella Taxi Service",
@@ -62,6 +63,33 @@ export const schemaFaqs = {
     },
     {
       question: "Is the Colombo Airport to Ella taxi price fixed online?",
+      answer:
+        "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
+    },
+  ],
+  "airport-to-galle": [
+    {
+      question: "How long does a Colombo Airport to Galle taxi take?",
+      answer:
+        "A Colombo Airport to Galle taxi usually takes around 2 to 2.5 hours by Southern Expressway depending on traffic, pickup time, comfort stops, and the exact Galle hotel location.",
+    },
+    {
+      question: "Can I book an airport to Galle taxi after a late flight?",
+      answer:
+        "Yes. SKY Taxi Service & Tours can arrange Galle airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+    },
+    {
+      question: "Does the taxi use the Southern Expressway?",
+      answer:
+        "Yes. Most private transfers from Colombo Airport to Galle use the Southern Expressway for a faster coastal route, with highway ticket costs confirmed in your WhatsApp quote.",
+    },
+    {
+      question: "Can I continue from Galle to beach destinations?",
+      answer:
+        "Yes. Your private transfer to Galle can continue to Galle Fort, Unawatuna, Jungle Beach, Ahangama, Weligama, Mirissa, or nearby south coast hotels.",
+    },
+    {
+      question: "Is the Colombo Airport to Galle taxi price fixed online?",
       answer:
         "The final price is confirmed on WhatsApp depending on route, date, pickup time, vehicle type, passengers, luggage, waiting time, highway tickets, and special requests.",
     },
