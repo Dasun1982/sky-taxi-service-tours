@@ -234,6 +234,11 @@ export const pageMeta = {
     description:
       "Book a budget taxi in Sri Lanka with SKY Taxi Service & Tours. Affordable airport transfers, private drivers, clean vehicles, fair prices, and 24/7 WhatsApp booking.",
   },
+  "sri-lanka-tour-driver": {
+    title: "Sri Lanka Tour Driver | Private Driver & Chauffeur Tours",
+    description:
+      "Hire a Sri Lanka tour driver with SKY Taxi Service & Tours. Private chauffeur tours, airport pickups, flexible itineraries, clean vehicles, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [

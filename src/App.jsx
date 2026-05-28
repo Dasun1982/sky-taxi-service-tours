@@ -28,6 +28,7 @@ import SigiriyaTaxiService from "./pages/SigiriyaTaxiService";
 import MirissaTaxiService from "./pages/MirissaTaxiService";
 import PrivateDriverSriLanka from "./pages/PrivateDriverSriLanka";
 import BudgetTaxiSriLanka from "./pages/BudgetTaxiSriLanka";
+import SriLankaTourDriver from "./pages/SriLankaTourDriver";
 
 const pages = {
   home: Home,
@@ -52,6 +53,7 @@ const pages = {
   "mirissa-taxi-service": MirissaTaxiService,
   "private-driver-sri-lanka": PrivateDriverSriLanka,
   "budget-taxi-sri-lanka": BudgetTaxiSriLanka,
+  "sri-lanka-tour-driver": SriLankaTourDriver,
 };
 
 function getPageFromHash() {
