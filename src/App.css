@@ -1663,12 +1663,17 @@ body.sky-scroll-lock {
   }
 
   .ai-planner-card__actions {
-    flex-flow: row wrap;
+    flex-direction: column;
     min-width: 0;
+    width: 100%;
   }
 
   .ai-planner-card__actions .button {
-    flex: 1 1 220px;
+    flex: none;
+    width: 100%;
+    min-height: 48px;
+    padding-block: 0;
+    border-radius: 999px;
   }
 }
 
@@ -1683,6 +1688,13 @@ body.sky-scroll-lock {
 
   .ai-planner-card__actions {
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .ai-planner-card__actions .button {
+    min-height: 46px;
+    padding-inline: 18px;
+    font-size: 0.94rem;
   }
 
   .ai-planner-badges span {
