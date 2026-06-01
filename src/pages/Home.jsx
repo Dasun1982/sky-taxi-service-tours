@@ -261,6 +261,44 @@ export default function Home({ setPage }) {
         </div>
       </section>
 
+      <section className="section ai-planner-promo-section">
+        <div className="section__inner">
+          <Reveal className="ai-planner-card">
+            <div className="ai-planner-card__copy">
+              <span className="ai-planner-label">NEW AI TOUR PLANNER</span>
+              <h2>Plan Your Sri Lanka Tour with SKY AI</h2>
+              <p>
+                Build a realistic Sri Lanka private-driver route in seconds, then send it to SKY Taxi Service & Tours for a custom quote.
+              </p>
+              <div className="ai-planner-badges" aria-label="AI Planner benefits">
+                <span>
+                  <Compass size={16} />
+                  AI route planning
+                </span>
+                <span>
+                  <Route size={16} />
+                  Private driver quote
+                </span>
+                <span>
+                  <MessageCircle size={16} />
+                  WhatsApp support
+                </span>
+              </div>
+            </div>
+            <div className="ai-planner-card__actions">
+              <a className="button button--primary" href="https://ai.skytaxisrilanka.com" target="_blank" rel="noreferrer">
+                Start AI Planner
+                <ArrowRight size={18} />
+              </a>
+              <a className="button button--light" href="/tours">
+                View Private Tours
+                <Compass size={18} />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section section--soft" id="popular-tours">
         <div className="section__inner">
           <div className="carousel-heading">
