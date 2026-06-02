@@ -142,6 +142,11 @@ export default function Acquire() {
         image={images.trainRide}
         alt="Sri Lanka TravelTech platform acquisition opportunity"
       >
+        <div className="acquire-hero-badges" aria-label="Platform strengths">
+          <span>AI Travel Planning</span>
+          <span>SEO Infrastructure</span>
+          <span>Tourism Lead Generation</span>
+        </div>
         <div className="premium-hero-actions">
           <a className="button button--primary" href={acquisitionMail}>
             <MessageCircle size={19} />
