@@ -8,6 +8,7 @@ import PremiumCursor from "./components/PremiumCursor";
 import SeoSchema from "./components/SeoSchema";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { pageMeta } from "./data/travelData";
+import Acquire from "./pages/Acquire";
 import AirportTransfers from "./pages/AirportTransfers";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
@@ -53,6 +54,7 @@ import ArugamBayTaxiService from "./pages/ArugamBayTaxiService";
 
 const pages = {
   home: Home,
+  acquire: Acquire,
   tours: Tours,
   "one-day-tours": OneDayTours,
   "round-tours": RoundTours,

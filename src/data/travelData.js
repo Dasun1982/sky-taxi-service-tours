@@ -129,6 +129,11 @@ export const pageMeta = {
     description:
       "Book affordable Sri Lanka taxi service, safe airport transfers, private tours, and easy WhatsApp travel help all around Sri Lanka.",
   },
+  acquire: {
+    title: "Sky Taxi Sri Lanka Acquisition Opportunity",
+    description:
+      "AI-powered Sri Lanka travel planning, airport transfer, tourism SEO, and lead-generation infrastructure available for strategic acquisition.",
+  },
   tours: {
     title: "Sri Lanka Tours | SKY Taxi Service & Tours",
     description:

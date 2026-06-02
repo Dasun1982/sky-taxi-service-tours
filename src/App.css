@@ -12032,3 +12032,84 @@ body.sky-scroll-lock .premium-cursor[data-cursor="card"] {
     transform: none;
   }
 }
+
+.acquire-page .premium-hero-actions .button,
+.acquire-page .cta-actions .button {
+  min-height: 52px;
+  padding: 0 24px;
+  border-width: 1.5px;
+  font-size: 0.96rem;
+  letter-spacing: 0.01em;
+}
+
+.acquire-page .premium-hero-actions .button--primary,
+.acquire-page .cta-actions .button--primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #12164b 0%, #4d2b82 48%, #c84f8a 78%, #ff9b80 100%);
+  border-color: rgba(255, 255, 255, 0.26);
+  box-shadow:
+    0 20px 44px rgba(18, 22, 75, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+}
+
+.acquire-page .premium-hero-actions .button--primary:hover,
+.acquire-page .cta-actions .button--primary:hover {
+  box-shadow:
+    0 24px 54px rgba(77, 43, 130, 0.34),
+    0 0 0 7px rgba(239, 150, 165, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.18) inset;
+}
+
+.acquire-page .premium-hero-actions .button--light,
+.acquire-page .cta-actions .button--light {
+  color: #161851;
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(77, 43, 130, 0.42);
+  box-shadow:
+    0 16px 34px rgba(37, 38, 111, 0.14),
+    0 0 0 1px rgba(239, 150, 165, 0.14) inset;
+}
+
+.acquire-page .premium-hero-actions .button--light:hover,
+.acquire-page .cta-actions .button--light:hover {
+  color: #111447;
+  border-color: rgba(200, 79, 138, 0.58);
+  background: #ffffff;
+  box-shadow:
+    0 22px 46px rgba(37, 38, 111, 0.18),
+    0 0 0 7px rgba(255, 191, 165, 0.2);
+}
+
+.app[data-theme="dark"] .acquire-page .premium-hero-actions .button--light,
+.app[data-theme="dark"] .acquire-page .cta-actions .button--light {
+  color: #fff8fb;
+  background: rgba(21, 18, 42, 0.86);
+  border-color: rgba(255, 191, 165, 0.5);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(239, 150, 165, 0.18) inset;
+}
+
+.app[data-theme="dark"] .acquire-page .premium-hero-actions .button--light:hover,
+.app[data-theme="dark"] .acquire-page .cta-actions .button--light:hover {
+  color: #ffffff;
+  background: rgba(37, 28, 68, 0.96);
+  border-color: rgba(255, 210, 184, 0.72);
+  box-shadow:
+    0 22px 50px rgba(140, 87, 153, 0.28),
+    0 0 0 7px rgba(239, 150, 165, 0.14);
+}
+
+.acquire-page .premium-hero-actions .button:active,
+.acquire-page .cta-actions .button:active {
+  transform: translateY(0) scale(0.985);
+}
+
+@media (max-width: 640px) {
+  .acquire-page .premium-hero-actions .button,
+  .acquire-page .cta-actions .button {
+    min-height: 50px;
+    padding: 0 18px;
+    font-size: 0.94rem;
+  }
+}
