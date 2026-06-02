@@ -9,6 +9,7 @@ import SeoSchema from "./components/SeoSchema";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { pageMeta } from "./data/travelData";
 import Acquire from "./pages/Acquire";
+import AcquisitionOverview from "./pages/AcquisitionOverview";
 import AiSystem from "./pages/AiSystem";
 import AirportTransfers from "./pages/AirportTransfers";
 import Booking from "./pages/Booking";
@@ -57,6 +58,7 @@ import ArugamBayTaxiService from "./pages/ArugamBayTaxiService";
 const pages = {
   home: Home,
   acquire: Acquire,
+  "acquisition-overview": AcquisitionOverview,
   "ai-system": AiSystem,
   valuation: Valuation,
   tours: Tours,

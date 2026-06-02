@@ -134,6 +134,11 @@ export const pageMeta = {
     description:
       "AI-powered Sri Lanka travel planning, airport transfer, tourism SEO, and lead-generation infrastructure available for strategic acquisition.",
   },
+  "acquisition-overview": {
+    title: "Sky AI TravelTech Acquisition Overview",
+    description:
+      "Buyer-facing overview of Sky AI TravelTech, an AI-powered Sri Lanka travel planning and tourism lead-generation infrastructure platform.",
+  },
   "ai-system": {
     title: "Sky AI System | AI-Powered Sri Lanka Tourism Intelligence",
     description:

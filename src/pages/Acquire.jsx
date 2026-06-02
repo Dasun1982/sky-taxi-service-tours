@@ -3,6 +3,7 @@ import {
   CheckCircle2,
   Clock3,
   Compass,
+  FileText,
   Headphones,
   Languages,
   MapPinned,
@@ -21,6 +22,7 @@ import { images } from "../data/travelData";
 const founderEmail = "dasunpunsiri@gmail.com";
 const acquisitionMail = `mailto:${founderEmail}?subject=Sky%20Taxi%20Sri%20Lanka%20Acquisition%20Details`;
 const aiPlannerUrl = "https://ai.skytaxisrilanka.com";
+const acquisitionPdfUrl = "/sky-ai-traveltech-acquisition-overview.pdf";
 
 const includedItems = [
   {
@@ -332,6 +334,10 @@ export default function Acquire() {
               <a className="button button--light" href={aiPlannerUrl} target="_blank" rel="noreferrer">
                 <Compass size={18} />
                 View AI Planner
+              </a>
+              <a className="button button--light" href={acquisitionPdfUrl} target="_blank" rel="noreferrer" download>
+                <FileText size={18} />
+                Download Acquisition PDF
               </a>
             </div>
           </Reveal>

@@ -3,6 +3,7 @@ import {
   Brain,
   CheckCircle2,
   Compass,
+  FileText,
   GitBranch,
   Layers3,
   MapPinned,
@@ -17,6 +18,8 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
+
+const acquisitionPdfUrl = "/sky-ai-traveltech-acquisition-overview.pdf";
 
 const workflowNodes = [
   {
@@ -375,6 +378,10 @@ export default function Valuation() {
               <a className="button button--light" href="/acquire">
                 <Compass size={18} />
                 View Acquisition Overview
+              </a>
+              <a className="button button--light" href={acquisitionPdfUrl} target="_blank" rel="noreferrer" download>
+                <FileText size={18} />
+                Download Acquisition PDF
               </a>
             </div>
           </Reveal>
