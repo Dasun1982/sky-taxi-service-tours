@@ -18,7 +18,7 @@ import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 
-const founderEmail = "founder@skytaxisrilanka.com";
+const founderEmail = "dasunpunsiri@gmail.com";
 const acquisitionMail = `mailto:${founderEmail}?subject=Sky%20Taxi%20Sri%20Lanka%20Acquisition%20Details`;
 const aiPlannerUrl = "https://ai.skytaxisrilanka.com";
 
