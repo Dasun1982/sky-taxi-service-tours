@@ -9,6 +9,7 @@ import SeoSchema from "./components/SeoSchema";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { pageMeta } from "./data/travelData";
 import Acquire from "./pages/Acquire";
+import AiSystem from "./pages/AiSystem";
 import AirportTransfers from "./pages/AirportTransfers";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
@@ -21,6 +22,7 @@ import TaxiService from "./pages/TaxiService";
 import Tours from "./pages/Tours";
 import About from "./pages/About";
 import VehicleRentals from "./pages/VehicleRentals";
+import Valuation from "./pages/Valuation";
 import ColomboAirportTaxi from "./pages/ColomboAirportTaxi";
 import AirportToEllaTaxi from "./pages/AirportToEllaTaxi";
 import AirportToGalleTaxi from "./pages/AirportToGalleTaxi";
@@ -55,6 +57,8 @@ import ArugamBayTaxiService from "./pages/ArugamBayTaxiService";
 const pages = {
   home: Home,
   acquire: Acquire,
+  "ai-system": AiSystem,
+  valuation: Valuation,
   tours: Tours,
   "one-day-tours": OneDayTours,
   "round-tours": RoundTours,

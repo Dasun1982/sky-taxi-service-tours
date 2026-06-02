@@ -134,6 +134,16 @@ export const pageMeta = {
     description:
       "AI-powered Sri Lanka travel planning, airport transfer, tourism SEO, and lead-generation infrastructure available for strategic acquisition.",
   },
+  "ai-system": {
+    title: "Sky AI System | AI-Powered Sri Lanka Tourism Intelligence",
+    description:
+      "Structured AI-powered Sri Lanka travel planning system with route intelligence, itinerary workflows, transfer logic, and tourism lead-generation infrastructure.",
+  },
+  valuation: {
+    title: "Strategic Positioning | Sky AI Tourism Infrastructure",
+    description:
+      "Strategic positioning for Sky Taxi Sri Lanka's AI tourism infrastructure, route intelligence, planning workflows, and acquisition-grade travel technology.",
+  },
   tours: {
     title: "Sri Lanka Tours | SKY Taxi Service & Tours",
     description:
