@@ -19,9 +19,11 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
+import { trackAcquisitionCta } from "../utils/analytics";
 
 const acquisitionPdfUrl = "/sky-ai-traveltech-acquisition-overview.pdf";
 const platformDemoUrl = "https://youtu.be/jmPyGNbCKk4";
+const pageSource = "valuation";
 
 const workflowNodes = [
   {
@@ -230,11 +232,19 @@ export default function Valuation() {
           <span>AI Workflow System</span>
         </div>
         <div className="premium-hero-actions">
-          <a className="button button--primary" href="/ai-system">
+          <a
+            className="button button--primary"
+            href="/ai-system"
+            onClick={() => trackAcquisitionCta({ ctaName: "View AI System", pageSource, destination: "/ai-system" })}
+          >
             <Brain size={19} />
             View AI System
           </a>
-          <a className="button button--light" href="/acquire">
+          <a
+            className="button button--light"
+            href="/acquire"
+            onClick={() => trackAcquisitionCta({ ctaName: "View Acquisition Overview", pageSource, destination: "/acquire" })}
+          >
             <Compass size={18} />
             View Acquisition Overview
           </a>
@@ -373,19 +383,40 @@ export default function Valuation() {
               <p>Request acquisition details, architecture overview, and platform walkthrough access.</p>
             </div>
             <div className="cta-actions">
-              <a className="button button--primary" href="/ai-system">
+              <a
+                className="button button--primary"
+                href="/ai-system"
+                onClick={() => trackAcquisitionCta({ ctaName: "View AI System", pageSource, destination: "/ai-system" })}
+              >
                 <Brain size={18} />
                 View AI System
               </a>
-              <a className="button button--light" href="/acquire">
+              <a
+                className="button button--light"
+                href="/acquire"
+                onClick={() => trackAcquisitionCta({ ctaName: "View Acquisition Overview", pageSource, destination: "/acquire" })}
+              >
                 <Compass size={18} />
                 View Acquisition Overview
               </a>
-              <a className="button button--light" href={acquisitionPdfUrl} target="_blank" rel="noreferrer" download>
+              <a
+                className="button button--light"
+                href={acquisitionPdfUrl}
+                target="_blank"
+                rel="noreferrer"
+                download
+                onClick={() => trackAcquisitionCta({ ctaName: "Download Acquisition PDF", pageSource, destination: acquisitionPdfUrl })}
+              >
                 <FileText size={18} />
                 Download Acquisition PDF
               </a>
-              <a className="button button--light" href={platformDemoUrl} target="_blank" rel="noreferrer">
+              <a
+                className="button button--light"
+                href={platformDemoUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackAcquisitionCta({ ctaName: "Watch Platform Demo", pageSource, destination: platformDemoUrl })}
+              >
                 <Play size={18} />
                 Watch Platform Demo
               </a>

@@ -20,9 +20,12 @@ import {
   Sparkles,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
+import { trackAcquisitionCta } from "../utils/analytics";
 
 const contactEmail = "dasunpunsiri@gmail.com";
 const platformDemoUrl = "https://youtu.be/jmPyGNbCKk4";
+const acquisitionMail = `mailto:${contactEmail}?subject=Sky%20AI%20TravelTech%20Acquisition%20Overview`;
+const pageSource = "acquisition-overview";
 
 const tags = ["AI TravelTech", "Tourism Infrastructure", "Route Intelligence", "Lead Generation"];
 
@@ -203,6 +206,8 @@ function OverviewCard({ title, icon: Icon }) {
 
 function LivePlatformCard({ item }) {
   const Icon = item.icon;
+  const ctaName = item.title === "AI planning platform" ? "View AI Planner" : "View Acquisition Overview";
+
   return (
     <Reveal className="acquisition-overview-live-card">
       <span>
@@ -210,7 +215,12 @@ function LivePlatformCard({ item }) {
       </span>
       <div>
         <strong>{item.title}</strong>
-        <a href={item.url} target="_blank" rel="noreferrer">
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => trackAcquisitionCta({ ctaName, pageSource, destination: item.url })}
+        >
           {item.url}
         </a>
         <p>{item.text}</p>
@@ -266,7 +276,10 @@ export default function AcquisitionOverview() {
             <span>Solo Technical Founder</span>
             <span>Operational tourism business: SKY Taxi Service & Tours Sri Lanka</span>
             <span>Business operations contact: Dasun Punsiri</span>
-            <a href={`mailto:${contactEmail}?subject=Sky%20AI%20TravelTech%20Acquisition%20Overview`}>
+            <a
+              href={acquisitionMail}
+              onClick={() => trackAcquisitionCta({ ctaName: "Contact Founder", pageSource, destination: acquisitionMail })}
+            >
               <Mail size={18} />
               {contactEmail}
             </a>
@@ -454,7 +467,12 @@ export default function AcquisitionOverview() {
               <div>
                 <dt>Contact email</dt>
                 <dd>
-                  <a href={`mailto:${contactEmail}?subject=Sky%20AI%20TravelTech%20Acquisition%20Overview`}>{contactEmail}</a>
+                  <a
+                    href={acquisitionMail}
+                    onClick={() => trackAcquisitionCta({ ctaName: "Contact Founder", pageSource, destination: acquisitionMail })}
+                  >
+                    {contactEmail}
+                  </a>
                 </dd>
               </div>
             </dl>
@@ -518,11 +536,19 @@ export default function AcquisitionOverview() {
             <h2>Acquisition discussions available upon request</h2>
             <p>Interested buyers can request a walkthrough, technical overview, transfer package, and acquisition discussion.</p>
             <div className="acquisition-overview-final-actions">
-              <a href={`mailto:${contactEmail}?subject=Sky%20AI%20TravelTech%20Acquisition%20Overview`}>
+              <a
+                href={acquisitionMail}
+                onClick={() => trackAcquisitionCta({ ctaName: "Contact Founder", pageSource, destination: acquisitionMail })}
+              >
                 <Mail size={18} />
                 Contact: {contactEmail}
               </a>
-              <a href={platformDemoUrl} target="_blank" rel="noreferrer">
+              <a
+                href={platformDemoUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackAcquisitionCta({ ctaName: "Watch Platform Demo", pageSource, destination: platformDemoUrl })}
+              >
                 <Play size={18} />
                 Watch Platform Demo
               </a>

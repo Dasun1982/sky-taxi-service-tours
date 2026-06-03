@@ -19,12 +19,14 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
+import { trackAcquisitionCta } from "../utils/analytics";
 
 const founderEmail = "dasunpunsiri@gmail.com";
 const acquisitionMail = `mailto:${founderEmail}?subject=Sky%20Taxi%20Sri%20Lanka%20Acquisition%20Details`;
 const aiPlannerUrl = "https://ai.skytaxisrilanka.com";
 const acquisitionPdfUrl = "/sky-ai-traveltech-acquisition-overview.pdf";
 const platformDemoUrl = "https://youtu.be/jmPyGNbCKk4";
+const pageSource = "acquire";
 
 const includedItems = [
   {
@@ -152,11 +154,21 @@ export default function Acquire() {
           <span>Tourism Lead Generation</span>
         </div>
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={acquisitionMail}>
+          <a
+            className="button button--primary"
+            href={acquisitionMail}
+            onClick={() => trackAcquisitionCta({ ctaName: "Contact Founder", pageSource, destination: acquisitionMail })}
+          >
             <MessageCircle size={19} />
             Request Acquisition Details
           </a>
-          <a className="button button--light" href={aiPlannerUrl} target="_blank" rel="noreferrer">
+          <a
+            className="button button--light"
+            href={aiPlannerUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => trackAcquisitionCta({ ctaName: "View AI Planner", pageSource, destination: aiPlannerUrl })}
+          >
             <Compass size={18} />
             View AI Planner
           </a>
@@ -329,19 +341,42 @@ export default function Acquire() {
               <p>Request acquisition details, product walkthrough, technical overview, and transfer package.</p>
             </div>
             <div className="cta-actions">
-              <a className="button button--primary" href={acquisitionMail}>
+              <a
+                className="button button--primary"
+                href={acquisitionMail}
+                onClick={() => trackAcquisitionCta({ ctaName: "Contact Founder", pageSource, destination: acquisitionMail })}
+              >
                 <MessageCircle size={18} />
                 Contact Founder
               </a>
-              <a className="button button--light" href={aiPlannerUrl} target="_blank" rel="noreferrer">
+              <a
+                className="button button--light"
+                href={aiPlannerUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackAcquisitionCta({ ctaName: "View AI Planner", pageSource, destination: aiPlannerUrl })}
+              >
                 <Compass size={18} />
                 View AI Planner
               </a>
-              <a className="button button--light" href={acquisitionPdfUrl} target="_blank" rel="noreferrer" download>
+              <a
+                className="button button--light"
+                href={acquisitionPdfUrl}
+                target="_blank"
+                rel="noreferrer"
+                download
+                onClick={() => trackAcquisitionCta({ ctaName: "Download Acquisition PDF", pageSource, destination: acquisitionPdfUrl })}
+              >
                 <FileText size={18} />
                 Download Acquisition PDF
               </a>
-              <a className="button button--light" href={platformDemoUrl} target="_blank" rel="noreferrer">
+              <a
+                className="button button--light"
+                href={platformDemoUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackAcquisitionCta({ ctaName: "Watch Platform Demo", pageSource, destination: platformDemoUrl })}
+              >
                 <Play size={18} />
                 Watch Platform Demo
               </a>
