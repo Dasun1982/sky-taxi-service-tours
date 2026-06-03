@@ -13087,6 +13087,48 @@ body.sky-scroll-lock .premium-cursor[data-cursor="card"] {
   line-height: 1.08;
 }
 
+@media (min-width: 901px) {
+  :where(.acquire-page, .valuation-page) .booking-cta-panel {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 460px);
+  }
+
+  :where(.acquire-page, .valuation-page) .booking-cta-panel > div:first-child {
+    min-width: 0;
+    max-width: 720px;
+  }
+
+  :where(.acquire-page, .valuation-page) .booking-cta-panel .cta-actions {
+    width: 100%;
+    max-width: 460px;
+    justify-content: flex-end;
+  }
+
+  :where(.acquire-page, .valuation-page) .booking-cta-panel .cta-actions .button {
+    flex: 0 1 auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  :where(.acquire-page, .valuation-page) .booking-cta-panel {
+    grid-template-columns: 1fr;
+  }
+
+  :where(.acquire-page, .valuation-page) .booking-cta-panel .cta-actions {
+    width: 100%;
+    max-width: none;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  :where(.acquire-page, .valuation-page) .booking-cta-panel .cta-actions .button {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+  }
+}
+
 .app[data-theme="dark"] :where(.home-page, .acquire-page, .ai-system-page, .valuation-page) :where(.feature-card, .pricing-card, .tour-card, .package-card, .review-card, .contact-card, .form-panel, .faq-item, .timeline, .image-panel, .package-slide, .booking-cta-panel, .contact-cta-panel) {
   box-shadow:
     0 18px 52px rgba(0, 0, 0, 0.22),
