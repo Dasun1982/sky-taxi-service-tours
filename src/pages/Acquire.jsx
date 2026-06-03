@@ -9,6 +9,7 @@ import {
   MapPinned,
   MessageCircle,
   Plane,
+  Play,
   Route,
   ShieldCheck,
   Users,
@@ -23,6 +24,7 @@ const founderEmail = "dasunpunsiri@gmail.com";
 const acquisitionMail = `mailto:${founderEmail}?subject=Sky%20Taxi%20Sri%20Lanka%20Acquisition%20Details`;
 const aiPlannerUrl = "https://ai.skytaxisrilanka.com";
 const acquisitionPdfUrl = "/sky-ai-traveltech-acquisition-overview.pdf";
+const platformDemoUrl = "https://youtu.be/jmPyGNbCKk4";
 
 const includedItems = [
   {
@@ -338,6 +340,10 @@ export default function Acquire() {
               <a className="button button--light" href={acquisitionPdfUrl} target="_blank" rel="noreferrer" download>
                 <FileText size={18} />
                 Download Acquisition PDF
+              </a>
+              <a className="button button--light" href={platformDemoUrl} target="_blank" rel="noreferrer">
+                <Play size={18} />
+                Watch Platform Demo
               </a>
             </div>
           </Reveal>

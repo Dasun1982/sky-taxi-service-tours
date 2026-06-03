@@ -12,6 +12,7 @@ import {
   Mail,
   MapPinned,
   MessageCircle,
+  Play,
   Route,
   Search,
   ServerCog,
@@ -21,6 +22,7 @@ import {
 import Reveal from "../components/Reveal";
 
 const contactEmail = "dasunpunsiri@gmail.com";
+const platformDemoUrl = "https://youtu.be/jmPyGNbCKk4";
 
 const tags = ["AI TravelTech", "Tourism Infrastructure", "Route Intelligence", "Lead Generation"];
 
@@ -515,10 +517,16 @@ export default function AcquisitionOverview() {
             <span className="eyebrow">Next Steps</span>
             <h2>Acquisition discussions available upon request</h2>
             <p>Interested buyers can request a walkthrough, technical overview, transfer package, and acquisition discussion.</p>
-            <a href={`mailto:${contactEmail}?subject=Sky%20AI%20TravelTech%20Acquisition%20Overview`}>
-              <Mail size={18} />
-              Contact: {contactEmail}
-            </a>
+            <div className="acquisition-overview-final-actions">
+              <a href={`mailto:${contactEmail}?subject=Sky%20AI%20TravelTech%20Acquisition%20Overview`}>
+                <Mail size={18} />
+                Contact: {contactEmail}
+              </a>
+              <a href={platformDemoUrl} target="_blank" rel="noreferrer">
+                <Play size={18} />
+                Watch Platform Demo
+              </a>
+            </div>
             <small>This document is intended for private acquisition discussions and strategic buyer review.</small>
           </Reveal>
         </div>

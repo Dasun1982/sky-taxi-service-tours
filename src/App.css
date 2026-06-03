@@ -13829,6 +13829,12 @@ body.sky-scroll-lock .premium-cursor[data-cursor="card"] {
   margin-bottom: 24px;
 }
 
+.acquisition-overview-final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .acquisition-overview-final-card small {
   display: block;
   max-width: 620px;

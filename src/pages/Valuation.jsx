@@ -9,6 +9,7 @@ import {
   MapPinned,
   MessageCircle,
   Plane,
+  Play,
   Route,
   Search,
   ServerCog,
@@ -20,6 +21,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 
 const acquisitionPdfUrl = "/sky-ai-traveltech-acquisition-overview.pdf";
+const platformDemoUrl = "https://youtu.be/jmPyGNbCKk4";
 
 const workflowNodes = [
   {
@@ -382,6 +384,10 @@ export default function Valuation() {
               <a className="button button--light" href={acquisitionPdfUrl} target="_blank" rel="noreferrer" download>
                 <FileText size={18} />
                 Download Acquisition PDF
+              </a>
+              <a className="button button--light" href={platformDemoUrl} target="_blank" rel="noreferrer">
+                <Play size={18} />
+                Watch Platform Demo
               </a>
             </div>
           </Reveal>
