@@ -2,7 +2,9 @@ import { CalendarDays, Car, Clock3, Compass, Home, Luggage, MapPinned, MessageCi
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const privateTourTypes = [
   {
@@ -51,42 +53,21 @@ const destinations = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for custom day tours, airport pickup, and short Sri Lanka private tours.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Luggage-friendly wagon for Sri Lanka tours with driver, airport pickups, and family routes.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for hill country roads, couples, families, and longer private tour routes.",
-  },
-  {
-    name: "Honda Freed",
-    image: images.hondaFreed,
-    passengers: "Best for 1-5 passengers",
-    luggage: "Family luggage space",
-    text: "Good family vehicle for Sri Lanka custom tours, day trips, luggage, and airport-to-tour plans.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for group private tours Sri Lanka, round tours, airport pickup, and island-wide travel.",
-  },
-];
+  ["toyota-prius", "Affordable private car for custom day tours, airport pickup, and short Sri Lanka private tours."],
+  ["honda-shuttle", "Luggage-friendly wagon for Sri Lanka tours with driver, airport pickups, and family routes."],
+  ["honda-vezel", "Comfortable SUV for hill country roads, couples, families, and longer private tour routes."],
+  ["honda-freed", "Good family vehicle for Sri Lanka custom tours, day trips, luggage, and airport-to-tour plans."],
+  ["toyota-kdh-van", "Spacious van for group private tours Sri Lanka, round tours, airport pickup, and island-wide travel."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const highlights = [
   {
@@ -135,9 +116,7 @@ const faqs = [
 ];
 
 function privateToursMessage(topic = "Sri Lanka private tours") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Travel dates: ___ Pickup location: ___ Places I want to visit: ___ Number of passengers: ___ Hotel needs: ___ Budget: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Travel dates: ___ Pickup location: ___ Places I want to visit: ___ Number of passengers: ___ Hotel needs: ___ Budget: ___`;
 }
 
 export default function SriLankaPrivateTours({ setPage }) {
@@ -151,7 +130,7 @@ export default function SriLankaPrivateTours({ setPage }) {
         alt="Sri Lanka private tours with driver"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${privateToursMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(privateToursMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Customize on WhatsApp
           </a>
@@ -231,7 +210,7 @@ export default function SriLankaPrivateTours({ setPage }) {
                 <div>
                   <h3>{tour.title}</h3>
                   <p>{tour.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${privateToursMessage(tour.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(privateToursMessage(tour.title))} target="_blank" rel="noreferrer">
                     Ask tour price
                   </a>
                 </div>
@@ -255,7 +234,7 @@ export default function SriLankaPrivateTours({ setPage }) {
                 <div>
                   <h3>{destination.title}</h3>
                   <p>{destination.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${privateToursMessage(destination.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(privateToursMessage(destination.title))} target="_blank" rel="noreferrer">
                     Plan this tour
                   </a>
                 </div>
@@ -294,7 +273,7 @@ export default function SriLankaPrivateTours({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${privateToursMessage(`${vehicle.name} private tour`)}`}
+                    href={buildWhatsAppLink(privateToursMessage(`${vehicle.name} private tour`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -317,7 +296,7 @@ export default function SriLankaPrivateTours({ setPage }) {
               Send your travel dates, pickup place, destinations, number of passengers, hotel needs, and budget. We will help create a flexible private tour route.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${privateToursMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(privateToursMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>

@@ -5,12 +5,13 @@ import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
 import { contactInfo, images } from "../data/travelData";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const contactMethods = [
   {
     title: "WhatsApp",
     text: "Fastest for bookings, prices, and route details.",
-    href: `https://wa.me/${contactInfo.whatsapp}`,
+    href: buildWhatsAppLink(),
     icon: MessageCircle,
     label: "Message on WhatsApp",
   },
@@ -50,7 +51,7 @@ export default function Contact() {
         alt="Jungle Beach near Unawatuna"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             {t("common.whatsapp")}
           </a>

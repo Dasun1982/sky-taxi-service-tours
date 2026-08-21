@@ -2,7 +2,9 @@ import { BadgeCheck, Car, Clock3, Home, Luggage, MapPinned, MessageCircle, Plane
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const taxiServices = [
   {
@@ -51,49 +53,22 @@ const popularRoutes = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for airport transfers, city rides, and short to medium Sri Lanka taxi service routes.",
-  },
-  {
-    name: "Honda Insight",
-    image: images.hondaInsight,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Clean hybrid option for private taxi Sri Lanka rides, hotel pickups, and budget-friendly city transfers.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Luggage-friendly wagon for Sri Lanka airport taxi bookings, family rides, and long-distance taxi routes.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for private taxi Sri Lanka trips, hill country roads, and longer island routes.",
-  },
-  {
-    name: "Honda Freed",
-    image: images.hondaFreed,
-    passengers: "Best for 1-5 passengers",
-    luggage: "Family luggage space",
-    text: "Family-friendly vehicle for airport transfers, city to city taxi service, and flexible day travel.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for groups, long distance taxi Sri Lanka routes, airport pickups, and family tours.",
-  },
-];
+  ["toyota-prius", "Affordable private car for airport transfers, city rides, and short to medium Sri Lanka taxi service routes."],
+  ["honda-insight", "Clean hybrid option for private taxi Sri Lanka rides, hotel pickups, and budget-friendly city transfers."],
+  ["honda-shuttle", "Luggage-friendly wagon for Sri Lanka airport taxi bookings, family rides, and long-distance taxi routes."],
+  ["honda-vezel", "Comfortable SUV for private taxi Sri Lanka trips, hill country roads, and longer island routes."],
+  ["honda-freed", "Family-friendly vehicle for airport transfers, city to city taxi service, and flexible day travel."],
+  ["toyota-kdh-van", "Spacious van for groups, long distance taxi Sri Lanka routes, airport pickups, and family tours."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const highlights = [
   {
@@ -142,9 +117,7 @@ const faqs = [
 ];
 
 function sriLankaTaxiMessage(topic = "Sri Lanka taxi service") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off location: ___ Date/time: ___ Number of passengers: ___ Luggage: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off location: ___ Date/time: ___ Number of passengers: ___ Luggage: ___`;
 }
 
 export default function SriLankaTaxiService({ setPage }) {
@@ -158,7 +131,7 @@ export default function SriLankaTaxiService({ setPage }) {
         alt="Sri Lanka taxi service private airport transfer"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${sriLankaTaxiMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(sriLankaTaxiMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Taxi on WhatsApp
           </a>
@@ -238,7 +211,7 @@ export default function SriLankaTaxiService({ setPage }) {
                 <div>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${sriLankaTaxiMessage(service.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(sriLankaTaxiMessage(service.title))} target="_blank" rel="noreferrer">
                     Ask taxi price
                   </a>
                 </div>
@@ -262,7 +235,7 @@ export default function SriLankaTaxiService({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${sriLankaTaxiMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(sriLankaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
                     Plan this taxi route
                   </a>
                 </div>
@@ -301,7 +274,7 @@ export default function SriLankaTaxiService({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${sriLankaTaxiMessage(`${vehicle.name} taxi`)}`}
+                    href={buildWhatsAppLink(sriLankaTaxiMessage(`${vehicle.name} taxi`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -324,7 +297,7 @@ export default function SriLankaTaxiService({ setPage }) {
               Send your pickup location, drop-off location, date, time, passengers, luggage, and route needs. We will reply with a fair taxi quote and vehicle option.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${sriLankaTaxiMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(sriLankaTaxiMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>

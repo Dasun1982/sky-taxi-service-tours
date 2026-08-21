@@ -2,7 +2,11 @@ import { Car, Clock3, Home, Luggage, MapPinned, MessageCircle, Plane, Route, Shi
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedTours from "../components/RelatedTours";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const transferSections = [
   {
@@ -28,49 +32,22 @@ const transferSections = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for taxi to Yala National Park, airport pickup, and couple safari transfers.",
-  },
-  {
-    name: "Honda Insight",
-    image: images.hondaInsight,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Clean hybrid option for Yala taxi service routes, hotel pickups, and private safari transfer Sri Lanka travel.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Luggage-friendly wagon for airport to Yala rides, family safari transfers, and south coast routes.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for Yala safari transfer routes, longer rides, families, and hill-to-safari connections.",
-  },
-  {
-    name: "Honda Freed",
-    image: images.hondaFreed,
-    passengers: "Best for 1-5 passengers",
-    luggage: "Family luggage space",
-    text: "Family-friendly vehicle for safari transport, luggage, hotel pickups, and flexible Yala route stops.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for groups, family safari transfer Sri Lanka routes, airport pickups, and luggage-heavy travel.",
-  },
-];
+  ["toyota-prius", "Affordable private car for taxi to Yala National Park, airport pickup, and couple safari transfers."],
+  ["honda-insight", "Clean hybrid option for Yala taxi service routes, hotel pickups, and private safari transfer Sri Lanka travel."],
+  ["honda-shuttle", "Luggage-friendly wagon for airport to Yala rides, family safari transfers, and south coast routes."],
+  ["honda-vezel", "Comfortable SUV for Yala safari transfer routes, longer rides, families, and hill-to-safari connections."],
+  ["honda-freed", "Family-friendly vehicle for safari transport, luggage, hotel pickups, and flexible Yala route stops."],
+  ["toyota-kdh-van", "Spacious van for groups, family safari transfer Sri Lanka routes, airport pickups, and luggage-heavy travel."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const highlights = [
   {
@@ -119,9 +96,7 @@ const faqs = [
 ];
 
 function yalaTransferMessage(topic = "Yala safari transfer") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off location: Yala National Park Date/time: ___ Number of passengers: ___ Luggage: ___ Safari time: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off location: Yala National Park Date/time: ___ Number of passengers: ___ Luggage: ___ Safari time: ___`;
 }
 
 export default function YalaSafariTransfer({ setPage }) {
@@ -135,7 +110,7 @@ export default function YalaSafariTransfer({ setPage }) {
         alt="Yala safari transfer taxi to Yala National Park Sri Lanka"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${yalaTransferMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(yalaTransferMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Yala Transfer
           </a>
@@ -213,7 +188,7 @@ export default function YalaSafariTransfer({ setPage }) {
                 <div>
                   <h3>{section.title}</h3>
                   <p>{section.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${yalaTransferMessage(section.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(yalaTransferMessage(section.title))} target="_blank" rel="noreferrer">
                     Ask transfer price
                   </a>
                 </div>
@@ -252,7 +227,7 @@ export default function YalaSafariTransfer({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${yalaTransferMessage(`${vehicle.name} Yala transfer`)}`}
+                    href={buildWhatsAppLink(yalaTransferMessage(`${vehicle.name} Yala transfer`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -275,7 +250,7 @@ export default function YalaSafariTransfer({ setPage }) {
               Send your pickup location, travel date, safari time, number of passengers, luggage, and vehicle needs. We will reply with a fair route-based quote.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${yalaTransferMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(yalaTransferMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>
@@ -307,6 +282,9 @@ export default function YalaSafariTransfer({ setPage }) {
           </div>
         </div>
       </section>
+
+      <RelatedTours destinationId="yala" soft />
+      <RelatedDestinations destinationId="yala" soft={false} />
     </div>
   );
 }

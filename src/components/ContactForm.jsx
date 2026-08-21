@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo } from "../data/travelData";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const initialForm = {
   name: "",
@@ -55,7 +55,7 @@ export default function ContactForm() {
 
     setErrors({});
     setStatus(t("contact.form.status"));
-    window.open(`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    window.open(buildWhatsAppLink(message), "_blank", "noopener,noreferrer");
   };
 
   return (

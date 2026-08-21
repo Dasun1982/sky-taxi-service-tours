@@ -1,8 +1,12 @@
 import { Car, Clock3, Home, Landmark, Luggage, MapPinned, MessageCircle, Mountain, Plane, Route, ShieldCheck, Users } from "lucide-react";
 import PageHero from "../components/PageHero";
+import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedTours from "../components/RelatedTours";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const sigiriyaRoutes = [
   {
@@ -28,35 +32,20 @@ const sigiriyaRoutes = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for a clean and comfortable Sigiriya taxi ride.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Good option for airport transfers, hotel pickups, and taxi to Sigiriya routes.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for couples, families, and cultural triangle trips.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for groups, families, airport transfers, and Sigiriya tours.",
-  },
-];
+  ["toyota-prius", "Affordable private car for a clean and comfortable Sigiriya taxi ride."],
+  ["honda-shuttle", "Good option for airport transfers, hotel pickups, and taxi to Sigiriya routes."],
+  ["honda-vezel", "Comfortable SUV for couples, families, and cultural triangle trips."],
+  ["toyota-kdh-van", "Spacious van for groups, families, airport transfers, and Sigiriya tours."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const highlights = [
   {
@@ -105,9 +94,7 @@ const faqs = [
 ];
 
 function sigiriyaTaxiMessage(topic = "Sigiriya taxi service") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off in Sigiriya: ___ Date/time: ___ Number of passengers: ___ Luggage: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off in Sigiriya: ___ Date/time: ___ Number of passengers: ___ Luggage: ___`;
 }
 
 export default function SigiriyaTaxiService({ setPage }) {
@@ -121,7 +108,7 @@ export default function SigiriyaTaxiService({ setPage }) {
         alt="Sigiriya taxi service to Sigiriya Rock Fortress Sri Lanka"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${sigiriyaTaxiMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(sigiriyaTaxiMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Sigiriya Taxi
           </a>
@@ -199,7 +186,7 @@ export default function SigiriyaTaxiService({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${sigiriyaTaxiMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(sigiriyaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
                     Ask route price
                   </a>
                 </div>
@@ -238,7 +225,7 @@ export default function SigiriyaTaxiService({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${sigiriyaTaxiMessage(`${vehicle.name} Sigiriya taxi`)}`}
+                    href={buildWhatsAppLink(sigiriyaTaxiMessage(`${vehicle.name} Sigiriya taxi`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -261,7 +248,7 @@ export default function SigiriyaTaxiService({ setPage }) {
               Send your pickup location, Sigiriya hotel, date, time, passengers, and luggage. We will reply with a fair quote and help plan Sigiriya Rock Fortress or Dambulla stops if needed.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${sigiriyaTaxiMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(sigiriyaTaxiMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>
@@ -293,6 +280,9 @@ export default function SigiriyaTaxiService({ setPage }) {
           </div>
         </div>
       </section>
+
+      <RelatedTours destinationId="sigiriya" soft />
+      <RelatedDestinations destinationId="sigiriya" soft={false} />
     </div>
   );
 }

@@ -4,82 +4,22 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { rentalFleet } from "../data/vehicles";
+import { findRentalPricing } from "../data/pricing";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
-const rentalVehicles = [
-  {
-    name: "TVS Ntorq 125",
-    image: images.tvsNtorq,
-    alt: "TVS Ntorq 125 rental vehicle",
-    text: "Sporty scooter, smooth ride, great for city travel.",
-    oneDay: "Rs.2500",
-    weekly: "Rs.2000",
-  },
-  {
-    name: "Honda Dio",
-    image: images.hondaDio,
-    alt: "Honda Dio rental vehicle",
-    text: "Lightweight scooter, easy handling, fuel efficient.",
-    oneDay: "Rs.2000",
-    weekly: "Rs.1500",
-  },
-  {
-    name: "Yamaha ZR",
-    image: images.yamahaRayZr,
-    alt: "Yamaha ZR rental vehicle",
-    text: "Comfortable scooter, ideal for daily local rides.",
-    oneDay: "Rs.2000",
-    weekly: "Rs.1500",
-  },
-  {
-    name: "Hero Xoom",
-    image: images.heroXoom,
-    alt: "Hero Xoom rental vehicle",
-    text: "Modern scooter, smooth performance, stylish design.",
-    oneDay: "Rs.2500",
-    weekly: "Rs.2000",
-  },
-  {
-    name: "Honda Navi Bike",
-    image: images.hondaNavi,
-    alt: "Honda Navi Bike rental vehicle",
-    text: "Compact bike, fun ride, easy to control.",
-    oneDay: "Rs.2000",
-    weekly: "Rs.1500",
-  },
-  {
-    name: "Tuk-Tuk",
-    image: images.tuktuk,
-    alt: "Tuk-Tuk rental vehicle",
-    text: "Local three-wheeler, perfect for groups and luggage.",
-    oneDay: "Rs.5000",
-    weekly: "Rs.4500",
-  },
-  {
-    name: "Honda Freed",
-    image: images.hondaFreed,
-    alt: "Honda Freed family rental vehicle",
-    text: "Family rental vehicle with comfortable seats and luggage space.",
-    oneDay: "Ask price",
-    weekly: "Custom plan",
-  },
-  {
-    name: "Honda Insight",
-    image: images.hondaInsight,
-    alt: "Honda Insight economy sedan rental vehicle",
-    text: "Economy sedan option for budget-friendly city rides and transfers.",
-    oneDay: "Ask price",
-    weekly: "Custom plan",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    alt: "Honda Vezel SUV rental vehicle",
-    text: "Premium SUV rental option for private tours and longer routes.",
-    oneDay: "Ask price",
-    weekly: "Custom plan",
-  },
-];
+const rentalVehicles = rentalFleet.map((vehicle) => {
+  const pricing = findRentalPricing(vehicle.id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    alt: vehicle.alt,
+    text: vehicle.description,
+    oneDay: pricing.oneDay,
+    weekly: pricing.weekly,
+  };
+});
 
 const tripTypes = [
   "Airport transfer",
@@ -113,19 +53,11 @@ const rentalFaqs = [
   },
 ];
 
-function rentalMessage(vehicleName) {
-  return vehicleName;
-}
-
-function customRentalMessage() {
-  return "custom";
-}
-
 export default function VehicleRentals() {
   const { t } = useLanguage();
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
-  const getRentalMessage = (vehicleName) => encodeURIComponent(t("messages.rentalVehicle", undefined, { name: vehicleName }));
-  const getCustomRentalMessage = () => encodeURIComponent(t("messages.rentalCustom"));
+  const getRentalMessage = (vehicleName) => t("messages.rentalVehicle", undefined, { name: vehicleName });
+  const getCustomRentalMessage = () => t("messages.rentalCustom");
   const faqItems = t("rentals.faq.items", rentalFaqs.map((item) => [item.question, item.answer]));
 
   return (
@@ -138,7 +70,7 @@ export default function VehicleRentals() {
         alt="Vehicle rental in Sri Lanka"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${getCustomRentalMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(getCustomRentalMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             {t("common.askRentalPrice")}
           </a>
@@ -210,7 +142,7 @@ export default function VehicleRentals() {
                   </div>
                   <a
                     className="button button--primary vehicle-rental-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${getRentalMessage(vehicle.name)}`}
+                    href={buildWhatsAppLink(getRentalMessage(vehicle.name))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -233,7 +165,7 @@ export default function VehicleRentals() {
               </p>
               <a
                 className="button button--primary vehicle-rental-custom__button"
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${getCustomRentalMessage()}`}
+                href={buildWhatsAppLink(getCustomRentalMessage())}
                 target="_blank"
                 rel="noreferrer"
               >

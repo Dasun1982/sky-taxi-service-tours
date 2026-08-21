@@ -29,6 +29,8 @@ import {
   popularTours,
   whyChooseUs,
 } from "../data/travelData";
+import { aiPlannerUrl } from "../data/business";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const services = [
   {
@@ -198,7 +200,7 @@ export default function Home({ setPage }) {
           </h1>
           <p>{t("home.hero.subtitle")}</p>
           <div className="hero-actions">
-            <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+            <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
               <MessageCircle size={19} />
               {t("common.bookOnWhatsApp")}
             </a>
@@ -286,7 +288,7 @@ export default function Home({ setPage }) {
               </div>
             </div>
             <div className="ai-planner-card__actions">
-              <a className="button button--primary" href="https://ai.skytaxisrilanka.com" target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={aiPlannerUrl} target="_blank" rel="noreferrer">
                 Start AI Planner
                 <ArrowRight size={18} />
               </a>
@@ -375,6 +377,12 @@ export default function Home({ setPage }) {
               </Reveal>
             ))}
           </div>
+          <div className="home-destination-section__link">
+            <button className="text-button" type="button" onClick={() => setPage("destinations")}>
+              {t("home.destinationHeader.viewAll", "View all destinations")}
+              <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -439,7 +447,7 @@ export default function Home({ setPage }) {
               <p>{t("home.bookingCta.text")}</p>
             </div>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
                 <MessageCircle size={19} />
                 {t("common.bookOnWhatsApp")}
               </a>
@@ -464,7 +472,7 @@ export default function Home({ setPage }) {
                   <Phone size={18} />
                   {contactInfo.phone}
                 </a>
-                <a href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+                <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
                   <MessageCircle size={18} />
                   {t("home.contact.whatsappBooking")}
                 </a>
@@ -479,7 +487,7 @@ export default function Home({ setPage }) {
               </div>
 
               <div className="contact-cta-actions">
-                <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+                <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
                   <MessageCircle size={19} />
                   {t("common.whatsapp")}
                 </a>

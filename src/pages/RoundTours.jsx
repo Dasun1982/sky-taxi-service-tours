@@ -5,7 +5,9 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findRoundTourPricing } from "../data/pricing";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const tourIncludes = [
   "Private air-conditioned vehicle",
@@ -24,8 +26,9 @@ const notIncluded = [
 
 const roundTourPackages = [
   {
+    id: "ella-2-day-tour",
     title: "2-Day Private Tour to Ella",
-    price: "$180",
+    price: findRoundTourPricing("ella-2-day-tour").price,
     duration: "2 Days",
     image: images.nineArchBridge,
     alt: "Nine Arch Bridge in Ella",
@@ -56,8 +59,9 @@ const roundTourPackages = [
     ],
   },
   {
+    id: "kandy-nuwara-eliya-ella-2-day-tour",
     title: "2-Day Private Tour to Kandy, Nuwara Eliya & Ella",
-    price: "$180",
+    price: findRoundTourPricing("kandy-nuwara-eliya-ella-2-day-tour").price,
     duration: "2 Days",
     image: images.pinnawalaElephant,
     alt: "Pinnawala elephant route in Sri Lanka",
@@ -91,8 +95,9 @@ const roundTourPackages = [
     ],
   },
   {
+    id: "sigiriya-kandy-nuwara-eliya-ella-3-day-tour",
     title: "3-Day Private Tour to Sigiriya, Kandy, Nuwara Eliya & Ella",
-    price: "$250",
+    price: findRoundTourPricing("sigiriya-kandy-nuwara-eliya-ella-3-day-tour").price,
     duration: "3 Days",
     image: images.sigiriya,
     alt: "Sigiriya Rock Fortress in Sri Lanka",
@@ -135,8 +140,9 @@ const roundTourPackages = [
     ],
   },
   {
+    id: "trincomalee-cultural-triangle-hill-country-wildlife-5-day-tour",
     title: "5-Day Private Tour of Trincomalee, Cultural Triangle, Hill Country & Wildlife",
-    price: "$368",
+    price: findRoundTourPricing("trincomalee-cultural-triangle-hill-country-wildlife-5-day-tour").price,
     duration: "5 Days",
     image: images.blueBeach,
     alt: "Blue beach in Sri Lanka",
@@ -192,10 +198,11 @@ const roundTourPackages = [
     ],
   },
   {
+    id: "cultural-heritage-hill-country-wildlife-7-day-tour",
     title: "7-Day Private Tour of Sri Lanka's Cultural Heritage, Hill Country & Wildlife",
     displayTitle: "7-Day Cultural Heritage & Wildlife Tour",
     longTitle: true,
-    price: "$514",
+    price: findRoundTourPricing("cultural-heritage-hill-country-wildlife-7-day-tour").price,
     duration: "7 Days",
     image: images.mihintaleBuddha,
     alt: "Mihintale Buddha statue in Sri Lanka",
@@ -279,10 +286,11 @@ const roundTourPackages = [
     ],
   },
   {
+    id: "north-east-cultural-heritage-hill-country-wildlife-10-day-tour",
     title: "10-Day Private Tour of Sri Lanka's North, East, Cultural Heritage, Hill Country & Wildlife",
     displayTitle: "10-Day Ultimate Sri Lanka Explorer Tour",
     longTitle: true,
-    price: "$734",
+    price: findRoundTourPricing("north-east-cultural-heritage-hill-country-wildlife-10-day-tour").price,
     duration: "10 Days",
     image: images.galle,
     alt: "Galle coastal route in Sri Lanka",
@@ -371,14 +379,6 @@ const customRoundTourIdeas = [
   "Full Island Tour with airport pickup and drop-off",
 ];
 
-function packageMessage(packageName) {
-  return packageName;
-}
-
-function customRoundTourMessage() {
-  return "custom";
-}
-
 function splitStop(stop) {
   const separatorIndex = stop.indexOf(":");
 
@@ -446,8 +446,8 @@ export default function RoundTours() {
     };
   }, []);
 
-  const getPackageMessage = (packageName) => encodeURIComponent(t("messages.roundTour", undefined, { name: packageName }));
-  const getCustomRoundTourMessage = () => encodeURIComponent(t("messages.roundCustom"));
+  const getPackageMessage = (packageName) => t("messages.roundTour", undefined, { name: packageName });
+  const getCustomRoundTourMessage = () => t("messages.roundCustom");
   const getPackageTitle = (tourPackage) =>
     t(`round.packages.${tourPackage.index}.displayTitle`, tourPackage.displayTitle ?? tourPackage.title);
   const getPackageSummary = (tourPackage) => t(`round.packages.${tourPackage.index}.summary`, tourPackage.summary);
@@ -464,7 +464,7 @@ export default function RoundTours() {
         image={images.trainRide}
         alt="Sri Lanka scenic hill country train route"
       >
-        <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+        <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
           <MessageCircle size={19} />
           {t("common.askOnWhatsApp")}
         </a>
@@ -509,7 +509,7 @@ export default function RoundTours() {
                     </button>
                     <a
                       className="button button--primary"
-                      href={`https://wa.me/${contactInfo.whatsapp}?text=${getPackageMessage(getPackageTitle(translatedPackage))}`}
+                      href={buildWhatsAppLink(getPackageMessage(getPackageTitle(translatedPackage)))}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -533,7 +533,7 @@ export default function RoundTours() {
               <p>{t("round.custom.text")}</p>
               <a
                 className="button button--primary one-day-custom-tour__button"
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${getCustomRoundTourMessage()}`}
+                href={buildWhatsAppLink(getCustomRoundTourMessage())}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -698,7 +698,7 @@ export default function RoundTours() {
 
                   <a
                     className="button button--primary one-day-modal__side-action"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${getPackageMessage(getPackageTitle(activePackage))}`}
+                    href={buildWhatsAppLink(getPackageMessage(getPackageTitle(activePackage)))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -710,7 +710,7 @@ export default function RoundTours() {
 
               <a
                 className="button button--primary one-day-modal__mobile-sticky"
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${getPackageMessage(getPackageTitle(activePackage))}`}
+                href={buildWhatsAppLink(getPackageMessage(getPackageTitle(activePackage)))}
                 target="_blank"
                 rel="noreferrer"
               >

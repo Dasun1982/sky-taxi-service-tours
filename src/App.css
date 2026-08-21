@@ -1963,6 +1963,15 @@ body.sky-scroll-lock {
   }
 }
 
+/* Milestone 3: equal-width variant of .destination-showcase-grid for a
+   variable-length related-destinations list (the asymmetric 1.15/0.85/0.85
+   layout above is tuned for exactly 3 items and wraps unevenly otherwise). */
+.related-destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
 .destination-showcase-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr 0.85fr;
@@ -2037,6 +2046,12 @@ body.sky-scroll-lock {
 
 .destination-showcase-card p {
   color: rgba(255, 255, 255, 0.82);
+}
+
+.home-destination-section__link {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
 }
 
 .home-experience-layout {
@@ -2633,6 +2648,22 @@ body.sky-scroll-lock {
 
 .pricing-card h3 {
   margin-top: 18px;
+}
+
+.tour-catalog-group-title {
+  margin: 36px 0 18px;
+  font-size: 1.15rem;
+}
+
+.tour-catalog-group-title:first-of-type {
+  margin-top: 8px;
+}
+
+.tour-catalog-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
 }
 
 .pricing-card ul,
@@ -6252,6 +6283,19 @@ body.sky-scroll-lock {
   grid-column: 1 / -1;
 }
 
+.form-grid__label-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.form-optional-tag {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
 .form-grid input,
 .form-grid select,
 .form-grid textarea {
@@ -6317,6 +6361,82 @@ body.sky-scroll-lock {
 
 .form-status--error {
   color: var(--coral);
+}
+
+.booking-confirmation {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(31, 138, 95, 0.09);
+  border: 1px solid rgba(31, 138, 95, 0.22);
+}
+
+.booking-confirmation__icon {
+  flex-shrink: 0;
+  color: #1f8a5f;
+  margin-top: 2px;
+}
+
+.booking-confirmation__title {
+  margin: 0;
+  font-weight: 800;
+  font-size: 1.02rem;
+  color: var(--text);
+}
+
+.booking-confirmation__text {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.booking-confirmation__reference {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.booking-confirmation__reference code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  user-select: all;
+}
+
+.booking-confirmation__reference button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Specificity note: a broader `.app a { color: inherit }` rule elsewhere
+   in this file has specificity (0,1,1) — a single-class selector here
+   would lose to it. Qualifying with the parent (0,2,0) beats it cleanly,
+   found and fixed via a live computed-style check, not guessed at. */
+.booking-confirmation .booking-confirmation__link {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 800;
+  color: var(--coral);
+  font-size: 0.88rem;
 }
 
 .contact-layout {
@@ -7996,6 +8116,7 @@ html[dir="rtl"] .bottom-action-bar .language-selector__panel {
   .home-service-grid,
   .home-seo-route-grid,
   .destination-showcase-grid,
+  .related-destinations-grid,
   .airport-visual-grid,
   .taxi-vehicle-grid,
   .why-grid-home,
@@ -8194,6 +8315,7 @@ html[dir="rtl"] .bottom-action-bar .language-selector__panel {
   .home-service-grid,
   .home-seo-route-grid,
   .destination-showcase-grid,
+  .related-destinations-grid,
   .home-experience-grid,
   .tour-category-grid,
   .airport-visual-grid,

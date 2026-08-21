@@ -2,7 +2,11 @@ import { Car, Clock3, Home, Luggage, MapPinned, MessageCircle, Plane, Route, Shi
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedTours from "../components/RelatedTours";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const routeCards = [
   {
@@ -56,49 +60,22 @@ const beachTransfers = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for Unawatuna airport transfer, Galle trips, and short south coast rides.",
-  },
-  {
-    name: "Honda Insight",
-    image: images.hondaInsight,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Clean hybrid option for taxi in Unawatuna, hotel pickups, and budget-friendly local transfers.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Luggage-friendly wagon for airport transfers, Mirissa routes, Galle trips, and family travel.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for private driver Unawatuna routes to Ella, Yala, Kandy, and longer island travel.",
-  },
-  {
-    name: "Honda Freed",
-    image: images.hondaFreed,
-    passengers: "Best for 1-5 passengers",
-    luggage: "Family luggage space",
-    text: "Family-friendly vehicle for beach transfers, airport pickup, luggage, and custom south coast taxi routes.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for groups, families, Colombo airport to Unawatuna taxi routes, and luggage-heavy trips.",
-  },
-];
+  ["toyota-prius", "Affordable private car for Unawatuna airport transfer, Galle trips, and short south coast rides."],
+  ["honda-insight", "Clean hybrid option for taxi in Unawatuna, hotel pickups, and budget-friendly local transfers."],
+  ["honda-shuttle", "Luggage-friendly wagon for airport transfers, Mirissa routes, Galle trips, and family travel."],
+  ["honda-vezel", "Comfortable SUV for private driver Unawatuna routes to Ella, Yala, Kandy, and longer island travel."],
+  ["honda-freed", "Family-friendly vehicle for beach transfers, airport pickup, luggage, and custom south coast taxi routes."],
+  ["toyota-kdh-van", "Spacious van for groups, families, Colombo airport to Unawatuna taxi routes, and luggage-heavy trips."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const highlights = [
   {
@@ -147,9 +124,7 @@ const faqs = [
 ];
 
 function unawatunaTaxiMessage(topic = "Unawatuna taxi service") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off location: ___ Date/time: ___ Number of passengers: ___ Luggage: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off location: ___ Date/time: ___ Number of passengers: ___ Luggage: ___`;
 }
 
 export default function UnawatunaTaxiService({ setPage }) {
@@ -163,7 +138,7 @@ export default function UnawatunaTaxiService({ setPage }) {
         alt="Unawatuna taxi service private airport transfer"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${unawatunaTaxiMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(unawatunaTaxiMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Unawatuna Taxi
           </a>
@@ -241,7 +216,7 @@ export default function UnawatunaTaxiService({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${unawatunaTaxiMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(unawatunaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
                     Ask route price
                   </a>
                 </div>
@@ -265,7 +240,7 @@ export default function UnawatunaTaxiService({ setPage }) {
                 <div>
                   <h3>{transfer.title}</h3>
                   <p>{transfer.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${unawatunaTaxiMessage(transfer.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(unawatunaTaxiMessage(transfer.title))} target="_blank" rel="noreferrer">
                     Book beach transfer
                   </a>
                 </div>
@@ -304,7 +279,7 @@ export default function UnawatunaTaxiService({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${unawatunaTaxiMessage(`${vehicle.name} Unawatuna taxi`)}`}
+                    href={buildWhatsAppLink(unawatunaTaxiMessage(`${vehicle.name} Unawatuna taxi`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -327,7 +302,7 @@ export default function UnawatunaTaxiService({ setPage }) {
               Send your pickup location, destination, date, time, passengers, and luggage. We will reply with a fair private taxi quote and vehicle option.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${unawatunaTaxiMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(unawatunaTaxiMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>
@@ -359,6 +334,9 @@ export default function UnawatunaTaxiService({ setPage }) {
           </div>
         </div>
       </section>
+
+      <RelatedTours destinationId="unawatuna" soft />
+      <RelatedDestinations destinationId="unawatuna" soft={false} />
     </div>
   );
 }

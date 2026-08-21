@@ -2,7 +2,9 @@ import { Car, CheckCircle2, Clock3, Home, Languages, Luggage, MapPinned, Message
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const transferRoutes = [
   {
@@ -28,35 +30,22 @@ const transferRoutes = [
 ];
 
 const airportVehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable airport taxi for solo travelers, couples, and city transfers.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Good luggage space",
-    text: "Comfortable airport pickup option for families and longer routes.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Private SUV option for airport transfers and island-wide tours.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for groups, airport transfers, and private round tours.",
-  },
-];
+  ["toyota-prius", "Affordable airport taxi for solo travelers, couples, and city transfers."],
+  // Kept as "Good luggage space" (existing SEO copy) rather than the
+  // routeLuggageNote wording ("Comfortable luggage space") used elsewhere.
+  ["honda-shuttle", "Comfortable airport pickup option for families and longer routes.", "Good luggage space"],
+  ["honda-vezel", "Private SUV option for airport transfers and island-wide tours."],
+  ["toyota-kdh-van", "Spacious van for groups, airport transfers, and private round tours."],
+].map(([id, text, luggageOverride]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: luggageOverride || vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const servicePoints = [
   {
@@ -96,9 +85,7 @@ const faqs = [
 ];
 
 function airportTaxiMessage(destination = "Colombo Airport transfer") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book a ${destination}. Flight number: ___ Arrival date/time: ___ Drop-off location: ___ Number of passengers: ___ Luggage: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book a ${destination}. Flight number: ___ Arrival date/time: ___ Drop-off location: ___ Number of passengers: ___ Luggage: ___`;
 }
 
 export default function ColomboAirportTaxi({ setPage }) {
@@ -112,7 +99,7 @@ export default function ColomboAirportTaxi({ setPage }) {
         alt="Colombo Airport taxi service in Sri Lanka"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${airportTaxiMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(airportTaxiMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book on WhatsApp
           </a>
@@ -154,7 +141,7 @@ export default function ColomboAirportTaxi({ setPage }) {
               <button type="button" onClick={() => setPage("home")}>
                 Homepage
               </button>
-              <a href={`https://wa.me/${contactInfo.whatsapp}?text=${airportTaxiMessage()}`} target="_blank" rel="noreferrer">
+              <a href={buildWhatsAppLink(airportTaxiMessage())} target="_blank" rel="noreferrer">
                 WhatsApp booking
               </a>
             </div>
@@ -190,7 +177,7 @@ export default function ColomboAirportTaxi({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${airportTaxiMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(airportTaxiMessage(route.title))} target="_blank" rel="noreferrer">
                     Ask route price
                   </a>
                 </div>
@@ -229,7 +216,7 @@ export default function ColomboAirportTaxi({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${airportTaxiMessage(`${vehicle.name} Colombo Airport taxi`)}`}
+                    href={buildWhatsAppLink(airportTaxiMessage(`${vehicle.name} Colombo Airport taxi`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -252,7 +239,7 @@ export default function ColomboAirportTaxi({ setPage }) {
               Send your flight details, destination, passenger count, and luggage information. We will reply with a fair quote and confirm your driver on WhatsApp.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${airportTaxiMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(airportTaxiMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book Airport Taxi
               </a>

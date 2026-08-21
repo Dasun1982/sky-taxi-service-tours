@@ -2,7 +2,9 @@ import { CalendarDays, Car, Clock3, Compass, Home, Luggage, MapPinned, MessageCi
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const dayTourRoutes = [
   {
@@ -38,49 +40,22 @@ const dayTourRoutes = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for short Sri Lanka day trips, airport pickup, and couple day tours.",
-  },
-  {
-    name: "Honda Insight",
-    image: images.hondaInsight,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Clean hybrid option for private day tour Sri Lanka routes and comfortable city-to-destination rides.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Luggage-friendly wagon for Sri Lanka day tours with driver, family trips, and airport-to-tour travel.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for hill country roads, beach routes, viewpoints, and longer one day tour Sri Lanka plans.",
-  },
-  {
-    name: "Honda Freed",
-    image: images.hondaFreed,
-    passengers: "Best for 1-5 passengers",
-    luggage: "Family luggage space",
-    text: "Family-friendly vehicle for custom day tours, luggage, airport pickup, and flexible local stops.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for group day tours Sri Lanka, Yala safari transfers, family trips, and island day routes.",
-  },
-];
+  ["toyota-prius", "Affordable private car for short Sri Lanka day trips, airport pickup, and couple day tours."],
+  ["honda-insight", "Clean hybrid option for private day tour Sri Lanka routes and comfortable city-to-destination rides."],
+  ["honda-shuttle", "Luggage-friendly wagon for Sri Lanka day tours with driver, family trips, and airport-to-tour travel."],
+  ["honda-vezel", "Comfortable SUV for hill country roads, beach routes, viewpoints, and longer one day tour Sri Lanka plans."],
+  ["honda-freed", "Family-friendly vehicle for custom day tours, luggage, airport pickup, and flexible local stops."],
+  ["toyota-kdh-van", "Spacious van for group day tours Sri Lanka, Yala safari transfers, family trips, and island day routes."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const highlights = [
   {
@@ -129,9 +104,7 @@ const faqs = [
 ];
 
 function dayToursMessage(topic = "day tours Sri Lanka") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Places I want to visit: ___ Date: ___ Number of people: ___ Budget: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Places I want to visit: ___ Date: ___ Number of people: ___ Budget: ___`;
 }
 
 export default function DayToursSriLanka({ setPage }) {
@@ -145,7 +118,7 @@ export default function DayToursSriLanka({ setPage }) {
         alt="Day tours Sri Lanka private one day trips with driver"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${dayToursMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(dayToursMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Day Tour
           </a>
@@ -227,7 +200,7 @@ export default function DayToursSriLanka({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${dayToursMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(dayToursMessage(route.title))} target="_blank" rel="noreferrer">
                     Ask about this trip
                   </a>
                 </div>
@@ -266,7 +239,7 @@ export default function DayToursSriLanka({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${dayToursMessage(`${vehicle.name} day tour`)}`}
+                    href={buildWhatsAppLink(dayToursMessage(`${vehicle.name} day tour`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -289,7 +262,7 @@ export default function DayToursSriLanka({ setPage }) {
               Send your pickup place, date, places you want to visit, number of people, luggage, and budget. We will help create a clear day tour plan and fair quote.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${dayToursMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(dayToursMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>

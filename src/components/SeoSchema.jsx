@@ -1,8 +1,8 @@
 import { useEffect, useMemo } from "react";
 import { brand, contactInfo, pageMeta } from "../data/travelData";
+import { website as SITE_URL } from "../data/business";
 import { schemaEnabledPages, schemaFaqs, schemaPageLabels } from "../data/schemaData";
 
-const SITE_URL = "https://skytaxisrilanka.com";
 const SCRIPT_PREFIX = "sky-jsonld-";
 
 function pagePath(page) {

@@ -117,6 +117,7 @@ export const navItems = [
   { label: "Home", page: "home" },
   { label: "Taxi", page: "taxi" },
   { label: "Tours", page: "tours" },
+  { label: "Destinations", page: "destinations" },
   { label: "Airport", page: "airport" },
   { label: "Booking", page: "booking" },
   { label: "Contact", page: "contact" },
@@ -153,6 +154,11 @@ export const pageMeta = {
     title: "Sri Lanka Tours | SKY Taxi Service & Tours",
     description:
       "Explore beaches, culture, wildlife, mountains, and adventure routes with affordable private Sri Lanka tours from SKY Taxi Service & Tours.",
+  },
+  destinations: {
+    title: "Sri Lanka Destinations | SKY Taxi Service & Tours",
+    description:
+      "Browse Sri Lanka destinations covered by SKY Taxi Service & Tours, from hill country towns to south coast beaches and the Cultural Triangle.",
   },
   "one-day-tours": {
     title: "One Day Tours in Sri Lanka | SKY Taxi Service & Tours",
@@ -359,6 +365,11 @@ export const pageMeta = {
     description:
       "Book Arugam Bay taxi service with SKY Taxi Service & Tours. Colombo airport transfers, surf trips, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
   },
+  "dambulla-taxi-service": {
+    title: "Dambulla Taxi Service | Cave Temple & Cultural Triangle Taxi",
+    description:
+      "Book a private Dambulla taxi with SKY Taxi Service & Tours. Colombo airport transfers, Dambulla Cave Temple, Cultural Triangle stops, and 24/7 WhatsApp booking.",
+  },
 };
 
 export const heroSlides = [
@@ -543,6 +554,7 @@ export const tours = [
     summary:
       "Travel into the hill country for Nine Arch Bridge, Little Adam's Peak, tea views, waterfalls, and cooler mountain air.",
     highlights: ["Nine Arch Bridge", "Train Ride", "Little Adam's Peak", "Tea Country Views"],
+    destinations: ["ella"],
   },
   {
     id: "galle-fort-south-coast",
@@ -554,6 +566,7 @@ export const tours = [
     summary:
       "Explore Galle Fort, Unawatuna, Jungle Beach, turtle hatchery, and south coast viewpoints.",
     highlights: ["Galle Fort", "Unawatuna", "Jungle Beach", "Turtle Hatchery"],
+    destinations: ["galle", "unawatuna"],
   },
   {
     id: "sigiriya-dambulla",
@@ -565,6 +578,7 @@ export const tours = [
     summary:
       "Visit Sigiriya Rock, Dambulla Cave Temple, Pidurangala, and cultural village areas.",
     highlights: ["Sigiriya Rock", "Dambulla Cave Temple", "Pidurangala", "Village Areas"],
+    destinations: ["sigiriya", "dambulla"],
   },
   {
     id: "kandy-culture",
@@ -576,6 +590,7 @@ export const tours = [
     summary:
       "Visit Temple of the Tooth, Kandy Lake, botanical gardens, and cultural viewpoints.",
     highlights: ["Temple of the Tooth", "Kandy Lake", "Botanical Gardens", "Cultural Viewpoints"],
+    destinations: ["kandy"],
   },
   {
     id: "mirissa-coast",
@@ -587,6 +602,7 @@ export const tours = [
     summary:
       "Enjoy whale watching, Coconut Tree Hill, beaches, and Weligama coast.",
     highlights: ["Whale Watching", "Coconut Tree Hill", "Mirissa Beaches", "Weligama Coast"],
+    destinations: ["mirissa", "weligama"],
   },
   {
     id: "yala-safari",
@@ -598,6 +614,7 @@ export const tours = [
     summary:
       "Wildlife safari with elephants, leopards, nature, and scenic stops.",
     highlights: ["Wildlife Safari", "Elephants", "Leopard Areas", "Scenic Stops"],
+    destinations: ["yala"],
   },
   {
     id: "hiriketiya-blue-beach",
@@ -609,6 +626,7 @@ export const tours = [
     summary:
       "Enjoy a relaxed beach route with Blue Beach, Hiriketiya surf bay, local food stops, and flexible coastal timing.",
     highlights: ["Blue Beach", "Hiriketiya bay", "Local beach stops"],
+    destinations: ["hiriketiya"],
   },
   {
     id: "pidurangala-viewpoint",
@@ -620,6 +638,7 @@ export const tours = [
     summary:
       "Plan a sunrise or sunset viewpoint route near Sigiriya with smooth private transport and flexible timing.",
     highlights: ["Pidurangala viewpoint", "Sigiriya views", "Sunrise or sunset timing"],
+    destinations: ["sigiriya"],
   },
   {
     id: "dambulla-temple-route",
@@ -631,6 +650,7 @@ export const tours = [
     summary:
       "Visit cave temples, Buddha statues, local culture stops, and calm viewpoints with a flexible route.",
     highlights: ["Dambulla Cave Temple", "Mihintale", "Temple Stops", "Local Culture"],
+    destinations: ["dambulla"],
   },
   {
     id: "boat-tour-coast",
@@ -642,6 +662,7 @@ export const tours = [
     summary:
       "Add a lagoon boat ride, beach stops, local food, and relaxed coastal travel with driver support.",
     highlights: ["Boat Tour", "Lagoon Route", "Beach Stops", "Friendly Driver"],
+    destinations: ["unawatuna"],
   },
 ];
 
@@ -704,6 +725,7 @@ export const packages = [
     alt: "Galle Fort lighthouse and ocean wall",
     text: "Galle Fort, Unawatuna, Dalawella, Weligama, and sunset beach stops with a friendly local driver.",
     points: ["Flexible pickup", "Clean vehicle", "Fair route quote"],
+    destinations: ["galle", "unawatuna", "weligama"],
   },
   {
     title: "Ella View Route",
@@ -712,6 +734,7 @@ export const packages = [
     alt: "Nine Arch Bridge in Ella",
     text: "Nine Arch Bridge, tea views, waterfalls, Little Adam's Peak area, and relaxed photo stops.",
     points: ["Comfortable long ride", "Scenic stops", "WhatsApp planning"],
+    destinations: ["ella"],
   },
   {
     title: "Airport to Beach",
@@ -720,6 +743,7 @@ export const packages = [
     alt: "Airport welcome transfer in Sri Lanka",
     text: "Safe airport transfer to Unawatuna, Galle, Mirissa, Weligama, or Hikkaduwa with clear pickup timing.",
     points: ["Flight timing", "Luggage space", "Hotel drop-off"],
+    destinations: ["unawatuna", "galle", "mirissa", "weligama"],
   },
   {
     title: "Sigiriya Culture Day",
@@ -728,6 +752,7 @@ export const packages = [
     alt: "Sigiriya Rock Fortress",
     text: "Sigiriya Rock Fortress, Dambulla Cave Temple, spice garden options, and local lunch stops.",
     points: ["Private day route", "Local stops", "Easy booking"],
+    destinations: ["sigiriya", "dambulla"],
   },
   {
     title: "Wildlife and Coast",
@@ -736,6 +761,7 @@ export const packages = [
     alt: "Safari route in Sri Lanka",
     text: "Yala safari transfer, south coast pickup, hotel drop-off, and family-friendly route planning.",
     points: ["Early pickup", "Group vehicle options", "Route planning"],
+    destinations: ["yala"],
   },
   {
     title: "Kandy and Hill Views",
@@ -744,6 +770,7 @@ export const packages = [
     alt: "Kandy Temple route in Sri Lanka",
     text: "Kandy Temple, scenic lake area, hill viewpoints, and onward route support to Ella or Sigiriya.",
     points: ["Temple stop", "Hill-country roads", "Private driver"],
+    destinations: ["kandy"],
   },
 ];
 

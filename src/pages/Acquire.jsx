@@ -19,11 +19,10 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
+import { aiPlannerUrl, email as founderEmail } from "../data/business";
 import { trackAcquisitionCta } from "../utils/analytics";
 
-const founderEmail = "dasunpunsiri@gmail.com";
 const acquisitionMail = `mailto:${founderEmail}?subject=Sky%20Taxi%20Sri%20Lanka%20Acquisition%20Details`;
-const aiPlannerUrl = "https://ai.skytaxisrilanka.com";
 const acquisitionPdfUrl = "/sky-ai-traveltech-acquisition-overview.pdf";
 const platformDemoUrl = "https://youtu.be/jmPyGNbCKk4";
 const pageSource = "acquire";

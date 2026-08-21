@@ -2,7 +2,9 @@ import { CalendarDays, Car, Clock3, Home, Luggage, MapPinned, MessageCircle, Pla
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const driverServices = [
   {
@@ -28,35 +30,20 @@ const driverServices = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable Sri Lanka private taxi option for airport transfers, city rides, and day tours.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Clean wagon option for families, hotel pickups, private driver trips, and flexible tours.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for couples, families, hill country routes, and longer private driver journeys.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for groups, round tours with driver, airport pickup, and island-wide travel.",
-  },
-];
+  ["toyota-prius", "Affordable Sri Lanka private taxi option for airport transfers, city rides, and day tours."],
+  ["honda-shuttle", "Clean wagon option for families, hotel pickups, private driver trips, and flexible tours."],
+  ["honda-vezel", "Comfortable SUV for couples, families, hill country routes, and longer private driver journeys."],
+  ["toyota-kdh-van", "Spacious van for groups, round tours with driver, airport pickup, and island-wide travel."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const highlights = [
   {
@@ -105,9 +92,7 @@ const faqs = [
 ];
 
 function privateDriverMessage(topic = "private driver Sri Lanka service") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Travel dates: ___ Places I want to visit: ___ Number of passengers: ___ Luggage: ___ Budget: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Travel dates: ___ Places I want to visit: ___ Number of passengers: ___ Luggage: ___ Budget: ___`;
 }
 
 export default function PrivateDriverSriLanka({ setPage }) {
@@ -121,7 +106,7 @@ export default function PrivateDriverSriLanka({ setPage }) {
         alt="Private driver Sri Lanka hill country route"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${privateDriverMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(privateDriverMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Hire Private Driver
           </a>
@@ -201,7 +186,7 @@ export default function PrivateDriverSriLanka({ setPage }) {
                 <div>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${privateDriverMessage(service.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(privateDriverMessage(service.title))} target="_blank" rel="noreferrer">
                     Ask driver price
                   </a>
                 </div>
@@ -240,7 +225,7 @@ export default function PrivateDriverSriLanka({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${privateDriverMessage(`${vehicle.name} private driver`)}`}
+                    href={buildWhatsAppLink(privateDriverMessage(`${vehicle.name} private driver`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -263,7 +248,7 @@ export default function PrivateDriverSriLanka({ setPage }) {
               Send your travel dates, pickup location, places you want to visit, number of passengers, luggage, and budget. We will reply with a fair quote and route plan on WhatsApp.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${privateDriverMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(privateDriverMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>

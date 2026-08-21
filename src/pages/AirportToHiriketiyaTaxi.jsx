@@ -2,7 +2,9 @@ import { Car, Clock3, Luggage, MapPinned, MessageCircle, Palmtree, Plane, Route,
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const routeDetails = [
   {
@@ -46,35 +48,20 @@ const surfStops = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for a smooth Colombo Airport to Hiriketiya taxi transfer.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Clean wagon option for airport to Hiriketiya taxi rides with extra room for bags.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for couples, families, and Hiriketiya surf transfers.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for families, groups, surfboards, and private transfers to Hiriketiya.",
-  },
-];
+  ["toyota-prius", "Affordable private car for a smooth Colombo Airport to Hiriketiya taxi transfer."],
+  ["honda-shuttle", "Clean wagon option for airport to Hiriketiya taxi rides with extra room for bags."],
+  ["honda-vezel", "Comfortable SUV for couples, families, and Hiriketiya surf transfers."],
+  ["toyota-kdh-van", "Spacious van for families, groups, surfboards, and private transfers to Hiriketiya."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const faqs = [
   {
@@ -105,9 +92,7 @@ const faqs = [
 ];
 
 function airportToHiriketiyaMessage(topic = "Colombo Airport to Hiriketiya taxi") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Drop-off in Hiriketiya: ___ Number of passengers: ___ Luggage/surfboards: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Drop-off in Hiriketiya: ___ Number of passengers: ___ Luggage/surfboards: ___`;
 }
 
 export default function AirportToHiriketiyaTaxi({ setPage }) {
@@ -121,7 +106,7 @@ export default function AirportToHiriketiyaTaxi({ setPage }) {
         alt="Colombo Airport to Hiriketiya taxi private surf beach transfer Sri Lanka"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${airportToHiriketiyaMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(airportToHiriketiyaMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Airport to Hiriketiya
           </a>
@@ -202,7 +187,7 @@ export default function AirportToHiriketiyaTaxi({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${airportToHiriketiyaMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(airportToHiriketiyaMessage(route.title))} target="_blank" rel="noreferrer">
                     Ask route price
                   </a>
                 </div>
@@ -241,7 +226,7 @@ export default function AirportToHiriketiyaTaxi({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${airportToHiriketiyaMessage(`${vehicle.name} airport to Hiriketiya taxi`)}`}
+                    href={buildWhatsAppLink(airportToHiriketiyaMessage(`${vehicle.name} airport to Hiriketiya taxi`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -264,7 +249,7 @@ export default function AirportToHiriketiyaTaxi({ setPage }) {
               Send your flight number, arrival time, Hiriketiya hotel or surf stay, passenger count, luggage, and surfboard details. We will reply with a fair route-based quote and confirm your driver.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${airportToHiriketiyaMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(airportToHiriketiyaMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>

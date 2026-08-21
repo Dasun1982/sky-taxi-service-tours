@@ -1,7 +1,7 @@
 import { MessageCircle, Moon, Sun } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo } from "../data/travelData";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 export default function BottomActionBar({ darkMode, toggleTheme }) {
   const { t } = useLanguage();
@@ -11,7 +11,7 @@ export default function BottomActionBar({ darkMode, toggleTheme }) {
       <div className="bottom-action-bar">
         <a
           className="icon-button bottom-action-button bottom-action-button--whatsapp"
-          href={`https://wa.me/${contactInfo.whatsapp}`}
+          href={buildWhatsAppLink()}
           target="_blank"
           rel="noreferrer"
           aria-label={t("common.whatsapp")}

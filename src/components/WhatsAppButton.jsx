@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo } from "../data/travelData";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 export default function WhatsAppButton() {
   const { t } = useLanguage();
@@ -8,7 +8,7 @@ export default function WhatsAppButton() {
   return (
     <a
       className="floating-whatsapp"
-      href={`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(t("messages.floatingWhatsapp"))}`}
+      href={buildWhatsAppLink(t("messages.floatingWhatsapp"))}
       target="_blank"
       rel="noreferrer"
       aria-label={t("common.bookOnWhatsApp")}

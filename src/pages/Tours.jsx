@@ -4,7 +4,21 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo, images, tours } from "../data/travelData";
+import { images, tours } from "../data/travelData";
+import { findDestination } from "../data/destinations";
+import { findTourPricing, tours as tourCatalog } from "../data/tours";
+import { buildWhatsAppLink } from "../utils/whatsapp";
+import { setBookingContext } from "../utils/bookingContext";
+
+const dayTourCatalog = tourCatalog.filter((tour) => tour.type === "day-tour");
+const roundTourCatalog = tourCatalog.filter((tour) => tour.type === "round-tour");
+
+function destinationNames(destinationIds) {
+  return destinationIds
+    .map((id) => findDestination(id)?.name)
+    .filter(Boolean)
+    .join(", ");
+}
 
 const tourTypes = [
   {
@@ -28,8 +42,23 @@ const tourTypes = [
 export default function Tours({ setPage }) {
   const { t } = useLanguage();
   const tourIdeasRef = useRef(null);
-  const goToBooking = () => setPage("booking");
-  const customTourMessage = encodeURIComponent(t("messages.customTour"));
+  const goToBooking = (tour) => {
+    // This carousel's `tour` comes from travelData.js's thematic idea list,
+    // not the tours.js catalog, so it has no id that findTour() can resolve —
+    // deliberately leaving tourId unset rather than passing a non-matching id.
+    setBookingContext({ tripType: "Private tour", message: tour.title, source: "tour-page" });
+    setPage("booking");
+  };
+  const goToBookingForCatalogTour = (tour, pricing) => {
+    setBookingContext({
+      tripType: tour.type === "day-tour" ? "Private tour" : "Round tour",
+      message: pricing ? `${tour.name} (${pricing.price})` : tour.name,
+      source: "tour-page",
+      tourId: tour.id,
+    });
+    setPage("booking");
+  };
+  const customTourMessage = t("messages.customTour");
 
   const scrollTourIdeas = (direction) => {
     tourIdeasRef.current?.scrollBy({ left: direction * 380, behavior: "smooth" });
@@ -44,7 +73,7 @@ export default function Tours({ setPage }) {
         image={images.sigiriya}
         alt="Sigiriya Rock Fortress"
       >
-        <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+        <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
           <MessageCircle size={19} />
           {t("common.planOnWhatsApp")}
         </a>
@@ -126,13 +155,73 @@ export default function Tours({ setPage }) {
                       <span key={place}>{t(`tours.ideas.${index}.highlights.${placeIndex}`, place)}</span>
                     ))}
                   </div>
-                  <button className="text-button" type="button" onClick={goToBooking}>
+                  <button className="text-button" type="button" onClick={() => goToBooking(tour)}>
                     {t("common.planThisTour")}
                     <ArrowRight size={16} />
                   </button>
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section tour-catalog-section">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="Tour catalog"
+            title="Browse real tours with prices"
+            text="Every tour below has a confirmed price and a full itinerary. Final details are always confirmed on WhatsApp before booking."
+          />
+          <h3 className="tour-catalog-group-title">One Day Tours</h3>
+          <div className="pricing-grid">
+            {dayTourCatalog.map((tour) => {
+              const pricing = findTourPricing(tour.id);
+              return (
+                <article className="pricing-card" key={tour.id}>
+                  {pricing && <span className="pricing-card__label">{pricing.price}</span>}
+                  <h3>{tour.name}</h3>
+                  <p>
+                    {tour.duration} &middot; {destinationNames(tour.destinations)}
+                  </p>
+                  <div className="tour-catalog-card__actions">
+                    <a className="text-button" href={`/${tour.page}`}>
+                      View full itinerary
+                      <ArrowRight size={17} />
+                    </a>
+                    <button className="text-button" type="button" onClick={() => goToBookingForCatalogTour(tour, pricing)}>
+                      Book this tour
+                      <ArrowRight size={17} />
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <h3 className="tour-catalog-group-title">Round Tours Around Sri Lanka</h3>
+          <div className="pricing-grid">
+            {roundTourCatalog.map((tour) => {
+              const pricing = findTourPricing(tour.id);
+              return (
+                <article className="pricing-card" key={tour.id}>
+                  {pricing && <span className="pricing-card__label">{pricing.price}</span>}
+                  <h3>{tour.name}</h3>
+                  <p>
+                    {tour.duration} &middot; {destinationNames(tour.destinations)}
+                  </p>
+                  <div className="tour-catalog-card__actions">
+                    <a className="text-button" href={`/${tour.page}`}>
+                      View full itinerary
+                      <ArrowRight size={17} />
+                    </a>
+                    <button className="text-button" type="button" onClick={() => goToBookingForCatalogTour(tour, pricing)}>
+                      Book this tour
+                      <ArrowRight size={17} />
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -148,7 +237,7 @@ export default function Tours({ setPage }) {
             <div className="cta-actions">
               <a
                 className="button button--primary"
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${customTourMessage}`}
+                href={buildWhatsAppLink(customTourMessage)}
                 target="_blank"
                 rel="noreferrer"
               >

@@ -20,9 +20,9 @@ import {
   Sparkles,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
+import { aiPlannerUrl, email as contactEmail, website } from "../data/business";
 import { trackAcquisitionCta } from "../utils/analytics";
 
-const contactEmail = "dasunpunsiri@gmail.com";
 const platformDemoUrl = "https://youtu.be/jmPyGNbCKk4";
 const acquisitionMail = `mailto:${contactEmail}?subject=Sky%20AI%20TravelTech%20Acquisition%20Overview`;
 const pageSource = "acquisition-overview";
@@ -43,13 +43,13 @@ const platformAssets = [
 const livePlatforms = [
   {
     title: "Main tourism platform",
-    url: "https://skytaxisrilanka.com",
+    url: website,
     text: "Production deployment for the live tourism website, mobile-ready UX, SEO infrastructure, and real tourism business integration.",
     icon: Globe2,
   },
   {
     title: "AI planning platform",
-    url: "https://ai.skytaxisrilanka.com",
+    url: aiPlannerUrl,
     text: "Live AI planning infrastructure for itinerary generation, route-aware planning, and tourism inquiry preparation.",
     icon: Bot,
   },

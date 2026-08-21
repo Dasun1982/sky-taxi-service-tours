@@ -2,7 +2,9 @@ import { BadgeCheck, Car, Clock3, DollarSign, Home, Luggage, MapPinned, MessageC
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const budgetServices = [
   {
@@ -28,35 +30,20 @@ const budgetServices = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Budget-friendly hybrid car for cheap taxi Sri Lanka routes, airport transfers, and city rides.",
-  },
-  {
-    name: "Honda Insight",
-    image: images.hondaInsight,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Clean hybrid option for affordable taxi Sri Lanka trips and private transfers.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Good choice for families who need more luggage space while keeping prices fair.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Group-friendly van for budget airport transfer Sri Lanka routes and family travel.",
-  },
-];
+  ["toyota-prius", "Budget-friendly hybrid car for cheap taxi Sri Lanka routes, airport transfers, and city rides."],
+  ["honda-insight", "Clean hybrid option for affordable taxi Sri Lanka trips and private transfers."],
+  ["honda-shuttle", "Good choice for families who need more luggage space while keeping prices fair."],
+  ["toyota-kdh-van", "Group-friendly van for budget airport transfer Sri Lanka routes and family travel."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const pricePoints = [
   {
@@ -105,9 +92,7 @@ const faqs = [
 ];
 
 function budgetTaxiMessage(topic = "budget taxi Sri Lanka service") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off location: ___ Date/time: ___ Number of passengers: ___ Luggage: ___ Budget: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off location: ___ Date/time: ___ Number of passengers: ___ Luggage: ___ Budget: ___`;
 }
 
 export default function BudgetTaxiSriLanka({ setPage }) {
@@ -121,7 +106,7 @@ export default function BudgetTaxiSriLanka({ setPage }) {
         alt="Budget taxi Sri Lanka private car"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${budgetTaxiMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(budgetTaxiMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Ask Budget Price
           </a>
@@ -200,7 +185,7 @@ export default function BudgetTaxiSriLanka({ setPage }) {
                 <div>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${budgetTaxiMessage(service.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(budgetTaxiMessage(service.title))} target="_blank" rel="noreferrer">
                     Ask fair price
                   </a>
                 </div>
@@ -239,7 +224,7 @@ export default function BudgetTaxiSriLanka({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${budgetTaxiMessage(`${vehicle.name} budget taxi`)}`}
+                    href={buildWhatsAppLink(budgetTaxiMessage(`${vehicle.name} budget taxi`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -262,7 +247,7 @@ export default function BudgetTaxiSriLanka({ setPage }) {
               Send your pickup location, destination, date, time, passengers, luggage, and budget. We will reply with a fair route-based quote on WhatsApp.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${budgetTaxiMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(budgetTaxiMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Ask Price on WhatsApp
               </a>

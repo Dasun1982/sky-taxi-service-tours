@@ -8,12 +8,14 @@ import PremiumCursor from "./components/PremiumCursor";
 import SeoSchema from "./components/SeoSchema";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { pageMeta } from "./data/travelData";
+import { website as SITE_URL } from "./data/business";
 import Acquire from "./pages/Acquire";
 import AcquisitionOverview from "./pages/AcquisitionOverview";
 import AiSystem from "./pages/AiSystem";
 import AirportTransfers from "./pages/AirportTransfers";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
+import Destinations from "./pages/Destinations";
 import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
 import Packages from "./pages/Packages";
@@ -22,6 +24,7 @@ import RoundTours from "./pages/RoundTours";
 import TaxiService from "./pages/TaxiService";
 import Tours from "./pages/Tours";
 import About from "./pages/About";
+import Testimonials from "./pages/Testimonials";
 import VehicleRentals from "./pages/VehicleRentals";
 import Valuation from "./pages/Valuation";
 import ColomboAirportTaxi from "./pages/ColomboAirportTaxi";
@@ -54,6 +57,7 @@ import NuwaraEliyaTaxiService from "./pages/NuwaraEliyaTaxiService";
 import BentotaTaxiService from "./pages/BentotaTaxiService";
 import NegomboTaxiService from "./pages/NegomboTaxiService";
 import ArugamBayTaxiService from "./pages/ArugamBayTaxiService";
+import DambullaTaxiService from "./pages/DambullaTaxiService";
 
 const pages = {
   home: Home,
@@ -62,6 +66,7 @@ const pages = {
   "ai-system": AiSystem,
   valuation: Valuation,
   tours: Tours,
+  destinations: Destinations,
   "one-day-tours": OneDayTours,
   "round-tours": RoundTours,
   taxi: TaxiService,
@@ -70,6 +75,7 @@ const pages = {
   gallery: Gallery,
   booking: Booking,
   about: About,
+  testimonials: Testimonials,
   contact: Contact,
   rentals: VehicleRentals,
   "vehicle-rentals": VehicleRentals,
@@ -103,6 +109,7 @@ const pages = {
   "bentota-taxi-service": BentotaTaxiService,
   "negombo-taxi-service": NegomboTaxiService,
   "arugam-bay-taxi-service": ArugamBayTaxiService,
+  "dambulla-taxi-service": DambullaTaxiService,
 };
 
 function getPageFromHash() {
@@ -121,6 +128,31 @@ function ensureMetaTag(name, content) {
     document.head.appendChild(tag);
   }
   tag.setAttribute("content", content);
+}
+
+// Open Graph/Twitter tags use `property`/`name` attributes that index.html
+// only ever set once, statically, for the home page — a page shared on
+// WhatsApp/Facebook/Twitter/etc. always showed the SAME title/description
+// regardless of which page was actually open. This mirrors ensureMetaTag's
+// pattern but for `property="og:...”`, so every page gets its own.
+function ensurePropertyMetaTag(property, content) {
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute("property", property);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("content", content);
+}
+
+function ensureCanonicalLink(href) {
+  let link = document.querySelector('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", "canonical");
+    document.head.appendChild(link);
+  }
+  link.setAttribute("href", href);
 }
 
 function routeHash(page) {
@@ -188,8 +220,24 @@ function AppShell() {
 
   useEffect(() => {
     const meta = pageMeta[activePage] || pageMeta.home;
-    document.title = t(`meta.${activePage}.title`, meta.title);
-    ensureMetaTag("description", t(`meta.${activePage}.description`, meta.description));
+    const title = t(`meta.${activePage}.title`, meta.title);
+    const description = t(`meta.${activePage}.description`, meta.description);
+    const canonicalUrl = `${SITE_URL}${activePage === "home" ? "/" : `/${activePage}`}`;
+
+    document.title = title;
+    ensureMetaTag("description", description);
+    // Previously static in index.html (always the home page's own
+    // title/description/URL) — a link to any other page shared on
+    // WhatsApp/Facebook/Twitter showed the wrong preview. Now kept in
+    // sync with the same per-page data driving the <title>/description
+    // above.
+    ensurePropertyMetaTag("og:title", title);
+    ensurePropertyMetaTag("og:description", description);
+    ensurePropertyMetaTag("og:url", canonicalUrl);
+    ensureMetaTag("twitter:card", "summary_large_image");
+    ensureMetaTag("twitter:title", title);
+    ensureMetaTag("twitter:description", description);
+    ensureCanonicalLink(canonicalUrl);
   }, [activePage, t]);
 
   useEffect(() => {

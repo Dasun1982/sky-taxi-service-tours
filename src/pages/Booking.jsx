@@ -5,7 +5,8 @@ import PricingCard from "../components/PricingCard";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
-import { bookingVisuals, contactInfo, images, pricingCards } from "../data/travelData";
+import { bookingVisuals, images, pricingCards } from "../data/travelData";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 export default function Booking() {
   const { t } = useLanguage();
@@ -20,7 +21,7 @@ export default function Booking() {
         alt="Sri Lanka scenic train ride and hill country route"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             {t("common.bookOnWhatsApp")}
           </a>

@@ -2,64 +2,33 @@ import { ArrowRight, Car, Clock, Luggage, MapPinned, MessageCircle, Plane, Shiel
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { taxiFleet } from "../data/vehicles";
+import { findAirportPricing } from "../data/pricing";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
-const airportVehiclePrices = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    alt: "Toyota Prius airport transfer vehicle",
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    unawatuna: "$49.99",
-    weligama: "$54.99",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    alt: "Honda Shuttle airport transfer vehicle",
-    passengers: "Best for 1-4 passengers",
-    luggage: "3 medium bags",
-    unawatuna: "$49.99",
-    weligama: "$54.99",
-  },
-  {
-    name: "Honda Insight",
-    image: images.hondaInsight,
-    alt: "Honda Insight airport transfer vehicle",
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    unawatuna: "$49.99",
-    weligama: "$54.99",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    alt: "Honda Vezel airport transfer vehicle",
-    passengers: "Best for 1-4 passengers",
-    luggage: "3 medium bags",
-    unawatuna: "$59.99",
-    weligama: "$64.99",
-  },
-  {
-    name: "Honda Freed",
-    image: images.hondaFreed,
-    alt: "Honda Freed airport transfer vehicle",
-    passengers: "Best for 1-5 passengers",
-    luggage: "Family luggage space",
-    unawatuna: "$59.99",
-    weligama: "$64.99",
-  },
-  {
-    name: "Toyota KDH",
-    image: images.toyotaKdh,
-    alt: "Toyota KDH van airport transfer vehicle",
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    unawatuna: "$65.99",
-    weligama: "$69.99",
-  },
-];
+const airportVehicleAlts = {
+  "toyota-prius": "Toyota Prius airport transfer vehicle",
+  "honda-shuttle": "Honda Shuttle airport transfer vehicle",
+  "honda-insight": "Honda Insight airport transfer vehicle",
+  "honda-vezel": "Honda Vezel airport transfer vehicle",
+  "honda-freed": "Honda Freed airport transfer vehicle",
+  "toyota-kdh-van": "Toyota KDH van airport transfer vehicle",
+};
+
+const airportVehiclePrices = taxiFleet.map((vehicle) => {
+  const pricing = findAirportPricing(vehicle.id);
+  return {
+    id: vehicle.id,
+    name: vehicle.name,
+    image: vehicle.image,
+    alt: airportVehicleAlts[vehicle.id] || `${vehicle.name} airport transfer vehicle`,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.luggageCapacity,
+    unawatuna: pricing.routes.unawatuna,
+    weligama: pricing.routes.weligama,
+  };
+});
 
 const customAirportDestinations = ["Ella", "Mirissa", "Galle", "Ahangama", "Hiriketiya", "Colombo", "Kandy", "Sigiriya", "Nuwara Eliya"];
 
@@ -93,18 +62,10 @@ const airportBenefits = [
   },
 ];
 
-function transferMessage(vehicleName) {
-  return vehicleName;
-}
-
-function customAirportMessage() {
-  return "custom";
-}
-
 export default function AirportTransfers({ setPage }) {
   const { t } = useLanguage();
-  const getTransferMessage = (vehicleName) => encodeURIComponent(t("messages.airportVehicle", undefined, { name: vehicleName }));
-  const getCustomAirportMessage = () => encodeURIComponent(t("messages.airportCustom"));
+  const getTransferMessage = (vehicleName) => t("messages.airportVehicle", undefined, { name: vehicleName });
+  const getCustomAirportMessage = () => t("messages.airportCustom");
 
   const handleHeroPointerMove = (event) => {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
@@ -145,7 +106,7 @@ export default function AirportTransfers({ setPage }) {
               {t("airport.hero.book")}
               <ArrowRight size={19} />
             </button>
-            <a className="button button--light" href={`https://wa.me/${contactInfo.whatsapp}?text=${getCustomAirportMessage()}`} target="_blank" rel="noreferrer">
+            <a className="button button--light" href={buildWhatsAppLink(getCustomAirportMessage())} target="_blank" rel="noreferrer">
               <MessageCircle size={18} />
               {t("airport.hero.ask")}
             </a>
@@ -222,7 +183,7 @@ export default function AirportTransfers({ setPage }) {
                   </div>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${getTransferMessage(vehicle.name)}`}
+                    href={buildWhatsAppLink(getTransferMessage(vehicle.name))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -245,7 +206,7 @@ export default function AirportTransfers({ setPage }) {
               </p>
               <a
                 className="button button--primary airport-custom-transfer__button"
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${getCustomAirportMessage()}`}
+                href={buildWhatsAppLink(getCustomAirportMessage())}
                 target="_blank"
                 rel="noreferrer"
               >

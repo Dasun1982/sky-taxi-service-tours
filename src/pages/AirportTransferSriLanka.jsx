@@ -2,7 +2,9 @@ import { Car, Clock3, Home, Languages, Luggage, MapPinned, MessageCircle, Plane,
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const destinations = [
   {
@@ -38,35 +40,20 @@ const destinations = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private airport transfer car for couples, solo travelers, and city routes.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Clean wagon option for airport pickup, hotel transfers, and family travel.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for private airport transfers and longer island-wide routes.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for groups, families, airport transfers, and private tours.",
-  },
-];
+  ["toyota-prius", "Affordable private airport transfer car for couples, solo travelers, and city routes."],
+  ["honda-shuttle", "Clean wagon option for airport pickup, hotel transfers, and family travel."],
+  ["honda-vezel", "Comfortable SUV for private airport transfers and longer island-wide routes."],
+  ["toyota-kdh-van", "Spacious van for groups, families, airport transfers, and private tours."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const benefits = [
   {
@@ -114,9 +101,7 @@ const faqs = [
 ];
 
 function transferMessage(topic = "Airport Transfer Sri Lanka") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Pickup airport: ___ Drop-off location: ___ Number of passengers: ___ Luggage: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Pickup airport: ___ Drop-off location: ___ Number of passengers: ___ Luggage: ___`;
 }
 
 export default function AirportTransferSriLanka({ setPage }) {
@@ -130,7 +115,7 @@ export default function AirportTransferSriLanka({ setPage }) {
         alt="Airport transfer Sri Lanka private taxi service"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${transferMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(transferMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Airport Transfer
           </a>
@@ -204,7 +189,7 @@ export default function AirportTransferSriLanka({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${transferMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(transferMessage(route.title))} target="_blank" rel="noreferrer">
                     Ask transfer price
                   </a>
                 </div>
@@ -243,7 +228,7 @@ export default function AirportTransferSriLanka({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${transferMessage(`${vehicle.name} airport transfer`)}`}
+                    href={buildWhatsAppLink(transferMessage(`${vehicle.name} airport transfer`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -266,7 +251,7 @@ export default function AirportTransferSriLanka({ setPage }) {
               Send your flight number, arrival time, destination, passengers, and luggage. We will confirm your private driver and route price on WhatsApp.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${transferMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(transferMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>

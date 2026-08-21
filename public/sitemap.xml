@@ -5,6 +5,58 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://skytaxisrilanka.com/booking</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/tours</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/destinations</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/taxi</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/one-day-tours</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/round-tours</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/vehicle-rentals</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/packages</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/contact</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/about</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/gallery</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/testimonials</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://skytaxisrilanka.com/colombo-airport-taxi</loc>
     <priority>0.9</priority>
   </url>
@@ -122,6 +174,10 @@
   </url>
   <url>
     <loc>https://skytaxisrilanka.com/arugam-bay-taxi-service</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/dambulla-taxi-service</loc>
     <priority>0.9</priority>
   </url>
 </urlset>

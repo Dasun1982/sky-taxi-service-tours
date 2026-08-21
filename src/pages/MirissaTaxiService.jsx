@@ -2,7 +2,11 @@ import { Camera, Car, Clock3, Home, Luggage, MapPinned, MessageCircle, Plane, Sh
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedTours from "../components/RelatedTours";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const mirissaRoutes = [
   {
@@ -28,35 +32,20 @@ const mirissaRoutes = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for a smooth Mirissa taxi ride and airport transfer.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Clean wagon option for airport pickups, Mirissa Beach routes, and hotel transfers.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for couples, families, and longer south coast travel.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for families, groups, Mirissa taxi service Sri Lanka routes, and private tours.",
-  },
-];
+  ["toyota-prius", "Affordable private car for a smooth Mirissa taxi ride and airport transfer."],
+  ["honda-shuttle", "Clean wagon option for airport pickups, Mirissa Beach routes, and hotel transfers."],
+  ["honda-vezel", "Comfortable SUV for couples, families, and longer south coast travel."],
+  ["toyota-kdh-van", "Spacious van for families, groups, Mirissa taxi service Sri Lanka routes, and private tours."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const highlights = [
   {
@@ -105,9 +94,7 @@ const faqs = [
 ];
 
 function mirissaTaxiMessage(topic = "Mirissa taxi service") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off in Mirissa: ___ Date/time: ___ Number of passengers: ___ Luggage: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Drop-off in Mirissa: ___ Date/time: ___ Number of passengers: ___ Luggage: ___`;
 }
 
 export default function MirissaTaxiService({ setPage }) {
@@ -121,7 +108,7 @@ export default function MirissaTaxiService({ setPage }) {
         alt="Mirissa taxi service and whale watching transfer Sri Lanka"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${mirissaTaxiMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(mirissaTaxiMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Mirissa Taxi
           </a>
@@ -198,7 +185,7 @@ export default function MirissaTaxiService({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${mirissaTaxiMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(mirissaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
                     Ask route price
                   </a>
                 </div>
@@ -237,7 +224,7 @@ export default function MirissaTaxiService({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${mirissaTaxiMessage(`${vehicle.name} Mirissa taxi`)}`}
+                    href={buildWhatsAppLink(mirissaTaxiMessage(`${vehicle.name} Mirissa taxi`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -260,7 +247,7 @@ export default function MirissaTaxiService({ setPage }) {
               Send your pickup location, Mirissa hotel, date, time, passengers, and luggage. We will reply with a fair quote and help plan whale watching or south coast stops if needed.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${mirissaTaxiMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(mirissaTaxiMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>
@@ -292,6 +279,9 @@ export default function MirissaTaxiService({ setPage }) {
           </div>
         </div>
       </section>
+
+      <RelatedTours destinationId="mirissa" soft />
+      <RelatedDestinations destinationId="mirissa" soft={false} />
     </div>
   );
 }

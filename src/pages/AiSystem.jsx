@@ -17,8 +17,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
-
-const aiPlannerUrl = "https://ai.skytaxisrilanka.com";
+import { aiPlannerUrl } from "../data/business";
 
 const intelligenceItems = [
   {

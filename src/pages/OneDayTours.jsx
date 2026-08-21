@@ -5,12 +5,15 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findOneDayTourPricing } from "../data/pricing";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const oneDayTours = [
   {
+    id: "ella-one-day-trip",
     title: "One-Day Trip in Ella",
-    price: "$120",
+    price: findOneDayTourPricing("ella-one-day-trip").price,
     image: images.nineArchBridge,
     alt: "Nine Arch Bridge in Ella",
     shortText:
@@ -58,8 +61,9 @@ const oneDayTours = [
     notIncluded: ["Entrance fees", "Meals and refreshments"],
   },
   {
+    id: "sinharaja-one-day-trip",
     title: "One-Day Trip in Sinharaja",
-    price: "$84",
+    price: findOneDayTourPricing("sinharaja-one-day-trip").price,
     image: images.monkey,
     alt: "Rainforest wildlife in Sri Lanka",
     shortText:
@@ -96,8 +100,9 @@ const oneDayTours = [
     notIncluded: ["Entrance fees", "Meals and refreshments"],
   },
   {
+    id: "kandy-one-day-trip",
     title: "One-Day Trip in Kandy",
-    price: "$117",
+    price: findOneDayTourPricing("kandy-one-day-trip").price,
     image: images.kandyTemple,
     alt: "Kandy Temple of the Tooth",
     shortText:
@@ -138,8 +143,9 @@ const oneDayTours = [
     notIncluded: ["Entrance fees", "Meals and refreshments"],
   },
   {
+    id: "colombo-one-day-trip",
     title: "One-Day Trip in Colombo",
-    price: "$84",
+    price: findOneDayTourPricing("colombo-one-day-trip").price,
     image: images.colomboCulture,
     alt: "Colombo city culture route",
     shortText:
@@ -207,14 +213,6 @@ const customTourIdeas = [
   "Kandy culture + temple + botanical garden",
 ];
 
-function tourMessage(tourName) {
-  return tourName;
-}
-
-function customTourMessage() {
-  return "custom";
-}
-
 export default function OneDayTours() {
   const { t } = useLanguage();
   const [activeTour, setActiveTour] = useState(null);
@@ -268,8 +266,8 @@ export default function OneDayTours() {
     };
   }, []);
 
-  const getTourMessage = (tourName) => encodeURIComponent(t("messages.oneDayTour", undefined, { name: tourName }));
-  const getCustomTourMessage = () => encodeURIComponent(t("messages.oneDayCustom"));
+  const getTourMessage = (tourName) => t("messages.oneDayTour", undefined, { name: tourName });
+  const getCustomTourMessage = () => t("messages.oneDayCustom");
   const getTourTitle = (tour) => t(`oneDay.packages.${tour.index}.title`, tour.title);
   const getTourShortText = (tour) => t(`oneDay.packages.${tour.index}.shortText`, tour.shortText);
   const getTourDuration = (tour) => t(`oneDay.packages.${tour.index}.duration`, tour.duration);
@@ -285,7 +283,7 @@ export default function OneDayTours() {
         image={images.nineArchBridge}
         alt="Nine Arch Bridge in Ella"
       >
-        <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+        <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
           <MessageCircle size={19} />
           {t("common.askOnWhatsApp")}
         </a>
@@ -332,7 +330,7 @@ export default function OneDayTours() {
                     </button>
                     <a
                       className="button button--primary"
-                      href={`https://wa.me/${contactInfo.whatsapp}?text=${getTourMessage(getTourTitle(translatedTour))}`}
+                      href={buildWhatsAppLink(getTourMessage(getTourTitle(translatedTour)))}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -356,7 +354,7 @@ export default function OneDayTours() {
               <p>{t("oneDay.custom.text")}</p>
               <a
                 className="button button--primary one-day-custom-tour__button"
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${getCustomTourMessage()}`}
+                href={buildWhatsAppLink(getCustomTourMessage())}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -502,7 +500,7 @@ export default function OneDayTours() {
 
                   <a
                     className="button button--primary one-day-modal__side-action"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${getTourMessage(getTourTitle(activeTour))}`}
+                    href={buildWhatsAppLink(getTourMessage(getTourTitle(activeTour)))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -514,7 +512,7 @@ export default function OneDayTours() {
 
               <a
                 className="button button--primary one-day-modal__mobile-sticky"
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${getTourMessage(getTourTitle(activeTour))}`}
+                href={buildWhatsAppLink(getTourMessage(getTourTitle(activeTour)))}
                 target="_blank"
                 rel="noreferrer"
               >

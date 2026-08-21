@@ -4,7 +4,8 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo, images, packages } from "../data/travelData";
+import { images, packages } from "../data/travelData";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 export default function Packages({ setPage }) {
   const { t } = useLanguage();
@@ -18,7 +19,7 @@ export default function Packages({ setPage }) {
         image={images.pidurangala}
         alt="Pidurangala viewpoint near Sigiriya"
       >
-        <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+        <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
           <MessageCircle size={19} />
           {t("common.bookOnWhatsApp")}
         </a>

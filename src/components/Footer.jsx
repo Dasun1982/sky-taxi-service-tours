@@ -1,6 +1,7 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { brand, contactInfo, images } from "../data/travelData";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 export default function Footer({ setPage }) {
   const { t } = useLanguage();
@@ -11,6 +12,7 @@ export default function Footer({ setPage }) {
     { label: "Airport Transfers", page: "airport" },
     { label: "Booking", page: "booking" },
     { label: "About", page: "about" },
+    { label: "Testimonials", page: "testimonials" },
     { label: "Vehicle Rentals", page: "vehicle-rentals" },
   ];
 
@@ -41,7 +43,7 @@ export default function Footer({ setPage }) {
         </div>
 
         <div className="footer__social">
-          <a href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer" aria-label={t("common.whatsapp")}>
+          <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer" aria-label={t("common.whatsapp")}>
             <MessageCircle size={19} />
             {t("common.whatsapp")}
           </a>

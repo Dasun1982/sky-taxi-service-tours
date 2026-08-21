@@ -2,7 +2,9 @@ import { Car, Clock3, Landmark, Luggage, MapPinned, MessageCircle, Palmtree, Pla
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { findTaxiVehicle } from "../data/vehicles";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const routeDetails = [
   {
@@ -46,35 +48,20 @@ const coastalStops = [
 ];
 
 const vehicles = [
-  {
-    name: "Toyota Prius",
-    image: images.toyotaPrius,
-    passengers: "Best for 1-3 passengers",
-    luggage: "2 medium bags",
-    text: "Affordable private car for a smooth Colombo Airport to Galle taxi transfer.",
-  },
-  {
-    name: "Honda Shuttle",
-    image: images.hondaShuttle,
-    passengers: "Best for 1-4 passengers",
-    luggage: "Comfortable luggage space",
-    text: "Clean wagon option for airport to Galle taxi rides with extra room for bags.",
-  },
-  {
-    name: "Honda Vezel",
-    image: images.hondaVezel,
-    passengers: "Best for 1-4 passengers",
-    luggage: "SUV luggage space",
-    text: "Comfortable SUV for couples, families, and south coast transfers.",
-  },
-  {
-    name: "Toyota KDH Van",
-    image: images.toyotaKdh,
-    passengers: "Best for 1-8 passengers",
-    luggage: "Large group luggage",
-    text: "Spacious van for families and groups booking a private transfer to Galle.",
-  },
-];
+  ["toyota-prius", "Affordable private car for a smooth Colombo Airport to Galle taxi transfer."],
+  ["honda-shuttle", "Clean wagon option for airport to Galle taxi rides with extra room for bags."],
+  ["honda-vezel", "Comfortable SUV for couples, families, and south coast transfers."],
+  ["toyota-kdh-van", "Spacious van for families and groups booking a private transfer to Galle."],
+].map(([id, text]) => {
+  const vehicle = findTaxiVehicle(id);
+  return {
+    name: vehicle.name,
+    image: vehicle.image,
+    passengers: vehicle.passengerCapacity,
+    luggage: vehicle.routeLuggageNote,
+    text,
+  };
+});
 
 const faqs = [
   {
@@ -105,9 +92,7 @@ const faqs = [
 ];
 
 function airportToGalleMessage(topic = "Colombo Airport to Galle taxi") {
-  return encodeURIComponent(
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Drop-off in Galle: ___ Number of passengers: ___ Luggage: ___`,
-  );
+  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Drop-off in Galle: ___ Number of passengers: ___ Luggage: ___`;
 }
 
 export default function AirportToGalleTaxi({ setPage }) {
@@ -121,7 +106,7 @@ export default function AirportToGalleTaxi({ setPage }) {
         alt="Colombo Airport to Galle taxi private transfer Sri Lanka"
       >
         <div className="premium-hero-actions">
-          <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${airportToGalleMessage()}`} target="_blank" rel="noreferrer">
+          <a className="button button--primary" href={buildWhatsAppLink(airportToGalleMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
             Book Airport to Galle
           </a>
@@ -201,7 +186,7 @@ export default function AirportToGalleTaxi({ setPage }) {
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={`https://wa.me/${contactInfo.whatsapp}?text=${airportToGalleMessage(route.title)}`} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(airportToGalleMessage(route.title))} target="_blank" rel="noreferrer">
                     Ask route price
                   </a>
                 </div>
@@ -240,7 +225,7 @@ export default function AirportToGalleTaxi({ setPage }) {
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${airportToGalleMessage(`${vehicle.name} airport to Galle taxi`)}`}
+                    href={buildWhatsAppLink(airportToGalleMessage(`${vehicle.name} airport to Galle taxi`))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -263,7 +248,7 @@ export default function AirportToGalleTaxi({ setPage }) {
               Send your flight number, arrival time, Galle hotel or beach destination, passenger count, and luggage details. We will reply with a fair route-based quote and confirm your driver.
             </p>
             <div className="cta-actions">
-              <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}?text=${airportToGalleMessage()}`} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={buildWhatsAppLink(airportToGalleMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
                 Book on WhatsApp
               </a>

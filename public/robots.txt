@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
+# Investor/M&A pages — not part of the consumer taxi/tour product, not
+# linked from any customer-facing navigation, kept off the sitemap and out
+# of the index deliberately (see PRODUCTION_READINESS.md).
+Disallow: /acquire
+Disallow: /acquisition-overview
+Disallow: /ai-system
+Disallow: /valuation
+Disallow: /sky-ai-traveltech-acquisition-overview.pdf
 
 Sitemap: https://skytaxisrilanka.com/sitemap.xml

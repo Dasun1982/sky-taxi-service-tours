@@ -15,7 +15,10 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
-import { contactInfo, images } from "../data/travelData";
+import { images } from "../data/travelData";
+import { taxiFleet } from "../data/vehicles";
+import { taxiRatePerKm } from "../data/pricing";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const vehicleFeatures = [
   { label: "AC", icon: Wind },
@@ -24,44 +27,7 @@ const vehicleFeatures = [
   { label: "Friendly driver", icon: HeartHandshake },
 ];
 
-const vehicles = [
-  {
-    name: "Toyota Prius",
-    capacity: "Best for 1-3 passengers",
-    use: "Budget-friendly hybrid car for airport transfers, city rides, and short trips.",
-    image: images.toyotaPrius,
-  },
-  {
-    name: "Honda Shuttle",
-    capacity: "Best for 1-4 passengers",
-    use: "Comfortable wagon with good luggage space for airport pickups and day tours.",
-    image: images.hondaShuttle,
-  },
-  {
-    name: "Honda Insight",
-    capacity: "Best for 1-3 passengers",
-    use: "Clean hybrid car for smooth private taxi rides across Sri Lanka.",
-    image: images.hondaInsight,
-  },
-  {
-    name: "Honda Vezel",
-    capacity: "Best for 1-4 passengers",
-    use: "Comfortable SUV option for couples, families, and longer routes.",
-    image: images.hondaVezel,
-  },
-  {
-    name: "Honda Freed",
-    capacity: "Best for 1-5 passengers",
-    use: "Spacious family vehicle with luggage space for tours and transfers.",
-    image: images.hondaFreed,
-  },
-  {
-    name: "Toyota KDH Van",
-    capacity: "Best for 1-8 passengers",
-    use: "Large van for families, groups, airport transfers, and island-wide tours.",
-    image: images.toyotaKdh,
-  },
-];
+const vehicles = taxiFleet;
 
 const taxiPriceVehicles = ["Toyota Prius", "Honda Insight"];
 
@@ -88,14 +54,10 @@ const bookingSteps = [
   },
 ];
 
-function vehicleMessage(vehicleName) {
-  return vehicleName;
-}
-
 export default function TaxiService() {
   const { t } = useLanguage();
-  const getVehicleMessage = (vehicleName) => encodeURIComponent(t("messages.taxiVehicle", undefined, { name: vehicleName }));
-  const priceQuoteMessage = encodeURIComponent(t("messages.taxiPrice"));
+  const getVehicleMessage = (vehicleName) => t("messages.taxiVehicle", undefined, { name: vehicleName });
+  const priceQuoteMessage = t("messages.taxiPrice");
 
   return (
     <div className="page taxi-page">
@@ -106,7 +68,7 @@ export default function TaxiService() {
         image={images.toyotaKdh}
         alt="Toyota KDH van for Sri Lanka taxi service"
       >
-        <a className="button button--primary" href={`https://wa.me/${contactInfo.whatsapp}`} target="_blank" rel="noreferrer">
+        <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
           <MessageCircle size={19} />
           {t("common.bookOnWhatsApp")}
         </a>
@@ -130,10 +92,10 @@ export default function TaxiService() {
                 <div className="taxi-vehicle-body">
                   <span className="taxi-vehicle-capacity">
                     <Users size={16} />
-                    {t(`taxi.vehicles.${vehicleIndex}.capacity`, vehicle.capacity)}
+                    {t(`taxi.vehicles.${vehicleIndex}.capacity`, vehicle.passengerCapacity)}
                   </span>
                   <h3>{vehicle.name}</h3>
-                  <p>{t(`taxi.vehicles.${vehicleIndex}.use`, vehicle.use)}</p>
+                  <p>{t(`taxi.vehicles.${vehicleIndex}.use`, vehicle.description)}</p>
 
                   <div className="taxi-vehicle-features" aria-label={t("common.vehicleFeatures", `${vehicle.name} features`, { name: vehicle.name })}>
                     {vehicleFeatures.map((feature) => {
@@ -149,7 +111,7 @@ export default function TaxiService() {
 
                   <a
                     className="button button--primary taxi-vehicle-button"
-                    href={`https://wa.me/${contactInfo.whatsapp}?text=${getVehicleMessage(vehicle.name)}`}
+                    href={buildWhatsAppLink(getVehicleMessage(vehicle.name))}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -183,11 +145,11 @@ export default function TaxiService() {
                 <div className="taxi-price-list">
                   <div>
                     <span>{t("taxi.oneWay")}</span>
-                    <strong>Rs. 150 / km</strong>
+                    <strong>{taxiRatePerKm.oneWay}</strong>
                   </div>
                   <div>
                     <span>{t("taxi.roundTrip")}</span>
-                    <strong>Rs. 100 / km</strong>
+                    <strong>{taxiRatePerKm.roundTrip}</strong>
                   </div>
                 </div>
 
@@ -199,7 +161,7 @@ export default function TaxiService() {
 
                 <a
                   className="button button--primary taxi-price-button"
-                  href={`https://wa.me/${contactInfo.whatsapp}?text=${priceQuoteMessage}`}
+                  href={buildWhatsAppLink(priceQuoteMessage)}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -256,9 +218,9 @@ export default function TaxiService() {
             <div className="cta-actions">
               <a
                 className="button button--primary"
-                href={`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent(
+                href={buildWhatsAppLink(
                   t("messages.taxiHelp"),
-                )}`}
+                )}
                 target="_blank"
                 rel="noreferrer"
               >
