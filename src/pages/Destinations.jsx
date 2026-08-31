@@ -44,6 +44,15 @@ export default function Destinations({ setPage }) {
                   {destination.region && <span>{destination.region}</span>}
                   <h3>{destination.name}</h3>
                   <p>{destination.description}</p>
+                  <div className="destination-showcase-card__tags">
+                    {destination.categories.slice(0, 3).map((category) => (
+                      <span key={category}>{category}</span>
+                    ))}
+                  </div>
+                  <span className="destination-showcase-card__explore">
+                    Explore
+                    <ArrowRight size={14} />
+                  </span>
                 </div>
               </a>
             ))}

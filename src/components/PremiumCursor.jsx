@@ -54,7 +54,6 @@ const imageSelector = [
 
 export default function PremiumCursor() {
   const rootRef = useRef(null);
-  const trailRefs = useRef([]);
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
@@ -90,9 +89,6 @@ export default function PremiumCursor() {
     let dotY = targetY;
     let followerX = targetX;
     let followerY = targetY;
-    let glowX = targetX;
-    let glowY = targetY;
-    const trail = trailRefs.current.map(() => ({ x: targetX, y: targetY }));
 
     const setCursorState = (event) => {
       const target = event.target instanceof Element ? event.target : null;
@@ -137,24 +133,11 @@ export default function PremiumCursor() {
       dotY += (targetY - dotY) * 0.42;
       followerX += (targetX - followerX) * 0.16;
       followerY += (targetY - followerY) * 0.16;
-      glowX += (targetX - glowX) * 0.09;
-      glowY += (targetY - glowY) * 0.09;
 
       root.style.setProperty("--cursor-dot-x", `${dotX}px`);
       root.style.setProperty("--cursor-dot-y", `${dotY}px`);
       root.style.setProperty("--cursor-ring-x", `${followerX}px`);
       root.style.setProperty("--cursor-ring-y", `${followerY}px`);
-      root.style.setProperty("--cursor-glow-x", `${glowX}px`);
-      root.style.setProperty("--cursor-glow-y", `${glowY}px`);
-
-      trailRefs.current.forEach((node, index) => {
-        if (!node) return;
-        const point = trail[index];
-        const ease = Math.max(0.07, 0.18 - index * 0.025);
-        point.x += (targetX - point.x) * ease;
-        point.y += (targetY - point.y) * ease;
-        node.style.transform = `translate3d(${point.x}px, ${point.y}px, 0) translate(-50%, -50%) scale(${1 - index * 0.08})`;
-      });
 
       rafId = window.requestAnimationFrame(animate);
     };
@@ -184,19 +167,8 @@ export default function PremiumCursor() {
 
   const cursorMarkup = (
     <div className="premium-cursor" data-cursor="default" ref={rootRef} aria-hidden="true">
-      <span className="premium-cursor__glow" />
       <span className="premium-cursor__ring" />
       <span className="premium-cursor__dot" />
-      <span className="premium-cursor__trail">
-        {Array.from({ length: 5 }, (_, index) => (
-          <span
-            key={index}
-            ref={(node) => {
-              trailRefs.current[index] = node;
-            }}
-          />
-        ))}
-      </span>
     </div>
   );
 

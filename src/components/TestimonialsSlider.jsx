@@ -42,6 +42,7 @@ export default function TestimonialsSlider({ testimonials }) {
         {testimonials.map((item, dotIndex) => (
           <button
             aria-label={t("common.showTestimonial", `Show ${item.title}`, { name: item.title })}
+            aria-current={index === dotIndex ? "true" : undefined}
             className={index === dotIndex ? "dot dot--active" : "dot"}
             key={item.title}
             onClick={() => setIndex(dotIndex)}

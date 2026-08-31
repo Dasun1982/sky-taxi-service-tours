@@ -47,6 +47,35 @@ import vehicleRentals from "../assets/vehical rentals.avif";
 import whaleWatching from "../assets/whale watching.jpg";
 import yamahaRayZr from "../assets/yamaha-ray-zr.jpg";
 
+import elephantWaterhole from "../assets/wildlife-nature/elephant-waterhole.jpg";
+import sriLankanLeopard from "../assets/wildlife-nature/sri-lankan-leopard.jpg";
+import muggerCrocodile from "../assets/wildlife-nature/mugger-crocodile.jpg";
+import slothBear from "../assets/wildlife-nature/sloth-bear.jpg";
+import goldenJackal from "../assets/wildlife-nature/golden-jackal.jpg";
+import paintedStork from "../assets/wildlife-nature/painted-stork.jpg";
+import starTortoise from "../assets/wildlife-nature/star-tortoise.jpg";
+import smallBirdGrass from "../assets/wildlife-nature/small-bird-grass.jpg";
+import greenBeeEater from "../assets/wildlife-nature/green-bee-eater.jpg";
+import turtleOnLog from "../assets/wildlife-nature/turtle-on-log.jpg";
+import mynaFlock from "../assets/wildlife-nature/myna-flock.jpg";
+import commonKingfisher from "../assets/wildlife-nature/common-kingfisher.jpg";
+import hawkEagleBranch from "../assets/wildlife-nature/hawk-eagle-branch.jpg";
+import hawkEaglePortrait from "../assets/wildlife-nature/hawk-eagle-portrait.jpg";
+import gardenLizard from "../assets/wildlife-nature/garden-lizard.jpg";
+import toqueMacaque from "../assets/wildlife-nature/toque-macaque.jpg";
+import ancientStupaRuins from "../assets/wildlife-nature/ancient-stupa-ruins.jpg";
+import cormorantColony from "../assets/wildlife-nature/cormorant-colony.jpg";
+import eagleClosePortrait from "../assets/wildlife-nature/eagle-close-portrait.jpg";
+import flapShellTurtle from "../assets/wildlife-nature/flap-shell-turtle.jpg";
+import lemonButterfly from "../assets/wildlife-nature/lemon-butterfly.jpg";
+import purpleRumpedSunbird from "../assets/wildlife-nature/purple-rumped-sunbird.jpg";
+import ruddyMongoose from "../assets/wildlife-nature/ruddy-mongoose.jpg";
+
+import cinematicSriLankaPoster from "../assets/video-posters/cinematic-sri-lanka-poster.jpg";
+import sriLankaJourneyPoster from "../assets/video-posters/sri-lanka-journey-poster.jpg";
+import cinematicSriLankaVideo from "../assets/images-videos-travel/SRI LANKA - Pearl Of The Indian Ocean Cinematic Travel Film - JRDY Films (1080p).mp4";
+import sriLankaJourneyVideo from "../assets/images-videos-travel/Sri Lanka, Your Destination for 2026 - Sri Lanka Tourism (1080p).mp4";
+
 export const images = {
   airportTransfer,
   airportWelcome,
@@ -96,6 +125,29 @@ export const images = {
   vehicleRentals,
   whaleWatching,
   yamahaRayZr,
+  elephantWaterhole,
+  sriLankanLeopard,
+  muggerCrocodile,
+  slothBear,
+  goldenJackal,
+  paintedStork,
+  starTortoise,
+  smallBirdGrass,
+  greenBeeEater,
+  turtleOnLog,
+  mynaFlock,
+  commonKingfisher,
+  hawkEagleBranch,
+  hawkEaglePortrait,
+  gardenLizard,
+  toqueMacaque,
+  ancientStupaRuins,
+  cormorantColony,
+  eagleClosePortrait,
+  flapShellTurtle,
+  lemonButterfly,
+  purpleRumpedSunbird,
+  ruddyMongoose,
 };
 
 export const brand = {
@@ -115,13 +167,14 @@ export const contactInfo = {
 
 export const navItems = [
   { label: "Home", page: "home" },
-  { label: "Taxi", page: "taxi" },
-  { label: "Tours", page: "tours" },
   { label: "Destinations", page: "destinations" },
-  { label: "Airport", page: "airport" },
-  { label: "Booking", page: "booking" },
+  { label: "Experiences", page: "experiences" },
+  { label: "Tours", page: "tours" },
+  { label: "Wildlife", page: "wildlife" },
+  { label: "Gallery", page: "gallery" },
+  { label: "Travel Guide", page: "travel-guide" },
+  { label: "About", page: "about" },
   { label: "Contact", page: "contact" },
-  { label: "Rentals", page: "vehicle-rentals" },
 ];
 
 export const pageMeta = {
@@ -184,6 +237,21 @@ export const pageMeta = {
     title: "Sri Lanka Travel Gallery | SKY Taxi Service & Tours",
     description:
       "View real local Sri Lanka travel images from beaches, temples, wildlife routes, hill country, culture, and private tour destinations.",
+  },
+  wildlife: {
+    title: "Sri Lanka Wildlife & Safaris | SKY Taxi Service & Tours",
+    description:
+      "Real Sri Lanka wildlife photography and private safari transfers — leopards, elephants, sloth bears, and birdlife across the island's national parks.",
+  },
+  experiences: {
+    title: "Sri Lanka Travel Experiences | SKY Taxi Service & Tours",
+    description:
+      "Explore Sri Lanka by experience — wildlife safaris, ancient kingdoms, tea country, coastal south, and local life — with private driver support.",
+  },
+  "travel-guide": {
+    title: "Sri Lanka Travel Guide | SKY Taxi Service & Tours",
+    description:
+      "A practical Sri Lanka travel guide covering best time to visit, getting around, trip lengths, and what to expect with a private driver.",
   },
   booking: {
     title: "Book Sri Lanka Tours and Taxi | SKY Taxi Service & Tours",
@@ -291,19 +359,24 @@ export const pageMeta = {
       "Book a private taxi to Mirissa Sri Lanka with SKY Taxi Service & Tours. Airport transfers, beach routes, whale watching transfers, clean vehicles, and 24/7 WhatsApp booking.",
   },
   "private-driver-sri-lanka": {
-    title: "Private Driver Sri Lanka | Chauffeur & Taxi Service",
+    title: "Private Driver Sri Lanka | Flexible Day-by-Day Hire",
     description:
-      "Hire a private driver in Sri Lanka with SKY Taxi Service & Tours. Airport transfers, day tours, round tours, clean vehicles, flexible routes, and 24/7 WhatsApp booking.",
+      "Hire a private driver in Sri Lanka by the day with SKY Taxi Service & Tours. Airport transfers, single-day trips, point-to-point transfers, clean vehicles, and 24/7 WhatsApp booking — no fixed multi-day plan required.",
   },
   "budget-taxi-sri-lanka": {
     title: "Budget Taxi Sri Lanka | Affordable Taxi & Airport Transfers",
     description:
       "Book a budget taxi in Sri Lanka with SKY Taxi Service & Tours. Affordable airport transfers, private drivers, clean vehicles, fair prices, and 24/7 WhatsApp booking.",
   },
-  "sri-lanka-tour-driver": {
-    title: "Sri Lanka Tour Driver | Private Driver & Chauffeur Tours",
+  "driver-guide-sri-lanka": {
+    title: "Private Driver + Guide Sri Lanka | Driver Only or Driver With Guide",
     description:
-      "Hire a Sri Lanka tour driver with SKY Taxi Service & Tours. Private chauffeur tours, airport pickups, flexible itineraries, clean vehicles, and 24/7 WhatsApp booking.",
+      "Compare Driver Only and Driver + Guide in Sri Lanka with SKY Taxi Service & Tours. A private driver for every trip, plus a specialist licensed guide arranged where you want deeper insight.",
+  },
+  "sri-lanka-tour-driver": {
+    title: "Sri Lanka Tour Driver | One Driver, Your Whole Multi-Day Trip",
+    description:
+      "Hire one dedicated driver for your entire multi-day Sri Lanka trip with SKY Taxi Service & Tours. Continuous chauffeur tours, flexible itineraries, clean vehicles, and 24/7 WhatsApp booking.",
   },
   "sri-lanka-taxi-service": {
     title: "Sri Lanka Taxi Service | Private Taxi & Airport Transfers",
@@ -369,6 +442,239 @@ export const pageMeta = {
     title: "Dambulla Taxi Service | Cave Temple & Cultural Triangle Taxi",
     description:
       "Book a private Dambulla taxi with SKY Taxi Service & Tours. Colombo airport transfers, Dambulla Cave Temple, Cultural Triangle stops, and 24/7 WhatsApp booking.",
+  },
+  "airport-to-negombo": {
+    title: "Colombo Airport to Negombo Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Negombo with SKY Taxi Service & Tours. Quick near-airport transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+  },
+  "airport-to-bentota": {
+    title: "Colombo Airport to Bentota Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Bentota with SKY Taxi Service & Tours. Safe beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+  },
+  "airport-to-nuwara-eliya": {
+    title: "Colombo Airport to Nuwara Eliya Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Nuwara Eliya with SKY Taxi Service & Tours. Scenic hill country transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+  },
+  "airport-to-arugam-bay": {
+    title: "Colombo Airport to Arugam Bay Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Arugam Bay with SKY Taxi Service & Tours. East coast surf transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+  },
+  "airport-to-dambulla": {
+    title: "Colombo Airport to Dambulla Taxi | Private Transfer Sri Lanka",
+    description:
+      "Book a private taxi from Colombo Airport to Dambulla with SKY Taxi Service & Tours. Cultural Triangle transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+  },
+  "not-found": {
+    title: "Page Not Found | SKY Taxi Service & Tours",
+    description: "The page you were looking for could not be found. Explore SKY Taxi Service & Tours' Sri Lanka taxi, transfer, and tour pages instead.",
+  },
+  "ai-trip-planner": {
+    title: "Ask SKY | Interactive Sri Lanka Trip Planning Tool",
+    description:
+      "Ask SKY anything about travelling in Sri Lanka — places, routes, and transport — or describe your trip and get a draft route, then confirm a private-driver quote with SKY Taxi Service & Tours.",
+  },
+  transport: {
+    title: "Sri Lanka Transportation | Airport Transfer, Taxi & Private Driver",
+    description:
+      "Compare SKY's Sri Lanka transportation options — airport transfer, private taxi, private driver, and driver + guide — before booking on WhatsApp.",
+  },
+  "5-day-sri-lanka-tour": {
+    title: "5-Day Sri Lanka Tour | Trincomalee & Cultural Triangle",
+    description:
+      "A real, priced 5-day private Sri Lanka tour covering Trincomalee, the Cultural Triangle, hill country, and a wildlife safari. Driver only or driver + guide, confirmed on WhatsApp.",
+  },
+  "how-many-days-in-sri-lanka": {
+    title: "How Many Days Do You Need in Sri Lanka? | SKY Taxi Service & Tours",
+    description:
+      "A practical answer for how many days to spend in Sri Lanka, based on SKY's real 1, 2, 3, 5, 7, and 10-day private tour routes and what each one actually covers.",
+  },
+  "is-a-private-driver-worth-it": {
+    title: "Is a Private Driver Worth It in Sri Lanka? | SKY Taxi Service & Tours",
+    description:
+      "An honest comparison of private driver, self-drive, and public transport in Sri Lanka — traffic side, roads, flexibility, and what a private-driver day actually looks like.",
+  },
+  "ella-vs-nuwara-eliya": {
+    title: "Ella vs Nuwara Eliya | Which Hill Country Town Should You Visit?",
+    description:
+      "Ella vs Nuwara Eliya compared for hiking, tea plantations, climate, and pace — with a real 2-day private tour that covers both if you can't choose.",
+  },
+  "best-beaches-near-galle": {
+    title: "Best Beaches Near Galle | SKY Taxi Service & Tours",
+    description:
+      "The real south coast beaches near Galle — Unawatuna, Mirissa, Weligama, and Bentota — compared for swimming, surf, and how far each is by private driver.",
+  },
+  "galle-to-ella": {
+    title: "Galle to Ella | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    description:
+      "Planning a private transfer from Galle to Ella? What the route covers, what to expect from south coast to hill country, and how to get an exact quote.",
+  },
+  colombo: {
+    title: "Colombo, Sri Lanka | Capital City Guide | SKY Taxi Service & Tours",
+    description: "Colombo's temples, markets, Galle Face, and the Lotus Tower — a real, priced one-day tour with SKY Taxi Service & Tours.",
+  },
+  sinharaja: {
+    title: "Sinharaja, Sri Lanka | Rainforest Reserve Guide | SKY Taxi Service & Tours",
+    description: "Sinharaja rainforest reserve — birdwatching, waterfalls, and tea plantation views on a real, priced one-day tour.",
+  },
+  "things-to-do-in-galle": {
+    title: "Things to Do in Galle | SKY Taxi Service & Tours",
+    description: "Galle Fort, lighthouse viewpoints, and colonial streets — what to actually do inside Galle, beyond booking a taxi there.",
+  },
+  "things-to-do-in-unawatuna": {
+    title: "Things to Do in Unawatuna | SKY Taxi Service & Tours",
+    description: "Unawatuna Beach, Dalawella, and Jungle Beach — what to actually do once you're based in Unawatuna.",
+  },
+  "things-to-do-in-ella": {
+    title: "Things to Do in Ella | SKY Taxi Service & Tours",
+    description: "Nine Arch Bridge, Little Adam's Peak, and tea country views — what to actually do once you're in Ella.",
+  },
+  "things-to-do-in-kandy": {
+    title: "Things to Do in Kandy | SKY Taxi Service & Tours",
+    description: "Temple of the Tooth, Kandy Lake, and the botanical gardens — what to actually do in Sri Lanka's hill country cultural city.",
+  },
+  "things-to-do-in-sigiriya": {
+    title: "Things to Do in Sigiriya | SKY Taxi Service & Tours",
+    description: "Sigiriya Rock Fortress, Dambulla Cave Temple, and Pidurangala — what to actually do in the Cultural Triangle.",
+  },
+  "2-days-in-sri-lanka": {
+    title: "2 Days in Sri Lanka | Kandy, Nuwara Eliya & Ella",
+    description: "A real, priced 2-day private tour of Sri Lanka's hill country — Kandy, Nuwara Eliya, and Ella in one continuous trip.",
+  },
+  "3-days-in-sri-lanka": {
+    title: "3 Days in Sri Lanka | Sigiriya, Kandy & Ella Tour",
+    description: "A real, priced 3-day private tour combining the Cultural Triangle with hill country — Sigiriya, Kandy, Nuwara Eliya, and Ella.",
+  },
+  "7-days-in-sri-lanka": {
+    title: "7 Days in Sri Lanka Tour | Culture, Hills & Wildlife",
+    description: "A real, priced 7-day private tour covering the Cultural Triangle's ancient cities, hill country, and a wildlife safari.",
+  },
+  "10-days-in-sri-lanka": {
+    title: "10 Days in Sri Lanka Tour | North, East & Hill Country",
+    description: "A real, priced 10-day private tour covering the north, east coast, culture, hill country, wildlife, and south coast.",
+  },
+  "unawatuna-vs-mirissa": {
+    title: "Unawatuna vs Mirissa | Which South Coast Beach Should You Visit?",
+    description: "Unawatuna vs Mirissa compared for swimming, whale watching, and pace — two real south coast beach towns close to each other.",
+  },
+  "galle-vs-colombo": {
+    title: "Galle vs Colombo | Which Deserves More of Your Time?",
+    description: "Galle's fort city and beaches compared with Colombo's capital-city stop — a practical guide for deciding where to spend your time.",
+  },
+  "sigiriya-vs-ella": {
+    title: "Sigiriya vs Ella | Culture or Hill Country?",
+    description: "Sigiriya's ancient sites compared with Ella's hiking and viewpoints — plus the real 3-day tour that combines both.",
+  },
+  "ella-to-kandy": {
+    title: "Ella to Kandy | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    description: "Planning a private transfer from Ella to Kandy? What the route covers and how to get an exact quote.",
+  },
+  "kandy-to-sigiriya": {
+    title: "Kandy to Sigiriya | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    description: "Planning a private transfer from Kandy to Sigiriya? What the route covers and how to get an exact quote.",
+  },
+  "sigiriya-to-yala": {
+    title: "Sigiriya to Yala | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    description: "Planning a private transfer from Sigiriya to Yala? What the route covers and how to get an exact quote.",
+  },
+  "galle-to-mirissa": {
+    title: "Galle to Mirissa | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    description: "Planning a private transfer from Galle to Mirissa? What the route covers and how to get an exact quote.",
+  },
+  "mirissa-to-ella": {
+    title: "Mirissa to Ella | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    description: "Planning a private transfer from Mirissa to Ella? What the route covers and how to get an exact quote.",
+  },
+  "best-places-to-visit-from-ella": {
+    title: "Best Places to Visit from Ella | SKY Taxi Service & Tours",
+    description: "Real nearby destinations within private-driver reach of Ella — hill country, culture, and wildlife.",
+  },
+  "best-places-to-visit-from-kandy": {
+    title: "Best Places to Visit from Kandy | SKY Taxi Service & Tours",
+    description: "Real nearby destinations within private-driver reach of Kandy — hill country and the Cultural Triangle.",
+  },
+  "sri-lanka-beaches": {
+    title: "Sri Lanka Beaches | South & East Coast Guide",
+    description: "Every real beach destination SKY covers — south coast, east coast, and near-Colombo — compared honestly.",
+  },
+  "sri-lanka-hill-country": {
+    title: "Sri Lanka Hill Country | Ella, Kandy & Nuwara Eliya",
+    description: "Ella, Kandy, and Nuwara Eliya compared — the three real hill country towns SKY covers.",
+  },
+  "sri-lanka-culture-ancient-cities": {
+    title: "Sri Lanka Culture & Ancient Cities | SKY Taxi Service & Tours",
+    description: "Kandy, Sigiriya, Dambulla, and Galle — the real culture and heritage destinations SKY covers with dedicated pages.",
+  },
+  "sri-lanka-surfing": {
+    title: "Sri Lanka Surfing | Weligama & Arugam Bay Guide",
+    description: "Weligama, Hiriketiya, and Arugam Bay — the three real surf destinations SKY covers, south and east coast.",
+  },
+  "south-coast-vs-east-coast": {
+    title: "South Coast vs East Coast Sri Lanka | Which Fits Your Dates?",
+    description: "Sri Lanka's south coast and east coast compared, with the real seasonal split that decides which fits your travel dates.",
+  },
+  "private-driver-vs-rental-car": {
+    title: "Private Driver vs Rental Car in Sri Lanka | Honest Comparison",
+    description: "A direct, practical comparison between hiring a private driver and renting a car to get around Sri Lanka.",
+  },
+  "sri-lanka-honeymoon": {
+    title: "Sri Lanka Honeymoon & Romantic Places | SKY Taxi Service & Tours",
+    description: "Real quiet beaches and hill country stops for a couples trip, with the flexibility a private driver adds — no invented package.",
+  },
+  "sri-lanka-family-travel": {
+    title: "Sri Lanka Family Travel | Traveling with Children | SKY Taxi Service & Tours",
+    description: "Practical advice for traveling with children in Sri Lanka — flexible stops, vehicle sizing, and a real family-friendly beach.",
+  },
+  "sri-lanka-budget-travel": {
+    title: "Sri Lanka Budget Travel | Real Lower-Cost Options | SKY Taxi Service & Tours",
+    description: "Real, lower-cost ways to see Sri Lanka with SKY — one-day tours priced for the whole vehicle, and a dedicated budget taxi option.",
+  },
+  "how-to-travel-around-sri-lanka": {
+    title: "How to Travel Around Sri Lanka | Private Driver, Self-Drive & Public Transport",
+    description: "The real transport options in Sri Lanka — private driver, self-drive, and public transport — and when each one makes sense.",
+  },
+  "how-much-does-a-sri-lanka-trip-cost": {
+    title: "How Much Does a Sri Lanka Trip Cost? | Real Prices | SKY Taxi Service & Tours",
+    description: "Real prices from SKY's own catalog for private tours and transfers, priced per vehicle — no invented averages.",
+  },
+  "best-places-to-visit-in-sri-lanka": {
+    title: "What Are the Best Places to Visit in Sri Lanka? | SKY Taxi Service & Tours",
+    description: "A region-by-region answer based on SKY's real destination data — hill country, south coast, Cultural Triangle, and wildlife.",
+  },
+  "best-time-to-visit-sri-lanka": {
+    title: "What Is the Best Time to Visit Sri Lanka? | SKY Taxi Service & Tours",
+    description: "Sri Lanka's two separate monsoon systems explained — general seasonal patterns for the west, south, hill country, and east coast.",
+  },
+  "first-time-visitor-sri-lanka": {
+    title: "Is Sri Lanka Good for a First-Time Visitor? | SKY Taxi Service & Tours",
+    description: "A practical, honest answer for first-time visitors — what makes Sri Lanka easy to travel, and how routes are usually built.",
+  },
+  "train-vs-private-car-sri-lanka": {
+    title: "Is Sri Lanka Better by Train or Private Car? | SKY Taxi Service & Tours",
+    description: "An honest comparison of the hill country train and a private car — and how many travelers combine both.",
+  },
+  "ella-vs-kandy": {
+    title: "Ella vs Kandy | Hiking or Culture in Sri Lanka's Hill Country?",
+    description: "Ella's hiking and viewpoints compared with Kandy's culture and the Temple of the Tooth — plus the real 3-day tour that combines both.",
+  },
+  "galle-to-yala": {
+    title: "Galle to Yala | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    description: "Planning a private transfer from Galle to Yala for a safari? What the route covers and how to get an exact quote.",
+  },
+  "unawatuna-to-ella": {
+    title: "Unawatuna to Ella | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    description: "Planning a private transfer from Unawatuna to Ella? What the route covers and how to get an exact quote.",
+  },
+  "is-sri-lanka-safe-for-tourists": {
+    title: "Is Sri Lanka Safe for Tourists? | SKY Taxi Service & Tours",
+    description: "General, practical guidance on traveling safely in Sri Lanka — not a safety rating or statistic SKY isn't positioned to publish.",
+  },
+  "can-i-travel-sri-lanka-without-a-car": {
+    title: "Can I Travel Sri Lanka Without a Car? | SKY Taxi Service & Tours",
+    description: "Yes — most visitors never rent or drive their own car. How a private driver, trains, and buses actually cover the island.",
   },
 };
 
@@ -479,6 +785,62 @@ export const destinationShowcase = [
   },
 ];
 
+export const wildSriLanka = {
+  eyebrow: "Real Sri Lanka wildlife",
+  title: "Wild Sri Lanka",
+  text: "Some journeys are measured in miles. Others are measured in moments. Every photo here is a real sighting from our own trips, not a stock image.",
+  feature: {
+    image: sriLankanLeopard,
+    alt: "Sri Lankan leopard resting in tall grass",
+    title: "Leopard country",
+    text: "Sri Lanka has one of the highest leopard sighting densities of any safari destination on earth.",
+  },
+  supporting: [
+    { image: elephantWaterhole, alt: "Asian elephant drinking at a waterhole with a cattle egret nearby", title: "Elephants at the waterhole" },
+    { image: slothBear, alt: "Sloth bear foraging through undergrowth", title: "Sloth bears" },
+    { image: muggerCrocodile, alt: "Mugger crocodile resting on a log by mangroves", title: "Crocodile-lined waterways" },
+  ],
+};
+
+export const cinematicVideos = {
+  eyebrow: "Sri Lanka, in motion",
+  title: "See the island beyond the itinerary.",
+  text: "Real landscapes, wildlife, coastlines and journeys from across Sri Lanka.",
+  feature: {
+    poster: cinematicSriLankaPoster,
+    posterAlt: "Aerial view of a forested Sri Lankan headland meeting the ocean",
+    src: cinematicSriLankaVideo,
+    title: "Cinematic Sri Lanka",
+    text: "An island of wild landscapes, ancient roads and southern coastlines.",
+    credit: "Film: JRDY Films",
+  },
+  supporting: {
+    poster: sriLankaJourneyPoster,
+    posterAlt: "Aerial view of a turquoise cove and beach on the Sri Lanka coast",
+    src: sriLankaJourneyVideo,
+    title: "Your Sri Lanka Journey",
+    text: "From wild landscapes to unforgettable moments.",
+    credit: "Film: Sri Lanka Tourism",
+  },
+};
+
+export const coastalStory = {
+  eyebrow: "South coast",
+  title: "Coastlines, at a slower pace",
+  text: "Golden-hour drives along the south coast, quiet coves, and fishing villages that still run on their own schedule.",
+  image: hiriketiyaBeach,
+  alt: "Hiriketiya Beach in Sri Lanka",
+};
+
+export const galleryPreview = [
+  { image: ancientStupaRuins, alt: "Ancient brick stupa ruins among palm trees", title: "Cultural heritage" },
+  { image: hawkEaglePortrait, alt: "Close portrait of a crested hawk-eagle", title: "Birdlife" },
+  { image: nineArchBridge, alt: "Nine Arch Bridge surrounded by Ella hill country", title: "Hill country" },
+  { image: commonKingfisher, alt: "Common kingfisher perched among green leaves", title: "Wetlands" },
+  { image: ruddyMongoose, alt: "Ruddy mongoose walking along a forest path", title: "Wildlife" },
+  { image: toqueMacaque, alt: "Toque macaque sitting on a forest branch", title: "Macaques" },
+];
+
 export const featuredExperiences = [
   {
     title: "Temple and Culture Days",
@@ -496,8 +858,8 @@ export const featuredExperiences = [
   },
   {
     title: "Wildlife Routes",
-    image: elephantRide,
-    alt: "Elephant ride and wildlife route in Sri Lanka",
+    image: sriLankanLeopard,
+    alt: "Sri Lankan leopard resting in grassland",
     tag: "Wildlife",
     text: "Private transfers to Yala and safari routes with space for families and groups.",
   },
@@ -832,27 +1194,6 @@ export const airportTransferRoutes = [
   "Late-night and early-morning transfers by prior booking",
 ];
 
-export const airportVisuals = [
-  {
-    title: "Airport pickup ready",
-    image: airportWelcome,
-    alt: "Airport welcome pickup in Sri Lanka",
-    text: "Spacious van option for families, luggage, and direct airport transfers.",
-  },
-  {
-    title: "Colombo route support",
-    image: airportTransfer,
-    alt: "Airport transfer service in Sri Lanka",
-    text: "Helpful pickup timing for Colombo, airport hotels, and onward island routes.",
-  },
-  {
-    title: "Budget-friendly car",
-    image: toyotaPrius,
-    alt: "Toyota Prius taxi for airport transfers",
-    text: "Clean hybrid option for couples, solo travelers, and fair-price airport rides.",
-  },
-];
-
 export const bookingVisuals = [
   {
     image: trainRide,
@@ -1117,6 +1458,144 @@ export const galleryImages = [
     alt: "Sri Lanka tuk-tuk rental",
     title: "Sri Lanka tuk-tuk",
     location: "Rentals",
+  },
+  {
+    src: sriLankanLeopard,
+    alt: "Sri Lankan leopard resting in tall grass",
+    title: "Sri Lankan leopard",
+    location: "Wildlife safari",
+  },
+  {
+    src: elephantWaterhole,
+    alt: "Asian elephant drinking at a waterhole",
+    title: "Elephant at the waterhole",
+    location: "Wildlife safari",
+  },
+  {
+    src: slothBear,
+    alt: "Sloth bear foraging through undergrowth",
+    title: "Sloth bear",
+    location: "Wildlife safari",
+  },
+  {
+    src: muggerCrocodile,
+    alt: "Mugger crocodile resting on a log",
+    title: "Mugger crocodile",
+    location: "Wildlife safari",
+  },
+  {
+    src: goldenJackal,
+    alt: "Golden jackal beside a lake",
+    title: "Golden jackal",
+    location: "Wildlife safari",
+  },
+  {
+    src: paintedStork,
+    alt: "Painted stork wading through wetland shallows",
+    title: "Painted stork",
+    location: "Wetland birdlife",
+  },
+  {
+    src: starTortoise,
+    alt: "Indian star tortoise walking through grass",
+    title: "Star tortoise",
+    location: "Wildlife safari",
+  },
+  {
+    src: ancientStupaRuins,
+    alt: "Ancient brick stupa ruins among palm trees",
+    title: "Ancient stupa ruins",
+    location: "Cultural heritage",
+  },
+  {
+    src: toqueMacaque,
+    alt: "Toque macaque sitting on a forest branch",
+    title: "Toque macaque",
+    location: "Wildlife safari",
+  },
+  {
+    src: ruddyMongoose,
+    alt: "Ruddy mongoose walking along a forest path",
+    title: "Ruddy mongoose",
+    location: "Wildlife safari",
+  },
+  {
+    src: gardenLizard,
+    alt: "Oriental garden lizard on a branch",
+    title: "Garden lizard",
+    location: "Wildlife safari",
+  },
+  {
+    src: commonKingfisher,
+    alt: "Common kingfisher perched among green leaves",
+    title: "Common kingfisher",
+    location: "Wetland birdlife",
+  },
+  {
+    src: hawkEagleBranch,
+    alt: "Changeable hawk-eagle perched on a bare branch",
+    title: "Hawk-eagle",
+    location: "Wildlife safari",
+  },
+  {
+    src: hawkEaglePortrait,
+    alt: "Close portrait of a crested hawk-eagle",
+    title: "Hawk-eagle portrait",
+    location: "Wildlife safari",
+  },
+  {
+    src: eagleClosePortrait,
+    alt: "Close portrait of a crested eagle with yellow eyes",
+    title: "Crested eagle",
+    location: "Wildlife safari",
+  },
+  {
+    src: cormorantColony,
+    alt: "Cormorants perched together in a treetop",
+    title: "Cormorant colony",
+    location: "Wetland birdlife",
+  },
+  {
+    src: greenBeeEater,
+    alt: "Green bee-eater perched on a twig",
+    title: "Green bee-eater",
+    location: "Wildlife safari",
+  },
+  {
+    src: purpleRumpedSunbird,
+    alt: "Purple-rumped sunbird perched in warm light",
+    title: "Purple-rumped sunbird",
+    location: "Wildlife safari",
+  },
+  {
+    src: mynaFlock,
+    alt: "Flock of mynas gathered in a tree at sunset",
+    title: "Myna flock",
+    location: "Wildlife safari",
+  },
+  {
+    src: turtleOnLog,
+    alt: "Freshwater turtle resting on a log",
+    title: "Freshwater turtle",
+    location: "Wetland birdlife",
+  },
+  {
+    src: flapShellTurtle,
+    alt: "Indian flap-shell turtle on a sunlit rock",
+    title: "Flap-shell turtle",
+    location: "Wetland birdlife",
+  },
+  {
+    src: lemonButterfly,
+    alt: "Lemon emigrant butterfly on a green leaf",
+    title: "Lemon emigrant butterfly",
+    location: "Wildlife safari",
+  },
+  {
+    src: smallBirdGrass,
+    alt: "Small bird perched among tall grass",
+    title: "Grassland bird",
+    location: "Wildlife safari",
   },
 ];
 

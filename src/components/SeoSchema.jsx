@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { brand, contactInfo, pageMeta } from "../data/travelData";
 import { website as SITE_URL } from "../data/business";
-import { schemaEnabledPages, schemaFaqs, schemaPageLabels } from "../data/schemaData";
+import { articleSchemaPages, schemaEnabledPages, schemaFaqs, schemaPageLabels } from "../data/schemaData";
 
 const SCRIPT_PREFIX = "sky-jsonld-";
 
@@ -54,6 +54,26 @@ function makeTaxiServiceSchema(page, meta) {
       "@type": "Country",
       name: "Sri Lanka",
     },
+  };
+}
+
+// Editorial/planning pages (see articleSchemaPages) genuinely aren't a
+// transport-service listing — Article is the accurate schema.org type for
+// a written guide/comparison page, matching the type list the SEO brief
+// itself suggests. No datePublished/dateModified: the project has no real
+// authorship-date data anywhere, and inventing one would be exactly the
+// kind of fabricated field the brief prohibits.
+function makeArticleSchema(page, meta) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${pageUrl(page)}#article`,
+    headline: meta.title,
+    description: meta.description,
+    url: pageUrl(page),
+    inLanguage: "en",
+    author: { "@id": `${SITE_URL}/#localbusiness` },
+    publisher: { "@id": `${SITE_URL}/#localbusiness` },
   };
 }
 
@@ -136,7 +156,10 @@ export default function SeoSchema({ activePage }) {
     if (!schemaEnabledPages.includes(activePage)) return [];
 
     const meta = pageMeta[activePage] || pageMeta.home;
-    return [makeLocalBusinessSchema(), makeTaxiServiceSchema(activePage, meta), makeBreadcrumbSchema(activePage), makeFaqSchema(activePage)].filter(Boolean);
+    const serviceSchema = articleSchemaPages.includes(activePage)
+      ? makeArticleSchema(activePage, meta)
+      : makeTaxiServiceSchema(activePage, meta);
+    return [makeLocalBusinessSchema(), serviceSchema, makeBreadcrumbSchema(activePage), makeFaqSchema(activePage)].filter(Boolean);
   }, [activePage]);
 
   useEffect(() => {

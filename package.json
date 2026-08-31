@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
+    "build": "node scripts/generate-sitemap.mjs && vite build",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "seo-audit": "node scripts/seo-audit.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

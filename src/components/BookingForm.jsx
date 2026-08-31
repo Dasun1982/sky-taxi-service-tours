@@ -6,6 +6,7 @@ import { buildBookingWhatsAppMessage } from "../utils/buildBookingMessage";
 import { consumeBookingContext } from "../utils/bookingContext";
 import { submitBookingLead } from "../utils/bookingSubmission";
 import { usePlacesAutocomplete } from "../utils/usePlacesAutocomplete";
+import { trackEvent } from "../utils/analytics";
 
 // Optional — same graceful-fallback pattern as VITE_GOOGLE_MAPS_API_KEY
 // (googleMaps.js): when unset, the reference still shows as plain text the
@@ -37,7 +38,7 @@ const initialForm = {
   dropoffLng: null,
 };
 
-const tripTypeValues = ["Airport transfer", "Taxi ride", "Private tour", "Round tour", "Vehicle rental"];
+const tripTypeValues = ["Airport transfer", "Taxi ride", "Driver only", "Driver + Guide", "Private tour", "Round tour", "Vehicle rental"];
 
 function buildInitialForm(context) {
   if (!context) return initialForm;
@@ -123,20 +124,45 @@ export default function BookingForm() {
     submittingRef.current = true;
     setIsSubmitting(true);
 
+    // Trimmed only for the outgoing WhatsApp message / Supabase row — the
+    // live input keeps whatever the customer actually typed (trimming on
+    // every keystroke would fight anyone still typing a space-separated
+    // name). `pattern=".*\S.*"` on the required fields already stops a
+    // whitespace-only value from submitting at all; this just keeps a
+    // stray leading/trailing space out of the message text itself.
+    const trimmedForm = {
+      ...form,
+      name: form.name.trim(),
+      phone: form.phone.trim(),
+      pickup: form.pickup.trim(),
+      drop: form.drop.trim(),
+      luggage: form.luggage.trim(),
+      message: form.message.trim(),
+    };
+
     const tripTypeLabel = tripTypeLabels[tripTypeValues.indexOf(form.tripType)] || form.tripType;
-    const message = buildBookingWhatsAppMessage({ t, tripTypeLabel, form });
+    const message = buildBookingWhatsAppMessage({ t, tripTypeLabel, form: trimmedForm });
 
     setStatus(t("booking.form.status"));
     setReference(null);
+
+    // trip_type/source only — never name, phone, or message text (no PII in analytics).
+    trackEvent("booking_submitted", { trip_type: form.tripType, source: context?.source || "booking-page" });
 
     // Best-effort: never blocks or delays WhatsApp opening below, and never
     // throws — see bookingSubmission.js. WhatsApp is the fallback of record.
     // The reference is shown once this resolves (a moment after WhatsApp
     // already opened) — never awaited before window.open, so a slow or
     // failed save can never delay the one thing that must always work.
-    submitBookingLead({ form, tripTypeLabel, message, context }).then((result) => {
+    submitBookingLead({ form: trimmedForm, tripTypeLabel, message, context }).then((result) => {
       if (result.saved && result.bookingId) {
         setReference(result.bookingId);
+      } else {
+        // PHASE 7 — visibility into how often the Supabase save silently
+        // fails behind the WhatsApp fallback. `reason` here is always a
+        // system/error code ("not-configured", "network-error", or a
+        // Postgres/Supabase error message) — never customer-entered text.
+        trackEvent("booking_save_failed", { reason: result.reason || "unknown", trip_type: form.tripType });
       }
     });
 
@@ -181,6 +207,8 @@ export default function BookingForm() {
             onChange={updateField}
             placeholder={t("booking.form.placeholders.name")}
             autoComplete="name"
+            maxLength={100}
+            pattern=".*\S.*"
             required
           />
         </label>
@@ -194,6 +222,8 @@ export default function BookingForm() {
             type="tel"
             inputMode="tel"
             autoComplete="tel"
+            maxLength={30}
+            pattern=".*\S.*"
             required
           />
         </label>
@@ -206,6 +236,8 @@ export default function BookingForm() {
             onChange={updateField}
             placeholder={t("booking.form.placeholders.pickup")}
             autoComplete="off"
+            maxLength={200}
+            pattern=".*\S.*"
             required
           />
         </label>
@@ -218,6 +250,8 @@ export default function BookingForm() {
             onChange={updateField}
             placeholder={t("booking.form.placeholders.drop")}
             autoComplete="off"
+            maxLength={200}
+            pattern=".*\S.*"
             required
           />
         </label>
@@ -246,6 +280,7 @@ export default function BookingForm() {
             onChange={updateField}
             placeholder={t("booking.form.placeholders.passengers")}
             inputMode="numeric"
+            maxLength={3}
           />
         </label>
         <label>
@@ -253,14 +288,14 @@ export default function BookingForm() {
             {t("booking.form.luggage")}
             <span className="form-optional-tag">{t("booking.form.optionalTag", "(optional)")}</span>
           </span>
-          <input name="luggage" value={form.luggage} onChange={updateField} placeholder={t("booking.form.placeholders.luggage")} />
+          <input name="luggage" value={form.luggage} onChange={updateField} placeholder={t("booking.form.placeholders.luggage")} maxLength={100} />
         </label>
         <label className="form-grid__wide">
           <span className="form-grid__label-text">
             {t("booking.form.message")}
             <span className="form-optional-tag">{t("booking.form.optionalTag", "(optional)")}</span>
           </span>
-          <textarea name="message" value={form.message} onChange={updateField} placeholder={t("booking.form.placeholders.message")} />
+          <textarea name="message" value={form.message} onChange={updateField} placeholder={t("booking.form.placeholders.message")} maxLength={1000} />
         </label>
       </div>
 

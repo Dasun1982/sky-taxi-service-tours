@@ -1,92 +1,170 @@
+import { findDestination } from "./destinations";
+
 /**
- * Airport transfer route registry for SKY Taxi Service & Tours.
+ * Canonical route-intelligence registry for SKY Taxi Service & Tours.
  *
- * MILESTONE 2 — CORE TOURISM DATA ARCHITECTURE
+ * Each entry describes a real, already-live Colombo Airport -> destination
+ * route that already has a dedicated SEO page (either a hand-written
+ * AirportToXTaxi.jsx page or the data-driven AirportTransferLanding.jsx
+ * template — see src/data/seo/airportTransfers.js). This file does not
+ * create new pages; it's the linking/intelligence layer those existing
+ * pages (and Transport.jsx) can query for quick facts and related routes.
  *
- * Deliberately narrow scope: only the 8 airport-transfer routes that already
- * have a dedicated AirportToXTaxi.jsx SEO page are included. This is NOT a
- * general route engine — city-to-city routes mentioned in page copy (e.g.
- * "Unawatuna to Galle") are real content but have no structured pricing or
- * dedicated page backing them yet, so they stay as page-local SEO text
- * rather than being forced into this registry.
+ * `travelTime` is copied verbatim from the matching live page's own copy —
+ * every one of these ranges is already published, real content, not a new
+ * estimate. Never add a route here with a guessed number; if a future route
+ * has no verified time, use `travelTime: null` and render the generic
+ * "varies depending on traffic, road conditions and stops" fallback instead.
  *
- * No distance or duration field exists here because no source in the
- * project states a verified distance/duration for these routes — the
- * per-page prose ("around 2 to 2.5 hours") is approximate marketing
- * copy, not a verified figure, so it is intentionally not duplicated here.
- *
- * pricingRouteKey only exists for the 2 destinations that already have a
- * structured per-vehicle price in src/data/pricing.js (airportTransferPricing
- * routes.unawatuna / routes.weligama, from Milestone 1A). The other 6 routes
- * only offer a WhatsApp quote on their page — leaving pricingRouteKey
- * undefined here rather than inventing a number.
+ * `transportOptions` is the same four services for every route because
+ * they're delivered by the same shared driver/vehicle pool, not a
+ * destination-specific capability — never destination-gated.
  */
+
+export const transportOptionLabels = {
+  "airport-transfer": "Airport Transfer",
+  "private-taxi": "Private Taxi",
+  "private-driver": "Private Driver",
+  "driver-guide": "Driver + Guide",
+};
+
+const allTransportOptions = ["airport-transfer", "private-taxi", "private-driver", "driver-guide"];
 
 export const routes = [
   {
-    id: "airport-ella",
-    origin: "colombo-airport",
-    destination: "ella",
-    serviceTypes: ["airport-transfer"],
-    seoSlug: "/airport-to-ella",
+    slug: "airport-to-ella",
+    taxiServiceSlug: "/ella-taxi-service",
+    destinationId: "ella",
+    destinationName: "Ella",
+    travelTime: "5.5 to 7 hours",
+    transportOptions: allTransportOptions,
   },
   {
-    id: "airport-galle",
-    origin: "colombo-airport",
-    destination: "galle",
-    serviceTypes: ["airport-transfer"],
-    seoSlug: "/airport-to-galle",
+    slug: "airport-to-kandy",
+    taxiServiceSlug: "/kandy-taxi-service",
+    destinationId: "kandy",
+    destinationName: "Kandy",
+    travelTime: "3 to 4.5 hours",
+    transportOptions: allTransportOptions,
   },
   {
-    id: "airport-hiriketiya",
-    origin: "colombo-airport",
-    destination: "hiriketiya",
-    serviceTypes: ["airport-transfer"],
-    seoSlug: "/airport-to-hiriketiya",
+    slug: "airport-to-galle",
+    taxiServiceSlug: "/galle-taxi-service",
+    destinationId: "galle",
+    destinationName: "Galle",
+    travelTime: "2 to 2.5 hours by Southern Expressway",
+    transportOptions: allTransportOptions,
   },
   {
-    id: "airport-kandy",
-    origin: "colombo-airport",
-    destination: "kandy",
-    serviceTypes: ["airport-transfer"],
-    seoSlug: "/airport-to-kandy",
+    slug: "airport-to-sigiriya",
+    taxiServiceSlug: "/sigiriya-taxi-service",
+    destinationId: "sigiriya",
+    destinationName: "Sigiriya",
+    travelTime: "3.5 to 4.5 hours",
+    transportOptions: allTransportOptions,
   },
   {
-    id: "airport-mirissa",
-    origin: "colombo-airport",
-    destination: "mirissa",
-    serviceTypes: ["airport-transfer"],
-    seoSlug: "/airport-to-mirissa",
+    slug: "airport-to-mirissa",
+    taxiServiceSlug: "/mirissa-taxi-service",
+    destinationId: "mirissa",
+    destinationName: "Mirissa",
+    travelTime: "2.5 to 3.5 hours by Southern Expressway",
+    transportOptions: allTransportOptions,
   },
   {
-    id: "airport-sigiriya",
-    origin: "colombo-airport",
-    destination: "sigiriya",
-    serviceTypes: ["airport-transfer"],
-    seoSlug: "/airport-to-sigiriya",
+    slug: "airport-to-unawatuna",
+    taxiServiceSlug: "/unawatuna-taxi-service",
+    destinationId: "unawatuna",
+    destinationName: "Unawatuna",
+    travelTime: "2 to 2.5 hours by Southern Expressway",
+    transportOptions: allTransportOptions,
   },
   {
-    id: "airport-unawatuna",
-    origin: "colombo-airport",
-    destination: "unawatuna",
-    serviceTypes: ["airport-transfer"],
-    pricingRouteKey: "unawatuna",
-    seoSlug: "/airport-to-unawatuna",
+    slug: "airport-to-weligama",
+    taxiServiceSlug: "/weligama-taxi-service",
+    destinationId: "weligama",
+    destinationName: "Weligama",
+    travelTime: "2.5 to 3 hours by Southern Expressway",
+    transportOptions: allTransportOptions,
   },
   {
-    id: "airport-weligama",
-    origin: "colombo-airport",
-    destination: "weligama",
-    serviceTypes: ["airport-transfer"],
-    pricingRouteKey: "weligama",
-    seoSlug: "/airport-to-weligama",
+    slug: "airport-to-hiriketiya",
+    taxiServiceSlug: "/hiriketiya-taxi-service",
+    destinationId: "hiriketiya",
+    destinationName: "Hiriketiya",
+    travelTime: "3 to 4 hours by Southern Expressway",
+    transportOptions: allTransportOptions,
+  },
+  {
+    slug: "airport-to-nuwara-eliya",
+    taxiServiceSlug: "/nuwara-eliya-taxi-service",
+    destinationId: "nuwara-eliya",
+    destinationName: "Nuwara Eliya",
+    travelTime: "5 to 6 hours",
+    transportOptions: allTransportOptions,
+  },
+  {
+    slug: "airport-to-bentota",
+    taxiServiceSlug: "/bentota-taxi-service",
+    destinationId: "bentota",
+    destinationName: "Bentota",
+    travelTime: "1.5 to 2 hours by Southern Expressway",
+    transportOptions: allTransportOptions,
+  },
+  {
+    slug: "airport-to-negombo",
+    taxiServiceSlug: "/negombo-taxi-service",
+    destinationId: "negombo",
+    destinationName: "Negombo",
+    travelTime: "15 to 30 minutes",
+    transportOptions: allTransportOptions,
+  },
+  {
+    slug: "airport-to-arugam-bay",
+    taxiServiceSlug: "/arugam-bay-taxi-service",
+    destinationId: "arugam-bay",
+    destinationName: "Arugam Bay",
+    travelTime: "7 to 8 hours",
+    transportOptions: allTransportOptions,
+  },
+  {
+    slug: "airport-to-dambulla",
+    taxiServiceSlug: "/dambulla-taxi-service",
+    destinationId: "dambulla",
+    destinationName: "Dambulla",
+    travelTime: "3.5 to 4.5 hours",
+    transportOptions: allTransportOptions,
   },
 ];
 
-export function findRoute(id) {
-  return routes.find((route) => route.id === id);
+export function findRoute(slug) {
+  return routes.find((route) => route.slug === slug);
 }
 
-export function findRoutesByDestination(destinationId) {
-  return routes.filter((route) => route.destination === destinationId);
+export function findRouteByDestination(destinationId) {
+  return routes.find((route) => route.destinationId === destinationId);
+}
+
+/**
+ * Attractions/"useful stops" always come from destinations.js's real
+ * `popularFor` list for the matching destination — never written here.
+ */
+export function routeAttractions(route) {
+  return findDestination(route.destinationId)?.popularFor || [];
+}
+
+/**
+ * Related routes for a given destination id, derived from destinations.js's
+ * own relatedDestinations graph (already used by RelatedDestinations.jsx),
+ * filtered to destinations that also have a live airport-transfer route
+ * here. This keeps the two files' relationship data in sync without
+ * duplicating it.
+ */
+export function relatedRoutes(destinationId, limit = 4) {
+  const destination = findDestination(destinationId);
+  if (!destination) return [];
+  return destination.relatedDestinations
+    .map((id) => findRouteByDestination(id))
+    .filter(Boolean)
+    .slice(0, limit);
 }

@@ -1,5 +1,6 @@
 import { Car, Clock3, Flower2, Home, Luggage, MapPinned, MessageCircle, Mountain, Plane, Route, ShieldCheck, Users } from "lucide-react";
 import PageHero from "../components/PageHero";
+import RelatedRoutes from "../components/RelatedRoutes";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
@@ -181,11 +182,11 @@ export default function AirportToKandyTaxi({ setPage }) {
           <div className="colombo-airport-route-grid">
             {routeDetails.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(airportToKandyMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(airportToKandyMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -227,6 +228,7 @@ export default function AirportToKandyTaxi({ setPage }) {
                     href={buildWhatsAppLink(airportToKandyMessage(`${vehicle.name} airport to Kandy taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -279,6 +281,8 @@ export default function AirportToKandyTaxi({ setPage }) {
           </div>
         </div>
       </section>
+
+      <RelatedRoutes destinationId="kandy" pageSource="airport-to-kandy-page" />
     </div>
   );
 }

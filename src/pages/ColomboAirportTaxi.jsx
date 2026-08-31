@@ -173,11 +173,11 @@ export default function ColomboAirportTaxi({ setPage }) {
           <div className="colombo-airport-route-grid">
             {transferRoutes.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(airportTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(airportTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -219,6 +219,7 @@ export default function ColomboAirportTaxi({ setPage }) {
                     href={buildWhatsAppLink(airportTaxiMessage(`${vehicle.name} Colombo Airport taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle

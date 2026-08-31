@@ -155,6 +155,8 @@ export default function YalaSafariTransfer({ setPage }) {
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/galle-taxi-service">Galle Taxi Service</a>
               <a href="/mirissa-taxi-service">Mirissa Taxi Service</a>
+              <a href="/sigiriya-to-yala">Sigiriya to Yala</a>
+              <a href="/galle-to-yala">Galle to Yala</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -184,11 +186,11 @@ export default function YalaSafariTransfer({ setPage }) {
           <div className="colombo-airport-route-grid">
             {transferSections.map((section) => (
               <Reveal className="colombo-airport-route-card" key={section.title}>
-                <img src={section.image} alt={section.title} loading="lazy" />
+                <img src={section.image} alt="" loading="lazy" />
                 <div>
                   <h3>{section.title}</h3>
                   <p>{section.text}</p>
-                  <a href={buildWhatsAppLink(yalaTransferMessage(section.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(yalaTransferMessage(section.title))} target="_blank" rel="noreferrer" aria-label={`Ask transfer price — ${section.title}`}>
                     Ask transfer price
                   </a>
                 </div>
@@ -230,6 +232,7 @@ export default function YalaSafariTransfer({ setPage }) {
                     href={buildWhatsAppLink(yalaTransferMessage(`${vehicle.name} Yala transfer`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle

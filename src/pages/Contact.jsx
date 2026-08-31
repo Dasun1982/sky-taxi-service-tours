@@ -1,4 +1,4 @@
-import { Globe2, Mail, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
+import { ArrowRight, Car, Compass, Globe2, Mail, MapPin, MessageCircle, Navigation, Phone, Plane } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
@@ -6,6 +6,14 @@ import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
 import { contactInfo, images } from "../data/travelData";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { setBookingContext } from "../utils/bookingContext";
+
+const inquiryPaths = [
+  { title: "Custom Tour", text: "Multi-day private route across the destinations you choose.", icon: Compass, tripType: "Private tour" },
+  { title: "Private Driver", text: "A driver for your full trip, not just one transfer.", icon: Car, tripType: "Private tour" },
+  { title: "Airport Transfer", text: "Pickup or drop-off at Colombo Bandaranaike Airport.", icon: Plane, tripType: "Airport transfer" },
+  { title: "General Inquiry", text: "Not sure yet — ask a question first.", icon: MessageCircle, tripType: "Taxi ride" },
+];
 
 const contactMethods = [
   {
@@ -38,8 +46,13 @@ const contactMethods = [
   },
 ];
 
-export default function Contact() {
+export default function Contact({ setPage }) {
   const { t } = useLanguage();
+
+  const startInquiry = (path) => {
+    setBookingContext({ tripType: path.tripType, message: path.title, source: "contact-page" });
+    setPage("booking");
+  };
 
   return (
     <div className="page contact-page">
@@ -71,6 +84,39 @@ export default function Contact() {
           </span>
         </div>
       </PageHero>
+
+      <section className="section">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="Start here"
+            title="What are you planning?"
+            text="Pick the closest match and we will pre-fill your booking request — you can always change the details before sending."
+          />
+          <div className="contact-method-grid">
+            {inquiryPaths.map((path) => {
+              const Icon = path.icon;
+              return (
+                <Reveal key={path.title} className="contact-method-card">
+                  <span className="contact-method-card__icon">
+                    <Icon size={22} />
+                  </span>
+                  <h3>{path.title}</h3>
+                  <p>{path.text}</p>
+                  <button
+                    className="text-button"
+                    type="button"
+                    onClick={() => startInquiry(path)}
+                    aria-label={`Start request — ${path.title}`}
+                  >
+                    Start request
+                    <ArrowRight size={16} />
+                  </button>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <section className="section contact-method-section">
         <div className="section__inner">

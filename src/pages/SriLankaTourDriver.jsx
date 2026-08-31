@@ -8,8 +8,8 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 
 const tourDriverServices = [
   {
-    title: "Airport pickup with tour driver",
-    text: "Start your journey with a Sri Lanka tour driver from Colombo Airport, including flight-time checking, luggage support, and WhatsApp confirmation.",
+    title: "One driver, your whole trip",
+    text: "The same private driver stays with you from arrival to departure — a single continuous itinerary, not a new booking each day.",
     image: images.airportWelcome,
   },
   {
@@ -23,8 +23,8 @@ const tourDriverServices = [
     image: images.trainRide,
   },
   {
-    title: "Sri Lanka driver guide support",
-    text: "Travel with a friendly local driver who helps with routes, timing, stops, luggage, simple travel advice, and safe private transfers.",
+    title: "Local route knowledge across the island",
+    text: "Travel with a friendly local driver who helps with routes, timing, stops, luggage, simple travel advice, and safe private transfers day after day.",
     image: images.kandyTemple,
   },
 ];
@@ -108,6 +108,11 @@ const faqs = [
       "Your driver helps with routes, timing, comfort stops, luggage, and local travel support. Specialist licensed site guides can be arranged separately where needed.",
   },
   {
+    question: "What if I only need a driver for one day?",
+    answer:
+      "This page is for a continuous multi-day chauffeur tour with the same driver throughout. For a single day or a point-to-point transfer with no fixed itinerary, see Private Driver Sri Lanka instead.",
+  },
+  {
     question: "Is the Sri Lanka tour driver price fixed online?",
     answer:
       "The final price is confirmed on WhatsApp depending on travel dates, route, vehicle type, number of days, passengers, luggage, hotel needs, tickets, and special requests.",
@@ -124,7 +129,7 @@ export default function SriLankaTourDriver({ setPage }) {
       <PageHero
         eyebrow="Sri Lanka Tour Driver"
         title="Sri Lanka Tour Driver"
-        description="Hire a Sri Lanka tour driver for private chauffeur tours, airport pickups, flexible itineraries, clean vehicles, and 24/7 WhatsApp booking."
+        description="One dedicated driver for your entire Sri Lanka trip — a continuous multi-day chauffeur tour with flexible itineraries, clean vehicles, and 24/7 WhatsApp booking."
         image={images.sigiriya}
         alt="Sri Lanka tour driver private chauffeur tour"
       >
@@ -141,11 +146,11 @@ export default function SriLankaTourDriver({ setPage }) {
         <div className="premium-hero-badges" aria-label="Sri Lanka tour driver benefits">
           <span>
             <Plane size={16} />
-            Airport pickups
+            Airport to departure
           </span>
           <span>
             <CalendarDays size={16} />
-            Multi-day tours
+            One continuous trip
           </span>
           <span>
             <Route size={16} />
@@ -153,7 +158,7 @@ export default function SriLankaTourDriver({ setPage }) {
           </span>
           <span>
             <ShieldCheck size={16} />
-            Private chauffeur
+            Same driver throughout
           </span>
         </div>
       </PageHero>
@@ -162,14 +167,16 @@ export default function SriLankaTourDriver({ setPage }) {
         <div className="section__inner split-layout">
           <Reveal className="split-layout__copy">
             <span className="eyebrow">Private tour driver Sri Lanka</span>
-            <h2>Sri Lanka private tour driver for flexible chauffeur tours</h2>
+            <h2>One dedicated driver for your entire multi-day Sri Lanka trip</h2>
             <p>
-              SKY Taxi Service & Tours helps travelers hire a Sri Lanka tour driver for airport pickups, day tours, multi-day round tours,
-              hotel transfers, and custom private chauffeur routes across the island with clean vehicles and friendly local driver support.
+              SKY Taxi Service & Tours helps travelers hire a Sri Lanka tour driver for a continuous multi-day chauffeur tour — one driver from
+              airport pickup through to departure, with hotel transfers and a flexible route across the island. Just need a driver for a single
+              day or a point-to-point transfer instead? See Private Driver Sri Lanka.
             </p>
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>
-              <a href="/private-driver-sri-lanka">Private Driver Sri Lanka</a>
+              <a href="/driver-guide-sri-lanka">Driver + Guide</a>
+              <a href="/private-driver-sri-lanka">Private Driver Sri Lanka (single-day)</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
               <a href="/kandy-taxi-service">Kandy Taxi Service</a>
@@ -204,11 +211,11 @@ export default function SriLankaTourDriver({ setPage }) {
           <div className="colombo-airport-route-grid">
             {tourDriverServices.map((service) => (
               <Reveal className="colombo-airport-route-card" key={service.title}>
-                <img src={service.image} alt={service.title} loading="lazy" />
+                <img src={service.image} alt="" loading="lazy" />
                 <div>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                  <a href={buildWhatsAppLink(tourDriverMessage(service.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(tourDriverMessage(service.title))} target="_blank" rel="noreferrer" aria-label={`Ask tour driver price — ${service.title}`}>
                     Ask tour driver price
                   </a>
                 </div>
@@ -228,11 +235,11 @@ export default function SriLankaTourDriver({ setPage }) {
           <div className="colombo-airport-route-grid">
             {popularDestinations.map((destination) => (
               <Reveal className="colombo-airport-route-card" key={destination.title}>
-                <img src={destination.image} alt={destination.title} loading="lazy" />
+                <img src={destination.image} alt="" loading="lazy" />
                 <div>
                   <h3>{destination.title}</h3>
                   <p>{destination.text}</p>
-                  <a href={buildWhatsAppLink(tourDriverMessage(destination.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(tourDriverMessage(destination.title))} target="_blank" rel="noreferrer" aria-label={`Plan this route — ${destination.title}`}>
                     Plan this route
                   </a>
                 </div>
@@ -274,6 +281,7 @@ export default function SriLankaTourDriver({ setPage }) {
                     href={buildWhatsAppLink(tourDriverMessage(`${vehicle.name} tour driver`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle

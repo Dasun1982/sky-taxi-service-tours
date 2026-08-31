@@ -1,0 +1,113 @@
+/**
+ * Data for the shared ComparisonPage template
+ * (src/components/seo/ComparisonPage.jsx). Only pairs where both sides
+ * have real, distinct destinations.js content — see
+ * seoOpportunities.js comparisonOpportunities for pairs skipped (Yala vs
+ * Udawalawe has no real Udawalawe data to compare against).
+ */
+export const comparisonPages = {
+  "unawatuna-vs-mirissa": {
+    destinationIdA: "unawatuna",
+    destinationIdB: "mirissa",
+    heroEyebrow: "South coast comparison",
+    heroTitle: "Unawatuna vs Mirissa",
+    heroDescription: "Two real south coast beach towns, compared for swimming, whale watching, and pace — both within a short drive of each other.",
+    aHeadline: "A calmer, family-friendly beach near Galle Fort",
+    bHeadline: "Whale watching and Coconut Tree Hill",
+    ctaPageA: "unawatuna-taxi-service",
+    ctaLabelA: "View Unawatuna Taxi Service",
+    ctaPageB: "mirissa-taxi-service",
+    ctaLabelB: "View Mirissa Taxi Service",
+    comparisonRows: [
+      { title: "Best for calm swimming", text: "Unawatuna — generally the calmer of the two, and tagged as family-friendly." },
+      { title: "Best for whale watching", text: "Mirissa — the south coast's main whale-watching base." },
+      { title: "Closer to Galle Fort", text: "Unawatuna is the closer of the two to Galle Fort." },
+      { title: "Distance apart", text: "Close enough that a private driver can combine both in a single day trip along the coast." },
+    ],
+    faqs: [
+      { question: "Unawatuna or Mirissa — which should I visit?", answer: "Unawatuna suits calmer swimming and a family-friendly beach close to Galle Fort. Mirissa suits whale watching and Coconut Tree Hill. Both are close enough that many travelers visit both." },
+      { question: "Can I visit both in one day?", answer: "Yes — a private driver can combine Unawatuna and Mirissa in one day, since they're both on the same stretch of south coast." },
+    ],
+    relatedToursDestinationId: "unawatuna",
+  },
+  "galle-vs-colombo": {
+    destinationIdA: "galle",
+    destinationIdB: "colombo",
+    heroEyebrow: "City vs coast",
+    heroTitle: "Galle vs Colombo",
+    heroDescription: "Sri Lanka's capital city compared with the south coast fort city — for travelers deciding which deserves more of their time.",
+    aHeadline: "A fort city with beach access",
+    bHeadline: "The capital, best as a short stop",
+    ctaPageA: "galle-taxi-service",
+    ctaLabelA: "View Galle Taxi Service",
+    ctaPageB: "colombo",
+    ctaLabelB: "View Colombo Guide",
+    comparisonRows: [
+      { title: "Best for a longer stay", text: "Galle — colonial streets, a lighthouse, and beach towns nearby make it worth a full day or more." },
+      { title: "Best as a short stop", text: "Colombo — most visitors treat it as a one-day stop rather than a multi-day base." },
+      { title: "Beach access", text: "Galle has real beach towns (Unawatuna, Mirissa) within a short drive. Colombo does not." },
+      { title: "Typical role in a trip", text: "Colombo is usually a first or last stop near the airport; Galle is usually a dedicated south coast base." },
+    ],
+    faqs: [
+      { question: "Should I stay in Colombo or head to Galle?", answer: "Most itineraries treat Colombo as a short stop and Galle (or a nearby beach town) as the real south coast base for a longer stay." },
+      { question: "Is Galle worth more time than Colombo?", answer: "For most travelers, yes — Galle Fort and its nearby beaches offer more to do across a longer stay than Colombo's city sights." },
+    ],
+    relatedToursDestinationId: "galle",
+  },
+  "sigiriya-vs-ella": {
+    destinationIdA: "sigiriya",
+    destinationIdB: "ella",
+    heroEyebrow: "Culture vs hill country",
+    heroTitle: "Sigiriya vs Ella",
+    heroDescription: "The Cultural Triangle's best-known landmark compared with hill country's hiking town — most itineraries actually include both.",
+    aHeadline: "Ancient history and a rock fortress climb",
+    bHeadline: "Hiking, viewpoints, and tea country",
+    ctaPageA: "sigiriya-taxi-service",
+    ctaLabelA: "View Sigiriya Taxi Service",
+    ctaPageB: "ella-taxi-service",
+    ctaLabelB: "View Ella Taxi Service",
+    comparisonRows: [
+      { title: "Best for history", text: "Sigiriya — the Rock Fortress and Dambulla Cave Temple are genuine ancient sites." },
+      { title: "Best for hiking", text: "Ella — Little Adam's Peak and nearby viewpoints are the main draw." },
+      { title: "Typical trip stage", text: "Sigiriya usually comes earlier in a Cultural-Triangle-first route; Ella usually follows as the hill country stop." },
+      { title: "Do I have to choose?", text: "Not usually — SKY's real 3-day tour already combines Sigiriya, Kandy, Nuwara Eliya, and Ella in one continuous route." },
+    ],
+    combinedHeadline: "SKY's real 3-day tour already combines both",
+    combinedNote: "This is a real, priced route that visits Sigiriya, Kandy, Nuwara Eliya, and Ella on one continuous private trip.",
+    combinedCtaPage: "3-days-in-sri-lanka",
+    combinedCtaLabel: "View the 3-Day Route",
+    faqs: [
+      { question: "Sigiriya or Ella — which should I visit first?", answer: "Most routes visit Sigiriya first as part of the Cultural Triangle, then continue to Ella in the hill country — see SKY's real 3-day tour for this exact sequence." },
+      { question: "Do I need to choose between them?", answer: "Not usually — they're commonly combined on the same multi-day route rather than treated as an either/or choice." },
+    ],
+    relatedToursDestinationId: "sigiriya",
+  },
+  "ella-vs-kandy": {
+    destinationIdA: "ella",
+    destinationIdB: "kandy",
+    heroEyebrow: "Hill country comparison",
+    heroTitle: "Ella vs Kandy",
+    heroDescription: "Hiking and viewpoints compared with culture and the Temple of the Tooth — plus the real 3-day tour that combines both.",
+    aHeadline: "Hiking, the Nine Arch Bridge, and tea country",
+    bHeadline: "Culture, temples, and the Temple of the Tooth",
+    ctaPageA: "ella-taxi-service",
+    ctaLabelA: "View Ella Taxi Service",
+    ctaPageB: "kandy-taxi-service",
+    ctaLabelB: "View Kandy Taxi Service",
+    comparisonRows: [
+      { title: "Best for hiking & viewpoints", text: "Ella — Little Adam's Peak, the Nine Arch Bridge, and tea country views are the main draw." },
+      { title: "Best for culture & heritage", text: "Kandy — the Temple of the Sacred Tooth Relic, Kandy Lake, and the Royal Botanical Gardens." },
+      { title: "Typical trip stage", text: "Kandy usually comes first from Colombo or the Cultural Triangle; Ella usually follows as the hill country hiking stop." },
+      { title: "Do I have to choose?", text: "Not usually — SKY's real 3-day tour already combines Sigiriya, Kandy, Nuwara Eliya, and Ella in one continuous route." },
+    ],
+    combinedHeadline: "SKY's real 3-day tour already combines both",
+    combinedNote: "This is a real, priced route that visits Kandy and Ella (plus Sigiriya and Nuwara Eliya) on one continuous private trip.",
+    combinedCtaPage: "3-days-in-sri-lanka",
+    combinedCtaLabel: "View the 3-Day Route",
+    faqs: [
+      { question: "Ella or Kandy — which should I visit?", answer: "Ella suits travelers who want hiking, viewpoints, and the Nine Arch Bridge. Kandy suits travelers who want culture and the Temple of the Tooth. Most multi-day routes visit both." },
+      { question: "Can I visit both Ella and Kandy?", answer: "Yes — see Ella to Kandy for the route guide, or SKY's real 3-day tour that already combines both with Sigiriya and Nuwara Eliya." },
+    ],
+    relatedToursDestinationId: "kandy",
+  },
+};

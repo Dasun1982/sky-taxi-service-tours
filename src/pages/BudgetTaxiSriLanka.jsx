@@ -149,6 +149,7 @@ export default function BudgetTaxiSriLanka({ setPage }) {
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/colombo-airport-taxi">Colombo Airport Taxi</a>
               <a href="/private-driver-sri-lanka">Private Driver Sri Lanka</a>
+              <a href="/sri-lanka-budget-travel">Sri Lanka Budget Travel</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
               <a href="/kandy-taxi-service">Kandy Taxi Service</a>
               <a href="/galle-taxi-service">Galle Taxi Service</a>
@@ -181,11 +182,11 @@ export default function BudgetTaxiSriLanka({ setPage }) {
           <div className="colombo-airport-route-grid">
             {budgetServices.map((service) => (
               <Reveal className="colombo-airport-route-card" key={service.title}>
-                <img src={service.image} alt={service.title} loading="lazy" />
+                <img src={service.image} alt="" loading="lazy" />
                 <div>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                  <a href={buildWhatsAppLink(budgetTaxiMessage(service.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(budgetTaxiMessage(service.title))} target="_blank" rel="noreferrer" aria-label={`Ask fair price — ${service.title}`}>
                     Ask fair price
                   </a>
                 </div>
@@ -227,6 +228,7 @@ export default function BudgetTaxiSriLanka({ setPage }) {
                     href={buildWhatsAppLink(budgetTaxiMessage(`${vehicle.name} budget taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle

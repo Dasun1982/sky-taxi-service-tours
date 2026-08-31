@@ -32,6 +32,22 @@ const airportVehiclePrices = taxiFleet.map((vehicle) => {
 
 const customAirportDestinations = ["Ella", "Mirissa", "Galle", "Ahangama", "Hiriketiya", "Colombo", "Kandy", "Sigiriya", "Nuwara Eliya"];
 
+const airportDestinationLinks = [
+  { label: "Airport to Ella Taxi", href: "/airport-to-ella" },
+  { label: "Airport to Galle Taxi", href: "/airport-to-galle" },
+  { label: "Airport to Weligama Taxi", href: "/airport-to-weligama" },
+  { label: "Airport to Mirissa Taxi", href: "/airport-to-mirissa" },
+  { label: "Airport to Hiriketiya Taxi", href: "/airport-to-hiriketiya" },
+  { label: "Airport to Unawatuna Taxi", href: "/airport-to-unawatuna" },
+  { label: "Airport to Kandy Taxi", href: "/airport-to-kandy" },
+  { label: "Airport to Sigiriya Taxi", href: "/airport-to-sigiriya" },
+  { label: "Airport to Nuwara Eliya Taxi", href: "/airport-to-nuwara-eliya" },
+  { label: "Airport to Dambulla Taxi", href: "/airport-to-dambulla" },
+  { label: "Airport to Bentota Taxi", href: "/airport-to-bentota" },
+  { label: "Airport to Negombo Taxi", href: "/airport-to-negombo" },
+  { label: "Airport to Arugam Bay Taxi", href: "/airport-to-arugam-bay" },
+];
+
 const airportHeroBadges = [
   { label: "Flight-time checking", icon: Clock },
   { label: "Clean private vehicles", icon: Car },
@@ -78,11 +94,6 @@ export default function AirportTransfers({ setPage }) {
   return (
     <div className="page airport-page">
       <section className="airport-hero" onPointerMove={handleHeroPointerMove}>
-        <span className="airport-hero__orb airport-hero__orb--pink" aria-hidden="true" />
-        <span className="airport-hero__orb airport-hero__orb--peach" aria-hidden="true" />
-        <span className="airport-hero__ring airport-hero__ring--left" aria-hidden="true" />
-        <span className="airport-hero__ring airport-hero__ring--right" aria-hidden="true" />
-        <span className="airport-hero__route-line" aria-hidden="true" />
 
         <div className="airport-hero__content">
           <span className="eyebrow">{t("airport.hero.eyebrow")}</span>
@@ -186,6 +197,7 @@ export default function AirportTransfers({ setPage }) {
                     href={buildWhatsAppLink(getTransferMessage(vehicle.name))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`${t("common.bookTransfer")} — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     {t("common.bookTransfer")}
@@ -196,8 +208,6 @@ export default function AirportTransfers({ setPage }) {
           </div>
 
           <Reveal className="airport-custom-transfer">
-            <span className="airport-custom-transfer__glow airport-custom-transfer__glow--pink" aria-hidden="true" />
-            <span className="airport-custom-transfer__glow airport-custom-transfer__glow--peach" aria-hidden="true" />
             <div className="airport-custom-transfer__copy">
               <span className="airport-custom-transfer__eyebrow">{t("airport.labels.customEyebrow")}</span>
               <h2>{t("airport.labels.customTitle")}</h2>
@@ -237,6 +247,24 @@ export default function AirportTransfers({ setPage }) {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section section--soft">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="Popular routes"
+            title="Airport transfers by destination"
+            text="Browse SKY airport transfer pages for specific Sri Lanka destinations."
+          />
+          <div className="colombo-airport-link-row">
+            <a href="/transport">Compare all transport options</a>
+            {airportDestinationLinks.map((link) => (
+              <a href={link.href} key={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </div>

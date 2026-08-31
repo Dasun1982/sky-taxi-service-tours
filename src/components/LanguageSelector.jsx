@@ -6,6 +6,8 @@ export default function LanguageSelector() {
   const { activeLanguage, language, languages, setLanguage, t } = useLanguage();
   const [open, setOpen] = useState(false);
   const selectorRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const triggerRef = useRef(null);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -31,6 +33,20 @@ export default function LanguageSelector() {
     };
   }, [open]);
 
+  // Same focus-management pattern as the tour modals: move focus into the
+  // dialog when it opens. Skips the initial mount (open starts false) so
+  // this never steals focus to the trigger on page load — it only acts on
+  // a real open transition.
+  const wasOpenRef = useRef(false);
+  useEffect(() => {
+    if (open) {
+      closeButtonRef.current?.focus();
+    } else if (wasOpenRef.current) {
+      triggerRef.current?.focus();
+    }
+    wasOpenRef.current = open;
+  }, [open]);
+
   const chooseLanguage = (code) => {
     setLanguage(code);
     setOpen(false);
@@ -39,6 +55,7 @@ export default function LanguageSelector() {
   return (
     <div className={open ? "language-selector language-selector--open" : "language-selector"} ref={selectorRef}>
       <button
+        ref={triggerRef}
         className="language-selector__trigger"
         type="button"
         onClick={() => setOpen((current) => !current)}
@@ -67,7 +84,7 @@ export default function LanguageSelector() {
               <strong>{t("language.choose")}</strong>
               <span>{t("language.subtitle")}</span>
             </div>
-            <button className="language-selector__close" type="button" onClick={() => setOpen(false)} aria-label={t("common.closeLanguageMenu")}>
+            <button ref={closeButtonRef} className="language-selector__close" type="button" onClick={() => setOpen(false)} aria-label={t("common.closeLanguageMenu")}>
               <X size={18} />
             </button>
           </div>
@@ -82,6 +99,7 @@ export default function LanguageSelector() {
                   type="button"
                   key={option.code}
                   onClick={() => chooseLanguage(option.code)}
+                  aria-current={selected ? "true" : undefined}
                 >
                   <span className="language-selector__option-code">{option.shortLabel}</span>
                   <span>

@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
@@ -151,6 +152,11 @@ export default function KandyTaxiService({ setPage }) {
               <a href="/colombo-airport-taxi">Colombo Airport Taxi</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
+              <a href="/things-to-do-in-kandy">Things to Do in Kandy</a>
+              <a href="/kandy-to-sigiriya">Kandy to Sigiriya</a>
+              <a href="/ella-to-kandy">Ella to Kandy</a>
+              <a href="/best-places-to-visit-from-kandy">Best Places to Visit from Kandy</a>
+              <a href="/ella-vs-kandy">Ella vs Kandy</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -180,11 +186,11 @@ export default function KandyTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {kandyRoutes.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(kandyTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(kandyTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -226,6 +232,7 @@ export default function KandyTaxiService({ setPage }) {
                     href={buildWhatsAppLink(kandyTaxiMessage(`${vehicle.name} Kandy taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -281,6 +288,7 @@ export default function KandyTaxiService({ setPage }) {
 
       <RelatedTours destinationId="kandy" soft />
       <RelatedDestinations destinationId="kandy" soft={false} />
+      <RelatedRoutes destinationId="kandy" pageSource="kandy-taxi-service-page" />
     </div>
   );
 }

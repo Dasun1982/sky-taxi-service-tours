@@ -8,6 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { images } from "../data/travelData";
 import { findOneDayTourPricing } from "../data/pricing";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { getDeepLinkParam } from "../utils/deepLink";
 
 const oneDayTours = [
   {
@@ -57,8 +58,8 @@ const oneDayTours = [
         description: "Free time to explore Ella Town cafes, local streets, and shops.",
       },
     ],
-    includes: ["Private air-conditioned vehicle", "Experienced local driver/guide", "All fuel and parking charges", "Hotel pick-up and drop-off", "Fully customizable itinerary"],
-    notIncluded: ["Entrance fees", "Meals and refreshments"],
+    includes: ["Private air-conditioned vehicle", "Experienced local driver", "All fuel and parking charges", "Hotel pick-up and drop-off", "Fully customizable itinerary"],
+    notIncluded: ["Entrance fees", "Meals and refreshments", "Specialist local guide — can be arranged separately, see Driver + Guide"],
   },
   {
     id: "sinharaja-one-day-trip",
@@ -96,8 +97,8 @@ const oneDayTours = [
         description: "End with tea plantation views and Ceylon tea experience.",
       },
     ],
-    includes: ["Private air-conditioned vehicle", "Experienced local driver/guide", "All fuel and parking charges", "Hotel pick-up and drop-off", "Fully customizable itinerary"],
-    notIncluded: ["Entrance fees", "Meals and refreshments"],
+    includes: ["Private air-conditioned vehicle", "Experienced local driver", "All fuel and parking charges", "Hotel pick-up and drop-off", "Fully customizable itinerary"],
+    notIncluded: ["Entrance fees", "Meals and refreshments", "Specialist local guide — can be arranged separately, see Driver + Guide"],
   },
   {
     id: "kandy-one-day-trip",
@@ -139,8 +140,8 @@ const oneDayTours = [
         description: "Buddhist culture from around the world.",
       },
     ],
-    includes: ["Private air-conditioned vehicle", "Experienced local driver/guide", "All fuel and parking charges", "Hotel pick-up and drop-off", "Fully customizable itinerary"],
-    notIncluded: ["Entrance fees", "Meals and refreshments"],
+    includes: ["Private air-conditioned vehicle", "Experienced local driver", "All fuel and parking charges", "Hotel pick-up and drop-off", "Fully customizable itinerary"],
+    notIncluded: ["Entrance fees", "Meals and refreshments", "Specialist local guide — can be arranged separately, see Driver + Guide"],
   },
   {
     id: "colombo-one-day-trip",
@@ -194,8 +195,8 @@ const oneDayTours = [
         description: "City view from South Asia's tallest tower.",
       },
     ],
-    includes: ["Private air-conditioned vehicle", "Experienced local driver/guide", "All fuel and parking charges", "Hotel pick-up and drop-off", "Fully customizable itinerary"],
-    notIncluded: ["Entrance fees", "Meals and refreshments"],
+    includes: ["Private air-conditioned vehicle", "Experienced local driver", "All fuel and parking charges", "Hotel pick-up and drop-off", "Fully customizable itinerary"],
+    notIncluded: ["Entrance fees", "Meals and refreshments", "Specialist local guide — can be arranged separately, see Driver + Guide"],
   },
 ];
 
@@ -218,11 +219,18 @@ export default function OneDayTours() {
   const [activeTour, setActiveTour] = useState(null);
   const [isModalClosing, setIsModalClosing] = useState(false);
   const closeTimerRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  // The element that had focus right before the modal opened (the "View
+  // Full Details" button that was clicked, or nothing for the deep-link
+  // case) — restored on close so keyboard/screen-reader users land back
+  // where they were, not silently at the top of the page.
+  const triggerElementRef = useRef(null);
 
   const openModal = (tour) => {
     if (closeTimerRef.current) {
       window.clearTimeout(closeTimerRef.current);
     }
+    triggerElementRef.current = document.activeElement;
     setIsModalClosing(false);
     setActiveTour(tour);
   };
@@ -237,7 +245,18 @@ export default function OneDayTours() {
     closeTimerRef.current = window.setTimeout(() => {
       setActiveTour(null);
       setIsModalClosing(false);
+      triggerElementRef.current?.focus?.();
     }, 180);
+  }, [activeTour]);
+
+  // Moves keyboard/screen-reader focus into the dialog the moment it opens
+  // — without this, focus stays on the (now visually covered) trigger
+  // button, and Tab would walk through the rest of the page before ever
+  // reaching the modal, which is portalled to the end of <body>.
+  useEffect(() => {
+    if (activeTour) {
+      closeButtonRef.current?.focus();
+    }
   }, [activeTour]);
 
   useEffect(() => {
@@ -257,6 +276,18 @@ export default function OneDayTours() {
       window.removeEventListener("keydown", closeOnEscape);
     };
   }, [activeTour, closeModal]);
+
+  // Deep link: /one-day-tours?tour=<id> opens that tour's modal automatically.
+  // Runs once on mount — a missing or unrecognized id is silently ignored,
+  // leaving the page exactly as it behaves with no parameter at all.
+  useEffect(() => {
+    const tourId = getDeepLinkParam("tour");
+    if (!tourId) return;
+    const index = oneDayTours.findIndex((tour) => tour.id === tourId);
+    if (index === -1) return;
+    openModal({ ...oneDayTours[index], index });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -325,7 +356,12 @@ export default function OneDayTours() {
                     </span>
                   </div>
                   <div className="one-day-card__actions">
-                    <button className="button button--light" type="button" onClick={() => openModal(translatedTour)}>
+                    <button
+                      className="button button--light"
+                      type="button"
+                      onClick={() => openModal(translatedTour)}
+                      aria-label={`${t("common.viewFullDetails")} — ${getTourTitle(translatedTour)}`}
+                    >
                       {t("common.viewFullDetails")}
                     </button>
                     <a
@@ -333,6 +369,7 @@ export default function OneDayTours() {
                       href={buildWhatsAppLink(getTourMessage(getTourTitle(translatedTour)))}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`${t("common.askOnWhatsApp")} — ${getTourTitle(translatedTour)}`}
                     >
                       <MessageCircle size={18} />
                       {t("common.askOnWhatsApp")}
@@ -345,9 +382,6 @@ export default function OneDayTours() {
           </div>
 
           <Reveal className="one-day-custom-tour">
-            <span className="one-day-custom-tour__glow one-day-custom-tour__glow--pink" aria-hidden="true" />
-            <span className="one-day-custom-tour__glow one-day-custom-tour__glow--peach" aria-hidden="true" />
-
             <div className="one-day-custom-tour__copy">
               <span className="one-day-custom-tour__eyebrow">{t("oneDay.custom.eyebrow")}</span>
               <h2>{t("oneDay.custom.title")}</h2>
@@ -411,7 +445,7 @@ export default function OneDayTours() {
           <div className={isModalClosing ? "one-day-modal one-day-modal--closing" : "one-day-modal"} role="dialog" aria-modal="true" aria-labelledby="one-day-modal-title">
             <button className="one-day-modal__overlay" type="button" onClick={closeModal} aria-label={t("common.closeTourDetails")} />
             <div className="one-day-modal__panel">
-              <button className="one-day-modal__close" type="button" onClick={closeModal} aria-label={t("common.closeTourDetails")}>
+              <button ref={closeButtonRef} className="one-day-modal__close" type="button" onClick={closeModal} aria-label={t("common.closeTourDetails")}>
                 <X size={22} />
               </button>
 

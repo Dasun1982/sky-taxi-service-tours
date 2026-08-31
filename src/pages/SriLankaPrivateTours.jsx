@@ -206,11 +206,11 @@ export default function SriLankaPrivateTours({ setPage }) {
           <div className="colombo-airport-route-grid">
             {privateTourTypes.map((tour) => (
               <Reveal className="colombo-airport-route-card" key={tour.title}>
-                <img src={tour.image} alt={tour.title} loading="lazy" />
+                <img src={tour.image} alt="" loading="lazy" />
                 <div>
                   <h3>{tour.title}</h3>
                   <p>{tour.text}</p>
-                  <a href={buildWhatsAppLink(privateToursMessage(tour.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(privateToursMessage(tour.title))} target="_blank" rel="noreferrer" aria-label={`Ask tour price — ${tour.title}`}>
                     Ask tour price
                   </a>
                 </div>
@@ -230,11 +230,11 @@ export default function SriLankaPrivateTours({ setPage }) {
           <div className="colombo-airport-route-grid">
             {destinations.map((destination) => (
               <Reveal className="colombo-airport-route-card" key={destination.title}>
-                <img src={destination.image} alt={destination.title} loading="lazy" />
+                <img src={destination.image} alt="" loading="lazy" />
                 <div>
                   <h3>{destination.title}</h3>
                   <p>{destination.text}</p>
-                  <a href={buildWhatsAppLink(privateToursMessage(destination.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(privateToursMessage(destination.title))} target="_blank" rel="noreferrer" aria-label={`Plan this tour — ${destination.title}`}>
                     Plan this tour
                   </a>
                 </div>
@@ -276,6 +276,7 @@ export default function SriLankaPrivateTours({ setPage }) {
                     href={buildWhatsAppLink(privateToursMessage(`${vehicle.name} private tour`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle

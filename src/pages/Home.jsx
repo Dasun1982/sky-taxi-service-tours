@@ -2,7 +2,6 @@ import { useRef } from "react";
 import {
   ArrowLeft,
   ArrowRight,
-  BadgeCheck,
   Car,
   CheckCircle2,
   Compass,
@@ -15,22 +14,32 @@ import {
   Plane,
   Route,
   ShieldCheck,
+  Sparkles,
   Users,
   Wallet,
 } from "lucide-react";
+import CinematicVideoCard from "../components/CinematicVideoCard";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
 import {
+  coastalStory,
   contactInfo,
   destinationShowcase,
   featuredExperiences,
+  galleryPreview,
   images,
+  cinematicVideos,
   popularTours,
   whyChooseUs,
+  wildSriLanka,
 } from "../data/travelData";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { trackEvent } from "../utils/analytics";
+
+const trackAiOpen = (pageSource) => () => trackEvent("ai_planner_opened", { page_source: pageSource });
+const trackWhatsApp = (pageSource) => () => trackEvent("whatsapp_clicked", { page_source: pageSource });
 
 const services = [
   {
@@ -62,11 +71,11 @@ const services = [
     page: "tours",
   },
   {
-    title: "Vehicle Rentals",
-    text: "Clean cars and vans for couples, families, solo travelers, and small groups.",
+    title: "Private Driver",
+    text: "One driver and vehicle for your whole trip, with local route knowledge and flexible daily stops.",
     icon: Users,
-    image: images.vehicleRentals,
-    page: "vehicle-rentals",
+    image: images.toyotaKdh,
+    page: "sri-lanka-tour-driver",
   },
   {
     title: "Travel Support",
@@ -75,6 +84,58 @@ const services = [
     image: images.trainRide,
     page: "contact",
   },
+];
+
+const exploreRegions = [
+  {
+    name: "South Coast",
+    image: images.galleFort,
+    alt: "Galle Fort on the Sri Lanka south coast",
+    places: [
+      { name: "Galle", href: "/galle-taxi-service" },
+      { name: "Unawatuna", href: "/unawatuna-taxi-service" },
+      { name: "Mirissa", href: "/mirissa-taxi-service" },
+      { name: "Weligama", href: "/weligama-taxi-service" },
+    ],
+  },
+  {
+    name: "Hill Country",
+    image: images.nineArchBridge,
+    alt: "Nine Arch Bridge in Ella hill country",
+    places: [
+      { name: "Ella", href: "/ella-taxi-service" },
+      { name: "Nuwara Eliya", href: "/nuwara-eliya-taxi-service" },
+      { name: "Kandy", href: "/kandy-taxi-service" },
+    ],
+  },
+  {
+    name: "Wildlife & Nature",
+    image: images.safari,
+    alt: "Wildlife safari route in Sri Lanka",
+    places: [
+      { name: "Yala", href: "/yala-safari-transfer" },
+      { name: "Sinharaja", href: "/wildlife" },
+    ],
+  },
+  {
+    name: "Cultural Triangle",
+    image: images.sigiriya,
+    alt: "Sigiriya Rock Fortress in Sri Lanka",
+    places: [
+      { name: "Sigiriya", href: "/sigiriya-taxi-service" },
+      { name: "Dambulla", href: "/dambulla-taxi-service" },
+      { name: "Polonnaruwa", href: "/destinations" },
+      { name: "Anuradhapura", href: "/destinations" },
+    ],
+  },
+];
+
+const tripFlowSteps = [
+  { label: "Discover", text: "Explore Sri Lanka's destinations, wildlife, and experiences." },
+  { label: "Plan with AI", text: "SKY AI builds a route from what you actually want." },
+  { label: "Book", text: "Send your route to SKY for a private driver quote." },
+  { label: "Travel", text: "Your journey begins with a private driver and clean vehicle." },
+  { label: "Manage", text: "Confirm details and any changes directly with our team." },
 ];
 
 const whyIcons = [Wallet, HeartHandshake, CheckCircle2, MessageCircle, MapPin, ShieldCheck];
@@ -145,7 +206,7 @@ export default function Home({ setPage }) {
     const cardContent = (
       <>
         <a className="home-seo-route-card__media" href={route.href} aria-label={route.title} {...linkProps}>
-          <img src={route.image} alt={route.title} loading="lazy" />
+          <img src={route.image} alt="" loading="lazy" />
         </a>
         <div className="home-seo-route-card__body">
           <h3>
@@ -154,7 +215,7 @@ export default function Home({ setPage }) {
             </a>
           </h3>
           <p>{route.description}</p>
-          <a className="home-seo-route-card__button" href={route.href} {...linkProps}>
+          <a className="home-seo-route-card__button" href={route.href} aria-label={`View Route — ${route.title}`} {...linkProps}>
             View Route
             <ArrowRight size={16} />
           </a>
@@ -185,14 +246,13 @@ export default function Home({ setPage }) {
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const scrollToDiscover = () => {
+    document.getElementById("explore-sri-lanka")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="page home-page">
       <section className="home-hero home-hero--polished">
-        <div className="home-hero__ring home-hero__ring--one" aria-hidden="true" />
-        <div className="home-hero__ring home-hero__ring--two" aria-hidden="true" />
-        <div className="hero-accent hero-accent--pink" />
-        <div className="hero-accent hero-accent--peach" />
-
         <div className="home-hero__content reveal">
           <h1 className="hero-gradient-title">
             <span>{t("home.hero.line1")}</span>
@@ -200,33 +260,33 @@ export default function Home({ setPage }) {
           </h1>
           <p>{t("home.hero.subtitle")}</p>
           <div className="hero-actions">
-            <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
-              <MessageCircle size={19} />
-              {t("common.bookOnWhatsApp")}
+            <a className="button button--primary" href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-hero")}>
+              <Sparkles size={19} />
+              {t("home.hero.planCta", "Plan my Sri Lanka trip")}
             </a>
-            <button className="button button--light" type="button" onClick={scrollToServices}>
-              {t("common.viewServices")}
+            <button className="button button--light" type="button" onClick={scrollToDiscover}>
+              {t("home.hero.exploreCta", "Explore Sri Lanka")}
               <ArrowRight size={18} />
             </button>
           </div>
           <div className="home-trust-row">
             <span>
-              <BadgeCheck size={17} />
-              {t("common.fairPrices")}
+              <Sparkles size={17} />
+              {t("home.hero.trust1", "AI trip planning")}
             </span>
             <span>
               <Car size={17} />
-              {t("common.islandWideTaxi")}
+              {t("home.hero.trust2", "Private transport")}
             </span>
             <span>
-              <Plane size={17} />
-              {t("common.airportTransfers")}
-            </span>
-            <span>
-              <HeartHandshake size={17} />
-              {t("common.friendlyDrivers")}
+              <Compass size={17} />
+              {t("home.hero.trust3", "Local experiences")}
             </span>
           </div>
+          <a className="text-button home-hero__whatsapp" href={buildWhatsAppLink()} target="_blank" rel="noreferrer" onClick={trackWhatsApp("home-hero")}>
+            <MessageCircle size={16} />
+            {t("home.hero.whatsappLink", "Or book directly on WhatsApp")}
+          </a>
         </div>
       </section>
 
@@ -243,7 +303,7 @@ export default function Home({ setPage }) {
               return (
                 <Reveal className="home-service-card" key={service.title}>
                   <div className="home-service-card__image">
-                    <img src={service.image} alt={service.title} loading="lazy" />
+                    <img src={service.image} alt="" loading="lazy" />
                   </div>
                   <div className="home-service-card__body">
                     <span>
@@ -251,7 +311,12 @@ export default function Home({ setPage }) {
                     </span>
                     <h3>{t(`home.services.${index}.title`, service.title)}</h3>
                     <p>{t(`home.services.${index}.text`, service.text)}</p>
-                    <button className="service-detail-button" type="button" onClick={() => setPage(service.page)}>
+                    <button
+                      className="service-detail-button"
+                      type="button"
+                      onClick={() => setPage(service.page)}
+                      aria-label={`${t("common.viewDetails")} — ${t(`home.services.${index}.title`, service.title)}`}
+                    >
                       {t("common.viewDetails")}
                       <ArrowRight size={16} />
                     </button>
@@ -259,6 +324,31 @@ export default function Home({ setPage }) {
                 </Reveal>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section tours-choice-strip">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="What should I choose?"
+            title="Driver Only, Driver + Guide, Private Tour, or SKY AI"
+            text="You already know your route? Want a specialist guide too? Want it all organized? Or not sure yet? Pick the option that fits."
+            align="left"
+          />
+          <div className="colombo-airport-link-row">
+            <a href="/sri-lanka-tour-driver" onClick={() => trackEvent("service_selected", { service_id: "driver-only", page_source: "home-page" })}>
+              Driver Only
+            </a>
+            <a href="/driver-guide-sri-lanka" onClick={() => trackEvent("service_selected", { service_id: "driver-guide", page_source: "home-page" })}>
+              Driver + Guide
+            </a>
+            <a href="/tours" onClick={() => trackEvent("service_selected", { service_id: "private-tour", page_source: "home-page" })}>
+              Private Tour
+            </a>
+            <a href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-choice-strip")}>
+              Plan with SKY AI
+            </a>
           </div>
         </div>
       </section>
@@ -288,13 +378,64 @@ export default function Home({ setPage }) {
               </div>
             </div>
             <div className="ai-planner-card__actions">
-              <a className="button button--primary" href={aiPlannerUrl} target="_blank" rel="noreferrer">
+              <a className="button button--primary" href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-ai-planner-promo")}>
                 Start AI Planner
                 <ArrowRight size={18} />
               </a>
               <a className="button button--light" href="/tours">
                 View Private Tours
                 <Compass size={18} />
+              </a>
+              <a className="text-button" href="/ai-trip-planner">
+                How SKY AI works
+                <ArrowRight size={16} />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section ai-preview-section">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="Example route, not a live response"
+            title="What SKY AI can build for you"
+            text="Tell SKY AI where you want to go, how long you have, what you love, and how you want to travel. Here's the kind of route it builds."
+            align="left"
+          />
+          <Reveal className="ai-preview-panel">
+            <div className="ai-preview-panel__prompt">
+              <span className="ai-preview-panel__label">You might ask</span>
+              <p>&ldquo;I have 7 days in Sri Lanka. I love wildlife, mountains and beaches.&rdquo;</p>
+            </div>
+            <div className="ai-preview-panel__result">
+              <span className="ai-preview-panel__label">SKY AI drafts a route like this</span>
+              <ol className="ai-preview-days">
+                <li>
+                  <span>01</span>Negombo
+                </li>
+                <li>
+                  <span>02</span>Sigiriya
+                </li>
+                <li>
+                  <span>03</span>Kandy
+                </li>
+                <li>
+                  <span>04</span>Ella
+                </li>
+                <li>
+                  <span>05</span>Yala
+                </li>
+                <li>
+                  <span>06</span>South Coast
+                </li>
+                <li>
+                  <span>07</span>Galle
+                </li>
+              </ol>
+              <a className="button button--primary" href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-ai-preview")}>
+                Build my journey with SKY AI
+                <ArrowRight size={18} />
               </a>
             </div>
           </Reveal>
@@ -323,12 +464,17 @@ export default function Home({ setPage }) {
           <div className="home-tour-carousel" ref={carouselRef}>
             {popularTours.map((tour, index) => (
               <article className="home-tour-card" key={tour.title}>
-                <img src={tour.image} alt={tour.title} loading="lazy" />
+                <img src={tour.image} alt="" loading="lazy" />
                 <div>
                   <span>{t(`home.popularTours.${index}.location`, tour.location)}</span>
                   <h3>{t(`home.popularTours.${index}.title`, tour.title)}</h3>
                   <p>{t(`home.popularTours.${index}.text`, tour.text)}</p>
-                  <button className="text-button" type="button" onClick={() => setPage("booking")}>
+                  <button
+                    className="text-button"
+                    type="button"
+                    onClick={() => setPage("booking")}
+                    aria-label={`${t("common.askForFairQuote")} — ${t(`home.popularTours.${index}.title`, tour.title)}`}
+                  >
                     {t("common.askForFairQuote")}
                     <ArrowRight size={16} />
                   </button>
@@ -386,6 +532,73 @@ export default function Home({ setPage }) {
         </div>
       </section>
 
+      <section className="section section--soft explore-sri-lanka-section" id="explore-sri-lanka">
+        <div className="section__inner">
+          <SectionHeader eyebrow="Discover" title="Explore Sri Lanka by region" text="Real SKY destinations, grouped the way travelers actually plan a route." align="left" />
+          <div className="explore-region-grid">
+            {exploreRegions.map((region) => (
+              <Reveal className="explore-region-card" key={region.name}>
+                <img src={region.image} alt={region.alt} loading="lazy" />
+                <div className="explore-region-card__body">
+                  <h3>{region.name}</h3>
+                  <div className="explore-region-card__places">
+                    {region.places.map((place) => (
+                      <a
+                        href={place.href}
+                        key={place.name}
+                        onClick={() => trackEvent("destination_clicked", { destination: place.name, page_source: "home-explore" })}
+                      >
+                        {place.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section wild-sri-lanka-section">
+        <div className="section__inner">
+          <SectionHeader eyebrow={wildSriLanka.eyebrow} title={wildSriLanka.title} text={wildSriLanka.text} />
+          <div className="wild-sri-lanka-layout">
+            <Reveal className="wild-sri-lanka-feature">
+              <img src={wildSriLanka.feature.image} alt={wildSriLanka.feature.alt} loading="lazy" />
+              <div className="wild-sri-lanka-feature__caption">
+                <h3>{wildSriLanka.feature.title}</h3>
+                <p>{wildSriLanka.feature.text}</p>
+              </div>
+            </Reveal>
+            <div className="wild-sri-lanka-grid">
+              {wildSriLanka.supporting.map((item) => (
+                <Reveal as="figure" className="wild-sri-lanka-grid__item" key={item.title}>
+                  <img src={item.image} alt={item.alt} loading="lazy" />
+                  <figcaption>{item.title}</figcaption>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section cinematic-feature-section">
+        <div className="section__inner">
+          <SectionHeader eyebrow={cinematicVideos.eyebrow} title={cinematicVideos.title} text={cinematicVideos.text} align="left" />
+          <CinematicVideoCard
+            size="feature"
+            className="cinematic-feature-card"
+            eager={false}
+            poster={cinematicVideos.feature.poster}
+            posterAlt={cinematicVideos.feature.posterAlt}
+            src={cinematicVideos.feature.src}
+            title={cinematicVideos.feature.title}
+            text={cinematicVideos.feature.text}
+            credit={cinematicVideos.feature.credit}
+          />
+        </div>
+      </section>
+
       <section className="section section--soft home-experience-section">
         <div className="section__inner">
           <div className="home-experience-layout">
@@ -414,6 +627,54 @@ export default function Home({ setPage }) {
         </div>
       </section>
 
+      <section className="section coastal-story-section">
+        <div className="section__inner coastal-story-layout">
+          <Reveal className="coastal-story-photo">
+            <img src={coastalStory.image} alt={coastalStory.alt} loading="lazy" />
+          </Reveal>
+          <div className="coastal-story-copy">
+            <span className="eyebrow">{coastalStory.eyebrow}</span>
+            <h2>{coastalStory.title}</h2>
+            <p>{coastalStory.text}</p>
+            <CinematicVideoCard
+              size="supporting"
+              className="coastal-story-video"
+              poster={cinematicVideos.supporting.poster}
+              posterAlt={cinematicVideos.supporting.posterAlt}
+              src={cinematicVideos.supporting.src}
+              title={cinematicVideos.supporting.title}
+              text={cinematicVideos.supporting.text}
+              credit={cinematicVideos.supporting.credit}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--soft gallery-preview-section">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="A closer look"
+            title="From the gallery"
+            text="A small selection of real Sri Lanka photography. The full collection — wildlife, coast, culture, and landscapes — lives in the gallery."
+            align="left"
+          />
+          <div className="gallery-preview-grid">
+            {galleryPreview.map((item) => (
+              <Reveal as="figure" className="gallery-preview-grid__item" key={item.title}>
+                <img src={item.image} alt={item.alt} loading="lazy" />
+                <figcaption>{item.title}</figcaption>
+              </Reveal>
+            ))}
+          </div>
+          <div className="gallery-preview-section__link">
+            <button className="text-button" type="button" onClick={() => setPage("gallery")}>
+              Explore the gallery
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+
       <section className="section" id="why">
         <div className="section__inner">
           <SectionHeader
@@ -438,6 +699,21 @@ export default function Home({ setPage }) {
         </div>
       </section>
 
+      <section className="section trip-flow-section">
+        <div className="section__inner">
+          <SectionHeader eyebrow="How SKY works" title="From idea to island" align="left" />
+          <Reveal className="trip-flow-strip">
+            {tripFlowSteps.map((step, index) => (
+              <div className="trip-flow-strip__step" key={step.label}>
+                <span className="trip-flow-strip__number">{String(index + 1).padStart(2, "0")}</span>
+                <span className="trip-flow-strip__label">{step.label}</span>
+                <span className="trip-flow-strip__text">{step.text}</span>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section section--soft">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
@@ -447,14 +723,18 @@ export default function Home({ setPage }) {
               <p>{t("home.bookingCta.text")}</p>
             </div>
             <div className="cta-actions">
-              <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
-                <MessageCircle size={19} />
-                {t("common.bookOnWhatsApp")}
+              <a className="button button--primary" href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-booking-cta")}>
+                <Sparkles size={19} />
+                {t("home.bookingCta.planWithAi", "Plan with SKY AI")}
               </a>
               <button className="button button--light" type="button" onClick={() => setPage("booking")}>
-                {t("common.openBookingForm")}
+                {t("home.bookingCta.bookTrip", "Book a private trip")}
               </button>
             </div>
+            <a className="text-button home-booking-cta__whatsapp" href={buildWhatsAppLink()} target="_blank" rel="noreferrer" onClick={trackWhatsApp("home-booking-cta")}>
+              <MessageCircle size={16} />
+              {t("common.bookOnWhatsApp")}
+            </a>
           </Reveal>
         </div>
       </section>

@@ -1,63 +1,137 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import "./App.css";
 import AppLoader from "./components/AppLoader";
 import BottomActionBar from "./components/BottomActionBar";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import PremiumCursor from "./components/PremiumCursor";
-import SeoSchema from "./components/SeoSchema";
+// PHASE 4 — lazy, not eager: SeoSchema's only dependency is schemaData.js,
+// which now carries ~80KB of FAQ/label text across 100+ pages (real
+// content, not bloat — but none of it is needed for first paint, and
+// SeoSchema renders nothing visible, only <head> script tags via
+// useEffect). Eagerly importing it pulled that whole file into the main
+// bundle on every route, including ones with a handful of FAQs. Loading it
+// behind Suspense moves it to its own chunk, fetched after first paint —
+// no visual change, since there's nothing to show while it loads.
+const SeoSchema = lazy(() => import("./components/SeoSchema"));
+import Breadcrumbs from "./components/Breadcrumbs";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { pageMeta } from "./data/travelData";
 import { website as SITE_URL } from "./data/business";
-import Acquire from "./pages/Acquire";
-import AcquisitionOverview from "./pages/AcquisitionOverview";
-import AiSystem from "./pages/AiSystem";
-import AirportTransfers from "./pages/AirportTransfers";
-import Booking from "./pages/Booking";
-import Contact from "./pages/Contact";
-import Destinations from "./pages/Destinations";
-import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
-import Packages from "./pages/Packages";
-import OneDayTours from "./pages/OneDayTours";
-import RoundTours from "./pages/RoundTours";
-import TaxiService from "./pages/TaxiService";
-import Tours from "./pages/Tours";
-import About from "./pages/About";
-import Testimonials from "./pages/Testimonials";
-import VehicleRentals from "./pages/VehicleRentals";
-import Valuation from "./pages/Valuation";
-import ColomboAirportTaxi from "./pages/ColomboAirportTaxi";
-import AirportToEllaTaxi from "./pages/AirportToEllaTaxi";
-import AirportToGalleTaxi from "./pages/AirportToGalleTaxi";
-import AirportToHiriketiyaTaxi from "./pages/AirportToHiriketiyaTaxi";
-import AirportToKandyTaxi from "./pages/AirportToKandyTaxi";
-import AirportToMirissaTaxi from "./pages/AirportToMirissaTaxi";
-import AirportToSigiriyaTaxi from "./pages/AirportToSigiriyaTaxi";
-import AirportToUnawatunaTaxi from "./pages/AirportToUnawatunaTaxi";
-import AirportToWeligamaTaxi from "./pages/AirportToWeligamaTaxi";
-import AirportTransferSriLanka from "./pages/AirportTransferSriLanka";
-import EllaTaxiService from "./pages/EllaTaxiService";
-import KandyTaxiService from "./pages/KandyTaxiService";
-import GalleTaxiService from "./pages/GalleTaxiService";
-import SigiriyaTaxiService from "./pages/SigiriyaTaxiService";
-import MirissaTaxiService from "./pages/MirissaTaxiService";
-import PrivateDriverSriLanka from "./pages/PrivateDriverSriLanka";
-import BudgetTaxiSriLanka from "./pages/BudgetTaxiSriLanka";
-import SriLankaTourDriver from "./pages/SriLankaTourDriver";
-import SriLankaTaxiService from "./pages/SriLankaTaxiService";
-import SriLankaPrivateTours from "./pages/SriLankaPrivateTours";
-import SriLankaRoundTours from "./pages/SriLankaRoundTours";
-import DayToursSriLanka from "./pages/DayToursSriLanka";
-import YalaSafariTransfer from "./pages/YalaSafariTransfer";
-import UnawatunaTaxiService from "./pages/UnawatunaTaxiService";
-import WeligamaTaxiService from "./pages/WeligamaTaxiService";
-import HiriketiyaTaxiService from "./pages/HiriketiyaTaxiService";
-import NuwaraEliyaTaxiService from "./pages/NuwaraEliyaTaxiService";
-import BentotaTaxiService from "./pages/BentotaTaxiService";
-import NegomboTaxiService from "./pages/NegomboTaxiService";
-import ArugamBayTaxiService from "./pages/ArugamBayTaxiService";
-import DambullaTaxiService from "./pages/DambullaTaxiService";
+
+// Home loads eagerly (it's the page almost every visitor lands on first —
+// no reason to add a chunk-fetch round trip to the most common case).
+// Every other route is route-split via lazy(): visiting the homepage no
+// longer downloads the code for ~60 taxi-route landing pages it will never
+// render. See the <Suspense> boundary below for the loading fallback.
+const Acquire = lazy(() => import("./pages/Acquire"));
+const AcquisitionOverview = lazy(() => import("./pages/AcquisitionOverview"));
+const AiSystem = lazy(() => import("./pages/AiSystem"));
+const AirportTransfers = lazy(() => import("./pages/AirportTransfers"));
+const Booking = lazy(() => import("./pages/Booking"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Destinations = lazy(() => import("./pages/Destinations"));
+const Experiences = lazy(() => import("./pages/Experiences"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Packages = lazy(() => import("./pages/Packages"));
+const OneDayTours = lazy(() => import("./pages/OneDayTours"));
+const RoundTours = lazy(() => import("./pages/RoundTours"));
+const TaxiService = lazy(() => import("./pages/TaxiService"));
+const Tours = lazy(() => import("./pages/Tours"));
+const TravelGuide = lazy(() => import("./pages/TravelGuide"));
+const About = lazy(() => import("./pages/About"));
+const Testimonials = lazy(() => import("./pages/Testimonials"));
+const VehicleRentals = lazy(() => import("./pages/VehicleRentals"));
+const Valuation = lazy(() => import("./pages/Valuation"));
+const Wildlife = lazy(() => import("./pages/Wildlife"));
+const ColomboAirportTaxi = lazy(() => import("./pages/ColomboAirportTaxi"));
+const AirportToEllaTaxi = lazy(() => import("./pages/AirportToEllaTaxi"));
+const AirportToGalleTaxi = lazy(() => import("./pages/AirportToGalleTaxi"));
+const AirportToHiriketiyaTaxi = lazy(() => import("./pages/AirportToHiriketiyaTaxi"));
+const AirportToKandyTaxi = lazy(() => import("./pages/AirportToKandyTaxi"));
+const AirportToMirissaTaxi = lazy(() => import("./pages/AirportToMirissaTaxi"));
+const AirportToSigiriyaTaxi = lazy(() => import("./pages/AirportToSigiriyaTaxi"));
+const AirportToUnawatunaTaxi = lazy(() => import("./pages/AirportToUnawatunaTaxi"));
+const AirportToWeligamaTaxi = lazy(() => import("./pages/AirportToWeligamaTaxi"));
+const AirportTransferSriLanka = lazy(() => import("./pages/AirportTransferSriLanka"));
+const EllaTaxiService = lazy(() => import("./pages/EllaTaxiService"));
+const KandyTaxiService = lazy(() => import("./pages/KandyTaxiService"));
+const GalleTaxiService = lazy(() => import("./pages/GalleTaxiService"));
+const SigiriyaTaxiService = lazy(() => import("./pages/SigiriyaTaxiService"));
+const MirissaTaxiService = lazy(() => import("./pages/MirissaTaxiService"));
+const PrivateDriverSriLanka = lazy(() => import("./pages/PrivateDriverSriLanka"));
+const BudgetTaxiSriLanka = lazy(() => import("./pages/BudgetTaxiSriLanka"));
+const SriLankaTourDriver = lazy(() => import("./pages/SriLankaTourDriver"));
+const SriLankaTaxiService = lazy(() => import("./pages/SriLankaTaxiService"));
+const SriLankaPrivateTours = lazy(() => import("./pages/SriLankaPrivateTours"));
+const SriLankaRoundTours = lazy(() => import("./pages/SriLankaRoundTours"));
+const DayToursSriLanka = lazy(() => import("./pages/DayToursSriLanka"));
+const YalaSafariTransfer = lazy(() => import("./pages/YalaSafariTransfer"));
+const UnawatunaTaxiService = lazy(() => import("./pages/UnawatunaTaxiService"));
+const WeligamaTaxiService = lazy(() => import("./pages/WeligamaTaxiService"));
+const HiriketiyaTaxiService = lazy(() => import("./pages/HiriketiyaTaxiService"));
+const NuwaraEliyaTaxiService = lazy(() => import("./pages/NuwaraEliyaTaxiService"));
+const BentotaTaxiService = lazy(() => import("./pages/BentotaTaxiService"));
+const NegomboTaxiService = lazy(() => import("./pages/NegomboTaxiService"));
+const ArugamBayTaxiService = lazy(() => import("./pages/ArugamBayTaxiService"));
+const DambullaTaxiService = lazy(() => import("./pages/DambullaTaxiService"));
+const AirportToNegomboTaxi = lazy(() => import("./pages/AirportToNegomboTaxi"));
+const AirportToBentotaTaxi = lazy(() => import("./pages/AirportToBentotaTaxi"));
+const AirportToNuwaraEliyaTaxi = lazy(() => import("./pages/AirportToNuwaraEliyaTaxi"));
+const AirportToArugamBayTaxi = lazy(() => import("./pages/AirportToArugamBayTaxi"));
+const AirportToDambullaTaxi = lazy(() => import("./pages/AirportToDambullaTaxi"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const AiTripPlanner = lazy(() => import("./pages/AiTripPlanner"));
+const Transport = lazy(() => import("./pages/Transport"));
+const DriverGuideSriLanka = lazy(() => import("./pages/DriverGuideSriLanka"));
+const FiveDaySriLankaTour = lazy(() => import("./pages/FiveDaySriLankaTour"));
+const HowManyDaysInSriLanka = lazy(() => import("./pages/HowManyDaysInSriLanka"));
+const IsAPrivateDriverWorthIt = lazy(() => import("./pages/IsAPrivateDriverWorthIt"));
+const EllaVsNuwaraEliya = lazy(() => import("./pages/EllaVsNuwaraEliya"));
+const BestBeachesNearGalle = lazy(() => import("./pages/BestBeachesNearGalle"));
+const GalleToElla = lazy(() => import("./pages/GalleToElla"));
+const ColomboDestination = lazy(() => import("./pages/ColomboDestination"));
+const SinharajaDestination = lazy(() => import("./pages/SinharajaDestination"));
+const ThingsToDoInGalle = lazy(() => import("./pages/ThingsToDoInGalle"));
+const ThingsToDoInUnawatuna = lazy(() => import("./pages/ThingsToDoInUnawatuna"));
+const ThingsToDoInElla = lazy(() => import("./pages/ThingsToDoInElla"));
+const ThingsToDoInKandy = lazy(() => import("./pages/ThingsToDoInKandy"));
+const ThingsToDoInSigiriya = lazy(() => import("./pages/ThingsToDoInSigiriya"));
+const TwoDaysInSriLanka = lazy(() => import("./pages/TwoDaysInSriLanka"));
+const ThreeDaysInSriLanka = lazy(() => import("./pages/ThreeDaysInSriLanka"));
+const SevenDaysInSriLanka = lazy(() => import("./pages/SevenDaysInSriLanka"));
+const TenDaysInSriLanka = lazy(() => import("./pages/TenDaysInSriLanka"));
+const UnawatunaVsMirissa = lazy(() => import("./pages/UnawatunaVsMirissa"));
+const GalleVsColombo = lazy(() => import("./pages/GalleVsColombo"));
+const SigiriyaVsElla = lazy(() => import("./pages/SigiriyaVsElla"));
+const EllaToKandy = lazy(() => import("./pages/EllaToKandy"));
+const KandyToSigiriya = lazy(() => import("./pages/KandyToSigiriya"));
+const SigiriyaToYala = lazy(() => import("./pages/SigiriyaToYala"));
+const GalleToMirissa = lazy(() => import("./pages/GalleToMirissa"));
+const MirissaToElla = lazy(() => import("./pages/MirissaToElla"));
+const BestPlacesToVisitFromElla = lazy(() => import("./pages/BestPlacesToVisitFromElla"));
+const BestPlacesToVisitFromKandy = lazy(() => import("./pages/BestPlacesToVisitFromKandy"));
+const SriLankaBeaches = lazy(() => import("./pages/SriLankaBeaches"));
+const SriLankaHillCountry = lazy(() => import("./pages/SriLankaHillCountry"));
+const SriLankaCultureAncientCities = lazy(() => import("./pages/SriLankaCultureAncientCities"));
+const SriLankaSurfing = lazy(() => import("./pages/SriLankaSurfing"));
+const SouthCoastVsEastCoast = lazy(() => import("./pages/SouthCoastVsEastCoast"));
+const PrivateDriverVsRentalCar = lazy(() => import("./pages/PrivateDriverVsRentalCar"));
+const SriLankaHoneymoon = lazy(() => import("./pages/SriLankaHoneymoon"));
+const SriLankaFamilyTravel = lazy(() => import("./pages/SriLankaFamilyTravel"));
+const SriLankaBudgetTravel = lazy(() => import("./pages/SriLankaBudgetTravel"));
+const HowToTravelAroundSriLanka = lazy(() => import("./pages/HowToTravelAroundSriLanka"));
+const HowMuchDoesASriLankaTripCost = lazy(() => import("./pages/HowMuchDoesASriLankaTripCost"));
+const BestPlacesToVisitInSriLanka = lazy(() => import("./pages/BestPlacesToVisitInSriLanka"));
+const BestTimeToVisitSriLanka = lazy(() => import("./pages/BestTimeToVisitSriLanka"));
+const FirstTimeVisitorSriLanka = lazy(() => import("./pages/FirstTimeVisitorSriLanka"));
+const TrainVsPrivateCarSriLanka = lazy(() => import("./pages/TrainVsPrivateCarSriLanka"));
+const EllaVsKandy = lazy(() => import("./pages/EllaVsKandy"));
+const GalleToYala = lazy(() => import("./pages/GalleToYala"));
+const UnawatunaToElla = lazy(() => import("./pages/UnawatunaToElla"));
+const IsSriLankaSafeForTourists = lazy(() => import("./pages/IsSriLankaSafeForTourists"));
+const TravelSriLankaWithoutACar = lazy(() => import("./pages/TravelSriLankaWithoutACar"));
 
 const pages = {
   home: Home,
@@ -67,6 +141,9 @@ const pages = {
   valuation: Valuation,
   tours: Tours,
   destinations: Destinations,
+  experiences: Experiences,
+  wildlife: Wildlife,
+  "travel-guide": TravelGuide,
   "one-day-tours": OneDayTours,
   "round-tours": RoundTours,
   taxi: TaxiService,
@@ -110,6 +187,83 @@ const pages = {
   "negombo-taxi-service": NegomboTaxiService,
   "arugam-bay-taxi-service": ArugamBayTaxiService,
   "dambulla-taxi-service": DambullaTaxiService,
+  "airport-to-negombo": AirportToNegomboTaxi,
+  "airport-to-bentota": AirportToBentotaTaxi,
+  "airport-to-nuwara-eliya": AirportToNuwaraEliyaTaxi,
+  "airport-to-arugam-bay": AirportToArugamBayTaxi,
+  "airport-to-dambulla": AirportToDambullaTaxi,
+  "not-found": NotFound,
+  "ai-trip-planner": AiTripPlanner,
+  transport: Transport,
+  "driver-guide-sri-lanka": DriverGuideSriLanka,
+  "5-day-sri-lanka-tour": FiveDaySriLankaTour,
+  "how-many-days-in-sri-lanka": HowManyDaysInSriLanka,
+  "is-a-private-driver-worth-it": IsAPrivateDriverWorthIt,
+  "ella-vs-nuwara-eliya": EllaVsNuwaraEliya,
+  "best-beaches-near-galle": BestBeachesNearGalle,
+  "galle-to-ella": GalleToElla,
+  colombo: ColomboDestination,
+  sinharaja: SinharajaDestination,
+  "things-to-do-in-galle": ThingsToDoInGalle,
+  "things-to-do-in-unawatuna": ThingsToDoInUnawatuna,
+  "things-to-do-in-ella": ThingsToDoInElla,
+  "things-to-do-in-kandy": ThingsToDoInKandy,
+  "things-to-do-in-sigiriya": ThingsToDoInSigiriya,
+  "2-days-in-sri-lanka": TwoDaysInSriLanka,
+  "3-days-in-sri-lanka": ThreeDaysInSriLanka,
+  "7-days-in-sri-lanka": SevenDaysInSriLanka,
+  "10-days-in-sri-lanka": TenDaysInSriLanka,
+  "unawatuna-vs-mirissa": UnawatunaVsMirissa,
+  "galle-vs-colombo": GalleVsColombo,
+  "sigiriya-vs-ella": SigiriyaVsElla,
+  "ella-to-kandy": EllaToKandy,
+  "kandy-to-sigiriya": KandyToSigiriya,
+  "sigiriya-to-yala": SigiriyaToYala,
+  "galle-to-mirissa": GalleToMirissa,
+  "mirissa-to-ella": MirissaToElla,
+  "best-places-to-visit-from-ella": BestPlacesToVisitFromElla,
+  "best-places-to-visit-from-kandy": BestPlacesToVisitFromKandy,
+  "sri-lanka-beaches": SriLankaBeaches,
+  "sri-lanka-hill-country": SriLankaHillCountry,
+  "sri-lanka-culture-ancient-cities": SriLankaCultureAncientCities,
+  "sri-lanka-surfing": SriLankaSurfing,
+  "south-coast-vs-east-coast": SouthCoastVsEastCoast,
+  "private-driver-vs-rental-car": PrivateDriverVsRentalCar,
+  "sri-lanka-honeymoon": SriLankaHoneymoon,
+  "sri-lanka-family-travel": SriLankaFamilyTravel,
+  "sri-lanka-budget-travel": SriLankaBudgetTravel,
+  "how-to-travel-around-sri-lanka": HowToTravelAroundSriLanka,
+  "how-much-does-a-sri-lanka-trip-cost": HowMuchDoesASriLankaTripCost,
+  "best-places-to-visit-in-sri-lanka": BestPlacesToVisitInSriLanka,
+  "best-time-to-visit-sri-lanka": BestTimeToVisitSriLanka,
+  "first-time-visitor-sri-lanka": FirstTimeVisitorSriLanka,
+  "train-vs-private-car-sri-lanka": TrainVsPrivateCarSriLanka,
+  "ella-vs-kandy": EllaVsKandy,
+  "galle-to-yala": GalleToYala,
+  "unawatuna-to-ella": UnawatunaToElla,
+  "is-sri-lanka-safe-for-tourists": IsSriLankaSafeForTourists,
+  "can-i-travel-sri-lanka-without-a-car": TravelSriLankaWithoutACar,
+};
+
+// Cannibalization fix (see the SEO audit): each of these pages targets a
+// search intent that's a near-duplicate of an existing, stronger page
+// (nav-linked, or with more real product signal like pricing). Rather than
+// deleting or redirecting them — real content that still serves direct
+// visitors and existing backlinks — their canonical tag points at the
+// stronger page, telling search engines which one to actually index.
+// `/private-driver-sri-lanka` and `/sri-lanka-tour-driver` are deliberately
+// NOT included here (Phase 7 audit): both were rewritten with genuinely
+// different intent — flexible/short-term hire vs. one continuous multi-day
+// chauffeur — rather than canonicalized away. `/sri-lanka-private-tours` IS
+// included: it carries no real pricing anywhere on the page (unlike /tours,
+// which pulls real prices from pricing.js/tours.js for every listed tour),
+// so it can't offer anything /tours doesn't already do better.
+const canonicalOverrides = {
+  "sri-lanka-taxi-service": "taxi",
+  "sri-lanka-round-tours": "round-tours",
+  "day-tours-sri-lanka": "one-day-tours",
+  "sri-lanka-private-tours": "tours",
+  "airport-transfer-sri-lanka": "airport",
 };
 
 function getPageFromHash() {
@@ -117,7 +271,7 @@ function getPageFromHash() {
   const pathPage = window.location.pathname.replace(/^\/+|\/+$/g, "");
   const page = hashPage || pathPage || "home";
   if (page === "rentals") return "vehicle-rentals";
-  return pages[page] ? page : "home";
+  return pages[page] ? page : "not-found";
 }
 
 function ensureMetaTag(name, content) {
@@ -222,10 +376,37 @@ function AppShell() {
     const meta = pageMeta[activePage] || pageMeta.home;
     const title = t(`meta.${activePage}.title`, meta.title);
     const description = t(`meta.${activePage}.description`, meta.description);
-    const canonicalUrl = `${SITE_URL}${activePage === "home" ? "/" : `/${activePage}`}`;
+    // canonicalOverrides: pages whose search intent is a near-duplicate of an
+    // existing, stronger primary page (see the cannibalization audit). The
+    // secondary page stays fully live and crawlable — this only tells search
+    // engines which of the two to actually index, the standard non-destructive
+    // fix (no delete, no redirect, fully reversible).
+    const canonicalTarget = canonicalOverrides[activePage] || activePage;
+    const canonicalUrl = `${SITE_URL}${canonicalTarget === "home" ? "/" : `/${canonicalTarget}`}`;
+    // og:url stays the page actually being viewed — a WhatsApp/social share
+    // of the secondary page should link back to that page, not silently to
+    // the canonical target.
+    const actualUrl = `${SITE_URL}${activePage === "home" ? "/" : `/${activePage}`}`;
 
     document.title = title;
     ensureMetaTag("description", description);
+    // The router falls back to a client-rendered not-found page for any
+    // unmatched path, but the static-hosting rewrite still serves index.html
+    // (HTTP 200) for it — noindex is the standard mitigation so this
+    // soft-404 state never gets indexed as real content.
+    // /vehicle-rentals was already removed from the sitemap, nav, and
+    // schema (see seoPages.js SOFT_DEINDEXED) with a note that it should
+    // also stop claiming index,follow — closing that gap here. Unlike
+    // not-found (a soft-404, not real content — nofollow too), this is a
+    // real page with real outbound links, so it keeps "follow" to still
+    // pass link equity; it just no longer asks to be indexed on its own.
+    const robotsValue =
+      activePage === "not-found"
+        ? "noindex, nofollow"
+        : activePage === "vehicle-rentals"
+          ? "noindex, follow"
+          : "index, follow";
+    ensureMetaTag("robots", robotsValue);
     // Previously static in index.html (always the home page's own
     // title/description/URL) — a link to any other page shared on
     // WhatsApp/Facebook/Twitter showed the wrong preview. Now kept in
@@ -233,7 +414,7 @@ function AppShell() {
     // above.
     ensurePropertyMetaTag("og:title", title);
     ensurePropertyMetaTag("og:description", description);
-    ensurePropertyMetaTag("og:url", canonicalUrl);
+    ensurePropertyMetaTag("og:url", actualUrl);
     ensureMetaTag("twitter:card", "summary_large_image");
     ensureMetaTag("twitter:title", title);
     ensureMetaTag("twitter:description", description);
@@ -247,9 +428,8 @@ function AppShell() {
   }, [activePage]);
 
   useEffect(() => {
-    const reveals = document.querySelectorAll(".reveal");
     if (!("IntersectionObserver" in window)) {
-      reveals.forEach((item) => item.classList.add("is-visible"));
+      document.querySelectorAll(".reveal").forEach((item) => item.classList.add("is-visible"));
       return undefined;
     }
 
@@ -265,8 +445,35 @@ function AppShell() {
       { threshold: 0.14 },
     );
 
-    reveals.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
+    const observeReveal = (node) => {
+      if (node.nodeType !== Node.ELEMENT_NODE) return;
+      if (node.classList.contains("reveal")) observer.observe(node);
+      node.querySelectorAll?.(".reveal").forEach((item) => observer.observe(item));
+    };
+
+    // Route pages load via React.lazy/Suspense (every page except Home,
+    // which is imported eagerly) — when this effect first runs after an
+    // activePage change, a lazy page's real DOM (and its .reveal elements)
+    // may not exist yet; only the Suspense fallback is mounted. Querying
+    // once here misses every .reveal element added after the lazy chunk
+    // resolves, so those elements never get observed and stay permanently
+    // at their pre-reveal opacity:0 state. The MutationObserver below
+    // catches .reveal elements as React inserts them, whenever that
+    // happens, so lazy pages reveal correctly the same as Home does.
+    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+
+    const main = document.querySelector("main");
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => observeReveal(node));
+      });
+    });
+    if (main) mutationObserver.observe(main, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, [activePage]);
 
   useEffect(() => {
@@ -281,11 +488,8 @@ function AppShell() {
       ".destination-showcase-card",
       ".home-experience-card",
       ".why-card-home",
-      ".tour-category-card",
       ".tour-type-card",
       ".tour-idea-card",
-      ".starter-package-card",
-      ".airport-visual-card",
       ".airport-transfer-card",
       ".airport-benefit-card",
       ".vehicle-rental-card",
@@ -415,10 +619,15 @@ function AppShell() {
   return (
     <div className="app" data-theme={darkMode ? "dark" : "light"} data-language={language} dir={direction}>
       <AppLoader isLoading={isLoading} />
-      <SeoSchema activePage={activePage} />
+      <Suspense fallback={null}>
+        <SeoSchema activePage={activePage} />
+      </Suspense>
       <Navbar activePage={activePage} setPage={setPage} />
+      <Breadcrumbs activePage={activePage} />
       <main>
-        <ActivePage setPage={setPage} />
+        <Suspense fallback={<div className="route-loading" aria-hidden="true" />}>
+          <ActivePage setPage={setPage} />
+        </Suspense>
       </main>
       <Footer setPage={setPage} />
       <BottomActionBar darkMode={darkMode} toggleTheme={() => setDarkMode((current) => !current)} />

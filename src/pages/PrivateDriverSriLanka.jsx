@@ -13,18 +13,18 @@ const driverServices = [
     image: images.airportWelcome,
   },
   {
-    title: "Day tours with driver",
-    text: "Book a Sri Lanka tour driver for one-day trips to beaches, temples, wildlife parks, viewpoints, tea country, or cultural sites with flexible stops.",
+    title: "Single-day hire",
+    text: "Book a private driver for one day at a time — a beach day, a temple visit, or a single point-to-point route, with no multi-day commitment.",
     image: images.galleFort,
   },
   {
-    title: "Round tours with driver",
-    text: "Plan multi-day round tours with driver support for Sigiriya, Kandy, Ella, Galle, Mirissa, Yala, Trincomalee, and custom island routes.",
+    title: "Point-to-point transfers",
+    text: "Move between hotels or towns with a private driver and vehicle, without needing a fixed multi-day itinerary planned in advance.",
     image: images.sigiriya,
   },
   {
-    title: "Flexible chauffeur Sri Lanka service",
-    text: "Choose a chauffeur Sri Lanka service for hotel pickups, long-distance transfers, family travel, business trips, and Sri Lanka private taxi routes.",
+    title: "Flexible day-by-day extension",
+    text: "Start with one day and extend as you go — hire the same driver for another day, or a few more, whenever your plans change.",
     image: images.kandy,
   },
 ];
@@ -80,9 +80,9 @@ const faqs = [
       "Yes. You can book day tours with driver for Galle, Ella, Kandy, Sigiriya, Mirissa, Yala, beaches, temples, viewpoints, and custom Sri Lanka day trips.",
   },
   {
-    question: "Can I book round tours with driver?",
+    question: "What if I want one driver for my whole multi-day trip?",
     answer:
-      "Yes. We arrange round tours with driver support for multi-day Sri Lanka travel, flexible routes, hotel pickups, airport transfers, and custom island itineraries.",
+      "This page is for flexible, day-by-day hire — a single day, a few days, or point-to-point transfers with no fixed itinerary. If you want one dedicated driver for a continuous multi-day island tour, see Sri Lanka Tour Driver instead.",
   },
   {
     question: "Is the private driver price fixed online?",
@@ -101,7 +101,7 @@ export default function PrivateDriverSriLanka({ setPage }) {
       <PageHero
         eyebrow="Private Driver Sri Lanka"
         title="Private Driver Sri Lanka"
-        description="Hire a private driver in Sri Lanka for airport transfers, day tours, round tours, clean vehicles, flexible routes, and 24/7 WhatsApp booking."
+        description="Hire a private driver in Sri Lanka by the day — airport transfers, single-day trips, or point-to-point transfers, with clean vehicles and 24/7 WhatsApp booking. No fixed multi-day itinerary required."
         image={images.trainRide}
         alt="Private driver Sri Lanka hill country route"
       >
@@ -122,15 +122,15 @@ export default function PrivateDriverSriLanka({ setPage }) {
           </span>
           <span>
             <CalendarDays size={16} />
-            Day tours
+            Single-day hire
           </span>
           <span>
             <Route size={16} />
-            Round tours
+            Point-to-point
           </span>
           <span>
             <ShieldCheck size={16} />
-            Flexible routes
+            Flexible, no fixed plan
           </span>
         </div>
       </PageHero>
@@ -139,13 +139,18 @@ export default function PrivateDriverSriLanka({ setPage }) {
         <div className="section__inner split-layout">
           <Reveal className="split-layout__copy">
             <span className="eyebrow">Hire driver Sri Lanka</span>
-            <h2>Private driver service for airport transfers, day tours, and round tours</h2>
+            <h2>Flexible, day-by-day private driver hire — no fixed multi-day plan needed</h2>
             <p>
-              SKY Taxi Service & Tours helps travelers hire a private driver Sri Lanka service for airport pickup, hotel transfers, one-day tours,
-              round tours, family travel, and flexible routes across the island with clean vehicles and friendly local support.
+              SKY Taxi Service & Tours helps travelers hire a private driver Sri Lanka service for airport pickup, hotel transfers, and single-day
+              or point-to-point trips across the island with clean vehicles and friendly local support. Want one dedicated driver for a continuous
+              multi-day tour instead? See Sri Lanka Tour Driver.
             </p>
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>
+              <a href="/is-a-private-driver-worth-it">Is a Private Driver Worth It?</a>
+              <a href="/private-driver-vs-rental-car">Private Driver vs Rental Car</a>
+              <a href="/sri-lanka-tour-driver">Sri Lanka Tour Driver (multi-day)</a>
+              <a href="/driver-guide-sri-lanka">Driver + Guide</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/colombo-airport-taxi">Colombo Airport Taxi</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
@@ -182,11 +187,11 @@ export default function PrivateDriverSriLanka({ setPage }) {
           <div className="colombo-airport-route-grid">
             {driverServices.map((service) => (
               <Reveal className="colombo-airport-route-card" key={service.title}>
-                <img src={service.image} alt={service.title} loading="lazy" />
+                <img src={service.image} alt="" loading="lazy" />
                 <div>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                  <a href={buildWhatsAppLink(privateDriverMessage(service.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(privateDriverMessage(service.title))} target="_blank" rel="noreferrer" aria-label={`Ask driver price — ${service.title}`}>
                     Ask driver price
                   </a>
                 </div>
@@ -228,6 +233,7 @@ export default function PrivateDriverSriLanka({ setPage }) {
                     href={buildWhatsAppLink(privateDriverMessage(`${vehicle.name} private driver`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle

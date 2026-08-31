@@ -145,6 +145,7 @@ export default function VehicleRentals() {
                     href={buildWhatsAppLink(getRentalMessage(vehicle.name))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`${t("common.bookVehicle")} — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     {t("common.bookVehicle")}
@@ -155,8 +156,6 @@ export default function VehicleRentals() {
           </div>
 
           <Reveal className="vehicle-rental-custom">
-            <span className="vehicle-rental-custom__glow vehicle-rental-custom__glow--pink" aria-hidden="true" />
-            <span className="vehicle-rental-custom__glow vehicle-rental-custom__glow--peach" aria-hidden="true" />
             <div className="vehicle-rental-custom__copy">
               <span className="vehicle-rental-custom__eyebrow">{t("rentals.custom.eyebrow")}</span>
               <h2>{t("rentals.custom.title")}</h2>
@@ -198,8 +197,6 @@ export default function VehicleRentals() {
           </Reveal>
 
           <Reveal className="rental-faq-panel">
-            <span className="rental-faq-panel__glow rental-faq-panel__glow--pink" aria-hidden="true" />
-            <span className="rental-faq-panel__glow rental-faq-panel__glow--peach" aria-hidden="true" />
             <div className="rental-faq-panel__header">
               <span className="vehicle-rental-custom__eyebrow">{t("rentals.faq.eyebrow")}</span>
               <h2>{t("rentals.faq.title")}</h2>
@@ -232,6 +229,19 @@ export default function VehicleRentals() {
               })}
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="section section--soft">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="Not sure which fits?"
+            title="Compare all SKY transport options"
+            text="See self-drive rentals next to airport transfer, taxi, and private driver options in one place."
+          />
+          <div className="colombo-airport-link-row">
+            <a href="/transport">Compare all transport options</a>
+          </div>
         </div>
       </section>
     </div>

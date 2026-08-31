@@ -5,15 +5,33 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 
 export default function Footer({ setPage }) {
   const { t } = useLanguage();
-  const quickLinks = [
-    { label: "Taxi Service", page: "taxi" },
-    { label: "Tours", page: "tours" },
-    { label: "Packages", page: "packages" },
-    { label: "Airport Transfers", page: "airport" },
-    { label: "Booking", page: "booking" },
-    { label: "About", page: "about" },
-    { label: "Testimonials", page: "testimonials" },
-    { label: "Vehicle Rentals", page: "vehicle-rentals" },
+  const linkGroups = [
+    {
+      heading: "Explore",
+      links: [
+        { label: "Destinations", page: "destinations" },
+        { label: "Experiences", page: "experiences" },
+        { label: "Tours", page: "tours" },
+        { label: "Wildlife", page: "wildlife" },
+        { label: "Gallery", page: "gallery" },
+        { label: "Travel Guide", page: "travel-guide" },
+        { label: "About", page: "about" },
+      ],
+    },
+    {
+      heading: "Plan & book",
+      links: [
+        { label: "AI Trip Planner", page: "ai-trip-planner" },
+        { label: "Transportation", page: "transport" },
+        { label: "Taxi Service", page: "taxi" },
+        { label: "Airport Transfers", page: "airport" },
+        { label: "Private Driver", page: "sri-lanka-tour-driver" },
+        { label: "Packages", page: "packages" },
+        { label: "Booking", page: "booking" },
+        { label: "Testimonials", page: "testimonials" },
+        { label: "Contact", page: "contact" },
+      ],
+    },
   ];
 
   const goToPage = (event, page) => {
@@ -34,13 +52,18 @@ export default function Footer({ setPage }) {
           </div>
         </div>
 
-        <div className="footer__links">
-          {quickLinks.map((item) => (
-            <a href={`#/${item.page}`} key={item.page} onClick={(event) => goToPage(event, item.page)}>
-              {t(`footer.links.${item.page}`, item.label)}
-            </a>
-          ))}
-        </div>
+        {linkGroups.map((group) => (
+          <div className="footer__col" key={group.heading}>
+            <h2>{group.heading}</h2>
+            <div className="footer__links">
+              {group.links.map((item) => (
+                <a href={`#/${item.page}`} key={item.page} onClick={(event) => goToPage(event, item.page)}>
+                  {t(`footer.links.${item.page}`, item.label)}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
 
         <div className="footer__social">
           <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer" aria-label={t("common.whatsapp")}>

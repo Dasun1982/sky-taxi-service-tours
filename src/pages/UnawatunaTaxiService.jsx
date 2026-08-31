@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
@@ -183,6 +184,10 @@ export default function UnawatunaTaxiService({ setPage }) {
               <a href="/galle-taxi-service">Galle Taxi Service</a>
               <a href="/mirissa-taxi-service">Mirissa Taxi Service</a>
               <a href="/yala-safari-transfer">Yala Safari Transfer</a>
+              <a href="/things-to-do-in-unawatuna">Things to Do in Unawatuna</a>
+              <a href="/unawatuna-vs-mirissa">Unawatuna vs Mirissa</a>
+              <a href="/sri-lanka-family-travel">Sri Lanka Family Travel</a>
+              <a href="/unawatuna-to-ella">Unawatuna to Ella</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -212,11 +217,11 @@ export default function UnawatunaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {routeCards.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(unawatunaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(unawatunaTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -236,11 +241,11 @@ export default function UnawatunaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {beachTransfers.map((transfer) => (
               <Reveal className="colombo-airport-route-card" key={transfer.title}>
-                <img src={transfer.image} alt={transfer.title} loading="lazy" />
+                <img src={transfer.image} alt="" loading="lazy" />
                 <div>
                   <h3>{transfer.title}</h3>
                   <p>{transfer.text}</p>
-                  <a href={buildWhatsAppLink(unawatunaTaxiMessage(transfer.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(unawatunaTaxiMessage(transfer.title))} target="_blank" rel="noreferrer" aria-label={`Book beach transfer — ${transfer.title}`}>
                     Book beach transfer
                   </a>
                 </div>
@@ -282,6 +287,7 @@ export default function UnawatunaTaxiService({ setPage }) {
                     href={buildWhatsAppLink(unawatunaTaxiMessage(`${vehicle.name} Unawatuna taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -337,6 +343,7 @@ export default function UnawatunaTaxiService({ setPage }) {
 
       <RelatedTours destinationId="unawatuna" soft />
       <RelatedDestinations destinationId="unawatuna" soft={false} />
+      <RelatedRoutes destinationId="unawatuna" pageSource="unawatuna-taxi-service-page" />
     </div>
   );
 }

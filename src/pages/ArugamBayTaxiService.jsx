@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
@@ -179,6 +180,7 @@ export default function ArugamBayTaxiService({ setPage }) {
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
+              <a href="/airport-to-arugam-bay">Airport to Arugam Bay Taxi</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
               <a href="/yala-safari-transfer">Yala Safari Transfer</a>
               <a href="/private-driver-sri-lanka">Private Driver Sri Lanka</a>
@@ -212,11 +214,11 @@ export default function ArugamBayTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {routeCards.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(arugamBayTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(arugamBayTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -236,11 +238,11 @@ export default function ArugamBayTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {surfTransfers.map((transfer) => (
               <Reveal className="colombo-airport-route-card" key={transfer.title}>
-                <img src={transfer.image} alt={transfer.title} loading="lazy" />
+                <img src={transfer.image} alt="" loading="lazy" />
                 <div>
                   <h3>{transfer.title}</h3>
                   <p>{transfer.text}</p>
-                  <a href={buildWhatsAppLink(arugamBayTaxiMessage(transfer.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(arugamBayTaxiMessage(transfer.title))} target="_blank" rel="noreferrer" aria-label={`Book surf transfer — ${transfer.title}`}>
                     Book surf transfer
                   </a>
                 </div>
@@ -282,6 +284,7 @@ export default function ArugamBayTaxiService({ setPage }) {
                     href={buildWhatsAppLink(arugamBayTaxiMessage(`${vehicle.name} Arugam Bay taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -337,6 +340,7 @@ export default function ArugamBayTaxiService({ setPage }) {
 
       <RelatedTours destinationId="arugam-bay" soft />
       <RelatedDestinations destinationId="arugam-bay" soft={false} />
+      <RelatedRoutes destinationId="arugam-bay" pageSource="arugam-bay-taxi-service-page" />
     </div>
   );
 }

@@ -185,11 +185,11 @@ export default function AirportTransferSriLanka({ setPage }) {
           <div className="colombo-airport-route-grid airport-transfer-destination-grid">
             {destinations.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(transferMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(transferMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask transfer price — ${route.title}`}>
                     Ask transfer price
                   </a>
                 </div>
@@ -231,6 +231,7 @@ export default function AirportTransferSriLanka({ setPage }) {
                     href={buildWhatsAppLink(transferMessage(`${vehicle.name} airport transfer`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle

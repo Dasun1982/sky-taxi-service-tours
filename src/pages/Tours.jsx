@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { ArrowLeft, ArrowRight, CalendarDays, MapPinned, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, Compass, MapPinned, MessageCircle, Route } from "lucide-react";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
@@ -7,8 +7,10 @@ import { useLanguage } from "../context/LanguageContext";
 import { images, tours } from "../data/travelData";
 import { findDestination } from "../data/destinations";
 import { findTourPricing, tours as tourCatalog } from "../data/tours";
+import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { setBookingContext } from "../utils/bookingContext";
+import { trackEvent } from "../utils/analytics";
 
 const dayTourCatalog = tourCatalog.filter((tour) => tour.type === "day-tour");
 const roundTourCatalog = tourCatalog.filter((tour) => tour.type === "round-tour");
@@ -46,16 +48,20 @@ export default function Tours({ setPage }) {
     // This carousel's `tour` comes from travelData.js's thematic idea list,
     // not the tours.js catalog, so it has no id that findTour() can resolve —
     // deliberately leaving tourId unset rather than passing a non-matching id.
+    trackEvent("tour_clicked", { tour_name: tour.title, page_source: "tour-page" });
     setBookingContext({ tripType: "Private tour", message: tour.title, source: "tour-page" });
+    trackEvent("booking_started", { source: "tour-page" });
     setPage("booking");
   };
   const goToBookingForCatalogTour = (tour, pricing) => {
+    trackEvent("tour_clicked", { tour_name: tour.name, page_source: "tour-page" });
     setBookingContext({
       tripType: tour.type === "day-tour" ? "Private tour" : "Round tour",
       message: pricing ? `${tour.name} (${pricing.price})` : tour.name,
       source: "tour-page",
       tourId: tour.id,
     });
+    trackEvent("booking_started", { source: "tour-page" });
     setPage("booking");
   };
   const customTourMessage = t("messages.customTour");
@@ -105,6 +111,34 @@ export default function Tours({ setPage }) {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section tours-choice-strip">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="Not sure which fits?"
+            title="Private Tour, Driver Only, Driver + Guide, or SKY AI"
+            text="A Private Tour below has the route and vehicle organized together. If you already know your route, or want a specialist guide at cultural sites, compare the other options."
+            align="left"
+          />
+          <div className="colombo-airport-link-row">
+            <a href="/sri-lanka-tour-driver" onClick={() => trackEvent("service_selected", { service_id: "driver-only", page_source: "tours-page" })}>
+              Driver Only
+            </a>
+            <a href="/driver-guide-sri-lanka" onClick={() => trackEvent("service_selected", { service_id: "driver-guide", page_source: "tours-page" })}>
+              Driver + Guide
+            </a>
+            <a href="/transport">Compare Transportation</a>
+            <a
+              href={aiPlannerUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackEvent("ai_planner_opened", { page_source: "tours-page" })}
+            >
+              Plan with SKY AI
+            </a>
           </div>
         </div>
       </section>
@@ -185,11 +219,16 @@ export default function Tours({ setPage }) {
                     {tour.duration} &middot; {destinationNames(tour.destinations)}
                   </p>
                   <div className="tour-catalog-card__actions">
-                    <a className="text-button" href={`/${tour.page}`}>
+                    <a className="text-button" href={`/${tour.page}?tour=${tour.id}`} aria-label={`View full itinerary — ${tour.name}`}>
                       View full itinerary
                       <ArrowRight size={17} />
                     </a>
-                    <button className="text-button" type="button" onClick={() => goToBookingForCatalogTour(tour, pricing)}>
+                    <button
+                      className="text-button"
+                      type="button"
+                      onClick={() => goToBookingForCatalogTour(tour, pricing)}
+                      aria-label={`Book this tour — ${tour.name}`}
+                    >
                       Book this tour
                       <ArrowRight size={17} />
                     </button>
@@ -210,19 +249,64 @@ export default function Tours({ setPage }) {
                     {tour.duration} &middot; {destinationNames(tour.destinations)}
                   </p>
                   <div className="tour-catalog-card__actions">
-                    <a className="text-button" href={`/${tour.page}`}>
+                    <a className="text-button" href={`/${tour.page}?tour=${tour.id}`} aria-label={`View full itinerary — ${tour.name}`}>
                       View full itinerary
                       <ArrowRight size={17} />
                     </a>
-                    <button className="text-button" type="button" onClick={() => goToBookingForCatalogTour(tour, pricing)}>
+                    <button
+                      className="text-button"
+                      type="button"
+                      onClick={() => goToBookingForCatalogTour(tour, pricing)}
+                      aria-label={`Book this tour — ${tour.name}`}
+                    >
                       Book this tour
                       <ArrowRight size={17} />
                     </button>
                   </div>
+                  {tour.id === "trincomalee-cultural-triangle-hill-country-wildlife-5-day-tour" && (
+                    <a className="text-button" href="/5-day-sri-lanka-tour">
+                      Read the full 5-day tour guide
+                      <ArrowRight size={17} />
+                    </a>
+                  )}
                 </article>
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section className="section ai-planner-promo-section">
+        <div className="section__inner">
+          <Reveal className="ai-planner-card">
+            <div className="ai-planner-card__copy">
+              <span className="ai-planner-label">NEW AI TOUR PLANNER</span>
+              <h2>Not sure which route fits your trip?</h2>
+              <p>Tell SKY AI your days, budget, and interests, and it drafts a private-driver route in seconds — then send it here for a custom quote.</p>
+              <div className="ai-planner-badges" aria-label="AI Planner benefits">
+                <span>
+                  <Compass size={16} />
+                  AI route planning
+                </span>
+                <span>
+                  <Route size={16} />
+                  Private driver quote
+                </span>
+              </div>
+            </div>
+            <div className="ai-planner-card__actions">
+              <a
+                className="button button--primary"
+                href={aiPlannerUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackEvent("ai_planner_opened", { page_source: "tours-page" })}
+              >
+                Start AI Planner
+                <ArrowRight size={18} />
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 

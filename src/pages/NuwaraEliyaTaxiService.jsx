@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
@@ -180,9 +181,12 @@ export default function NuwaraEliyaTaxiService({ setPage }) {
               <a href="/">Homepage</a>
               <a href="/colombo-airport-taxi">Colombo Airport Taxi</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
+              <a href="/airport-to-nuwara-eliya">Airport to Nuwara Eliya Taxi</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
               <a href="/kandy-taxi-service">Kandy Taxi Service</a>
               <a href="/galle-taxi-service">Galle Taxi Service</a>
+              <a href="/ella-vs-nuwara-eliya">Ella vs Nuwara Eliya</a>
+              <a href="/sri-lanka-hill-country">Sri Lanka Hill Country</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -212,11 +216,11 @@ export default function NuwaraEliyaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {routeCards.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(nuwaraEliyaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(nuwaraEliyaTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -236,11 +240,11 @@ export default function NuwaraEliyaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {hillCountryTransfers.map((transfer) => (
               <Reveal className="colombo-airport-route-card" key={transfer.title}>
-                <img src={transfer.image} alt={transfer.title} loading="lazy" />
+                <img src={transfer.image} alt="" loading="lazy" />
                 <div>
                   <h3>{transfer.title}</h3>
                   <p>{transfer.text}</p>
-                  <a href={buildWhatsAppLink(nuwaraEliyaTaxiMessage(transfer.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(nuwaraEliyaTaxiMessage(transfer.title))} target="_blank" rel="noreferrer" aria-label={`Book hill transfer — ${transfer.title}`}>
                     Book hill transfer
                   </a>
                 </div>
@@ -282,6 +286,7 @@ export default function NuwaraEliyaTaxiService({ setPage }) {
                     href={buildWhatsAppLink(nuwaraEliyaTaxiMessage(`${vehicle.name} Nuwara Eliya taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -337,6 +342,7 @@ export default function NuwaraEliyaTaxiService({ setPage }) {
 
       <RelatedTours destinationId="nuwara-eliya" soft />
       <RelatedDestinations destinationId="nuwara-eliya" soft={false} />
+      <RelatedRoutes destinationId="nuwara-eliya" pageSource="nuwara-eliya-taxi-service-page" />
     </div>
   );
 }

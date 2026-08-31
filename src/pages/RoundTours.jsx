@@ -8,23 +8,25 @@ import { useLanguage } from "../context/LanguageContext";
 import { images } from "../data/travelData";
 import { findRoundTourPricing } from "../data/pricing";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { getDeepLinkParam } from "../utils/deepLink";
 
-const tourIncludes = [
+export const tourIncludes = [
   "Private air-conditioned vehicle",
-  "Experienced local driver/guide",
+  "Experienced local driver",
   "All fuel and parking charges",
   "Hotel pick-up and drop-off",
   "Fully customizable itinerary",
 ];
 
-const notIncluded = [
+export const notIncluded = [
   "Entrance fees",
   "Meals and accommodation, can be arranged upon request",
   "Train tickets, can be arranged upon request",
   "Safari jeep hire and park entrance fees, can be arranged upon request",
+  "Specialist local guide — can be arranged separately, see Driver + Guide",
 ];
 
-const roundTourPackages = [
+export const roundTourPackages = [
   {
     id: "ella-2-day-tour",
     title: "2-Day Private Tour to Ella",
@@ -397,12 +399,15 @@ export default function RoundTours() {
   const [activePackage, setActivePackage] = useState(null);
   const [isModalClosing, setIsModalClosing] = useState(false);
   const closeTimerRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const triggerElementRef = useRef(null);
   const hasLongModalTitle = Boolean(activePackage?.longTitle);
 
   const openModal = (tourPackage) => {
     if (closeTimerRef.current) {
       window.clearTimeout(closeTimerRef.current);
     }
+    triggerElementRef.current = document.activeElement;
     setIsModalClosing(false);
     setActivePackage(tourPackage);
   };
@@ -417,7 +422,14 @@ export default function RoundTours() {
     closeTimerRef.current = window.setTimeout(() => {
       setActivePackage(null);
       setIsModalClosing(false);
+      triggerElementRef.current?.focus?.();
     }, 180);
+  }, [activePackage]);
+
+  useEffect(() => {
+    if (activePackage) {
+      closeButtonRef.current?.focus();
+    }
   }, [activePackage]);
 
   useEffect(() => {
@@ -444,6 +456,18 @@ export default function RoundTours() {
         window.clearTimeout(closeTimerRef.current);
       }
     };
+  }, []);
+
+  // Deep link: /round-tours?tour=<id> opens that package's modal automatically.
+  // Runs once on mount — a missing or unrecognized id is silently ignored,
+  // leaving the page exactly as it behaves with no parameter at all.
+  useEffect(() => {
+    const tourId = getDeepLinkParam("tour");
+    if (!tourId) return;
+    const index = roundTourPackages.findIndex((item) => item.id === tourId);
+    if (index === -1) return;
+    openModal({ ...roundTourPackages[index], index });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getPackageMessage = (packageName) => t("messages.roundTour", undefined, { name: packageName });
@@ -504,7 +528,12 @@ export default function RoundTours() {
                     ))}
                   </div>
                   <div className="round-tour-card__actions">
-                    <button className="button button--light" type="button" onClick={() => openModal(translatedPackage)}>
+                    <button
+                      className="button button--light"
+                      type="button"
+                      onClick={() => openModal(translatedPackage)}
+                      aria-label={`${t("common.viewFullDetails")} — ${getPackageTitle(translatedPackage)}`}
+                    >
                       {t("common.viewFullDetails")}
                     </button>
                     <a
@@ -512,6 +541,7 @@ export default function RoundTours() {
                       href={buildWhatsAppLink(getPackageMessage(getPackageTitle(translatedPackage)))}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`${t("common.askOnWhatsApp")} — ${getPackageTitle(translatedPackage)}`}
                     >
                       <MessageCircle size={18} />
                       {t("common.askOnWhatsApp")}
@@ -524,9 +554,6 @@ export default function RoundTours() {
           </div>
 
           <Reveal className="one-day-custom-tour">
-            <span className="one-day-custom-tour__glow one-day-custom-tour__glow--pink" aria-hidden="true" />
-            <span className="one-day-custom-tour__glow one-day-custom-tour__glow--peach" aria-hidden="true" />
-
             <div className="one-day-custom-tour__copy">
               <span className="one-day-custom-tour__eyebrow">{t("round.custom.eyebrow")}</span>
               <h2>{t("round.custom.title")}</h2>
@@ -590,7 +617,7 @@ export default function RoundTours() {
           <div className={isModalClosing ? "one-day-modal round-modal one-day-modal--closing" : "one-day-modal round-modal"} role="dialog" aria-modal="true" aria-labelledby="round-tour-modal-title">
             <button className="one-day-modal__overlay" type="button" onClick={closeModal} aria-label={t("common.closeRoundTourDetails")} />
             <div className="one-day-modal__panel round-tour-modal__panel">
-              <button className="one-day-modal__close" type="button" onClick={closeModal} aria-label={t("common.closeRoundTourDetails")}>
+              <button ref={closeButtonRef} className="one-day-modal__close" type="button" onClick={closeModal} aria-label={t("common.closeRoundTourDetails")}>
                 <X size={22} />
               </button>
 

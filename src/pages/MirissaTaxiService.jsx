@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
@@ -152,6 +153,9 @@ export default function MirissaTaxiService({ setPage }) {
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/galle-taxi-service">Galle Taxi Service</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
+              <a href="/unawatuna-vs-mirissa">Unawatuna vs Mirissa</a>
+              <a href="/galle-to-mirissa">Galle to Mirissa</a>
+              <a href="/mirissa-to-ella">Mirissa to Ella</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -181,11 +185,11 @@ export default function MirissaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {mirissaRoutes.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(mirissaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(mirissaTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -227,6 +231,7 @@ export default function MirissaTaxiService({ setPage }) {
                     href={buildWhatsAppLink(mirissaTaxiMessage(`${vehicle.name} Mirissa taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -282,6 +287,7 @@ export default function MirissaTaxiService({ setPage }) {
 
       <RelatedTours destinationId="mirissa" soft />
       <RelatedDestinations destinationId="mirissa" soft={false} />
+      <RelatedRoutes destinationId="mirissa" pageSource="mirissa-taxi-service-page" />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
@@ -185,6 +186,7 @@ export default function NegomboTaxiService({ setPage }) {
               <a href="/">Homepage</a>
               <a href="/colombo-airport-taxi">Colombo Airport Taxi</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
+              <a href="/airport-to-negombo">Airport to Negombo Taxi</a>
               <a href="/kandy-taxi-service">Kandy Taxi Service</a>
               <a href="/sigiriya-taxi-service">Sigiriya Taxi Service</a>
               <a href="/galle-taxi-service">Galle Taxi Service</a>
@@ -217,11 +219,11 @@ export default function NegomboTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {routeCards.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(negomboTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(negomboTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -241,11 +243,11 @@ export default function NegomboTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {pickupSections.map((section) => (
               <Reveal className="colombo-airport-route-card" key={section.title}>
-                <img src={section.image} alt={section.title} loading="lazy" />
+                <img src={section.image} alt="" loading="lazy" />
                 <div>
                   <h3>{section.title}</h3>
                   <p>{section.text}</p>
-                  <a href={buildWhatsAppLink(negomboTaxiMessage(section.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(negomboTaxiMessage(section.title))} target="_blank" rel="noreferrer" aria-label={`Book transfer — ${section.title}`}>
                     Book transfer
                   </a>
                 </div>
@@ -287,6 +289,7 @@ export default function NegomboTaxiService({ setPage }) {
                     href={buildWhatsAppLink(negomboTaxiMessage(`${vehicle.name} Negombo taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -342,6 +345,7 @@ export default function NegomboTaxiService({ setPage }) {
 
       <RelatedTours destinationId="negombo" soft />
       <RelatedDestinations destinationId="negombo" soft={false} />
+      <RelatedRoutes destinationId="negombo" pageSource="negombo-taxi-service-page" />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
@@ -152,6 +153,12 @@ export default function GalleTaxiService({ setPage }) {
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
               <a href="/kandy-taxi-service">Kandy Taxi Service</a>
+              <a href="/best-beaches-near-galle">Best Beaches Near Galle</a>
+              <a href="/galle-to-ella">Galle to Ella Travel Guide</a>
+              <a href="/things-to-do-in-galle">Things to Do in Galle</a>
+              <a href="/galle-vs-colombo">Galle vs Colombo</a>
+              <a href="/galle-to-mirissa">Galle to Mirissa</a>
+              <a href="/galle-to-yala">Galle to Yala</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -181,11 +188,11 @@ export default function GalleTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {galleRoutes.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(galleTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(galleTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -227,6 +234,7 @@ export default function GalleTaxiService({ setPage }) {
                     href={buildWhatsAppLink(galleTaxiMessage(`${vehicle.name} Galle taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -282,6 +290,7 @@ export default function GalleTaxiService({ setPage }) {
 
       <RelatedTours destinationId="galle" soft />
       <RelatedDestinations destinationId="galle" soft={false} />
+      <RelatedRoutes destinationId="galle" pageSource="galle-taxi-service-page" />
     </div>
   );
 }

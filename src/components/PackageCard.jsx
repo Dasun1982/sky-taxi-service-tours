@@ -21,7 +21,12 @@ export default function PackageCard({ item, onBook }) {
             </li>
           ))}
         </ul>
-        <button className="text-button" type="button" onClick={onBook}>
+        <button
+          className="text-button"
+          type="button"
+          onClick={onBook}
+          aria-label={`${t("common.askForPackageQuote")} — ${item.title}`}
+        >
           {t("common.askForPackageQuote")}
         </button>
       </div>

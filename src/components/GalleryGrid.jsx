@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -73,27 +74,29 @@ export default function GalleryGrid({ items }) {
         })}
       </div>
 
-      {activeItem && (
-        <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={activeItem.title}>
-          <button className="gallery-lightbox__backdrop" type="button" onClick={closeLightbox} aria-label={t("common.closeGallery")} />
-          <div className="gallery-lightbox__panel" onTouchStart={startSwipe} onTouchEnd={endSwipe}>
-            <button className="gallery-lightbox__close" type="button" onClick={closeLightbox} aria-label={t("common.closeGallery")}>
-              <X size={22} />
-            </button>
-            <button className="gallery-lightbox__nav gallery-lightbox__nav--prev" type="button" onClick={() => showImage(-1)} aria-label={t("common.previousImage")}>
-              <ChevronLeft size={24} />
-            </button>
-            <img src={activeItem.src} alt={activeItem.alt} />
-            <button className="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" onClick={() => showImage(1)} aria-label={t("common.nextImage")}>
-              <ChevronRight size={24} />
-            </button>
-            <div className="gallery-lightbox__caption">
-              <strong>{activeItem.title}</strong>
-              <span>{activeItem.location}</span>
+      {activeItem &&
+        createPortal(
+          <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={activeItem.title}>
+            <button className="gallery-lightbox__backdrop" type="button" onClick={closeLightbox} aria-label={t("common.closeGallery")} />
+            <div className="gallery-lightbox__panel" onTouchStart={startSwipe} onTouchEnd={endSwipe}>
+              <button className="gallery-lightbox__close" type="button" onClick={closeLightbox} aria-label={t("common.closeGallery")}>
+                <X size={22} />
+              </button>
+              <button className="gallery-lightbox__nav gallery-lightbox__nav--prev" type="button" onClick={() => showImage(-1)} aria-label={t("common.previousImage")}>
+                <ChevronLeft size={24} />
+              </button>
+              <img src={activeItem.src} alt={activeItem.alt} />
+              <button className="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" onClick={() => showImage(1)} aria-label={t("common.nextImage")}>
+                <ChevronRight size={24} />
+              </button>
+              <div className="gallery-lightbox__caption">
+                <strong>{activeItem.title}</strong>
+                <span>{activeItem.location}</span>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </>
   );
 }

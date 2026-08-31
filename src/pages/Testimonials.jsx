@@ -1,12 +1,13 @@
-import { Quote, Star } from "lucide-react";
+import { ArrowRight, MessageCircle, Quote, Star } from "lucide-react";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import TestimonialsSlider from "../components/TestimonialsSlider";
 import { useLanguage } from "../context/LanguageContext";
 import { images, testimonials } from "../data/travelData";
+import { buildWhatsAppLink } from "../utils/whatsapp";
 
-export default function Testimonials() {
+export default function Testimonials({ setPage }) {
   const { t } = useLanguage();
   const translatedTestimonials = testimonials.map((item, index) => ({
     ...item,
@@ -54,6 +55,28 @@ export default function Testimonials() {
                 <strong>{item.traveler}</strong>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--dark">
+        <div className="section__inner center-block">
+          <h2>{t("testimonials.cta.title", "Ready to plan your own Sri Lanka trip?")}</h2>
+          <p>
+            {t(
+              "testimonials.cta.text",
+              "Send your travel dates and interests on WhatsApp, or browse our tours for a private route with SKY Taxi Service & Tours.",
+            )}
+          </p>
+          <div className="cta-actions cta-actions--center">
+            <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
+              <MessageCircle size={19} />
+              {t("testimonials.cta.whatsapp", "Plan on WhatsApp")}
+            </a>
+            <button className="button button--light" type="button" onClick={() => setPage("tours")}>
+              {t("testimonials.cta.tours", "Browse Tours")}
+              <ArrowRight size={18} />
+            </button>
           </div>
         </div>
       </section>

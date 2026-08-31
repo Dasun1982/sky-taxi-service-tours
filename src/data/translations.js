@@ -210,7 +210,10 @@ const en = {
         title: "One-Day Tours",
         text: "Easy one-day tours from your hotel to beaches, forts, hill country, culture, and viewpoints.",
       },
-      { title: "Vehicle Rentals", text: "Clean cars and vans for couples, families, solo travelers, and small groups." },
+      {
+        title: "Private Driver",
+        text: "One driver and vehicle for your whole trip, with local route knowledge and flexible daily stops.",
+      },
       { title: "Travel Support", text: "Friendly help with routes, pickup places, luggage, airport timing, and fair travel plans." },
     ],
     popularTours: [
@@ -528,7 +531,7 @@ const en = {
       flexible: "Flexible",
       notConfirmed: "Not confirmed",
       noNotes: "No extra notes",
-      tripTypes: ["Airport transfer", "Taxi ride", "Private tour", "Round tour", "Vehicle rental"],
+      tripTypes: ["Airport transfer", "Taxi ride", "Driver only", "Driver + Guide", "Private tour", "Round tour", "Vehicle rental"],
     },
     pricing: [
       {
@@ -706,12 +709,12 @@ const en = {
     ],
     includes: [
       "Private air-conditioned vehicle",
-      "Experienced local driver/guide",
+      "Experienced local driver",
       "All fuel and parking charges",
       "Hotel pick-up and drop-off",
       "Fully customizable itinerary",
     ],
-    notIncluded: ["Entrance fees", "Meals and refreshments"],
+    notIncluded: ["Entrance fees", "Meals and refreshments", "Specialist local guide — can be arranged separately, see Driver + Guide"],
     priceNote: "Final price confirmed on WhatsApp depending on route, people, vehicle, waiting time, and tickets.",
     modalAria: "Tour detail sections",
     privateTourNote: "Private Tour Prices are for the entire car, not per person.",
@@ -789,7 +792,7 @@ const en = {
     ],
     includes: [
       "Private air-conditioned vehicle",
-      "Experienced local driver/guide",
+      "Experienced local driver",
       "All fuel and parking charges",
       "Hotel pick-up and drop-off",
       "Fully customizable itinerary",
@@ -799,6 +802,7 @@ const en = {
       "Meals and accommodation, can be arranged upon request",
       "Train tickets, can be arranged upon request",
       "Safari jeep hire and park entrance fees, can be arranged upon request",
+      "Specialist local guide — can be arranged separately, see Driver + Guide",
     ],
     priceNote:
       "Private Tour Prices are for the entire car, not per person. Final price confirmed on WhatsApp depending on route, date, vehicle, hotel needs, entrance tickets, train tickets, safari, and special requests.",
@@ -1407,7 +1411,7 @@ const multilingualExpansion = {
         { title: "Такси", text: "Надежное такси для коротких поездок, отелей, дальних маршрутов и аренды на день." },
         { title: "Частные туры", text: "Частные туры по острову с дружелюбными местными водителями и WhatsApp бронированием." },
         { title: "Однодневные туры", text: "Удобные поездки к пляжам, фортам, горам, культуре и смотровым точкам." },
-        { title: "Аренда транспорта", text: "Скутеры, байки и тук-туки для локальных поездок по честным дневным ценам." },
+        { title: "Личный водитель", text: "Один водитель и автомобиль на всю поездку, с гибкими остановками и знанием маршрутов." },
         { title: "Помощь в поездке", text: "Поможем с маршрутом, багажом, временем аэропорта и честным планом поездки." },
       ],
       popularTours: [
@@ -1536,7 +1540,7 @@ Object.assign(multilingualExpansion, {
         { title: "टैक्सी सेवा", text: "छोटी राइड, होटल ट्रांसफर, लंबे रूट और डे हायर के लिए भरोसेमंद टैक्सी।" },
         { title: "प्राइवेट टूर", text: "दोस्ताना स्थानीय ड्राइवरों के साथ पूरे श्रीलंका में निजी टूर।" },
         { title: "वन-डे टूर", text: "बीच, फोर्ट, पहाड़, संस्कृति और व्यूपॉइंट के लिए आसान दिनभर की यात्राएं।" },
-        { title: "वाहन रेंटल", text: "स्थानीय यात्रा के लिए स्कूटर, बाइक और टुक-टुक रेंटल विकल्प।" },
+        { title: "प्राइवेट ड्राइवर", text: "पूरी यात्रा के लिए एक ड्राइवर और वाहन, लचीले स्टॉप और स्थानीय रूट अनुभव के साथ।" },
         { title: "ट्रैवल सपोर्ट", text: "रूट, पिकअप, सामान, एयरपोर्ट समय और यात्रा योजना में मदद।" },
       ],
       popularTours: [
@@ -1638,8 +1642,8 @@ Object.assign(multilingualExpansion, {
         { title: "Kandy वन-डे ट्रिप", shortText: "बॉटैनिकल गार्डन, बुद्ध प्रतिमा, म्यूजियम, Kandy city और संस्कृति।", duration: "पूरा दिन" },
         { title: "Colombo वन-डे ट्रिप", shortText: "मंदिर, म्यूजियम, Red Mosque, Galle Face, Pettah Market, पार्क और Lotus Tower।", duration: "पूरा दिन" },
       ],
-      includes: ["निजी AC वाहन", "अनुभवी स्थानीय ड्राइवर/गाइड", "ईंधन और पार्किंग", "होटल पिकअप और ड्रॉप", "कस्टमाइज़ेबल कार्यक्रम"],
-      notIncluded: ["एंट्रेंस फीस", "भोजन और पेय"],
+      includes: ["निजी AC वाहन", "अनुभवी स्थानीय ड्राइवर", "ईंधन और पार्किंग", "होटल पिकअप और ड्रॉप", "कस्टमाइज़ेबल कार्यक्रम"],
+      notIncluded: ["एंट्रेंस फीस", "भोजन और पेय", "विशेषज्ञ स्थानीय गाइड — अलग से बुक किया जा सकता है, देखें ड्राइवर + गाइड"],
     },
     round: {
       packages: [
@@ -1650,8 +1654,8 @@ Object.assign(multilingualExpansion, {
         { displayTitle: "7-Day Cultural Heritage & Wildlife Tour", duration: "7 दिन", summary: "Trincomalee, Polonnaruwa, Anuradhapura, Sigiriya, Kandy, Ella और सफारी।" },
         { displayTitle: "10-Day Ultimate Sri Lanka Explorer Tour", duration: "10 दिन", summary: "Negombo, Jaffna, Trincomalee, Kandy, Ella, Yala, Galle और एयरपोर्ट ट्रांसफर।" },
       ],
-      includes: ["निजी AC वाहन", "अनुभवी स्थानीय ड्राइवर/गाइड", "ईंधन और पार्किंग", "होटल पिकअप और ड्रॉप", "कस्टमाइज़ेबल कार्यक्रम"],
-      notIncluded: ["एंट्रेंस फीस", "भोजन और आवास, अनुरोध पर", "ट्रेन टिकट, अनुरोध पर", "सफारी जीप और पार्क फीस, अनुरोध पर"],
+      includes: ["निजी AC वाहन", "अनुभवी स्थानीय ड्राइवर", "ईंधन और पार्किंग", "होटल पिकअप और ड्रॉप", "कस्टमाइज़ेबल कार्यक्रम"],
+      notIncluded: ["एंट्रेंस फीस", "भोजन और आवास, अनुरोध पर", "ट्रेन टिकट, अनुरोध पर", "सफारी जीप और पार्क फीस, अनुरोध पर", "विशेषज्ञ स्थानीय गाइड — अलग से बुक किया जा सकता है, देखें ड्राइवर + गाइड"],
     },
   },
 });
@@ -1665,7 +1669,7 @@ Object.assign(multilingualExpansion, {
         { title: "Servicio de taxi", text: "Taxi fiable para rutas cortas, hoteles, viajes largos y alquiler por día." },
         { title: "Tours privados", text: "Tours privados por toda la isla con conductores locales amables." },
         { title: "Tours de un día", text: "Excursiones fáciles a playas, fuertes, colinas, cultura y miradores." },
-        { title: "Alquileres", text: "Scooters, motos y tuk-tuks para viajes locales con precios diarios justos." },
+        { title: "Conductor privado", text: "Un conductor y vehículo para todo tu viaje, con paradas flexibles y conocimiento local de las rutas." },
         { title: "Ayuda de viaje", text: "Ayuda con rutas, recogidas, equipaje, aeropuerto y planes justos." },
       ],
       popularTours: [
@@ -1753,8 +1757,8 @@ Object.assign(multilingualExpansion, {
         { title: "Excursión de un día en Kandy", shortText: "Jardines, estatua Buddha, museos, Kandy city y cultura.", duration: "Día completo" },
         { title: "Excursión de un día en Colombo", shortText: "Templos, museo, Red Mosque, Galle Face, Pettah Market y Lotus Tower.", duration: "Día completo" },
       ],
-      includes: ["Vehículo privado con AC", "Conductor/guía local", "Combustible y parking", "Recogida y regreso al hotel", "Itinerario personalizable"],
-      notIncluded: ["Entradas", "Comidas y bebidas"],
+      includes: ["Vehículo privado con AC", "Conductor local", "Combustible y parking", "Recogida y regreso al hotel", "Itinerario personalizable"],
+      notIncluded: ["Entradas", "Comidas y bebidas", "Guía local especializado — se puede solicitar por separado, ver Conductor + guía"],
     },
     round: {
       packages: [
@@ -1765,8 +1769,8 @@ Object.assign(multilingualExpansion, {
         { displayTitle: "Tour de 7 días cultura y vida silvestre", duration: "7 días", summary: "Trincomalee, ciudades antiguas, Sigiriya, Kandy, Ella y safari." },
         { displayTitle: "Tour de 10 días Sri Lanka Explorer", duration: "10 días", summary: "Negombo, Jaffna, Trincomalee, Kandy, Ella, Yala, Galle y aeropuerto." },
       ],
-      includes: ["Vehículo privado con AC", "Conductor/guía local", "Combustible y parking", "Recogida y regreso al hotel", "Itinerario personalizable"],
-      notIncluded: ["Entradas", "Comidas y alojamiento bajo pedido", "Billetes de tren bajo pedido", "Jeep safari y entradas del parque bajo pedido"],
+      includes: ["Vehículo privado con AC", "Conductor local", "Combustible y parking", "Recogida y regreso al hotel", "Itinerario personalizable"],
+      notIncluded: ["Entradas", "Comidas y alojamiento bajo pedido", "Billetes de tren bajo pedido", "Jeep safari y entradas del parque bajo pedido", "Guía local especializado — se puede solicitar por separado, ver Conductor + guía"],
     },
   },
 });
@@ -1780,7 +1784,7 @@ Object.assign(multilingualExpansion, {
         { title: "Service taxi", text: "Taxi fiable pour courts trajets, hôtels, longues routes et location à la journée." },
         { title: "Tours privés", text: "Tours privés dans l'île avec chauffeurs locaux sympathiques." },
         { title: "Tours d'une journée", text: "Sorties faciles vers plages, forts, montagnes, culture et points de vue." },
-        { title: "Locations", text: "Scooters, motos et tuk-tuks pour les trajets locaux à prix justes." },
+        { title: "Chauffeur privé", text: "Un chauffeur et un véhicule pour tout votre voyage, avec des arrêts flexibles et une bonne connaissance des routes locales." },
         { title: "Aide voyage", text: "Aide pour routes, points de prise en charge, bagages, aéroport et planning." },
       ],
       popularTours: [
@@ -1862,8 +1866,8 @@ Object.assign(multilingualExpansion, {
         { title: "Journée à Kandy", shortText: "Jardins, statue Buddha, musées, Kandy city et culture.", duration: "Journée complète" },
         { title: "Journée à Colombo", shortText: "Temples, musée, Red Mosque, Galle Face, Pettah Market et Lotus Tower.", duration: "Journée complète" },
       ],
-      includes: ["Véhicule privé climatisé", "Chauffeur/guide local", "Carburant et parking", "Prise en charge et retour hôtel", "Itinéraire personnalisable"],
-      notIncluded: ["Frais d'entrée", "Repas et boissons"],
+      includes: ["Véhicule privé climatisé", "Chauffeur local", "Carburant et parking", "Prise en charge et retour hôtel", "Itinéraire personnalisable"],
+      notIncluded: ["Frais d'entrée", "Repas et boissons", "Guide local spécialisé — peut être organisé séparément, voir Chauffeur + guide"],
     },
     round: {
       packages: [
@@ -1874,8 +1878,8 @@ Object.assign(multilingualExpansion, {
         { displayTitle: "Tour 7 jours culture et wildlife", duration: "7 jours", summary: "Trincomalee, villes anciennes, Sigiriya, Kandy, Ella et safari." },
         { displayTitle: "Tour 10 jours Sri Lanka Explorer", duration: "10 jours", summary: "Negombo, Jaffna, Trincomalee, Kandy, Ella, Yala, Galle et aéroport." },
       ],
-      includes: ["Véhicule privé climatisé", "Chauffeur/guide local", "Carburant et parking", "Prise en charge et retour hôtel", "Itinéraire personnalisable"],
-      notIncluded: ["Frais d'entrée", "Repas et hébergement sur demande", "Billets de train sur demande", "Jeep safari et entrées parc sur demande"],
+      includes: ["Véhicule privé climatisé", "Chauffeur local", "Carburant et parking", "Prise en charge et retour hôtel", "Itinéraire personnalisable"],
+      notIncluded: ["Frais d'entrée", "Repas et hébergement sur demande", "Billets de train sur demande", "Jeep safari et entrées parc sur demande", "Guide local spécialisé — peut être organisé séparément, voir Chauffeur + guide"],
     },
   },
 });
@@ -1889,7 +1893,7 @@ Object.assign(multilingualExpansion, {
         { title: "Taxi Service", text: "Zuverlässige Taxis für Kurzfahrten, Hotels, lange Strecken und Tagesmiete." },
         { title: "Private Touren", text: "Private Touren inselweit mit freundlichen lokalen Fahrern." },
         { title: "Tagestouren", text: "Einfache Tagesausflüge zu Stränden, Forts, Bergen, Kultur und Aussichtspunkten." },
-        { title: "Vermietungen", text: "Scooter, Bikes und Tuk-Tuks für lokale Fahrten zu fairen Tagespreisen." },
+        { title: "Privatfahrer", text: "Ein Fahrer und Fahrzeug für Ihre gesamte Reise, mit flexiblen Stopps und lokaler Streckenkenntnis." },
         { title: "Reisehilfe", text: "Hilfe bei Routen, Abholung, Gepäck, Flughafenzeiten und fairer Planung." },
       ],
       popularTours: [
@@ -1971,8 +1975,8 @@ Object.assign(multilingualExpansion, {
         { title: "Tagestour in Kandy", shortText: "Botanische Gärten, Buddha-Statue, Museen, Kandy city und Kultur.", duration: "Ganzer Tag" },
         { title: "Tagestour in Colombo", shortText: "Tempel, Museum, Red Mosque, Galle Face, Pettah Market und Lotus Tower.", duration: "Ganzer Tag" },
       ],
-      includes: ["Privates klimatisiertes Fahrzeug", "Lokaler Fahrer/Guide", "Kraftstoff und Parken", "Hotelabholung und Rückfahrt", "Anpassbare Route"],
-      notIncluded: ["Eintrittsgebühren", "Mahlzeiten und Getränke"],
+      includes: ["Privates klimatisiertes Fahrzeug", "Lokaler Fahrer", "Kraftstoff und Parken", "Hotelabholung und Rückfahrt", "Anpassbare Route"],
+      notIncluded: ["Eintrittsgebühren", "Mahlzeiten und Getränke", "Spezialisierter lokaler Guide — kann separat organisiert werden, siehe Fahrer + Guide"],
     },
     round: {
       packages: [
@@ -1983,8 +1987,8 @@ Object.assign(multilingualExpansion, {
         { displayTitle: "7-Tage Kultur- und Wildlife-Tour", duration: "7 Tage", summary: "Trincomalee, antike Städte, Sigiriya, Kandy, Ella und Safari." },
         { displayTitle: "10-Tage Ultimate Sri Lanka Explorer Tour", duration: "10 Tage", summary: "Negombo, Jaffna, Trincomalee, Kandy, Ella, Yala, Galle und Airport." },
       ],
-      includes: ["Privates klimatisiertes Fahrzeug", "Lokaler Fahrer/Guide", "Kraftstoff und Parken", "Hotelabholung und Rückfahrt", "Anpassbare Route"],
-      notIncluded: ["Eintrittsgebühren", "Mahlzeiten und Unterkunft auf Anfrage", "Zugtickets auf Anfrage", "Safari-Jeep und Parkgebühren auf Anfrage"],
+      includes: ["Privates klimatisiertes Fahrzeug", "Lokaler Fahrer", "Kraftstoff und Parken", "Hotelabholung und Rückfahrt", "Anpassbare Route"],
+      notIncluded: ["Eintrittsgebühren", "Mahlzeiten und Unterkunft auf Anfrage", "Zugtickets auf Anfrage", "Safari-Jeep und Parkgebühren auf Anfrage", "Spezialisierter lokaler Guide — kann separat organisiert werden, siehe Fahrer + Guide"],
     },
   },
 });
@@ -1998,7 +2002,7 @@ Object.assign(multilingualExpansion, {
         { title: "خدمة التاكسي", text: "تاكسي موثوق للرحلات القصيرة والفنادق والطرق الطويلة واليوم الكامل." },
         { title: "جولات خاصة", text: "جولات خاصة في الجزيرة مع سائقين محليين ودودين." },
         { title: "جولات يوم واحد", text: "رحلات سهلة إلى الشواطئ والحصون والجبال والثقافة ونقاط المشاهدة." },
-        { title: "إيجار المركبات", text: "سكوترات ودراجات وتوك توك للتنقل المحلي بأسعار يومية عادلة." },
+        { title: "سائق خاص", text: "سائق ومركبة واحدة طوال رحلتك، مع توقفات مرنة ومعرفة جيدة بالطرق المحلية." },
         { title: "مساعدة السفر", text: "مساعدة في الطريق والاستقبال والحقائب ووقت المطار وخطة السفر." },
       ],
       popularTours: [
@@ -2080,8 +2084,8 @@ Object.assign(multilingualExpansion, {
         { title: "رحلة يوم واحد في Kandy", shortText: "الحدائق وتمثال Buddha والمتاحف وKandy city والثقافة.", duration: "يوم كامل" },
         { title: "رحلة يوم واحد في Colombo", shortText: "معابد ومتحف وRed Mosque وGalle Face وPettah Market وLotus Tower.", duration: "يوم كامل" },
       ],
-      includes: ["مركبة خاصة مكيفة", "سائق/مرشد محلي", "الوقود والمواقف", "استقبال وإرجاع الفندق", "مسار قابل للتخصيص"],
-      notIncluded: ["رسوم الدخول", "الوجبات والمشروبات"],
+      includes: ["مركبة خاصة مكيفة", "سائق محلي", "الوقود والمواقف", "استقبال وإرجاع الفندق", "مسار قابل للتخصيص"],
+      notIncluded: ["رسوم الدخول", "الوجبات والمشروبات", "مرشد محلي متخصص — يمكن طلبه بشكل منفصل، راجع سائق + مرشد"],
     },
     round: {
       packages: [
@@ -2092,8 +2096,8 @@ Object.assign(multilingualExpansion, {
         { displayTitle: "جولة 7 أيام ثقافة وحياة برية", duration: "7 أيام", summary: "Trincomalee والمدن القديمة وSigiriya وKandy وElla وسفاري." },
         { displayTitle: "جولة 10 أيام Ultimate Sri Lanka Explorer", duration: "10 أيام", summary: "Negombo وJaffna وTrincomalee وKandy وElla وYala وGalle والمطار." },
       ],
-      includes: ["مركبة خاصة مكيفة", "سائق/مرشد محلي", "الوقود والمواقف", "استقبال وإرجاع الفندق", "مسار قابل للتخصيص"],
-      notIncluded: ["رسوم الدخول", "الوجبات والإقامة عند الطلب", "تذاكر القطار عند الطلب", "جيب السفاري ورسوم المتنزه عند الطلب"],
+      includes: ["مركبة خاصة مكيفة", "سائق محلي", "الوقود والمواقف", "استقبال وإرجاع الفندق", "مسار قابل للتخصيص"],
+      notIncluded: ["رسوم الدخول", "الوجبات والإقامة عند الطلب", "تذاكر القطار عند الطلب", "جيب السفاري ورسوم المتنزه عند الطلب", "مرشد محلي متخصص — يمكن طلبه بشكل منفصل، راجع سائق + مرشد"],
     },
   },
 });
@@ -2118,7 +2122,7 @@ const multilingualFormsAndCtas = {
       serviceHeader: { eyebrow: "Тип услуги", title: "Выберите тип поездки", text: "Финальная цена подтверждается в WhatsApp после деталей." },
       form: {
         placeholders: { name: "Ваше имя", phone: "+94...", pickup: "Отель, аэропорт или город", drop: "Unawatuna, Ella, airport...", passengers: "2 взрослых, 1 ребенок...", luggage: "2 чемодана, рюкзаки...", message: "Рейс, багаж, идея тура или время" },
-        tripTypes: ["Трансфер аэропорта", "Такси", "Частный тур", "Round tour", "Аренда транспорта"],
+        tripTypes: ["Трансфер аэропорта", "Такси", "Только водитель", "Водитель + гид", "Частный тур", "Round tour", "Аренда транспорта"],
       },
       visuals: [{ title: "Горная страна" }, { title: "Лодочные туры" }, { title: "Южное побережье" }],
       pricing: [
@@ -2161,7 +2165,7 @@ const multilingualFormsAndCtas = {
         tripType: "ट्रिप टाइप", name: "नाम", phone: "WhatsApp नंबर", pickup: "पिकअप जगह", drop: "ड्रॉप जगह", date: "तारीख", time: "समय", passengers: "यात्री", luggage: "सामान", message: "मैसेज",
         placeholders: { name: "आपका नाम", phone: "+94...", pickup: "होटल, एयरपोर्ट या शहर", drop: "Unawatuna, Ella, airport...", passengers: "2 वयस्क, 1 बच्चा...", luggage: "2 सूटकेस, बैग...", message: "फ्लाइट, सामान, टूर आइडिया या समय" },
         status: "WhatsApp में आपकी बुकिंग डिटेल खुल रही है।", flexible: "लचीला", notConfirmed: "कन्फर्म नहीं", noNotes: "कोई अतिरिक्त नोट नहीं",
-        tripTypes: ["एयरपोर्ट ट्रांसफर", "टैक्सी राइड", "प्राइवेट टूर", "Round tour", "वाहन रेंटल"],
+        tripTypes: ["एयरपोर्ट ट्रांसफर", "टैक्सी राइड", "केवल ड्राइवर", "ड्राइवर + गाइड", "प्राइवेट टूर", "Round tour", "वाहन रेंटल"],
       },
       visuals: [{ title: "हिल कंट्री" }, { title: "बोट टूर" }, { title: "दक्षिणी तट" }],
       pricing: [
@@ -2222,7 +2226,7 @@ const multilingualFormsAndCtas = {
         tripType: "Tipo de viaje", name: "Nombre", phone: "Número WhatsApp", pickup: "Lugar de recogida", drop: "Destino", date: "Fecha", time: "Hora", passengers: "Pasajeros", luggage: "Equipaje", message: "Mensaje",
         placeholders: { name: "Tu nombre", phone: "+94...", pickup: "Hotel, aeropuerto o ciudad", drop: "Unawatuna, Ella, aeropuerto...", passengers: "2 adultos, 1 niño...", luggage: "2 maletas, mochilas...", message: "Vuelo, equipaje, idea de tour u hora" },
         status: "Abriendo WhatsApp con los detalles.", flexible: "Flexible", notConfirmed: "No confirmado", noNotes: "Sin notas extra",
-        tripTypes: ["Traslado aeropuerto", "Taxi", "Tour privado", "Round tour", "Alquiler de vehículo"],
+        tripTypes: ["Traslado aeropuerto", "Taxi", "Solo conductor", "Conductor + guía", "Tour privado", "Round tour", "Alquiler de vehículo"],
       },
       visuals: [{ title: "Montañas" }, { title: "Tours en barco" }, { title: "Costa sur" }],
       pricing: [
@@ -2264,8 +2268,8 @@ const finalTranslationCoverage = {
         { title: "Однодневная поездка в Kandy", shortText: "Ботанические сады, статуя Buddha, музеи, Kandy city и культурные места.", duration: "Полный день" },
         { title: "Однодневная поездка в Colombo", shortText: "Храмы, музей, Red Mosque, Galle Face, Pettah Market, парки и Lotus Tower.", duration: "Полный день" },
       ],
-      includes: ["Частный автомобиль с AC", "Опытный местный водитель/гид", "Топливо и парковка", "Пикап и высадка в отеле", "Гибкий маршрут"],
-      notIncluded: ["Входные билеты", "Еда и напитки"],
+      includes: ["Частный автомобиль с AC", "Опытный местный водитель", "Топливо и парковка", "Пикап и высадка в отеле", "Гибкий маршрут"],
+      notIncluded: ["Входные билеты", "Еда и напитки", "Специализированный местный гид — можно заказать отдельно, см. Водитель + гид"],
     },
     round: {
       packages: [
@@ -2276,8 +2280,8 @@ const finalTranslationCoverage = {
         { displayTitle: "7-дневный культурный и wildlife тур", duration: "7 дней", summary: "Trincomalee, Polonnaruwa, Anuradhapura, Sigiriya, Kandy, Ella и safari." },
         { displayTitle: "10-дневный Ultimate Sri Lanka Explorer Tour", duration: "10 дней", summary: "Negombo, Jaffna, Trincomalee, Kandy, Ella, Yala, Galle и airport transfer." },
       ],
-      includes: ["Частный автомобиль с AC", "Опытный местный водитель/гид", "Топливо и парковка", "Пикап и высадка в отеле", "Гибкий маршрут"],
-      notIncluded: ["Входные билеты", "Еда и проживание по запросу", "Билеты на поезд по запросу", "Safari jeep и билеты в парк по запросу"],
+      includes: ["Частный автомобиль с AC", "Опытный местный водитель", "Топливо и парковка", "Пикап и высадка в отеле", "Гибкий маршрут"],
+      notIncluded: ["Входные билеты", "Еда и проживание по запросу", "Билеты на поезд по запросу", "Safari jeep и билеты в парк по запросу", "Специализированный местный гид — можно заказать отдельно, см. Водитель + гид"],
     },
   },
   hi: { common: { whatsapp: "व्हाट्सऐप", getCustomPrice: "कस्टम कीमत पाएं" } },
@@ -2306,7 +2310,7 @@ const finalTranslationCoverage = {
         eyebrow: "حجز واتساب سهل", title: "شارك تفاصيل الرحلة", text: "سنرد بسعر عادل وأفضل مركبة.",
         tripType: "نوع الرحلة", name: "الاسم", phone: "رقم واتساب", pickup: "مكان الاستقبال", drop: "مكان الوصول", date: "التاريخ", time: "الوقت", passengers: "الركاب", luggage: "الحقائب", message: "رسالة",
         placeholders: { name: "اسمك", phone: "+94...", pickup: "فندق أو مطار أو مدينة", drop: "Unawatuna, Ella, airport...", passengers: "شخصان وطفل...", luggage: "حقيبتان وحقائب ظهر...", message: "رقم الرحلة أو الحقائب أو فكرة الجولة" },
-        status: "يتم فتح واتساب بتفاصيل الحجز.", flexible: "مرن", notConfirmed: "غير مؤكد", noNotes: "لا توجد ملاحظات", tripTypes: ["نقل المطار", "رحلة تاكسي", "جولة خاصة", "Round tour", "إيجار مركبة"],
+        status: "يتم فتح واتساب بتفاصيل الحجز.", flexible: "مرن", notConfirmed: "غير مؤكد", noNotes: "لا توجد ملاحظات", tripTypes: ["نقل المطار", "رحلة تاكسي", "سائق فقط", "سائق + مرشد", "جولة خاصة", "Round tour", "إيجار مركبة"],
       },
       visuals: [{ title: "الجبال" }, { title: "جولات القوارب" }, { title: "الساحل الجنوبي" }],
       pricing: [
@@ -2355,7 +2359,7 @@ const finalTranslationCoverage = {
         eyebrow: "Réservation WhatsApp", title: "Partagez les détails", text: "Nous répondrons avec un prix juste et le meilleur véhicule.",
         tripType: "Type de voyage", name: "Nom", phone: "Numéro WhatsApp", pickup: "Lieu de départ", drop: "Destination", date: "Date", time: "Heure", passengers: "Passagers", luggage: "Bagages", message: "Message",
         placeholders: { name: "Votre nom", phone: "+94...", pickup: "Hôtel, aéroport ou ville", drop: "Unawatuna, Ella, airport...", passengers: "2 adultes, 1 enfant...", luggage: "2 valises, sacs...", message: "Vol, bagages, idée de tour ou heure" },
-        status: "Ouverture de WhatsApp avec vos détails.", flexible: "Flexible", notConfirmed: "Non confirmé", noNotes: "Aucune note", tripTypes: ["Transfert aéroport", "Taxi", "Tour privé", "Round tour", "Location véhicule"],
+        status: "Ouverture de WhatsApp avec vos détails.", flexible: "Flexible", notConfirmed: "Non confirmé", noNotes: "Aucune note", tripTypes: ["Transfert aéroport", "Taxi", "Chauffeur seul", "Chauffeur + guide", "Tour privé", "Round tour", "Location véhicule"],
       },
       visuals: [{ title: "Montagnes" }, { title: "Tours en bateau" }, { title: "Côte sud" }],
       pricing: [
@@ -2404,7 +2408,7 @@ const finalTranslationCoverage = {
         eyebrow: "Einfache WhatsApp-Buchung", title: "Reisedetails senden", text: "Wir antworten mit fairem Preis und bester Fahrzeugoption.",
         tripType: "Reisetyp", name: "Name", phone: "WhatsApp-Nummer", pickup: "Abholort", drop: "Ziel", date: "Datum", time: "Uhrzeit", passengers: "Personen", luggage: "Gepäck", message: "Nachricht",
         placeholders: { name: "Ihr Name", phone: "+94...", pickup: "Hotel, Flughafen oder Ort", drop: "Unawatuna, Ella, airport...", passengers: "2 Erwachsene, 1 Kind...", luggage: "2 Koffer, Rucksäcke...", message: "Flugnummer, Gepäck, Touridee oder Zeit" },
-        status: "WhatsApp wird mit Ihren Details geöffnet.", flexible: "Flexibel", notConfirmed: "Nicht bestätigt", noNotes: "Keine Notizen", tripTypes: ["Airport-Transfer", "Taxifahrt", "Private Tour", "Round tour", "Fahrzeugmiete"],
+        status: "WhatsApp wird mit Ihren Details geöffnet.", flexible: "Flexibel", notConfirmed: "Nicht bestätigt", noNotes: "Keine Notizen", tripTypes: ["Airport-Transfer", "Taxifahrt", "Nur Fahrer", "Fahrer + Guide", "Private Tour", "Round tour", "Fahrzeugmiete"],
       },
       visuals: [{ title: "Bergland" }, { title: "Bootstouren" }, { title: "Südküste" }],
       pricing: [

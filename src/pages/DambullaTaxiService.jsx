@@ -1,6 +1,7 @@
 import { Car, Clock3, Home, Landmark, Luggage, MapPinned, MessageCircle, Mountain, Plane, Route, ShieldCheck, Users } from "lucide-react";
 import PageHero from "../components/PageHero";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
@@ -149,6 +150,7 @@ export default function DambullaTaxiService({ setPage }) {
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>
               <a href="/colombo-airport-taxi">Colombo Airport Taxi</a>
+              <a href="/airport-to-dambulla">Airport to Dambulla Taxi</a>
               <a href="/sigiriya-taxi-service">Sigiriya Taxi Service</a>
               <a href="/kandy-taxi-service">Kandy Taxi Service</a>
             </div>
@@ -180,11 +182,11 @@ export default function DambullaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {routeCards.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(dambullaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(dambullaTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -226,6 +228,7 @@ export default function DambullaTaxiService({ setPage }) {
                     href={buildWhatsAppLink(dambullaTaxiMessage(`${vehicle.name} Dambulla taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -281,6 +284,7 @@ export default function DambullaTaxiService({ setPage }) {
 
       <RelatedTours destinationId="dambulla" soft />
       <RelatedDestinations destinationId="dambulla" soft={false} />
+      <RelatedRoutes destinationId="dambulla" pageSource="dambulla-taxi-service-page" />
     </div>
   );
 }

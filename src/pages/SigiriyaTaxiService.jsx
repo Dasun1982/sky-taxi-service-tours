@@ -1,6 +1,7 @@
 import { Car, Clock3, Home, Landmark, Luggage, MapPinned, MessageCircle, Mountain, Plane, Route, ShieldCheck, Users } from "lucide-react";
 import PageHero from "../components/PageHero";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
@@ -153,6 +154,10 @@ export default function SigiriyaTaxiService({ setPage }) {
               <a href="/ella-taxi-service">Ella Taxi Service</a>
               <a href="/kandy-taxi-service">Kandy Taxi Service</a>
               <a href="/galle-taxi-service">Galle Taxi Service</a>
+              <a href="/things-to-do-in-sigiriya">Things to Do in Sigiriya</a>
+              <a href="/sigiriya-vs-ella">Sigiriya vs Ella</a>
+              <a href="/kandy-to-sigiriya">Kandy to Sigiriya</a>
+              <a href="/sigiriya-to-yala">Sigiriya to Yala</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -182,11 +187,11 @@ export default function SigiriyaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {sigiriyaRoutes.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(sigiriyaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(sigiriyaTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -228,6 +233,7 @@ export default function SigiriyaTaxiService({ setPage }) {
                     href={buildWhatsAppLink(sigiriyaTaxiMessage(`${vehicle.name} Sigiriya taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -283,6 +289,7 @@ export default function SigiriyaTaxiService({ setPage }) {
 
       <RelatedTours destinationId="sigiriya" soft />
       <RelatedDestinations destinationId="sigiriya" soft={false} />
+      <RelatedRoutes destinationId="sigiriya" pageSource="sigiriya-taxi-service-page" />
     </div>
   );
 }

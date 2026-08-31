@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
@@ -183,6 +184,8 @@ export default function WeligamaTaxiService({ setPage }) {
               <a href="/galle-taxi-service">Galle Taxi Service</a>
               <a href="/mirissa-taxi-service">Mirissa Taxi Service</a>
               <a href="/unawatuna-taxi-service">Unawatuna Taxi Service</a>
+              <a href="/sri-lanka-surfing">Sri Lanka Surfing</a>
+              <a href="/sri-lanka-beaches">Sri Lanka Beaches</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -212,11 +215,11 @@ export default function WeligamaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {routeCards.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(weligamaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(weligamaTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -236,11 +239,11 @@ export default function WeligamaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {surfTransfers.map((transfer) => (
               <Reveal className="colombo-airport-route-card" key={transfer.title}>
-                <img src={transfer.image} alt={transfer.title} loading="lazy" />
+                <img src={transfer.image} alt="" loading="lazy" />
                 <div>
                   <h3>{transfer.title}</h3>
                   <p>{transfer.text}</p>
-                  <a href={buildWhatsAppLink(weligamaTaxiMessage(transfer.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(weligamaTaxiMessage(transfer.title))} target="_blank" rel="noreferrer" aria-label={`Book surf transfer — ${transfer.title}`}>
                     Book surf transfer
                   </a>
                 </div>
@@ -282,6 +285,7 @@ export default function WeligamaTaxiService({ setPage }) {
                     href={buildWhatsAppLink(weligamaTaxiMessage(`${vehicle.name} Weligama taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -337,6 +341,7 @@ export default function WeligamaTaxiService({ setPage }) {
 
       <RelatedTours destinationId="weligama" soft />
       <RelatedDestinations destinationId="weligama" soft={false} />
+      <RelatedRoutes destinationId="weligama" pageSource="weligama-taxi-service-page" />
     </div>
   );
 }

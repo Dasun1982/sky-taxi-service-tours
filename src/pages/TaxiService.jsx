@@ -31,6 +31,22 @@ const vehicles = taxiFleet;
 
 const taxiPriceVehicles = ["Toyota Prius", "Honda Insight"];
 
+const destinationLinks = [
+  { label: "Unawatuna Taxi Service", href: "/unawatuna-taxi-service" },
+  { label: "Galle Taxi Service", href: "/galle-taxi-service" },
+  { label: "Weligama Taxi Service", href: "/weligama-taxi-service" },
+  { label: "Mirissa Taxi Service", href: "/mirissa-taxi-service" },
+  { label: "Hiriketiya Taxi Service", href: "/hiriketiya-taxi-service" },
+  { label: "Bentota Taxi Service", href: "/bentota-taxi-service" },
+  { label: "Ella Taxi Service", href: "/ella-taxi-service" },
+  { label: "Kandy Taxi Service", href: "/kandy-taxi-service" },
+  { label: "Nuwara Eliya Taxi Service", href: "/nuwara-eliya-taxi-service" },
+  { label: "Sigiriya Taxi Service", href: "/sigiriya-taxi-service" },
+  { label: "Dambulla Taxi Service", href: "/dambulla-taxi-service" },
+  { label: "Negombo Taxi Service", href: "/negombo-taxi-service" },
+  { label: "Arugam Bay Taxi Service", href: "/arugam-bay-taxi-service" },
+];
+
 const bookingSteps = [
   {
     title: "Send route",
@@ -114,6 +130,7 @@ export default function TaxiService() {
                     href={buildWhatsAppLink(getVehicleMessage(vehicle.name))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`${t("common.bookThisVehicle")} — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     {t("common.bookThisVehicle")}
@@ -203,6 +220,53 @@ export default function TaxiService() {
                 </Reveal>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--soft">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow="Popular routes"
+            title="Taxi service by destination"
+            text="Browse SKY taxi service pages for specific Sri Lanka destinations."
+          />
+          <div className="colombo-airport-link-row">
+            <a href="/transport">Compare all transport options</a>
+            {destinationLinks.map((link) => (
+              <a href={link.href} key={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section__inner">
+          <SectionHeader eyebrow="Taxi FAQ" title="Sri Lanka taxi questions" align="left" />
+          <div className="faq-list">
+            <article className="faq-item">
+              <h3>How much is a taxi in Sri Lanka?</h3>
+              <div>
+                <p>
+                  SKY's standard rate is {taxiRatePerKm.oneWay} for one-way trips and {taxiRatePerKm.roundTrip} for round trips, without waiting
+                  charges or highway tickets. Send your exact pickup and drop-off on WhatsApp for a fair, route-based quote.
+                </p>
+              </div>
+            </article>
+            <article className="faq-item">
+              <h3>Can I book a private driver from any city?</h3>
+              <div>
+                <p>Yes — SKY's taxi and private driver network covers Colombo, the south coast, hill country, and the Cultural Triangle. See Private Driver Sri Lanka for the flexible, multi-stop hire option.</p>
+              </div>
+            </article>
+            <article className="faq-item">
+              <h3>Is the per-km rate the final price?</h3>
+              <div>
+                <p>It's the standard starting rate. Waiting time, highway tickets, and route specifics are confirmed on WhatsApp before travel — see the pricing notes above.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>

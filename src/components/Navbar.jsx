@@ -92,6 +92,17 @@ export default function Navbar({ activePage, setPage }) {
     }
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
+
   const goToPage = (event, page) => {
     event.preventDefault();
     setMenuOpen(false);
@@ -127,6 +138,7 @@ export default function Navbar({ activePage, setPage }) {
               href={item.page === "home" ? "#/" : `#/${item.page}`}
               key={item.page}
               onClick={(event) => goToPage(event, item.page)}
+              aria-current={activePage === item.page ? "page" : undefined}
             >
               {t(`nav.${item.page}`, item.label)}
             </a>
@@ -142,6 +154,8 @@ export default function Navbar({ activePage, setPage }) {
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             aria-label={menuOpen ? t("common.closeMenu") : t("common.openMenu")}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
           >
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
@@ -149,13 +163,14 @@ export default function Navbar({ activePage, setPage }) {
       </nav>
 
       {menuOpen && (
-        <div className="mobile-nav">
+        <div className="mobile-nav" id="mobile-nav">
           {navItems.map((item) => (
             <a
               className={activePage === item.page ? "mobile-nav__link mobile-nav__link--active" : "mobile-nav__link"}
               href={item.page === "home" ? "#/" : `#/${item.page}`}
               key={item.page}
               onClick={(event) => goToPage(event, item.page)}
+              aria-current={activePage === item.page ? "page" : undefined}
             >
               {t(`nav.${item.page}`, item.label)}
             </a>

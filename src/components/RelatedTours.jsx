@@ -38,7 +38,7 @@ export default function RelatedTours({ destinationId, eyebrow = "Plan your trip"
                 <p>
                   {tour.duration} &middot; {typeLabels[tour.type] || tour.type}
                 </p>
-                <a className="text-button" href={`/${tour.page}`}>
+                <a className="text-button" href={`/${tour.page}`} aria-label={`View this tour — ${tour.name}`}>
                   View this tour
                   <ArrowRight size={17} />
                 </a>

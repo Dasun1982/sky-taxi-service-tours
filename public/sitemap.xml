@@ -9,11 +9,47 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/tours</loc>
+    <loc>https://skytaxisrilanka.com/contact</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/about</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/gallery</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/testimonials</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/packages</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/experiences</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/wildlife</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/travel-guide</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/ai-trip-planner</loc>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://skytaxisrilanka.com/destinations</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/transport</loc>
     <priority>0.9</priority>
   </url>
   <url>
@@ -25,6 +61,138 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://skytaxisrilanka.com/colombo-airport-taxi</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/budget-taxi-sri-lanka</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/yala-safari-transfer</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/private-driver-sri-lanka</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/sri-lanka-tour-driver</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/driver-guide-sri-lanka</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/ella-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/kandy-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/galle-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/sigiriya-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/mirissa-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/unawatuna-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/weligama-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/hiriketiya-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/nuwara-eliya-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/bentota-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/negombo-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/arugam-bay-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/dambulla-taxi-service</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-ella</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-kandy</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-galle</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-sigiriya</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-mirissa</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-unawatuna</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-weligama</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-hiriketiya</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-nuwara-eliya</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-bentota</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-negombo</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-arugam-bay</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/airport-to-dambulla</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/tours</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://skytaxisrilanka.com/one-day-tours</loc>
     <priority>0.8</priority>
   </url>
@@ -33,151 +201,191 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/vehicle-rentals</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://skytaxisrilanka.com/packages</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://skytaxisrilanka.com/contact</loc>
+    <loc>https://skytaxisrilanka.com/5-day-sri-lanka-tour</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/about</loc>
-    <priority>0.6</priority>
+    <loc>https://skytaxisrilanka.com/how-many-days-in-sri-lanka</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/gallery</loc>
-    <priority>0.6</priority>
+    <loc>https://skytaxisrilanka.com/is-a-private-driver-worth-it</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/testimonials</loc>
-    <priority>0.6</priority>
+    <loc>https://skytaxisrilanka.com/ella-vs-nuwara-eliya</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/colombo-airport-taxi</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/best-beaches-near-galle</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-to-ella</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/galle-to-ella</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-to-galle</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/colombo</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-to-hiriketiya</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sinharaja</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-to-kandy</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/things-to-do-in-galle</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-to-mirissa</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/things-to-do-in-unawatuna</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-to-sigiriya</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/things-to-do-in-ella</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-to-unawatuna</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/things-to-do-in-kandy</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-to-weligama</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/things-to-do-in-sigiriya</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/airport-transfer-sri-lanka</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/2-days-in-sri-lanka</loc>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/ella-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/3-days-in-sri-lanka</loc>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/kandy-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/7-days-in-sri-lanka</loc>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/galle-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/10-days-in-sri-lanka</loc>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/sigiriya-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/unawatuna-vs-mirissa</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/mirissa-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/galle-vs-colombo</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/private-driver-sri-lanka</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sigiriya-vs-ella</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/budget-taxi-sri-lanka</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/ella-to-kandy</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/sri-lanka-tour-driver</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/kandy-to-sigiriya</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/sri-lanka-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sigiriya-to-yala</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/sri-lanka-private-tours</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/galle-to-mirissa</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/sri-lanka-round-tours</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/mirissa-to-ella</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/day-tours-sri-lanka</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/best-places-to-visit-from-ella</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/yala-safari-transfer</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/best-places-to-visit-from-kandy</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/unawatuna-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sri-lanka-beaches</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/weligama-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sri-lanka-hill-country</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/hiriketiya-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sri-lanka-culture-ancient-cities</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/nuwara-eliya-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sri-lanka-surfing</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/bentota-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/south-coast-vs-east-coast</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/negombo-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/private-driver-vs-rental-car</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/arugam-bay-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sri-lanka-honeymoon</loc>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skytaxisrilanka.com/dambulla-taxi-service</loc>
-    <priority>0.9</priority>
+    <loc>https://skytaxisrilanka.com/sri-lanka-family-travel</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/sri-lanka-budget-travel</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/how-to-travel-around-sri-lanka</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/how-much-does-a-sri-lanka-trip-cost</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/best-places-to-visit-in-sri-lanka</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/best-time-to-visit-sri-lanka</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/first-time-visitor-sri-lanka</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/train-vs-private-car-sri-lanka</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/ella-vs-kandy</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/galle-to-yala</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/unawatuna-to-ella</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/is-sri-lanka-safe-for-tourists</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skytaxisrilanka.com/can-i-travel-sri-lanka-without-a-car</loc>
+    <priority>0.8</priority>
   </url>
 </urlset>

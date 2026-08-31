@@ -1,6 +1,7 @@
 import { Car, Clock3, Coffee, Home, Luggage, MapPinned, MessageCircle, Mountain, Plane, Route, ShieldCheck, Users } from "lucide-react";
 import PageHero from "../components/PageHero";
 import RelatedDestinations from "../components/RelatedDestinations";
+import RelatedRoutes from "../components/RelatedRoutes";
 import RelatedTours from "../components/RelatedTours";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
@@ -150,6 +151,14 @@ export default function EllaTaxiService({ setPage }) {
               <a href="/">Homepage</a>
               <a href="/colombo-airport-taxi">Colombo Airport Taxi</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
+              <a href="/ella-vs-nuwara-eliya">Ella vs Nuwara Eliya</a>
+              <a href="/galle-to-ella">Galle to Ella Travel Guide</a>
+              <a href="/things-to-do-in-ella">Things to Do in Ella</a>
+              <a href="/sigiriya-vs-ella">Sigiriya vs Ella</a>
+              <a href="/ella-to-kandy">Ella to Kandy</a>
+              <a href="/best-places-to-visit-from-ella">Best Places to Visit from Ella</a>
+              <a href="/ella-vs-kandy">Ella vs Kandy</a>
+              <a href="/unawatuna-to-ella">Unawatuna to Ella</a>
             </div>
           </Reveal>
           <Reveal className="colombo-airport-summary">
@@ -179,11 +188,11 @@ export default function EllaTaxiService({ setPage }) {
           <div className="colombo-airport-route-grid">
             {scenicStops.map((route) => (
               <Reveal className="colombo-airport-route-card" key={route.title}>
-                <img src={route.image} alt={route.title} loading="lazy" />
+                <img src={route.image} alt="" loading="lazy" />
                 <div>
                   <h3>{route.title}</h3>
                   <p>{route.text}</p>
-                  <a href={buildWhatsAppLink(ellaTaxiMessage(route.title))} target="_blank" rel="noreferrer">
+                  <a href={buildWhatsAppLink(ellaTaxiMessage(route.title))} target="_blank" rel="noreferrer" aria-label={`Ask route price — ${route.title}`}>
                     Ask route price
                   </a>
                 </div>
@@ -225,6 +234,7 @@ export default function EllaTaxiService({ setPage }) {
                     href={buildWhatsAppLink(ellaTaxiMessage(`${vehicle.name} Ella taxi`))}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Book This Vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
                     Book This Vehicle
@@ -280,6 +290,7 @@ export default function EllaTaxiService({ setPage }) {
 
       <RelatedTours destinationId="ella" soft />
       <RelatedDestinations destinationId="ella" soft={false} />
+      <RelatedRoutes destinationId="ella" pageSource="ella-taxi-service-page" />
     </div>
   );
 }
