@@ -43,7 +43,7 @@
  * re-run before the next deploy. See README note added alongside this.
  */
 import { spawn } from "node:child_process";
-import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
+import { existsSync, mkdirSync, rmSync, writeFileSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer";
@@ -71,6 +71,22 @@ const excludedSlugs = new Set(entries.filter((e) => excludedTypes.has(e.type)).m
 const routes = [...new Set(allSlugs)].filter((s) => !excludedSlugs.has(s));
 
 console.log(`Prerendering ${routes.length} routes (excluded: ${[...excludedSlugs].join(", ")})`);
+
+// A prior prerender pass may have already synced snapshots into public/,
+// which `vite build` copies verbatim into dist/. If left in place, those
+// literal dist/<slug>.html / dist/<slug>/index.html files would shadow the
+// live SPA for that exact path (sirv resolves a clean URL to a matching
+// static file before falling through to the SPA index), so this crawl
+// would just recapture the stale snapshot instead of ever rendering the
+// current app. Clear them before the crawl so every route is guaranteed
+// to be captured fresh, straight from the live build.
+for (const slug of routes) {
+  if (slug === "home") continue;
+  const dirPath = join(DIST, slug);
+  const flatPath = join(DIST, `${slug}.html`);
+  if (existsSync(dirPath)) rmSync(dirPath, { recursive: true, force: true });
+  if (existsSync(flatPath)) rmSync(flatPath, { force: true });
+}
 
 function waitForServer(url, timeoutMs = 20000) {
   const start = Date.now();
