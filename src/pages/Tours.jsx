@@ -27,7 +27,8 @@ const tourTypes = [
     title: "One Day Tours",
     text: "Short Sri Lanka day trips for beaches, culture, wildlife, temples, and viewpoints.",
     button: "View One Day Tours",
-    href: "#/one-day-tours",
+    href: "/one-day-tours",
+    page: "one-day-tours",
     image: images.blueBeach,
     alt: "Blue Beach in Sri Lanka",
   },
@@ -35,7 +36,8 @@ const tourTypes = [
     title: "Round Tours Around Sri Lanka",
     text: "Multi-day island tours with driver support, hotels, routes, and flexible planning.",
     button: "View Round Tours",
-    href: "#/round-tours",
+    href: "/round-tours",
+    page: "round-tours",
     image: images.trainRide,
     alt: "Sri Lanka scenic train ride through hill country",
   },
@@ -104,6 +106,10 @@ export default function Tours({ setPage }) {
                   <a
                     className="button button--primary tour-type-card__button"
                     href={type.href}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setPage(type.page);
+                    }}
                   >
                     {t(`tours.types.${index}.button`, type.button)}
                     <ArrowRight size={18} />

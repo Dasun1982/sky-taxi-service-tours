@@ -70,7 +70,7 @@ const bookingSteps = [
   },
 ];
 
-export default function TaxiService() {
+export default function TaxiService({ setPage }) {
   const { t } = useLanguage();
   const getVehicleMessage = (vehicleName) => t("messages.taxiVehicle", undefined, { name: vehicleName });
   const priceQuoteMessage = t("messages.taxiPrice");
@@ -291,7 +291,14 @@ export default function TaxiService() {
                 <MessageCircle size={19} />
                 {t("taxi.cta.button")}
               </a>
-              <a className="button button--light" href="#/booking">
+              <a
+                className="button button--light"
+                href="/booking"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setPage("booking");
+                }}
+              >
                 {t("common.bookingForm")}
                 <ArrowRight size={18} />
               </a>

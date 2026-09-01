@@ -309,8 +309,8 @@ function ensureCanonicalLink(href) {
   link.setAttribute("href", href);
 }
 
-function routeHash(page) {
-  return page === "home" ? "#/" : `#/${page}`;
+function routePath(page) {
+  return page === "home" ? "/" : `/${page}`;
 }
 
 function AppShell() {
@@ -616,9 +616,9 @@ function AppShell() {
 
   const setPage = (page) => {
     setActivePage(page);
-    const nextHash = routeHash(page);
-    if (window.location.hash !== nextHash) {
-      window.history.pushState(null, "", nextHash);
+    const nextPath = routePath(page);
+    if (window.location.pathname !== nextPath || window.location.hash) {
+      window.history.pushState(null, "", nextPath);
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

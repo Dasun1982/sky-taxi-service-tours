@@ -57,7 +57,7 @@ export default function Footer({ setPage }) {
             <h2>{group.heading}</h2>
             <div className="footer__links">
               {group.links.map((item) => (
-                <a href={`#/${item.page}`} key={item.page} onClick={(event) => goToPage(event, item.page)}>
+                <a href={`/${item.page}`} key={item.page} onClick={(event) => goToPage(event, item.page)}>
                   {t(`footer.links.${item.page}`, item.label)}
                 </a>
               ))}

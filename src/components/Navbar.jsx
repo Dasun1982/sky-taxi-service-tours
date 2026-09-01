@@ -122,7 +122,7 @@ export default function Navbar({ activePage, setPage }) {
   return (
     <header className={navShellClassName}>
       <nav className="navbar" aria-label={t("common.mainNavigation")}>
-        <a className="brand" href="#/" onClick={(event) => goToPage(event, "home")}>
+        <a className="brand" href="/" onClick={(event) => goToPage(event, "home")}>
           <span className="brand-mark">
             <img src={images.logo} alt="SKY Taxi Service & Tours logo" />
           </span>
@@ -135,7 +135,7 @@ export default function Navbar({ activePage, setPage }) {
           {navItems.map((item) => (
             <a
               className={activePage === item.page ? "navbar__link navbar__link--active" : "navbar__link"}
-              href={item.page === "home" ? "#/" : `#/${item.page}`}
+              href={item.page === "home" ? "/" : `/${item.page}`}
               key={item.page}
               onClick={(event) => goToPage(event, item.page)}
               aria-current={activePage === item.page ? "page" : undefined}
@@ -146,7 +146,7 @@ export default function Navbar({ activePage, setPage }) {
         </div>
 
         <div className="navbar__actions">
-          <a className="button button--primary navbar__booking" href="#/booking" onClick={(event) => goToPage(event, "booking")}>
+          <a className="button button--primary navbar__booking" href="/booking" onClick={(event) => goToPage(event, "booking")}>
             {t("common.bookNow")}
           </a>
           <button
@@ -167,7 +167,7 @@ export default function Navbar({ activePage, setPage }) {
           {navItems.map((item) => (
             <a
               className={activePage === item.page ? "mobile-nav__link mobile-nav__link--active" : "mobile-nav__link"}
-              href={item.page === "home" ? "#/" : `#/${item.page}`}
+              href={item.page === "home" ? "/" : `/${item.page}`}
               key={item.page}
               onClick={(event) => goToPage(event, item.page)}
               aria-current={activePage === item.page ? "page" : undefined}
