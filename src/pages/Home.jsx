@@ -253,7 +253,15 @@ export default function Home({ setPage }) {
   return (
     <div className="page home-page">
       <section className="home-hero home-hero--polished">
-        <div className="home-hero__content reveal">
+        {/* MOBILE PERFORMANCE: intentionally not "reveal" — that's the
+            site-wide scroll-fade-in class (App.css .reveal), correct for
+            content a visitor scrolls to. This is the hero, visible
+            immediately on load with nothing to scroll past first; wrapping
+            it in the same opacity:0 -> 1 animation only delayed when the
+            LCP text (this H1) reached its final, stable paint by ~560ms
+            for zero visual benefit. Every other .reveal usage on the site
+            is untouched. */}
+        <div className="home-hero__content">
           <h1 className="hero-gradient-title">
             <span>{t("home.hero.line1")}</span>
             <span>{t("home.hero.line2")}</span>

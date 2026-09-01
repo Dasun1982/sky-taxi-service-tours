@@ -332,7 +332,14 @@ function AppShell() {
   }, []);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setIsLoading(false), 550);
+    // MOBILE PERFORMANCE — this was 550ms with no technical justification
+    // (not gated on fonts, images, or any real readiness signal), directly
+    // adding ~550ms of dead time to LCP/FCP on every single page load
+    // before the real content became visible under the full-viewport
+    // loader overlay. Shortened, not removed: the branded loading screen
+    // and its fade-out animation (App.css `.app-loader`) are unchanged —
+    // only the artificial minimum wait is reduced.
+    const timer = window.setTimeout(() => setIsLoading(false), 150);
     return () => window.clearTimeout(timer);
   }, []);
 
