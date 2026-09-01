@@ -9,7 +9,12 @@ import { brand, contactInfo } from "./travelData";
  * email) without changing brand.name/contactInfo, which already worked.
  */
 export const businessName = brand.name;
-export const website = "https://skytaxisrilanka.com";
+// www, not apex: Vercel serves the site at www.skytaxisrilanka.com (200)
+// and 307-redirects the apex domain there. This must match that reality,
+// or every canonical/structured-data URL disagrees with where the page
+// actually resolves — a real canonicalization conflict Google has to
+// arbitrate rather than one it's told outright.
+export const website = "https://www.skytaxisrilanka.com";
 export const aiPlannerUrl = "https://ai.skytaxisrilanka.com";
 export const phone = contactInfo.phone;
 export const whatsapp = contactInfo.whatsapp;

@@ -9,4 +9,4 @@ Disallow: /ai-system
 Disallow: /valuation
 Disallow: /sky-ai-traveltech-acquisition-overview.pdf
 
-Sitemap: https://skytaxisrilanka.com/sitemap.xml
+Sitemap: https://www.skytaxisrilanka.com/sitemap.xml

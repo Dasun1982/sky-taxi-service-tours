@@ -27,7 +27,7 @@ const OUTPUT_PATH = resolve(__dirname, "../public/sitemap.xml");
 // specifiers (`./travelData`) that Vite's bundler resolves but plain
 // Node ESM does not, and this script runs under plain Node, not Vite.
 // If business.js's `website` value ever changes, update this too.
-const SITE_URL = "https://skytaxisrilanka.com";
+const SITE_URL = "https://www.skytaxisrilanka.com";
 
 // Mirrors App.jsx's canonicalOverrides exactly — see that file for why
 // each of these points elsewhere instead of being deleted or redirected.
