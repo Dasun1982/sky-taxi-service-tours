@@ -4,9 +4,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "node scripts/generate-sitemap.mjs && vite build",
+    "build": "node scripts/generate-sitemap.mjs && vite build && node scripts/apply-prerendered-home.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "seo-audit": "node scripts/seo-audit.mjs",
+    "prerender": "node scripts/prerender.mjs",
+    "sync-prerender": "node scripts/sync-prerender-to-public.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,5 +19,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "vite": "^7.0.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.9.0"
   }
 }
