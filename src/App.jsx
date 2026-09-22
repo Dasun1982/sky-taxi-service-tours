@@ -31,6 +31,10 @@ const AiSystem = lazy(() => import("./pages/AiSystem"));
 const AirportTransfers = lazy(() => import("./pages/AirportTransfers"));
 const Booking = lazy(() => import("./pages/Booking"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const AccountDeletion = lazy(() => import("./pages/AccountDeletion"));
+const Support = lazy(() => import("./pages/Support"));
 const Destinations = lazy(() => import("./pages/Destinations"));
 const Experiences = lazy(() => import("./pages/Experiences"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -154,6 +158,10 @@ const pages = {
   about: About,
   testimonials: Testimonials,
   contact: Contact,
+  privacy: Privacy,
+  terms: Terms,
+  "account-deletion": AccountDeletion,
+  support: Support,
   rentals: VehicleRentals,
   "vehicle-rentals": VehicleRentals,
   "colombo-airport-taxi": ColomboAirportTaxi,

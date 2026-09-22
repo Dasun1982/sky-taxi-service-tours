@@ -32,6 +32,15 @@ export default function Footer({ setPage }) {
         { label: "Contact", page: "contact" },
       ],
     },
+    {
+      heading: "Legal & support",
+      links: [
+        { label: "Support", page: "support" },
+        { label: "Privacy", page: "privacy" },
+        { label: "Terms", page: "terms" },
+        { label: "Account deletion", page: "account-deletion" },
+      ],
+    },
   ];
 
   const goToPage = (event, page) => {

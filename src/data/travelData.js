@@ -273,6 +273,26 @@ export const pageMeta = {
     description:
       "Contact SKY Taxi Service & Tours by phone, WhatsApp, email, or map for Sri Lanka tour planning and taxi bookings.",
   },
+  privacy: {
+    title: "Privacy Notice (Draft) | SKY Taxi Service & Tours",
+    description:
+      "Draft privacy notice for SKY transport requests, bookings, messaging, and foreground location. Legal review pending.",
+  },
+  terms: {
+    title: "Service Terms (Draft) | SKY Taxi Service & Tours",
+    description:
+      "Draft service terms for SKY Sri Lanka transport requests, quotes, bookings, and support. Legal review pending.",
+  },
+  "account-deletion": {
+    title: "Account Deletion & Data Requests | SKY Taxi Service & Tours",
+    description:
+      "Request SKY account deletion or privacy/data help through WhatsApp, phone, or email. Manual support process.",
+  },
+  support: {
+    title: "Support | SKY Taxi Service & Tours",
+    description:
+      "Contact SKY support by WhatsApp, phone, or email for transport requests, bookings, and trip questions.",
+  },
   testimonials: {
     title: "Traveler Testimonials | SKY Taxi Service & Tours",
     description:

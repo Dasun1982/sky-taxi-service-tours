@@ -14350,3 +14350,38 @@ body.sky-scroll-lock .premium-cursor__ring {
 .not-found-content .text-button {
   margin-top: 2px;
 }
+
+/* Legal / policy draft pages — parallel launch acceleration */
+.prose-block {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-block: 2rem 4rem;
+}
+.prose-block h1 {
+  margin: 0.4rem 0 1rem;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.15;
+}
+.prose-block h2 {
+  margin: 1.75rem 0 0.65rem;
+  font-size: 1.2rem;
+}
+.prose-block p,
+.prose-block li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+.prose-block ul,
+.prose-block ol {
+  padding-left: 1.2rem;
+}
+.prose-block a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-block .muted {
+  margin-top: 2rem;
+  font-size: 0.92rem;
+  opacity: 0.85;
+}
