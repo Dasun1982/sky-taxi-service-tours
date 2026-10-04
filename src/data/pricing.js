@@ -1,13 +1,12 @@
 /**
  * Central pricing data for SKY Taxi Service & Tours.
  *
- * This is the ONLY place taxi/airport/rental prices should be written.
- * Pages read from here instead of hardcoding numbers, so a price change
- * only has to happen in one place. All figures below are the site's real,
- * currently published prices — nothing here is invented.
+ * This is the source for taxi, airport, driver, guide, tour and rental rates.
+ * Existing tour/rental prices below remain published values pending a
+ * separate commercial review. Do not infer a quote from a starting rate.
  *
- * effectiveDate uses ISO format (YYYY-MM-DD). Update it whenever prices
- * change so it's clear how current a price is.
+ * Legacy entries retain their published effectiveDate. The founder-supplied
+ * W1 products have no asserted effective date beyond this audit.
  */
 
 export const taxiRatePerKm = {
@@ -20,8 +19,10 @@ export const taxiRatePerKm = {
 };
 
 /**
- * Per-vehicle airport transfer pricing, by destination. vehicleId refers to
- * entries in taxiFleet (src/data/vehicles.js).
+ * Existing airport-page cards are for Unawatuna/Weligama -> airport. Preserve
+ * their published USD prices until reverse-direction rates are confirmed.
+ * The new founder rates further below are CMB -> destinations, a DIFFERENT
+ * direction, and must never be substituted into those cards.
  */
 export const airportTransferPricing = [
   {
@@ -67,6 +68,100 @@ export const airportTransferPricing = [
     routes: { unawatuna: "$65.99", weligama: "$69.99" },
   },
 ];
+
+/** Founder-supplied CMB outbound transfer products and pickup arrangements. */
+export const commercialVehicleClasses = {
+  sedan: { id: "sedan", name: "Sedan", example: null },
+  miniVan: { id: "miniVan", name: "Mini Van", example: "Honda Freed / Toyota Voxy type" },
+  van: { id: "van", name: "Van", example: "Toyota KDH type" },
+};
+
+// Only unambiguous fleet examples are mapped. Shuttle (wagon) and Vezel
+// (SUV) require a quote; the founder has not supplied rates for those types.
+export const airportVehicleClassById = {
+  "toyota-prius": "sedan",
+  "honda-insight": "sedan",
+  "honda-freed": "miniVan",
+  "toyota-kdh-van": "van",
+};
+
+export const airportPickupOptions = {
+  arrivalLobby: {
+    id: "arrivalLobby",
+    description: "Driver meets the guest in the airport arrival lobby with a name sign.",
+  },
+  outsidePostOffice: {
+    id: "outsidePostOffice",
+    description: "Guest exits the airport and meets the driver near the post office, approximately 50 metres from the exit.",
+    reductionLkrByClass: { sedan: 2000, miniVan: 3000, van: 3000 },
+  },
+};
+
+export const airportOutboundPricing = [
+  {
+    id: "cmb-galle-unawatuna",
+    origin: "CMB",
+    destinations: ["galle", "unawatuna"],
+    currency: "LKR",
+    status: "active",
+    lobbyLkrByClass: { sedan: 16000, miniVan: 20000, van: 21000 },
+    inclusions: ["Transport operating costs for the defined transfer"],
+  },
+  {
+    id: "cmb-weligama-mirissa",
+    origin: "CMB",
+    destinations: ["weligama", "mirissa"],
+    currency: "LKR",
+    status: "active",
+    lobbyLkrByClass: { sedan: 18000, miniVan: 21000, van: 23000 },
+    inclusions: ["Transport operating costs for the defined transfer"],
+  },
+];
+
+export const privateDriverPricing = {
+  id: "private-driver",
+  currency: "LKR",
+  dailyByClass: { sedan: 25000, miniVan: 30000, van: 35000 },
+  includedKmPerDay: 150,
+  inclusions: ["driver meals", "driver accommodation", "fuel", "highway charges", "parking"],
+  flexibleRoute: true,
+  finalQuoteDependsOn: ["route", "distance", "duration"],
+};
+
+export const chauffeurGuidePricing = {
+  id: "chauffeur-guide",
+  currency: "USD",
+  dailyByClass: { sedan: 69, miniVan: 79, van: 89 },
+  includedKmPerDay: 150,
+  normallyMinDays: 5,
+  inclusions: ["guide meals", "guide accommodation", "fuel", "highway charges", "parking"],
+  customizableItinerary: true,
+};
+
+export const tourCustomizationPolicy = {
+  itineraryChangesHaveSeparateFee: false,
+  finalPriceDependsOn: ["route", "service", "vehicle", "duration", "current quote"],
+};
+
+export function findAirportTransfer(destination) {
+  return airportOutboundPricing.find((route) => route.destinations.includes(destination));
+}
+
+export function getAirportTransferPrice(destination, vehicleClass, pickupOption = "arrivalLobby") {
+  const route = findAirportTransfer(destination);
+  if (!route || !commercialVehicleClasses[vehicleClass] || !airportPickupOptions[pickupOption]) return null;
+  const lobby = route.lobbyLkrByClass[vehicleClass];
+  const reduction = pickupOption === "outsidePostOffice"
+    ? airportPickupOptions.outsidePostOffice.reductionLkrByClass[vehicleClass]
+    : 0;
+  return { amount: lobby - reduction, currency: route.currency };
+}
+
+export function formatCommercialPrice(amount, currency, perDay = false) {
+  const number = Number(amount).toLocaleString("en-US");
+  const formatted = currency === "LKR" ? `LKR ${number}` : currency === "USD" ? `$${number}` : `${currency} ${number}`;
+  return perDay ? `${formatted}/day` : formatted;
+}
 
 /**
  * Self-drive rental pricing. vehicleId refers to entries in rentalFleet
