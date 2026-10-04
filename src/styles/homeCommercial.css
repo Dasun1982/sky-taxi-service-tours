@@ -1,0 +1,128 @@
+/* W6: a compact commercial chooser within the existing SKY homepage design. */
+.home-page .home-service-grid--commercial {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.home-page .home-service-grid--commercial .home-service-card__image {
+  height: 156px;
+}
+
+.home-page .home-service-grid--commercial .home-service-card__body {
+  min-height: 270px;
+  padding: 20px;
+}
+
+.home-page .home-service-grid--commercial .home-service-card__body > span {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+}
+
+.home-page .home-service-grid--commercial .home-service-card p {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.home-page .home-service-card__rate {
+  display: block;
+  margin: 12px 0;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.home-page .home-service-grid--commercial .service-detail-button {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.home-page .home-service-grid--commercial .service-detail-button:focus-visible {
+  outline: 3px solid #25266f;
+  outline-offset: 3px;
+}
+
+.home-page .home-service-more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.home-page .home-service-more span {
+  margin-right: 3px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.home-page .home-service-more a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  background: var(--surface);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.home-page .home-service-more a:hover,
+.home-page .home-service-more a:focus-visible {
+  color: #8c5799;
+  border-color: #8c5799;
+}
+
+@media (max-width: 1080px) {
+  .home-page .home-service-grid--commercial {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .home-page .home-service-grid--commercial {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .home-page .home-service-grid--commercial .home-service-card {
+    display: grid;
+    grid-template-columns: 106px minmax(0, 1fr);
+    min-height: 226px;
+  }
+
+  .home-page .home-service-grid--commercial .home-service-card__image {
+    height: 100%;
+  }
+
+  .home-page .home-service-grid--commercial .home-service-card__body {
+    min-width: 0;
+    min-height: 226px;
+    padding: 15px;
+  }
+
+  .home-page .home-service-grid--commercial .home-service-card__body > span {
+    display: none;
+  }
+
+  .home-page .home-service-grid--commercial .home-service-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .home-page .home-service-grid--commercial .home-service-card p {
+    font-size: 0.84rem;
+  }
+
+  .home-page .home-service-grid--commercial .service-detail-button {
+    font-size: 0.76rem;
+  }
+}

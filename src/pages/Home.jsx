@@ -5,7 +5,6 @@ import {
   Car,
   CheckCircle2,
   Compass,
-  Headphones,
   HeartHandshake,
   Mail,
   MapPin,
@@ -15,7 +14,6 @@ import {
   Route,
   ShieldCheck,
   Sparkles,
-  Users,
   Wallet,
 } from "lucide-react";
 import CinematicVideoCard from "../components/CinematicVideoCard";
@@ -35,54 +33,41 @@ import {
   wildSriLanka,
 } from "../data/travelData";
 import { aiPlannerUrl } from "../data/business";
-import { buildWhatsAppLink } from "../utils/whatsapp";
+import { getPrivateDriverOffer } from "../data/privateDriverOffer";
+import { getChauffeurGuideOffer } from "../data/chauffeurGuideOffer";
+import { formatCommercialPrice } from "../data/pricing";
+import { buildQuoteWhatsAppLink } from "../utils/whatsapp";
+import { whatsappIntents } from "../utils/whatsappQuote";
 import { trackEvent } from "../utils/analytics";
+import "../styles/homeCommercial.css";
 
 const trackAiOpen = (pageSource) => () => trackEvent("ai_planner_opened", { page_source: pageSource });
 const trackWhatsApp = (pageSource) => () => trackEvent("whatsapp_clicked", { page_source: pageSource });
 
-const services = [
+const commercialServices = [
   {
-    title: "Airport Transfers",
-    text: "Safe airport transfers across Sri Lanka with planned pickup times, clean vehicles, and fair prices.",
+    id: "airport",
     icon: Plane,
     image: images.airportTransfer,
     page: "airport",
   },
   {
-    title: "Taxi Service",
-    text: "Reliable Sri Lanka taxi service for short rides, hotel transfers, long routes, and day hire.",
+    id: "privateDriver",
     icon: Car,
-    image: images.toyotaPrius,
-    page: "taxi",
+    image: images.toyotaKdh,
+    page: "private-driver-sri-lanka",
   },
   {
-    title: "Private Tours",
-    text: "Island-wide private tours with friendly local drivers and easy WhatsApp booking.",
+    id: "chauffeurGuide",
     icon: Compass,
     image: images.sigiriya,
-    page: "tours",
+    page: "chauffeur-guide-sri-lanka",
   },
   {
-    title: "One-Day Tours",
-    text: "Easy one-day tours from your hotel to beaches, forts, hill country, culture, and viewpoints.",
+    id: "tours",
     icon: Route,
     image: images.boatTour,
     page: "tours",
-  },
-  {
-    title: "Private Driver",
-    text: "One driver and vehicle for your whole trip, with local route knowledge and flexible daily stops.",
-    icon: Users,
-    image: images.toyotaKdh,
-    page: "sri-lanka-tour-driver",
-  },
-  {
-    title: "Travel Support",
-    text: "Friendly help with routes, pickup places, luggage, airport timing, and fair travel plans.",
-    icon: Headphones,
-    image: images.trainRide,
-    page: "contact",
   },
 ];
 
@@ -132,10 +117,10 @@ const exploreRegions = [
 
 const tripFlowSteps = [
   { label: "Discover", text: "Explore Sri Lanka's destinations, wildlife, and experiences." },
-  { label: "Plan with AI", text: "SKY AI builds a route from what you actually want." },
-  { label: "Book", text: "Send your route to SKY for a private driver quote." },
-  { label: "Travel", text: "Your journey begins with a private driver and clean vehicle." },
-  { label: "Manage", text: "Confirm details and any changes directly with our team." },
+  { label: "Plan", text: "Choose a service or use SKY AI to draft a route idea." },
+  { label: "Ask SKY", text: "Share your trip details and request a tailored quote." },
+  { label: "Confirm", text: "Review the team's offer and confirm your arrangements with SKY." },
+  { label: "Travel", text: "Meet your driver and enjoy the journey you agreed with SKY." },
 ];
 
 const whyIcons = [Wallet, HeartHandshake, CheckCircle2, MessageCircle, MapPin, ShieldCheck];
@@ -143,7 +128,7 @@ const whyIcons = [Wallet, HeartHandshake, CheckCircle2, MessageCircle, MapPin, S
 const taxiRouteLinks = [
   {
     title: "Colombo Airport Taxi",
-    description: "Book private Colombo Airport taxi service with clean vehicles, fair route-based prices, and WhatsApp confirmation.",
+    description: "Ask about private Colombo Airport taxi service with clean vehicles, route-based prices, and direct WhatsApp support.",
     image: images.airportWelcome,
     href: "/colombo-airport-taxi",
   },
@@ -179,7 +164,7 @@ const taxiRouteLinks = [
   },
   {
     title: "Airport Transfer Sri Lanka",
-    description: "Island-wide airport transfers with flight-time planning, clean private vehicles, and quick WhatsApp booking.",
+    description: "Island-wide airport transfers with flight-time planning, clean private vehicles, and a direct quote request.",
     image: images.airportTransfer,
     href: "/airport-transfer-sri-lanka",
   },
@@ -200,6 +185,9 @@ const taxiRouteLinks = [
 export default function Home({ setPage }) {
   const { t } = useLanguage();
   const carouselRef = useRef(null);
+  const privateDriverOffer = getPrivateDriverOffer();
+  const chauffeurGuideOffer = getChauffeurGuideOffer();
+  const homeQuoteHref = buildQuoteWhatsAppLink({ intent: whatsappIntents.GENERAL, sourcePage: "home" });
 
   const renderTaxiRouteCard = (route, isClone = false) => {
     const linkProps = isClone ? { tabIndex: -1 } : {};
@@ -246,10 +234,6 @@ export default function Home({ setPage }) {
     document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const scrollToDiscover = () => {
-    document.getElementById("explore-sri-lanka")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <div className="page home-page">
       <section className="home-hero home-hero--polished">
@@ -266,16 +250,16 @@ export default function Home({ setPage }) {
             <span>{t("home.hero.line1")}</span>
             <span>{t("home.hero.line2")}</span>
           </h1>
-          <p>{t("home.hero.subtitle")}</p>
+          <p>{t("home.commercial.heroSubtitle")}</p>
           <div className="hero-actions">
-            <a className="button button--primary" href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-hero")}>
-              <Sparkles size={19} />
-              {t("home.hero.planCta", "Plan my Sri Lanka trip")}
-            </a>
-            <button className="button button--light" type="button" onClick={scrollToDiscover}>
-              {t("home.hero.exploreCta", "Explore Sri Lanka")}
+            <button className="button button--primary" type="button" onClick={scrollToServices}>
+              {t("home.commercial.exploreServices")}
               <ArrowRight size={18} />
             </button>
+            <a className="button button--light" href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-hero")}>
+              <Sparkles size={19} />
+              {t("home.commercial.planWithAi")}
+            </a>
           </div>
           <div className="home-trust-row">
             <span>
@@ -291,9 +275,9 @@ export default function Home({ setPage }) {
               {t("home.hero.trust3", "Local experiences")}
             </span>
           </div>
-          <a className="text-button home-hero__whatsapp" href={buildWhatsAppLink()} target="_blank" rel="noreferrer" onClick={trackWhatsApp("home-hero")}>
+          <a className="text-button home-hero__whatsapp" href={homeQuoteHref} target="_blank" rel="noreferrer" onClick={trackWhatsApp("home-hero")}>
             <MessageCircle size={16} />
-            {t("home.hero.whatsappLink", "Or book directly on WhatsApp")}
+            {t("home.commercial.askWhatsApp")}
           </a>
         </div>
       </section>
@@ -301,15 +285,15 @@ export default function Home({ setPage }) {
       <section className="section" id="services">
         <div className="section__inner">
           <SectionHeader
-            eyebrow={t("home.servicesHeader.eyebrow")}
-            title={t("home.servicesHeader.title")}
-            text={t("home.servicesHeader.text")}
+            eyebrow={t("home.commercial.servicesEyebrow")}
+            title={t("home.commercial.servicesTitle")}
+            text={t("home.commercial.servicesText")}
           />
-          <div className="home-service-grid">
-            {services.map((service, index) => {
+          <div className="home-service-grid home-service-grid--commercial">
+            {commercialServices.map((service) => {
               const Icon = service.icon;
               return (
-                <Reveal className="home-service-card" key={service.title}>
+                <Reveal className="home-service-card" key={service.id}>
                   <div className="home-service-card__image">
                     <img src={service.image} alt="" loading="lazy" />
                   </div>
@@ -317,47 +301,53 @@ export default function Home({ setPage }) {
                     <span>
                       <Icon size={20} />
                     </span>
-                    <h3>{t(`home.services.${index}.title`, service.title)}</h3>
-                    <p>{t(`home.services.${index}.text`, service.text)}</p>
-                    <button
+                    <h3>{t(`home.commercial.${service.id}.title`)}</h3>
+                    <p>{t(`home.commercial.${service.id}.text`, undefined, { days: chauffeurGuideOffer.normallyMinDays })}</p>
+                    <strong className="home-service-card__rate">
+                      {service.id === "privateDriver"
+                        ? `${t("home.commercial.from")} ${formatCommercialPrice(privateDriverOffer.startingPrice, privateDriverOffer.currency, true)}`
+                        : service.id === "chauffeurGuide"
+                          ? `${t("home.commercial.from")} ${formatCommercialPrice(chauffeurGuideOffer.startingPrice, chauffeurGuideOffer.currency, true)}`
+                          : t(`home.commercial.${service.id}.rate`)}
+                    </strong>
+                    <a
                       className="service-detail-button"
-                      type="button"
-                      onClick={() => setPage(service.page)}
-                      aria-label={`${t("common.viewDetails")} — ${t(`home.services.${index}.title`, service.title)}`}
+                      href={`/${service.page}`}
+                      onClick={(event) => {
+                        trackEvent("service_selected", { service_id: service.id, page_source: "home-page" });
+                        if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+                          event.preventDefault();
+                          setPage(service.page);
+                        }
+                      }}
+                      aria-label={`${t(`home.commercial.${service.id}.action`)} — ${t(`home.commercial.${service.id}.title`)}`}
                     >
-                      {t("common.viewDetails")}
+                      {t(`home.commercial.${service.id}.action`)}
                       <ArrowRight size={16} />
-                    </button>
+                    </a>
                   </div>
                 </Reveal>
               );
             })}
           </div>
-        </div>
-      </section>
-
-      <section className="section tours-choice-strip">
-        <div className="section__inner">
-          <SectionHeader
-            eyebrow="What should I choose?"
-            title="Driver Only, Driver + Guide, Private Tour, or SKY AI"
-            text="You already know your route? Want a specialist guide too? Want it all organized? Or not sure yet? Pick the option that fits."
-            align="left"
-          />
-          <div className="colombo-airport-link-row">
-            <a href="/sri-lanka-tour-driver" onClick={() => trackEvent("service_selected", { service_id: "driver-only", page_source: "home-page" })}>
-              Driver Only
+          <nav className="home-service-more" aria-label={t("home.commercial.moreServicesLabel")}>
+            <span>{t("home.commercial.moreServicesLabel")}</span>
+            <a href="/taxi" onClick={() => trackEvent("service_selected", { service_id: "taxi", page_source: "home-page" })}>
+              {t("home.commercial.moreTaxi")}
+            </a>
+            <a href="/one-day-tours" onClick={() => trackEvent("service_selected", { service_id: "one-day-tours", page_source: "home-page" })}>
+              {t("home.commercial.moreDayTours")}
+            </a>
+            <a href="/sri-lanka-tour-driver" onClick={() => trackEvent("service_selected", { service_id: "tour-driver", page_source: "home-page" })}>
+              {t("home.commercial.moreTourDriver")}
             </a>
             <a href="/driver-guide-sri-lanka" onClick={() => trackEvent("service_selected", { service_id: "driver-guide", page_source: "home-page" })}>
-              Driver + Guide
+              {t("home.commercial.moreDriverGuide")}
             </a>
-            <a href="/tours" onClick={() => trackEvent("service_selected", { service_id: "private-tour", page_source: "home-page" })}>
-              Private Tour
+            <a href="/contact" onClick={() => trackEvent("service_selected", { service_id: "travel-help", page_source: "home-page" })}>
+              {t("home.commercial.moreHelp")}
             </a>
-            <a href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-choice-strip")}>
-              Plan with SKY AI
-            </a>
-          </div>
+          </nav>
         </div>
       </section>
 
@@ -368,7 +358,7 @@ export default function Home({ setPage }) {
               <span className="ai-planner-label">NEW AI TOUR PLANNER</span>
               <h2>Plan Your Sri Lanka Tour with SKY AI</h2>
               <p>
-                Build a realistic Sri Lanka private-driver route in seconds, then send it to SKY Taxi Service & Tours for a custom quote.
+                Draft a Sri Lanka route idea with SKY AI, then ask the SKY team for a real service quote. The AI plan is a starting point, not a booking or confirmed price.
               </p>
               <div className="ai-planner-badges" aria-label="AI Planner benefits">
                 <span>
@@ -377,7 +367,7 @@ export default function Home({ setPage }) {
                 </span>
                 <span>
                   <Route size={16} />
-                  Private driver quote
+                  Ask SKY for a quote
                 </span>
                 <span>
                   <MessageCircle size={16} />
@@ -698,8 +688,8 @@ export default function Home({ setPage }) {
                   <span>
                     <Icon size={22} />
                   </span>
-                  <h3>{t(`home.why.${index}.title`, item.title)}</h3>
-                  <p>{t(`home.why.${index}.text`, item.text)}</p>
+                  <h3>{index === 3 ? t("home.commercial.whatsappReassuranceTitle") : t(`home.why.${index}.title`, item.title)}</h3>
+                  <p>{index === 3 ? t("home.commercial.whatsappReassuranceText") : t(`home.why.${index}.text`, item.text)}</p>
                 </Reveal>
               );
             })}
@@ -726,23 +716,19 @@ export default function Home({ setPage }) {
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
             <div>
-              <span className="eyebrow">{t("home.bookingCta.eyebrow")}</span>
-              <h2>{t("home.bookingCta.title")}</h2>
-              <p>{t("home.bookingCta.text")}</p>
+              <span className="eyebrow">{t("home.commercial.finalEyebrow")}</span>
+              <h2>{t("home.commercial.finalTitle")}</h2>
+              <p>{t("home.commercial.finalText")}</p>
             </div>
             <div className="cta-actions">
-              <a className="button button--primary" href={aiPlannerUrl} target="_blank" rel="noreferrer" onClick={trackAiOpen("home-booking-cta")}>
-                <Sparkles size={19} />
-                {t("home.bookingCta.planWithAi", "Plan with SKY AI")}
+              <a className="button button--primary" href={homeQuoteHref} target="_blank" rel="noreferrer" onClick={trackWhatsApp("home-booking-cta")}>
+                <MessageCircle size={19} />
+                {t("home.commercial.askQuote")}
               </a>
               <button className="button button--light" type="button" onClick={() => setPage("booking")}>
-                {t("home.bookingCta.bookTrip", "Book a private trip")}
+                {t("home.commercial.useForm")}
               </button>
             </div>
-            <a className="text-button home-booking-cta__whatsapp" href={buildWhatsAppLink()} target="_blank" rel="noreferrer" onClick={trackWhatsApp("home-booking-cta")}>
-              <MessageCircle size={16} />
-              {t("common.bookOnWhatsApp")}
-            </a>
           </Reveal>
         </div>
       </section>
@@ -760,9 +746,9 @@ export default function Home({ setPage }) {
                   <Phone size={18} />
                   {contactInfo.phone}
                 </a>
-                <a href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
+                <a href={homeQuoteHref} target="_blank" rel="noreferrer" onClick={trackWhatsApp("home-contact-list")}>
                   <MessageCircle size={18} />
-                  {t("home.contact.whatsappBooking")}
+                  {t("home.commercial.askWhatsApp")}
                 </a>
                 <a href={`mailto:${contactInfo.email}`}>
                   <Mail size={18} />
@@ -775,9 +761,9 @@ export default function Home({ setPage }) {
               </div>
 
               <div className="contact-cta-actions">
-                <a className="button button--primary" href={buildWhatsAppLink()} target="_blank" rel="noreferrer">
+                <a className="button button--primary" href={homeQuoteHref} target="_blank" rel="noreferrer" onClick={trackWhatsApp("home-contact-cta")}>
                   <MessageCircle size={19} />
-                  {t("common.whatsapp")}
+                  {t("home.commercial.askQuote")}
                 </a>
                 <a className="button button--light" href={`tel:${contactInfo.tel}`}>
                   <Phone size={18} />
