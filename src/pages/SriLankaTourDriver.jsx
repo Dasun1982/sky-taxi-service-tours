@@ -111,7 +111,7 @@ const faqs = [
   {
     question: "What if I only need a driver for one day?",
     answer:
-      "This page is for a continuous multi-day chauffeur tour with the same driver throughout. For a single day or a point-to-point transfer with no fixed itinerary, see Private Driver Sri Lanka instead.",
+      "This page focuses on a continuous multi-day journey with one dedicated driver. For a single day or flexible daily hire across your own route, see Private Driver Sri Lanka.",
   },
   {
     question: "Is the Sri Lanka tour driver price fixed online?",
@@ -172,12 +172,12 @@ export default function SriLankaTourDriver({ setPage }) {
             <p>
               SKY Taxi Service & Tours helps travelers hire a Sri Lanka tour driver for a continuous multi-day chauffeur tour — one driver from
               airport pickup through to departure, with hotel transfers and a flexible route across the island. Just need a driver for a single
-              day or a point-to-point transfer instead? See Private Driver Sri Lanka.
+              day or flexible daily hire instead? See Private Driver Sri Lanka.
             </p>
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>
               <a href="/driver-guide-sri-lanka">Driver + Guide</a>
-              <a href="/private-driver-sri-lanka">Private Driver Sri Lanka (single-day)</a>
+              <a href="/private-driver-sri-lanka">Private Driver Sri Lanka (flexible daily hire)</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>
               <a href="/kandy-taxi-service">Kandy Taxi Service</a>

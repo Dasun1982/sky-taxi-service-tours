@@ -35,7 +35,7 @@ export const pageTypes = {
   AIRPORT_TRANSFER_HUB: "airport-transfer", // island-wide airport transfer intent, not city-specific
   TAXI_HUB: "taxi-hub", // general Sri Lanka taxi intent, not city-specific
   BUDGET_TAXI: "budget-taxi", // price-sensitive modifier intent ("cheap/affordable taxi Sri Lanka")
-  PRIVATE_DRIVER: "private-driver", // flexible day-by-day hire, no fixed itinerary, no guide claim
+  PRIVATE_DRIVER: "private-driver", // flexible daily hire, including custom multi-day routes, no guide claim
   MULTI_DAY_CHAUFFEUR: "multi-day-chauffeur", // one dedicated driver for a continuous multi-day trip, no guide claim
   DRIVER_GUIDE: "driver-guide", // driver + specialist local guide intent
   TRANSPORT_HUB: "transport-hub", // compares all transport options against each other
@@ -124,11 +124,11 @@ export const seoPages = [
 
   // ---- TRANSPORT: driver / guide ----
   // Phase 7: this cluster was flagged POTENTIAL cannibalization in Phase 6.
-  // Resolved by genuine content differentiation (not a title-only tweak):
-  // private-driver-sri-lanka is now single-day/flexible hire with no fixed
-  // itinerary; sri-lanka-tour-driver is now one dedicated driver for a
-  // continuous multi-day trip. Each page now explicitly cross-links to the
-  // other for the case it doesn't fit. sri-lanka-private-tours (the third
+  // W4 broadens private-driver-sri-lanka to flexible daily hire that can span
+  // multiple days. sri-lanka-tour-driver still focuses on one dedicated
+  // driver for a continuous arrival-to-departure trip. Both remain useful,
+  // but the resulting search-intent overlap requires W10 review; no merge,
+  // redirect, or canonical change is made here. sri-lanka-private-tours (the third
   // page in the original cluster) had no real pricing anywhere on it and
   // couldn't be genuinely differentiated from /tours (which does), so it
   // was canonicalized instead — see the DUPLICATE entry below.
@@ -137,14 +137,14 @@ export const seoPages = [
     pageType: pageTypes.PRIVATE_DRIVER,
     intentFamily: "transport",
     primaryKeyword: "private driver Sri Lanka",
-    cannibalNote: { status: cannibalization.DIFFERENT_INTENT, against: ["sri-lanka-tour-driver"], resolved: true, fix: "Phase 7 content differentiation: single-day/flexible hire vs. continuous multi-day chauffeur." },
+    cannibalNote: { status: cannibalization.POTENTIAL, against: ["sri-lanka-tour-driver"], resolved: false, fix: "W10 review: flexible daily multi-day hire vs. continuous one-driver tour; preserve both URLs meanwhile." },
   },
   {
     slug: "sri-lanka-tour-driver",
     pageType: pageTypes.MULTI_DAY_CHAUFFEUR,
     intentFamily: "transport",
     primaryKeyword: "Sri Lanka tour driver",
-    cannibalNote: { status: cannibalization.DIFFERENT_INTENT, against: ["private-driver-sri-lanka"], resolved: true, fix: "Phase 7 content differentiation: single-day/flexible hire vs. continuous multi-day chauffeur." },
+    cannibalNote: { status: cannibalization.POTENTIAL, against: ["private-driver-sri-lanka"], resolved: false, fix: "W10 review: continuous one-driver tour vs. flexible daily multi-day hire; preserve both URLs meanwhile." },
   },
   { slug: "driver-guide-sri-lanka", pageType: pageTypes.DRIVER_GUIDE, intentFamily: "transport", primaryKeyword: "driver and guide Sri Lanka" },
 

@@ -507,7 +507,7 @@ export const schemaFaqs = {
     {
       question: "How do I hire a private driver in Sri Lanka?",
       answer:
-        "Send your pickup location, travel dates, places you want to visit, number of passengers, luggage, and vehicle preference on WhatsApp. We will confirm a fair quote and driver details before travel.",
+        "Send your dates, number of days, starting location, destinations, travelers, and preferred vehicle class on WhatsApp. SKY reviews the route and confirms a current quote before you decide.",
     },
     {
       question: "Can I book a private driver for airport pickup?",
@@ -515,19 +515,19 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides airport pickup with private driver support from Colombo Airport to hotels, beach areas, hill country routes, and island-wide destinations.",
     },
     {
-      question: "Can I book day tours with driver?",
+      question: "Can I hire a private driver for one day?",
       answer:
-        "Yes. You can book day tours with driver for Galle, Ella, Kandy, Sigiriya, Mirissa, Yala, beaches, temples, viewpoints, and custom Sri Lanka day trips.",
+        "Yes. The same Private Driver service can be requested for one day or for a longer route across several days. Share the places you want to visit for a current quote.",
     },
     {
       question: "What if I want one driver for my whole multi-day trip?",
       answer:
-        "This page is for flexible, day-by-day hire — a single day, a few days, or point-to-point transfers with no fixed itinerary. If you want one dedicated driver for a continuous multi-day island tour, see Sri Lanka Tour Driver instead.",
+        "Yes. Private Driver supports a custom multi-day route as well as a single day. SKY confirms the vehicle and driver arrangements for your dates in the quote. The Sri Lanka Tour Driver page focuses on a continuous arrival-to-departure journey with one dedicated driver.",
     },
     {
       question: "Is the private driver price fixed online?",
       answer:
-        "The final price is confirmed on WhatsApp depending on route, dates, vehicle type, number of days, passengers, luggage, waiting time, tickets, hotel needs, and special requests.",
+        "The listed daily class prices are starting points for up to the included daily distance. The final quote depends on your route, distance, duration, and vehicle class. SKY reviews longer days or route changes before you confirm.",
     },
   ],
   "5-day-sri-lanka-tour": [
@@ -587,7 +587,7 @@ export const schemaFaqs = {
     {
       question: "What if I only need a driver for one day?",
       answer:
-        "This page is for a continuous multi-day chauffeur tour with the same driver throughout. For a single day or a point-to-point transfer with no fixed itinerary, see Private Driver Sri Lanka instead.",
+        "This page focuses on a continuous multi-day journey with one dedicated driver. For a single day or flexible daily hire across your own route, see Private Driver Sri Lanka.",
     },
     {
       question: "Is the Sri Lanka tour driver price fixed online?",
