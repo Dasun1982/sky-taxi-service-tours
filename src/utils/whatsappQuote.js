@@ -40,12 +40,29 @@ export function buildWhatsAppMessage({ intent = whatsappIntents.GENERAL, ...deta
     lines.push(`${label}: ${value || "___"}`);
   }
   if (intent === whatsappIntents.COMPLETE_JOURNEY) {
+    const optionalFields = [
+      ["Duration", "duration"],
+      ["Starting location", "startingLocation"],
+      ["Ending location", "endingLocation"],
+      ["SKY itinerary idea", "itinerary"],
+    ];
+    for (const [label, key] of optionalFields) {
+      const value = cleanText(details[key]);
+      if (value) lines.push(`${label}: ${value}`);
+    }
     const choice = cleanText(details.serviceChoice);
-    if (["Private Driver", "Chauffeur Guide", "Help Me Choose"].includes(choice)) lines.push(`Service preference: ${choice}`);
+    if (["Airport Transfer", "Private Driver", "Chauffeur Guide", "Tour / Itinerary", "Help Me Choose"].includes(choice)) lines.push(`Service preference: ${choice}`);
+    const vehicle = cleanText(details.vehicle);
+    if (["Sedan", "Mini Van", "KDH Van"].includes(vehicle)) lines.push(`Vehicle preference: ${vehicle}`);
+    const airportPickup = cleanText(details.airportPickup);
+    if (["Yes", "No"].includes(airportPickup)) lines.push(`Airport pickup needed: ${airportPickup}`);
   }
   if ([whatsappIntents.AIRPORT_TRANSFER, whatsappIntents.PRIVATE_DRIVER, whatsappIntents.CHAUFFEUR_GUIDE].includes(intent) && cleanText(details.vehicle)) {
     lines.push(`Vehicle preference: ${cleanText(details.vehicle)}`);
   }
   if (cleanText(details.notes)) lines.push(`Notes: ${cleanText(details.notes)}`);
+  if (intent === whatsappIntents.COMPLETE_JOURNEY) {
+    lines.push("Please review my journey and let me know suitable options and a current quote.");
+  }
   return lines.join("\n");
 }

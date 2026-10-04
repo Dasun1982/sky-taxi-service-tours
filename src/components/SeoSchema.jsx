@@ -71,6 +71,17 @@ function makeChauffeurGuideServiceSchema(page, meta) {
   };
 }
 
+function makeJourneyRequestSchema(page, meta) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl(page)}#webpage`,
+    name: meta.title,
+    url: pageUrl(page),
+    description: meta.description,
+  };
+}
+
 // Editorial/planning pages (see articleSchemaPages) genuinely aren't a
 // transport-service listing — Article is the accurate schema.org type for
 // a written guide/comparison page, matching the type list the SEO brief
@@ -170,11 +181,13 @@ export default function SeoSchema({ activePage }) {
     if (!schemaEnabledPages.includes(activePage)) return [];
 
     const meta = pageMeta[activePage] || pageMeta.home;
-    const serviceSchema = activePage === "chauffeur-guide-sri-lanka"
-      ? makeChauffeurGuideServiceSchema(activePage, meta)
-      : articleSchemaPages.includes(activePage)
-        ? makeArticleSchema(activePage, meta)
-        : makeTaxiServiceSchema(activePage, meta);
+    const serviceSchema = activePage === "custom-journey"
+      ? makeJourneyRequestSchema(activePage, meta)
+      : activePage === "chauffeur-guide-sri-lanka"
+        ? makeChauffeurGuideServiceSchema(activePage, meta)
+        : articleSchemaPages.includes(activePage)
+          ? makeArticleSchema(activePage, meta)
+          : makeTaxiServiceSchema(activePage, meta);
     return [makeLocalBusinessSchema(), serviceSchema, makeBreadcrumbSchema(activePage), makeFaqSchema(activePage)].filter(Boolean);
   }, [activePage]);
 

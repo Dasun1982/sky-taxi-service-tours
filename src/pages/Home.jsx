@@ -729,6 +729,7 @@ export default function Home({ setPage }) {
                 {t("home.commercial.useForm")}
               </button>
             </div>
+            <a className="text-button" href="/custom-journey">{t("home.commercial.journeyLink")} <ArrowRight size={16} /></a>
           </Reveal>
         </div>
       </section>

@@ -28,6 +28,7 @@ export const schemaPageLabels = {
   taxi: "Taxi Service",
   airport: "Airport Transfers",
   booking: "Booking",
+  "custom-journey": "Custom Journey Request",
   "one-day-tours": "One Day Tours",
   "round-tours": "Round Tours",
   "colombo-airport-taxi": "Colombo Airport Taxi",

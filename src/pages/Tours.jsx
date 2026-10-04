@@ -340,6 +340,7 @@ export default function Tours({ setPage }) {
                 <ArrowRight size={18} />
               </button>
             </div>
+            <a className="text-button" href="/custom-journey">Have several stops or an existing tour to adapt? Describe your journey <ArrowRight size={16} /></a>
           </Reveal>
         </div>
       </section>

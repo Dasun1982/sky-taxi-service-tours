@@ -251,6 +251,11 @@ export const pageMeta = {
     description:
       "Send a fast WhatsApp booking request for private tours, airport transfers, taxi service, and Sri Lanka round trips.",
   },
+  "custom-journey": {
+    title: "Custom Sri Lanka Journey Request | SKY Taxi Service & Tours",
+    description:
+      "Tell SKY your Sri Lanka route idea, dates if known, and travel preferences. Ask the team to discuss suitable options and a current quote on WhatsApp.",
+  },
   packages: {
     title: "Sri Lanka Travel Packages | SKY Taxi Service & Tours",
     description:

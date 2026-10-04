@@ -205,6 +205,7 @@ export default function FiveDaySriLankaTour({ setPage }) {
                 <p>
                   Yes. This is one real example route — tell us your interests or send a message to SKY AI, and we can adjust stops, add or
                   remove days, or swap this for a different existing tour package.
+                  {" "}<a href="/custom-journey?itinerary=5-day-sri-lanka-tour">Tell SKY how you would adapt this itinerary.</a>
                 </p>
               </div>
             </article>

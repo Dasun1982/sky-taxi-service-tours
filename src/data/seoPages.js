@@ -100,6 +100,7 @@ export const seoPages = [
   // ---- CORE ----
   { slug: "home", pageType: pageTypes.CORE, intentFamily: "core" },
   { slug: "booking", pageType: pageTypes.CORE, intentFamily: "core" },
+  { slug: "custom-journey", pageType: pageTypes.CORE, intentFamily: "core", cannibalNote: { status: cannibalization.DIFFERENT_INTENT, against: ["booking", "tours", "round-tours", "private-driver-sri-lanka", "chauffeur-guide-sri-lanka", "ai-trip-planner"], resolved: true, fix: "cross-service inquiry, not booking, tour catalog, priced product, or AI planner" } },
   { slug: "contact", pageType: pageTypes.CORE, intentFamily: "core" },
   { slug: "about", pageType: pageTypes.CORE, intentFamily: "core" },
   { slug: "gallery", pageType: pageTypes.CORE, intentFamily: "core" },

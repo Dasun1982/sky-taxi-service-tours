@@ -147,6 +147,7 @@ export default function AiTripPlanner({ setPage }) {
                 Ask on WhatsApp
               </a>
             </div>
+            <a className="text-button" href="/custom-journey">Have a route idea already? Share it with SKY for a human quote <ArrowRight size={16} /></a>
           </Reveal>
         </div>
       </section>

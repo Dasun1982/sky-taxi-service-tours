@@ -30,6 +30,7 @@ const AcquisitionOverview = lazy(() => import("./pages/AcquisitionOverview"));
 const AiSystem = lazy(() => import("./pages/AiSystem"));
 const AirportTransfers = lazy(() => import("./pages/AirportTransfers"));
 const Booking = lazy(() => import("./pages/Booking"));
+const CustomJourney = lazy(() => import("./pages/CustomJourney"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -156,6 +157,7 @@ const pages = {
   packages: Packages,
   gallery: Gallery,
   booking: Booking,
+  "custom-journey": CustomJourney,
   about: About,
   testimonials: Testimonials,
   contact: Contact,
