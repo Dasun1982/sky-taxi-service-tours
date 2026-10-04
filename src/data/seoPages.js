@@ -38,6 +38,7 @@ export const pageTypes = {
   PRIVATE_DRIVER: "private-driver", // flexible daily hire, including custom multi-day routes, no guide claim
   MULTI_DAY_CHAUFFEUR: "multi-day-chauffeur", // one dedicated driver for a continuous multi-day trip, no guide claim
   DRIVER_GUIDE: "driver-guide", // driver + specialist local guide intent
+  CHAUFFEUR_GUIDE: "chauffeur-guide", // guiding-oriented multi-day private journey, separate from driver and site-guide services
   TRANSPORT_HUB: "transport-hub", // compares all transport options against each other
   SAFARI_TRANSFER: "safari-transfer", // safari-park-specific transfer intent
 
@@ -147,6 +148,13 @@ export const seoPages = [
     cannibalNote: { status: cannibalization.POTENTIAL, against: ["private-driver-sri-lanka"], resolved: false, fix: "W10 review: continuous one-driver tour vs. flexible daily multi-day hire; preserve both URLs meanwhile." },
   },
   { slug: "driver-guide-sri-lanka", pageType: pageTypes.DRIVER_GUIDE, intentFamily: "transport", primaryKeyword: "driver and guide Sri Lanka" },
+  {
+    slug: "chauffeur-guide-sri-lanka",
+    pageType: pageTypes.CHAUFFEUR_GUIDE,
+    intentFamily: "tours",
+    primaryKeyword: "chauffeur guide Sri Lanka",
+    cannibalNote: { status: cannibalization.POTENTIAL, against: ["sri-lanka-tour-driver", "driver-guide-sri-lanka"], resolved: false, fix: "W10 review: guiding-oriented daily product vs. continuous driver-only trip and driver plus separately arranged specialist guide; preserve all distinct routes meanwhile." },
+  },
 
   // ---- TRANSPORT: city taxi (destination-anchored) ----
   { slug: "ella-taxi-service", pageType: pageTypes.CITY_TAXI, intentFamily: "transport", destinationId: "ella" },

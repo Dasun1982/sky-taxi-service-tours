@@ -89,6 +89,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const AiTripPlanner = lazy(() => import("./pages/AiTripPlanner"));
 const Transport = lazy(() => import("./pages/Transport"));
 const DriverGuideSriLanka = lazy(() => import("./pages/DriverGuideSriLanka"));
+const ChauffeurGuideSriLanka = lazy(() => import("./pages/ChauffeurGuideSriLanka"));
 const FiveDaySriLankaTour = lazy(() => import("./pages/FiveDaySriLankaTour"));
 const HowManyDaysInSriLanka = lazy(() => import("./pages/HowManyDaysInSriLanka"));
 const IsAPrivateDriverWorthIt = lazy(() => import("./pages/IsAPrivateDriverWorthIt"));
@@ -204,6 +205,7 @@ const pages = {
   "ai-trip-planner": AiTripPlanner,
   transport: Transport,
   "driver-guide-sri-lanka": DriverGuideSriLanka,
+  "chauffeur-guide-sri-lanka": ChauffeurGuideSriLanka,
   "5-day-sri-lanka-tour": FiveDaySriLankaTour,
   "how-many-days-in-sri-lanka": HowManyDaysInSriLanka,
   "is-a-private-driver-worth-it": IsAPrivateDriverWorthIt,

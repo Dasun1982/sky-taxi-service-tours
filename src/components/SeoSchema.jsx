@@ -57,6 +57,20 @@ function makeTaxiServiceSchema(page, meta) {
   };
 }
 
+function makeChauffeurGuideServiceSchema(page, meta) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl(page)}#service`,
+    name: "Chauffeur Guide Sri Lanka",
+    url: pageUrl(page),
+    description: meta.description,
+    serviceType: "Private chauffeur-guided multi-day travel",
+    provider: { "@id": `${SITE_URL}/#localbusiness` },
+    areaServed: { "@type": "Country", name: "Sri Lanka" },
+  };
+}
+
 // Editorial/planning pages (see articleSchemaPages) genuinely aren't a
 // transport-service listing — Article is the accurate schema.org type for
 // a written guide/comparison page, matching the type list the SEO brief
@@ -156,9 +170,11 @@ export default function SeoSchema({ activePage }) {
     if (!schemaEnabledPages.includes(activePage)) return [];
 
     const meta = pageMeta[activePage] || pageMeta.home;
-    const serviceSchema = articleSchemaPages.includes(activePage)
-      ? makeArticleSchema(activePage, meta)
-      : makeTaxiServiceSchema(activePage, meta);
+    const serviceSchema = activePage === "chauffeur-guide-sri-lanka"
+      ? makeChauffeurGuideServiceSchema(activePage, meta)
+      : articleSchemaPages.includes(activePage)
+        ? makeArticleSchema(activePage, meta)
+        : makeTaxiServiceSchema(activePage, meta);
     return [makeLocalBusinessSchema(), serviceSchema, makeBreadcrumbSchema(activePage), makeFaqSchema(activePage)].filter(Boolean);
   }, [activePage]);
 

@@ -47,6 +47,7 @@ export const schemaPageLabels = {
   "mirissa-taxi-service": "Mirissa Taxi Service",
   "private-driver-sri-lanka": "Private Driver Sri Lanka",
   "driver-guide-sri-lanka": "Private Driver + Guide Sri Lanka",
+  "chauffeur-guide-sri-lanka": "Chauffeur Guide Sri Lanka",
   "5-day-sri-lanka-tour": "5-Day Sri Lanka Tour",
   "sri-lanka-tour-driver": "Sri Lanka Tour Driver",
   "sri-lanka-private-tours": "Sri Lanka Private Tours",

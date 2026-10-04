@@ -41,7 +41,8 @@ test("priced classes do not absorb unverified fleet vehicles or guide rates", ()
   assert.deepEqual(offer.vehicleOptions.map(({ id }) => id), ["sedan", "miniVan", "van"]);
   assert.equal(offer.vehicleOptions.some(({ id }) => /shuttle|vezel/i.test(id)), false);
   assert.notEqual(offer.currency, chauffeurGuidePricing.currency);
-  assert.doesNotMatch(page, /\$69|\$79|\$89|licensed guide|professional tour guide|chauffeur guide/i);
+  assert.doesNotMatch(page, /\$69|\$79|\$89|licensed guide|professional tour guide/i);
+  assert.match(page, /href="\/chauffeur-guide-sri-lanka">Chauffeur Guide tours<\/a>/);
   assert.match(page, /specialist site guiding is separate/i);
 });
 

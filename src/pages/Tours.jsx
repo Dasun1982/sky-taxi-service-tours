@@ -136,6 +136,7 @@ export default function Tours({ setPage }) {
             <a href="/driver-guide-sri-lanka" onClick={() => trackEvent("service_selected", { service_id: "driver-guide", page_source: "tours-page" })}>
               Driver + Guide
             </a>
+            <a href="/chauffeur-guide-sri-lanka">Chauffeur Guide tours</a>
             <a href="/transport">Compare Transportation</a>
             <a
               href={aiPlannerUrl}

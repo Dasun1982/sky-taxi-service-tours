@@ -162,6 +162,7 @@ export default function PrivateDriverSriLanka() {
               <a href="/private-driver-vs-rental-car">Private Driver vs Rental Car</a>
               <a href="/sri-lanka-tour-driver">Sri Lanka Tour Driver (continuous trip)</a>
               <a href="/driver-guide-sri-lanka">Driver + Guide</a>
+              <a href="/chauffeur-guide-sri-lanka">Chauffeur Guide tours</a>
               <a href="/airport-transfer-sri-lanka">Airport Transfer Sri Lanka</a>
               <a href="/colombo-airport-taxi">Colombo Airport Taxi</a>
               <a href="/ella-taxi-service">Ella Taxi Service</a>

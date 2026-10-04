@@ -1,0 +1,12 @@
+.chauffeur-guide-page .private-driver-journey-stops { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.chauffeur-guide-page .private-driver-process-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.chauffeur-guide-page .chauffeur-guide-itineraries .private-driver-detail-card { display: flex; flex-direction: column; align-items: flex-start; }
+.chauffeur-guide-page .chauffeur-guide-itineraries .text-button { margin-top: auto; }
+@media (max-width: 900px) {
+  .chauffeur-guide-page .private-driver-journey-stops,
+  .chauffeur-guide-page .private-driver-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .chauffeur-guide-page .private-driver-journey-stops,
+  .chauffeur-guide-page .private-driver-process-grid { grid-template-columns: 1fr; }
+}

@@ -386,6 +386,11 @@ export const pageMeta = {
     description:
       "Compare Driver Only and Driver + Guide in Sri Lanka with SKY Taxi Service & Tours. A private driver for every trip, plus a specialist licensed guide arranged where you want deeper insight.",
   },
+  "chauffeur-guide-sri-lanka": {
+    title: "Chauffeur Guide Sri Lanka | Private Multi-Day Tours",
+    description:
+      "Plan a private chauffeur-guided Sri Lanka journey with SKY. Compare USD daily vehicle-class starting prices, explore existing itineraries or customize your route, and request a current quote.",
+  },
   "sri-lanka-tour-driver": {
     title: "Sri Lanka Tour Driver | One Driver, Your Whole Multi-Day Trip",
     description:
