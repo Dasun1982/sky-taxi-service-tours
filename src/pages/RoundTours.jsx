@@ -8,6 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { images } from "../data/travelData";
 import { findRoundTourPricing } from "../data/pricing";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
 import { getDeepLinkParam } from "../utils/deepLink";
 
 export const tourIncludes = [
@@ -395,7 +396,7 @@ function splitStop(stop) {
 }
 
 export default function RoundTours() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activePackage, setActivePackage] = useState(null);
   const [isModalClosing, setIsModalClosing] = useState(false);
   const closeTimerRef = useRef(null);
@@ -470,8 +471,12 @@ export default function RoundTours() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getPackageMessage = (packageName) => t("messages.roundTour", undefined, { name: packageName });
-  const getCustomRoundTourMessage = () => t("messages.roundCustom");
+  const getPackageMessage = (packageName) => language === "en"
+    ? buildWhatsAppMessage({ intent: whatsappIntents.TOUR, tourName: packageName })
+    : t("messages.roundTour", undefined, { name: packageName });
+  const getCustomRoundTourMessage = () => language === "en"
+    ? buildWhatsAppMessage({ intent: whatsappIntents.CUSTOMIZE_TOUR })
+    : t("messages.roundCustom");
   const getPackageTitle = (tourPackage) =>
     t(`round.packages.${tourPackage.index}.displayTitle`, tourPackage.displayTitle ?? tourPackage.title);
   const getPackageSummary = (tourPackage) => t(`round.packages.${tourPackage.index}.summary`, tourPackage.summary);

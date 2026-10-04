@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
 
 const tourDriverServices = [
   {
@@ -119,8 +120,8 @@ const faqs = [
   },
 ];
 
-function tourDriverMessage(topic = "Sri Lanka tour driver service") {
-  return `Hello SKY Taxi Service & Tours, I want to hire a ${topic}. Travel dates: ___ Pickup location: ___ Places I want to visit: ___ Number of passengers: ___ Hotel needs: ___ Budget: ___`;
+function tourDriverMessage(topic) {
+  return buildWhatsAppMessage({ intent: whatsappIntents.PRIVATE_DRIVER, notes: topic });
 }
 
 export default function SriLankaTourDriver({ setPage }) {

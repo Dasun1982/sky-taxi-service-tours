@@ -6,6 +6,7 @@ import { findDestination } from "../../data/destinations";
 import { cityToCityRoutes } from "../../data/seo/cityRoutes";
 import { aiPlannerUrl } from "../../data/business";
 import { buildWhatsAppLink } from "../../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../../utils/whatsappQuote.js";
 import { trackEvent } from "../../utils/analytics";
 
 /**
@@ -25,7 +26,7 @@ export default function CityToCityRoutePage({ pageKey, setPage }) {
 
   const openAiPlanner = () => trackEvent("ai_planner_opened", { page_source: `${pageKey}-page` });
   const clickWhatsApp = () => trackEvent("whatsapp_clicked", { page_source: `${pageKey}-page` });
-  const message = () => `Hello SKY Taxi Service & Tours, I want a private transfer from ${from.name} to ${to.name}. Pickup location: ___ Date/time: ___ Number of passengers: ___`;
+  const message = () => buildWhatsAppMessage({ intent: whatsappIntents.TRANSFER, pickup: from.name, destination: to.name, sourcePage: pageKey });
 
   return (
     <div className="page colombo-airport-page">

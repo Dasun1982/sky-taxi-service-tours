@@ -8,6 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { images } from "../data/travelData";
 import { findOneDayTourPricing } from "../data/pricing";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
 import { getDeepLinkParam } from "../utils/deepLink";
 
 const oneDayTours = [
@@ -215,7 +216,7 @@ const customTourIdeas = [
 ];
 
 export default function OneDayTours() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeTour, setActiveTour] = useState(null);
   const [isModalClosing, setIsModalClosing] = useState(false);
   const closeTimerRef = useRef(null);
@@ -297,8 +298,12 @@ export default function OneDayTours() {
     };
   }, []);
 
-  const getTourMessage = (tourName) => t("messages.oneDayTour", undefined, { name: tourName });
-  const getCustomTourMessage = () => t("messages.oneDayCustom");
+  const getTourMessage = (tourName) => language === "en"
+    ? buildWhatsAppMessage({ intent: whatsappIntents.TOUR, tourName })
+    : t("messages.oneDayTour", undefined, { name: tourName });
+  const getCustomTourMessage = () => language === "en"
+    ? buildWhatsAppMessage({ intent: whatsappIntents.CUSTOMIZE_TOUR })
+    : t("messages.oneDayCustom");
   const getTourTitle = (tour) => t(`oneDay.packages.${tour.index}.title`, tour.title);
   const getTourShortText = (tour) => t(`oneDay.packages.${tour.index}.shortText`, tour.shortText);
   const getTourDuration = (tour) => t(`oneDay.packages.${tour.index}.duration`, tour.duration);

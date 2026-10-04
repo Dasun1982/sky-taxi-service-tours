@@ -19,6 +19,7 @@ import SectionHeader from "../SectionHeader";
 import { airportTransferTowns } from "../../data/seo/airportTransfers";
 import { findTaxiVehicle } from "../../data/vehicles";
 import { buildWhatsAppLink } from "../../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../../utils/whatsappQuote.js";
 
 const icons = {
   plane: Plane,
@@ -36,8 +37,12 @@ export default function AirportTransferLanding({ townId, setPage }) {
   const town = airportTransferTowns[townId];
   if (!town) return null;
 
-  const message = (topic = `Colombo Airport to ${town.townName} taxi`) =>
-    `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Drop-off in ${town.townName}: ___ Number of passengers: ___ Luggage: ___`;
+  const message = (topic) => buildWhatsAppMessage({
+    intent: whatsappIntents.AIRPORT_TRANSFER,
+    pickup: "Colombo Airport (CMB)",
+    destination: town.townName,
+    notes: topic,
+  });
 
   const vehicles = vehicleIds.map((id, index) => {
     const vehicle = findTaxiVehicle(id);
@@ -56,7 +61,7 @@ export default function AirportTransferLanding({ townId, setPage }) {
         <div className="premium-hero-actions">
           <a className="button button--primary" href={buildWhatsAppLink(message())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
-            Book Airport to {town.townName}
+            Get Transfer Quote to {town.townName}
           </a>
           <button className="button button--light" type="button" onClick={() => setPage("home")}>
             <Car size={18} />
@@ -173,10 +178,10 @@ export default function AirportTransferLanding({ townId, setPage }) {
                     href={buildWhatsAppLink(message(`${vehicle.name} airport to ${town.townName} taxi`))}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Book This Vehicle — ${vehicle.name}`}
+                    aria-label={`Ask about this vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
-                    Book This Vehicle
+                    Ask About This Vehicle
                   </a>
                 </div>
               </Reveal>
@@ -197,7 +202,7 @@ export default function AirportTransferLanding({ townId, setPage }) {
             <div className="cta-actions">
               <a className="button button--primary" href={buildWhatsAppLink(message())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
-                Book on WhatsApp
+                Get Transfer Quote
               </a>
               <a className="button button--light" href="/airport-transfer-sri-lanka">
                 <Plane size={18} />

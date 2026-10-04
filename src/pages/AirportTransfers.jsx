@@ -6,6 +6,7 @@ import { images } from "../data/travelData";
 import { taxiFleet } from "../data/vehicles";
 import { findAirportPricing } from "../data/pricing";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
 
 const airportVehicleAlts = {
   "toyota-prius": "Toyota Prius airport transfer vehicle",
@@ -79,9 +80,13 @@ const airportBenefits = [
 ];
 
 export default function AirportTransfers({ setPage }) {
-  const { t } = useLanguage();
-  const getTransferMessage = (vehicleName) => t("messages.airportVehicle", undefined, { name: vehicleName });
-  const getCustomAirportMessage = () => t("messages.airportCustom");
+  const { t, language } = useLanguage();
+  const getTransferMessage = (vehicleName) => language === "en"
+    ? buildWhatsAppMessage({ intent: whatsappIntents.AIRPORT_TRANSFER, destination: "Colombo Airport (CMB)", notes: `Vehicle preference: ${vehicleName}` })
+    : t("messages.airportVehicle", undefined, { name: vehicleName });
+  const getCustomAirportMessage = () => language === "en"
+    ? buildWhatsAppMessage({ intent: whatsappIntents.AIRPORT_TRANSFER, destination: "Colombo Airport (CMB)" })
+    : t("messages.airportCustom");
 
   const handleHeroPointerMove = (event) => {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;

@@ -6,6 +6,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
 
 const routeDetails = [
   {
@@ -92,8 +93,8 @@ const faqs = [
   },
 ];
 
-function airportToGalleMessage(topic = "Colombo Airport to Galle taxi") {
-  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Drop-off in Galle: ___ Number of passengers: ___ Luggage: ___`;
+function airportToGalleMessage(topic) {
+  return buildWhatsAppMessage({ intent: whatsappIntents.AIRPORT_TRANSFER, pickup: "Colombo Airport (CMB)", destination: "Galle", notes: topic });
 }
 
 export default function AirportToGalleTaxi({ setPage }) {
@@ -109,7 +110,7 @@ export default function AirportToGalleTaxi({ setPage }) {
         <div className="premium-hero-actions">
           <a className="button button--primary" href={buildWhatsAppLink(airportToGalleMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
-            Book Airport to Galle
+            Get Transfer Quote to Galle
           </a>
           <a className="button button--light" href="/galle-taxi-service">
             <Landmark size={18} />
@@ -229,10 +230,10 @@ export default function AirportToGalleTaxi({ setPage }) {
                     href={buildWhatsAppLink(airportToGalleMessage(`${vehicle.name} airport to Galle taxi`))}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Book This Vehicle — ${vehicle.name}`}
+                    aria-label={`Ask about this vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
-                    Book This Vehicle
+                    Ask About This Vehicle
                   </a>
                 </div>
               </Reveal>
@@ -252,7 +253,7 @@ export default function AirportToGalleTaxi({ setPage }) {
             <div className="cta-actions">
               <a className="button button--primary" href={buildWhatsAppLink(airportToGalleMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
-                Book on WhatsApp
+                Get Transfer Quote
               </a>
               <a className="button button--light" href="/galle-taxi-service">
                 <Car size={18} />

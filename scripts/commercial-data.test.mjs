@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import test from "node:test";
+import { contactInfo } from "../src/data/contact.js";
 import {
   airportPickupOptions,
   airportOutboundPricing,
@@ -56,7 +56,6 @@ test("commercial formatting keeps currencies separate", () => {
 });
 
 test("canonical WhatsApp contact remains the founder number", () => {
-  const source = readFileSync(new URL("../src/data/travelData.js", import.meta.url), "utf8");
-  assert.match(source, /phone: "\+94 77 929 1073"/);
-  assert.match(source, /whatsapp: "94779291073"/);
+  assert.equal(contactInfo.phone, "+94 77 929 1073");
+  assert.equal(contactInfo.whatsapp, "94779291073");
 });

@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
 
 const driverServices = [
   {
@@ -91,8 +92,8 @@ const faqs = [
   },
 ];
 
-function privateDriverMessage(topic = "private driver Sri Lanka service") {
-  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Pickup location: ___ Travel dates: ___ Places I want to visit: ___ Number of passengers: ___ Luggage: ___ Budget: ___`;
+function privateDriverMessage(topic) {
+  return buildWhatsAppMessage({ intent: whatsappIntents.PRIVATE_DRIVER, notes: topic });
 }
 
 export default function PrivateDriverSriLanka({ setPage }) {
@@ -108,7 +109,7 @@ export default function PrivateDriverSriLanka({ setPage }) {
         <div className="premium-hero-actions">
           <a className="button button--primary" href={buildWhatsAppLink(privateDriverMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
-            Hire Private Driver
+            Get My Driver Quote
           </a>
           <button className="button button--light" type="button" onClick={() => setPage("home")}>
             <Home size={18} />
@@ -233,10 +234,10 @@ export default function PrivateDriverSriLanka({ setPage }) {
                     href={buildWhatsAppLink(privateDriverMessage(`${vehicle.name} private driver`))}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Book This Vehicle — ${vehicle.name}`}
+                    aria-label={`Ask about this vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
-                    Book This Vehicle
+                    Ask About This Vehicle
                   </a>
                 </div>
               </Reveal>
@@ -256,7 +257,7 @@ export default function PrivateDriverSriLanka({ setPage }) {
             <div className="cta-actions">
               <a className="button button--primary" href={buildWhatsAppLink(privateDriverMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
-                Book on WhatsApp
+                Get My Driver Quote
               </a>
               <a className="button button--light" href="/airport-transfer-sri-lanka">
                 <Plane size={18} />
