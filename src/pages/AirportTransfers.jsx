@@ -4,9 +4,11 @@ import SectionHeader from "../components/SectionHeader";
 import { useLanguage } from "../context/LanguageContext";
 import { images } from "../data/travelData";
 import { taxiFleet } from "../data/vehicles";
-import { findAirportPricing } from "../data/pricing";
+import { findAirportPricing, formatCommercialPrice } from "../data/pricing";
+import { getAirportConversionOffer, priorityAirportRouteSlugs } from "../data/airportConversion.js";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
+import "../styles/airportConversion.css";
 
 const airportVehicleAlts = {
   "toyota-prius": "Toyota Prius airport transfer vehicle",
@@ -30,6 +32,8 @@ const airportVehiclePrices = taxiFleet.map((vehicle) => {
     weligama: pricing.routes.weligama,
   };
 });
+
+const outboundOffers = priorityAirportRouteSlugs.map(getAirportConversionOffer);
 
 const customAirportDestinations = ["Ella", "Mirissa", "Galle", "Ahangama", "Hiriketiya", "Colombo", "Kandy", "Sigiriya", "Nuwara Eliya"];
 
@@ -161,6 +165,25 @@ export default function AirportTransfers({ setPage }) {
         </div>
       </section>
 
+      <section className="section section--soft airport-outbound-section">
+        <div className="section__inner">
+          <SectionHeader
+            eyebrow={t("airport.outbound.eyebrow", "Arriving at Colombo Airport?")}
+            title={t("airport.outbound.title", "CMB to south-coast private transfers")}
+            text={t("airport.outbound.text", "Choose your exact destination to compare Arrival Lobby and Outside Meeting prices, then request a current quote.")}
+          />
+          <div className="airport-outbound-grid">
+            {outboundOffers.map((offer) => (
+              <a className="airport-outbound-route" href={`/${offer.pageSlug}`} key={offer.pageSlug}>
+                <strong>{t("airport.outbound.route", "Colombo Airport to {destination}", { destination: offer.destinationName })}</strong>
+                <span>{t("airport.outbound.from", "From {price}", { price: formatCommercialPrice(offer.startingPrice, offer.currency) })}</span>
+                <small>{offer.startingVehicleName} · {offer.startingPickupName}</small>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section airport-pricing-section">
         <div className="section__inner">
           <SectionHeader
@@ -168,6 +191,7 @@ export default function AirportTransfers({ setPage }) {
             title={t("airport.pricingHeader.title")}
             text={t("airport.pricingHeader.text")}
           />
+          <p className="airport-inbound-note">{t("airport.inboundNote", "The USD cards below are for Unawatuna or Weligama to the airport. They are separate from the CMB outbound offers above.")}</p>
           <div className="airport-transfer-grid">
             {airportVehiclePrices.map((vehicle, vehicleIndex) => (
               <Reveal className="airport-transfer-card" key={vehicle.name}>

@@ -43,7 +43,7 @@ export function buildWhatsAppMessage({ intent = whatsappIntents.GENERAL, ...deta
     const choice = cleanText(details.serviceChoice);
     if (["Private Driver", "Chauffeur Guide", "Help Me Choose"].includes(choice)) lines.push(`Service preference: ${choice}`);
   }
-  if ([whatsappIntents.PRIVATE_DRIVER, whatsappIntents.CHAUFFEUR_GUIDE].includes(intent) && cleanText(details.vehicle)) {
+  if ([whatsappIntents.AIRPORT_TRANSFER, whatsappIntents.PRIVATE_DRIVER, whatsappIntents.CHAUFFEUR_GUIDE].includes(intent) && cleanText(details.vehicle)) {
     lines.push(`Vehicle preference: ${cleanText(details.vehicle)}`);
   }
   if (cleanText(details.notes)) lines.push(`Notes: ${cleanText(details.notes)}`);

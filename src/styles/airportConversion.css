@@ -1,0 +1,101 @@
+.airport-route-hero-price {
+  display: grid;
+  gap: 3px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 16px 0 20px;
+  padding: 11px 16px;
+  color: #fff;
+  background: rgba(37, 38, 111, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.airport-route-hero-price strong { font-size: 1.25rem; line-height: 1.2; }
+.airport-route-hero-price span { font-size: 0.78rem; font-weight: 700; line-height: 1.35; }
+
+.airport-offer-pickup-grid,
+.airport-offer-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+
+.airport-offer-pickup,
+.airport-offer-vehicle-card,
+.airport-offer-detail-grid > div {
+  min-width: 0;
+  padding: 24px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: 0 18px 46px rgba(37, 38, 111, 0.08);
+}
+
+.airport-offer-pickup {
+  display: grid;
+  gap: 9px;
+  text-align: start;
+  font: inherit;
+  cursor: pointer;
+}
+
+.airport-offer-pickup strong { font-size: 1.2rem; }
+.airport-offer-pickup span,
+.airport-offer-vehicle-card p,
+.airport-offer-detail-grid p { color: var(--muted); line-height: 1.55; }
+.airport-offer-pickup em { color: var(--brand-accent-text); font-size: 0.85rem; font-style: normal; font-weight: 850; }
+.airport-offer-pickup.is-selected,
+.airport-offer-vehicle-card.is-selected { border-color: var(--brand-accent-text); box-shadow: 0 18px 46px rgba(140, 87, 153, 0.16); }
+.airport-offer-pickup:focus-visible,
+.airport-offer-choose:focus-visible,
+.airport-offer-quote a:focus-visible { outline: 3px solid var(--brand-accent-text); outline-offset: 3px; }
+.airport-offer-explainer { margin: 14px 0 24px; color: var(--muted); line-height: 1.5; }
+.airport-offer-subtitle { margin: 30px 0 18px; font-size: clamp(1.4rem, 2.4vw, 2rem); }
+.airport-offer-vehicle-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.airport-offer-vehicle-card { display: flex; flex-direction: column; }
+.airport-offer-vehicle-card h4 { margin: 0 0 10px; font-size: 1.25rem; }
+.airport-offer-vehicle-card p { min-height: 2.6em; margin: 0 0 16px; font-size: 0.88rem; }
+.airport-offer-vehicle-card .airport-transfer-card__prices { margin-top: auto; }
+.airport-offer-vehicle-card .airport-transfer-card__prices div { flex-wrap: wrap; }
+.airport-offer-vehicle-card .airport-transfer-card__prices strong { font-size: 1.05rem; white-space: nowrap; }
+.airport-offer-choose { width: 100%; margin-top: 4px; }
+.airport-offer-detail-grid { margin: 28px 0; }
+.airport-offer-detail-grid h3 { margin: 0 0 12px; font-size: 1.35rem; }
+.airport-offer-detail-grid ul,
+.airport-offer-detail-grid ol { margin: 0; padding-inline-start: 22px; }
+.airport-offer-detail-grid li { margin: 0 0 11px; line-height: 1.5; }
+.airport-offer-detail-grid li span { display: block; color: var(--muted); }
+.airport-offer-detail-grid p { margin-bottom: 0; }
+.airport-offer-quote { margin-top: 28px; }
+.airport-outbound-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.airport-outbound-route {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 22px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 18px 46px rgba(37, 38, 111, 0.08);
+  text-decoration: none;
+}
+.airport-outbound-route strong { font-size: 1.1rem; line-height: 1.25; }
+.airport-outbound-route span { color: var(--brand-accent-text); font-size: 1.25rem; font-weight: 900; }
+.airport-outbound-route small { color: var(--muted); font-size: 0.78rem; font-weight: 750; }
+.airport-outbound-route:focus-visible { outline: 3px solid var(--brand-accent-text); outline-offset: 3px; }
+.airport-inbound-note { margin: -6px 0 24px; color: var(--muted); text-align: center; font-weight: 750; }
+
+@media (max-width: 760px) {
+  .airport-offer-pickup-grid,
+  .airport-offer-detail-grid,
+  .airport-offer-vehicle-grid { grid-template-columns: 1fr; }
+  .airport-offer-pickup,
+  .airport-offer-vehicle-card,
+  .airport-offer-detail-grid > div { padding: 20px; }
+  .airport-offer-vehicle-card p { min-height: 0; }
+  .airport-outbound-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .airport-outbound-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

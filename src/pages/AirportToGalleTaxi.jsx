@@ -1,10 +1,12 @@
-import { Car, Clock3, Landmark, Luggage, MapPinned, MessageCircle, Palmtree, Plane, Route, ShieldCheck, Users } from "lucide-react";
+import { Car, Clock3, Landmark, MapPinned, MessageCircle, Palmtree, Plane, Route, ShieldCheck } from "lucide-react";
+import AirportRouteOffer, { AirportContinueJourney, AirportRouteHeroPrice } from "../components/AirportRouteOffer";
 import PageHero from "../components/PageHero";
 import RelatedRoutes from "../components/RelatedRoutes";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
+import { getAirportConversionOffer } from "../data/airportConversion.js";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
 
@@ -59,8 +61,6 @@ const vehicles = [
   return {
     name: vehicle.name,
     image: vehicle.image,
-    passengers: vehicle.passengerCapacity,
-    luggage: vehicle.routeLuggageNote,
     text,
   };
 });
@@ -93,8 +93,10 @@ const faqs = [
   },
 ];
 
+const offer = getAirportConversionOffer("airport-to-galle");
+
 function airportToGalleMessage(topic) {
-  return buildWhatsAppMessage({ intent: whatsappIntents.AIRPORT_TRANSFER, pickup: "Colombo Airport (CMB)", destination: "Galle", notes: topic });
+  return buildWhatsAppMessage({ intent: whatsappIntents.AIRPORT_TRANSFER, pickup: offer.pickupName, destination: offer.destinationName, notes: topic });
 }
 
 export default function AirportToGalleTaxi({ setPage }) {
@@ -107,6 +109,7 @@ export default function AirportToGalleTaxi({ setPage }) {
         image={images.galleFort}
         alt="Colombo Airport to Galle taxi private transfer Sri Lanka"
       >
+        <AirportRouteHeroPrice offer={offer} />
         <div className="premium-hero-actions">
           <a className="button button--primary" href={buildWhatsAppLink(airportToGalleMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
@@ -136,6 +139,8 @@ export default function AirportToGalleTaxi({ setPage }) {
           </span>
         </div>
       </PageHero>
+
+      <AirportRouteOffer offer={offer} />
 
       <section className="section airport-to-galle-intro">
         <div className="section__inner split-layout">
@@ -201,9 +206,9 @@ export default function AirportToGalleTaxi({ setPage }) {
       <section className="section airport-to-galle-vehicles">
         <div className="section__inner">
           <SectionHeader
-            eyebrow="Vehicle options"
-            title="Clean vehicles for your private transfer to Galle"
-            text="Choose a private car, SUV, or van for airport to Galle taxi service, luggage needs, families, and comfortable south coast travel."
+            eyebrow="More fleet examples"
+            title="Ask SKY about a specific vehicle"
+            text="These are vehicle examples. SKY confirms the exact model and current quote; other models do not inherit the class prices above."
           />
           <div className="airport-transfer-grid">
             {vehicles.map((vehicle) => (
@@ -214,16 +219,6 @@ export default function AirportToGalleTaxi({ setPage }) {
                 </div>
                 <div className="airport-transfer-card__body">
                   <h3>{vehicle.name}</h3>
-                  <div className="airport-transfer-card__meta">
-                    <span>
-                      <Users size={16} />
-                      {vehicle.passengers}
-                    </span>
-                    <span>
-                      <Luggage size={16} />
-                      {vehicle.luggage}
-                    </span>
-                  </div>
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
@@ -245,10 +240,10 @@ export default function AirportToGalleTaxi({ setPage }) {
       <section className="section section--soft airport-to-galle-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
-            <h2>Book your Galle airport transfer</h2>
+            <span className="eyebrow">Current transfer quote</span>
+            <h2>Request your Galle airport transfer quote</h2>
             <p>
-              Send your flight number, arrival time, Galle hotel or beach destination, passenger count, and luggage details. We will reply with a fair route-based quote and confirm your driver.
+              Send your flight number, arrival time, Galle hotel or beach destination, passenger count, and luggage details. SKY replies with a current quote; driver details follow after you confirm the transfer.
             </p>
             <div className="cta-actions">
               <a className="button button--primary" href={buildWhatsAppLink(airportToGalleMessage())} target="_blank" rel="noreferrer">
@@ -263,6 +258,8 @@ export default function AirportToGalleTaxi({ setPage }) {
           </Reveal>
         </div>
       </section>
+
+      <AirportContinueJourney destinationName={offer.destinationName} />
 
       <section className="section airport-to-galle-faq">
         <div className="section__inner">

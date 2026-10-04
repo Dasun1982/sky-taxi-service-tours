@@ -1,11 +1,14 @@
-import { Car, Clock3, Luggage, MapPinned, MessageCircle, Palmtree, Plane, Route, ShieldCheck, Users } from "lucide-react";
+import { Car, Clock3, MapPinned, MessageCircle, Palmtree, Plane, Route, ShieldCheck } from "lucide-react";
+import AirportRouteOffer, { AirportContinueJourney, AirportRouteHeroPrice } from "../components/AirportRouteOffer";
 import PageHero from "../components/PageHero";
 import RelatedRoutes from "../components/RelatedRoutes";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
+import { getAirportConversionOffer } from "../data/airportConversion.js";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
 
 const routeDetails = [
   {
@@ -58,8 +61,6 @@ const vehicles = [
   return {
     name: vehicle.name,
     image: vehicle.image,
-    passengers: vehicle.passengerCapacity,
-    luggage: vehicle.routeLuggageNote,
     text,
   };
 });
@@ -92,8 +93,10 @@ const faqs = [
   },
 ];
 
-function airportToWeligamaMessage(topic = "Colombo Airport to Weligama taxi") {
-  return `Hello SKY Taxi Service & Tours, I want to book ${topic}. Flight number: ___ Arrival date/time: ___ Drop-off in Weligama: ___ Number of passengers: ___ Luggage/surfboards: ___`;
+const offer = getAirportConversionOffer("airport-to-weligama");
+
+function airportToWeligamaMessage(topic) {
+  return buildWhatsAppMessage({ intent: whatsappIntents.AIRPORT_TRANSFER, pickup: offer.pickupName, destination: offer.destinationName, notes: topic });
 }
 
 export default function AirportToWeligamaTaxi({ setPage }) {
@@ -106,10 +109,11 @@ export default function AirportToWeligamaTaxi({ setPage }) {
         image={images.surfing}
         alt="Colombo Airport to Weligama taxi private surf beach transfer Sri Lanka"
       >
+        <AirportRouteHeroPrice offer={offer} />
         <div className="premium-hero-actions">
           <a className="button button--primary" href={buildWhatsAppLink(airportToWeligamaMessage())} target="_blank" rel="noreferrer">
             <MessageCircle size={19} />
-            Book Airport to Weligama
+            Get Transfer Quote to Weligama
           </a>
           <a className="button button--light" href="/weligama-taxi-service">
             <Palmtree size={18} />
@@ -135,6 +139,8 @@ export default function AirportToWeligamaTaxi({ setPage }) {
           </span>
         </div>
       </PageHero>
+
+      <AirportRouteOffer offer={offer} />
 
       <section className="section airport-to-weligama-intro">
         <div className="section__inner split-layout">
@@ -201,9 +207,9 @@ export default function AirportToWeligamaTaxi({ setPage }) {
       <section className="section airport-to-weligama-vehicles">
         <div className="section__inner">
           <SectionHeader
-            eyebrow="Vehicle options"
-            title="Clean vehicles for your private transfer to Weligama"
-            text="Choose a private car, SUV, or van for airport to Weligama taxi service, luggage needs, surfboards, families, and comfortable south coast travel."
+            eyebrow="More fleet examples"
+            title="Ask SKY about a specific vehicle"
+            text="These are vehicle examples. SKY confirms the exact model and current quote; other models do not inherit the class prices above."
           />
           <div className="airport-transfer-grid">
             {vehicles.map((vehicle) => (
@@ -214,26 +220,16 @@ export default function AirportToWeligamaTaxi({ setPage }) {
                 </div>
                 <div className="airport-transfer-card__body">
                   <h3>{vehicle.name}</h3>
-                  <div className="airport-transfer-card__meta">
-                    <span>
-                      <Users size={16} />
-                      {vehicle.passengers}
-                    </span>
-                    <span>
-                      <Luggage size={16} />
-                      {vehicle.luggage}
-                    </span>
-                  </div>
                   <p>{vehicle.text}</p>
                   <a
                     className="button button--primary airport-transfer-card__button"
                     href={buildWhatsAppLink(airportToWeligamaMessage(`${vehicle.name} airport to Weligama taxi`))}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Book This Vehicle — ${vehicle.name}`}
+                    aria-label={`Ask about this vehicle — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
-                    Book This Vehicle
+                    Ask About This Vehicle
                   </a>
                 </div>
               </Reveal>
@@ -245,15 +241,15 @@ export default function AirportToWeligamaTaxi({ setPage }) {
       <section className="section section--soft airport-to-weligama-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
-            <h2>Book your Weligama airport transfer</h2>
+            <span className="eyebrow">Current transfer quote</span>
+            <h2>Request your Weligama airport transfer quote</h2>
             <p>
-              Send your flight number, arrival time, Weligama hotel or surf camp, passenger count, luggage, and surfboard details. We will reply with a fair route-based quote and confirm your driver.
+              Send your flight number, arrival time, Weligama hotel or surf camp, passenger count, luggage, and surfboard details. SKY replies with a current quote; driver details follow after you confirm the transfer.
             </p>
             <div className="cta-actions">
               <a className="button button--primary" href={buildWhatsAppLink(airportToWeligamaMessage())} target="_blank" rel="noreferrer">
                 <MessageCircle size={18} />
-                Book on WhatsApp
+                Get Transfer Quote
               </a>
               <a className="button button--light" href="/airport-to-mirissa">
                 <Car size={18} />
@@ -263,6 +259,8 @@ export default function AirportToWeligamaTaxi({ setPage }) {
           </Reveal>
         </div>
       </section>
+
+      <AirportContinueJourney destinationName={offer.destinationName} />
 
       <section className="section airport-to-weligama-faq">
         <div className="section__inner">
