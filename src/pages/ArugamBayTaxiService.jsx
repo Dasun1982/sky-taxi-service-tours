@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeCards = [
   {
     title: "Colombo Airport to Arugam Bay taxi",
-    text: "Book a private Colombo airport to Arugam Bay taxi with flight-time checking, luggage support, long-distance route planning, and WhatsApp confirmation.",
+    text: "Book a private Colombo airport to Arugam Bay taxi with flight details shared in advance, luggage support, long-distance route planning, and WhatsApp confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -55,7 +55,7 @@ const surfTransfers = [
   },
   {
     title: "Airport and surf route support",
-    text: "Plan Arugam Bay airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and 24/7 WhatsApp booking.",
+    text: "Plan Arugam Bay airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and WhatsApp booking.",
     image: images.beach,
   },
 ];
@@ -86,11 +86,11 @@ const highlights = [
   },
   {
     title: "Airport transfer support",
-    text: "Book Colombo airport to Arugam Bay taxi service with flight-time checking, fair quotes, clean vehicles, and luggage help.",
+    text: "Book Colombo airport to Arugam Bay taxi service with flight details shared in advance, fair quotes, clean vehicles, and luggage help.",
     icon: Plane,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send your route, date, time, passengers, and luggage anytime to confirm a private driver Arugam Bay quote.",
     icon: Clock3,
   },
@@ -105,7 +105,7 @@ const faqs = [
   {
     question: "Do you provide Colombo airport to Arugam Bay taxi service?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Arugam Bay taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Arugam Bay taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
     question: "Can I book taxi in Arugam Bay for Ella, Yala, Kandy, Mirissa, or Galle?",
@@ -134,7 +134,7 @@ export default function ArugamBayTaxiService({ setPage }) {
       <PageHero
         eyebrow="Arugam Bay Taxi Service"
         title="Arugam Bay Taxi Service"
-        description="Book Arugam Bay taxi service for Colombo airport transfers, surf trips, private drivers, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book Arugam Bay taxi service for Colombo airport transfers, surf trips, private drivers, clean vehicles, and WhatsApp booking."
         image={images.surfing}
         alt="Arugam Bay taxi service airport transfer and surf trip"
       >

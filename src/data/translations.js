@@ -73,7 +73,7 @@ const en = {
     startingFromUnawatuna: "Starting from Unawatuna",
     finalPriceWhatsapp: "Final price confirmed on WhatsApp",
     fairPrice: "Fair price",
-    fastReply: "Fast reply",
+    fastReply: "Reply on WhatsApp",
     friendlyDriver: "Friendly driver",
     islandWide: "Island-wide",
     fairPrices: "Fair prices",
@@ -150,7 +150,7 @@ const en = {
     home: {
       title: "SKY Taxi Service & Tours | Sri Lanka Taxi Service",
       description:
-        "Book affordable Sri Lanka taxi service, safe airport transfers, private tours, and easy WhatsApp travel help all around Sri Lanka.",
+        "Explore Sri Lanka taxi service, private airport transfers, tours, and direct WhatsApp travel inquiries with SKY Taxi Service & Tours.",
     },
     tours: {
       title: "Sri Lanka Tours | SKY Taxi Service & Tours",
@@ -245,7 +245,7 @@ const en = {
     services: [
       {
         title: "Airport Transfers",
-        text: "Safe airport transfers across Sri Lanka with planned pickup times, clean vehicles, and fair prices.",
+        text: "Private airport transfers across Sri Lanka with pickup details reviewed before travel.",
       },
       {
         title: "Taxi Service",
@@ -268,7 +268,7 @@ const en = {
       { title: "Sigiriya Tour", location: "Sigiriya, Dambulla", text: "Climb Sigiriya and add Dambulla Cave Temple or a local lunch stop." },
       { title: "Mirissa Tour", location: "Mirissa, Weligama", text: "Whale watching, beach time, surf towns, seafood stops, and coast views." },
       { title: "Yala Safari", location: "Yala, Tissamaharama", text: "Private transfer to the safari gate with early pickup planning." },
-      { title: "Airport to Unawatuna", location: "Colombo Airport, Unawatuna", text: "Safe airport transfer to your hotel or villa with a clear pickup plan." },
+      { title: "Airport to Unawatuna", location: "Colombo Airport, Unawatuna", text: "Private airport transfer to your hotel or villa with a clear pickup plan." },
       { title: "Kandy Temple Tour", location: "Kandy", text: "Temple of the Tooth, lake area, gardens, viewpoints, and market stops." },
       { title: "Blue Beach Day", location: "Nilwella, Hiriketiya", text: "A relaxed coastal day with clear blue water and friendly local timing." },
     ],
@@ -322,7 +322,7 @@ const en = {
       { title: "Clean Vehicles", text: "Comfortable cars and vans prepared for families, couples, solo travelers, and small groups." },
       { title: "Easy WhatsApp Booking", text: "Send pickup, drop place, date, and message. We reply with a simple plan and fair quote." },
       { title: "Local Experience", text: "Real local route knowledge for Galle, Unawatuna, Ella, Sigiriya, Mirissa, Yala, and Colombo." },
-      { title: "Safe Travel", text: "Safe airport transfers, calm driving, planned pickup times, and route support across Sri Lanka." },
+      { title: "Planned pickups", text: "Share your arrival details and review the pickup arrangement with SKY before you travel." },
     ],
     bookingCta: {
       eyebrow: "Easy booking",
@@ -547,7 +547,7 @@ const en = {
       { title: "Send route", text: "Share pickup, drop place, date, time, passengers, and luggage." },
       { title: "Get fair quote", text: "We suggest a suitable clean vehicle and send a clear price." },
       { title: "Confirm driver", text: "Confirm by WhatsApp and receive pickup details before travel." },
-      { title: "Travel safely", text: "Meet your friendly local driver and enjoy a comfortable ride." },
+      { title: "Start your trip", text: "Meet your friendly local driver and enjoy a comfortable ride." },
     ],
     cta: {
       eyebrow: "Need help choosing a vehicle?",
@@ -560,7 +560,7 @@ const en = {
     hero: {
       eyebrow: "Airport transfers",
       title: "Airport Transfers Across Sri Lanka",
-      description: "Clean private vehicles, fair route-based prices, flight-time checking, and WhatsApp confirmation before pickup.",
+      description: "Clean private vehicles, fair route-based prices, flight details shared in advance, and WhatsApp confirmation before pickup.",
       book: "Book Airport Transfer",
       ask: "Ask Price on WhatsApp",
       pickupReady: "Airport pickup ready",
@@ -1006,7 +1006,7 @@ const en = {
       {
         title: "Airport to Beach",
         label: "Transfer",
-        text: "Safe airport transfer to Unawatuna, Galle, Mirissa, Weligama, or Hikkaduwa with clear pickup timing.",
+        text: "Private airport transfer to Unawatuna, Galle, Mirissa, Weligama, or Hikkaduwa with clear pickup timing.",
         points: ["Flight timing", "Luggage space", "Hotel drop-off"],
       },
       {
@@ -1124,7 +1124,7 @@ const ru = {
     startingFromUnawatuna: "Старт из Унаватуны",
     finalPriceWhatsapp: "Финальная цена в WhatsApp",
     fairPrice: "Честная цена",
-    fastReply: "Быстрый ответ",
+    fastReply: "Ответ в WhatsApp",
     friendlyDriver: "Дружелюбный водитель",
     islandWide: "По всему острову",
     fairPrices: "Честные цены",
@@ -1585,7 +1585,7 @@ const multilingualExpansion = {
         { title: "Отправьте маршрут", text: "Посадка, высадка, дата, время, пассажиры и багаж." },
         { title: "Получите цену", text: "Мы предложим чистый транспорт и понятную стоимость." },
         { title: "Подтвердите водителя", text: "Подтверждение и детали встречи в WhatsApp." },
-        { title: "Едьте безопасно", text: "Встретьте водителя и наслаждайтесь поездкой." },
+        { title: "В путь", text: "Встретьте водителя и наслаждайтесь поездкой." },
       ],
       cta: { eyebrow: "Нужна помощь?", title: "Напишите нам, и мы предложим подходящий транспорт.", text: "Укажите маршрут, пассажиров, багаж и дату.", button: "Написать в WhatsApp" },
     },
@@ -1625,7 +1625,7 @@ Object.assign(multilingualExpansion, {
       previousTourIdea: "पिछला टूर आइडिया",
       nextTourIdea: "अगला टूर आइडिया",
       fairPrice: "उचित कीमत",
-      fastReply: "तेज जवाब",
+      fastReply: "व्हाट्सऐप पर जवाब",
       friendlyDriver: "दोस्ताना ड्राइवर",
       islandWide: "पूरे द्वीप में",
       getCustomAirportPrice: "कस्टम एयरपोर्ट कीमत",
@@ -1633,7 +1633,7 @@ Object.assign(multilingualExpansion, {
     },
     home: {
       services: [
-        { title: "एयरपोर्ट ट्रांसफर", text: "समय पर पिकअप, साफ वाहन और उचित कीमतों के साथ सुरक्षित ट्रांसफर।" },
+        { title: "एयरपोर्ट ट्रांसफर", text: "यात्रा से पहले पिकअप विवरण की पुष्टि के साथ पूरे श्रीलंका में निजी एयरपोर्ट ट्रांसफर।" },
         { title: "टैक्सी सेवा", text: "छोटी राइड, होटल ट्रांसफर, लंबे रूट और डे हायर के लिए भरोसेमंद टैक्सी।" },
         { title: "प्राइवेट टूर", text: "दोस्ताना स्थानीय ड्राइवरों के साथ पूरे श्रीलंका में निजी टूर।" },
         { title: "वन-डे टूर", text: "बीच, फोर्ट, पहाड़, संस्कृति और व्यूपॉइंट के लिए आसान दिनभर की यात्राएं।" },
@@ -1646,7 +1646,7 @@ Object.assign(multilingualExpansion, {
         { title: "Sigiriya टूर", location: "Sigiriya, Dambulla", text: "Sigiriya चढ़ाई और Dambulla Cave Temple या लोकल लंच स्टॉप।" },
         { title: "Mirissa टूर", location: "Mirissa, Weligama", text: "व्हेल वॉचिंग, बीच टाइम, सर्फ टाउन और तटीय दृश्य।" },
         { title: "Yala Safari", location: "Yala, Tissamaharama", text: "सुबह की पिकअप योजना के साथ सफारी गेट तक निजी ट्रांसफर।" },
-        { title: "Airport से Unawatuna", location: "Colombo Airport, Unawatuna", text: "साफ पिकअप प्लान के साथ होटल या विला तक सुरक्षित ट्रांसफर।" },
+        { title: "Airport से Unawatuna", location: "Colombo Airport, Unawatuna", text: "साफ पिकअप प्लान के साथ होटल या विला तक निजी ट्रांसफर।" },
         { title: "Kandy Temple टूर", location: "Kandy", text: "Temple of the Tooth, झील, गार्डन, व्यूपॉइंट और मार्केट स्टॉप।" },
         { title: "Blue Beach डे", location: "Nilwella, Hiriketiya", text: "नीले पानी और आरामदायक लोकल टाइमिंग वाला शांत तटीय दिन।" },
       ],
@@ -1669,7 +1669,7 @@ Object.assign(multilingualExpansion, {
         { title: "साफ वाहन", text: "परिवार, कपल और छोटे समूहों के लिए आरामदायक वाहन।" },
         { title: "आसान WhatsApp बुकिंग", text: "पिकअप, ड्रॉप और तारीख भेजें। हम आसान प्लान भेजेंगे।" },
         { title: "स्थानीय अनुभव", text: "Galle, Unawatuna, Ella, Sigiriya, Mirissa, Yala और Colombo रूट की जानकारी।" },
-        { title: "सुरक्षित यात्रा", text: "शांत ड्राइविंग, पिकअप टाइमिंग और रूट सपोर्ट।" },
+        { title: "योजनाबद्ध पिकअप", text: "अपनी आगमन जानकारी साझा करें और यात्रा से पहले SKY के साथ पिकअप व्यवस्था की पुष्टि करें।" },
       ],
     },
     tours: {
@@ -1700,7 +1700,7 @@ Object.assign(multilingualExpansion, {
         { title: "रूट भेजें", text: "पिकअप, ड्रॉप, तारीख, समय, यात्री और सामान भेजें।" },
         { title: "उचित कोट पाएं", text: "हम सही साफ वाहन और साफ कीमत भेजेंगे।" },
         { title: "ड्राइवर कन्फर्म करें", text: "WhatsApp पर कन्फर्म करें और पिकअप डिटेल पाएं।" },
-        { title: "सुरक्षित यात्रा करें", text: "दोस्ताना स्थानीय ड्राइवर के साथ आरामदायक राइड लें।" },
+        { title: "यात्रा शुरू करें", text: "दोस्ताना स्थानीय ड्राइवर के साथ आरामदायक राइड लें।" },
       ],
     },
     airport: {
@@ -1762,7 +1762,7 @@ Object.assign(multilingualExpansion, {
     common: { call: "Llamar", email: "Email", map: "Mapa", viewLocation: "Ver ubicación", viewVehicles: "Ver vehículos", previousTour: "Tour anterior", nextTour: "Tour siguiente", previousTourIdea: "Idea anterior", nextTourIdea: "Idea siguiente", getCustomAirportPrice: "Precio de aeropuerto", getCustomRentalPrice: "Precio de alquiler" },
     home: {
       services: [
-        { title: "Traslados al aeropuerto", text: "Traslados seguros con horarios planificados, vehículos limpios y precios justos." },
+        { title: "Traslados al aeropuerto", text: "Traslados privados al aeropuerto en Sri Lanka con los detalles de recogida revisados antes del viaje." },
         { title: "Servicio de taxi", text: "Taxi fiable para rutas cortas, hoteles, viajes largos y alquiler por día." },
         { title: "Tours privados", text: "Tours privados por toda la isla con conductores locales amables." },
         { title: "Tours de un día", text: "Excursiones fáciles a playas, fuertes, colinas, cultura y miradores." },
@@ -1775,7 +1775,7 @@ Object.assign(multilingualExpansion, {
         { title: "Tour Sigiriya", location: "Sigiriya, Dambulla", text: "Sube Sigiriya y añade Dambulla Cave Temple o almuerzo local." },
         { title: "Tour Mirissa", location: "Mirissa, Weligama", text: "Ballenas, playas, pueblos de surf, mariscos y costa." },
         { title: "Yala Safari", location: "Yala, Tissamaharama", text: "Traslado privado a la entrada del safari con salida temprana." },
-        { title: "Aeropuerto a Unawatuna", location: "Colombo Airport, Unawatuna", text: "Traslado seguro a hotel o villa con plan claro de recogida." },
+        { title: "Aeropuerto a Unawatuna", location: "Colombo Airport, Unawatuna", text: "Traslado privado a hotel o villa con plan claro de recogida." },
         { title: "Tour Kandy Temple", location: "Kandy", text: "Temple of the Tooth, lago, jardines, miradores y mercado." },
         { title: "Día Blue Beach", location: "Nilwella, Hiriketiya", text: "Día costero relajado con agua azul y horarios locales fáciles." },
       ],
@@ -1798,7 +1798,7 @@ Object.assign(multilingualExpansion, {
         { title: "Vehículos limpios", text: "Autos y vans cómodos para familias, parejas y grupos pequeños." },
         { title: "Reserva fácil por WhatsApp", text: "Envía recogida, destino y fecha. Respondemos con un plan simple." },
         { title: "Experiencia local", text: "Conocimiento real de rutas por Galle, Unawatuna, Ella, Sigiriya, Mirissa, Yala y Colombo." },
-        { title: "Viaje seguro", text: "Conducción tranquila, horarios planificados y ayuda en ruta." },
+        { title: "Recogidas planificadas", text: "Comparte tus datos de llegada y revisa la recogida con SKY antes de viajar." },
       ],
     },
     taxi: {
@@ -1815,7 +1815,7 @@ Object.assign(multilingualExpansion, {
         { title: "Envía la ruta", text: "Recogida, destino, fecha, hora, pasajeros y equipaje." },
         { title: "Recibe precio justo", text: "Sugerimos vehículo limpio y precio claro." },
         { title: "Confirma conductor", text: "Confirma por WhatsApp y recibe los detalles." },
-        { title: "Viaja seguro", text: "Conoce a tu conductor local y disfruta el viaje." },
+        { title: "Comienza tu viaje", text: "Conoce a tu conductor local y disfruta el viaje." },
       ],
     },
     airport: {
@@ -1877,7 +1877,7 @@ Object.assign(multilingualExpansion, {
     common: { call: "Appel", email: "Email", map: "Carte", viewLocation: "Voir l'adresse", viewVehicles: "Voir véhicules", previousTour: "Tour précédent", nextTour: "Tour suivant", previousTourIdea: "Idée précédente", nextTourIdea: "Idée suivante", getCustomAirportPrice: "Prix aéroport", getCustomRentalPrice: "Prix location" },
     home: {
       services: [
-        { title: "Transferts aéroport", text: "Transferts sûrs avec horaires préparés, véhicules propres et prix justes." },
+        { title: "Transferts aéroport", text: "Transferts aéroport privés au Sri Lanka, avec les détails de prise en charge vérifiés avant le voyage." },
         { title: "Service taxi", text: "Taxi fiable pour courts trajets, hôtels, longues routes et location à la journée." },
         { title: "Tours privés", text: "Tours privés dans l'île avec chauffeurs locaux sympathiques." },
         { title: "Tours d'une journée", text: "Sorties faciles vers plages, forts, montagnes, culture et points de vue." },
@@ -1890,7 +1890,7 @@ Object.assign(multilingualExpansion, {
         { title: "Tour Sigiriya", location: "Sigiriya, Dambulla", text: "Montez Sigiriya et ajoutez Dambulla Cave Temple ou un déjeuner local." },
         { title: "Tour Mirissa", location: "Mirissa, Weligama", text: "Baleines, plages, surf towns, fruits de mer et vues côtières." },
         { title: "Yala Safari", location: "Yala, Tissamaharama", text: "Transfert privé vers le safari avec départ matinal." },
-        { title: "Aéroport à Unawatuna", location: "Colombo Airport, Unawatuna", text: "Transfert sûr vers hôtel ou villa avec plan clair." },
+        { title: "Aéroport à Unawatuna", location: "Colombo Airport, Unawatuna", text: "Transfert privé vers hôtel ou villa avec plan clair." },
         { title: "Tour Kandy Temple", location: "Kandy", text: "Temple of the Tooth, lac, jardins, points de vue et marché." },
         { title: "Journée Blue Beach", location: "Nilwella, Hiriketiya", text: "Journée côte relax avec eau bleue et horaires faciles." },
       ],
@@ -1907,7 +1907,7 @@ Object.assign(multilingualExpansion, {
         { title: "Véhicules propres", text: "Voitures et vans confortables pour familles, couples et petits groupes." },
         { title: "Réservation WhatsApp facile", text: "Envoyez départ, arrivée et date. Nous répondons avec un plan simple." },
         { title: "Expérience locale", text: "Vraie connaissance des routes Galle, Unawatuna, Ella, Sigiriya, Mirissa, Yala et Colombo." },
-        { title: "Voyage sûr", text: "Conduite calme, horaires préparés et aide sur la route." },
+        { title: "Prises en charge planifiées", text: "Partagez vos informations d'arrivée et vérifiez la prise en charge avec SKY avant le voyage." },
       ],
     },
     taxi: {
@@ -2095,7 +2095,7 @@ Object.assign(multilingualExpansion, {
     common: { call: "اتصال", email: "البريد", map: "الخريطة", viewLocation: "عرض الموقع", viewVehicles: "عرض المركبات", previousTour: "الجولة السابقة", nextTour: "الجولة التالية", previousTourIdea: "الفكرة السابقة", nextTourIdea: "الفكرة التالية", getCustomAirportPrice: "سعر المطار", getCustomRentalPrice: "سعر الإيجار" },
     home: {
       services: [
-        { title: "نقل المطار", text: "نقل آمن مع وقت استقبال منظم ومركبات نظيفة وأسعار عادلة." },
+        { title: "نقل المطار", text: "نقل خاص من المطار في سريلانكا مع مراجعة تفاصيل الاستقبال قبل السفر." },
         { title: "خدمة التاكسي", text: "تاكسي موثوق للرحلات القصيرة والفنادق والطرق الطويلة واليوم الكامل." },
         { title: "جولات خاصة", text: "جولات خاصة في الجزيرة مع سائقين محليين ودودين." },
         { title: "جولات يوم واحد", text: "رحلات سهلة إلى الشواطئ والحصون والجبال والثقافة ونقاط المشاهدة." },
@@ -2108,7 +2108,7 @@ Object.assign(multilingualExpansion, {
         { title: "جولة Sigiriya", location: "Sigiriya, Dambulla", text: "صعود Sigiriya مع Dambulla Cave Temple أو توقف غداء محلي." },
         { title: "جولة Mirissa", location: "Mirissa, Weligama", text: "مشاهدة الحيتان والشواطئ وبلدات ركوب الأمواج ومناظر الساحل." },
         { title: "Yala Safari", location: "Yala, Tissamaharama", text: "نقل خاص إلى بوابة السفاري مع تخطيط انطلاق مبكر." },
-        { title: "من المطار إلى Unawatuna", location: "Colombo Airport, Unawatuna", text: "نقل آمن إلى الفندق أو الفيلا مع خطة استقبال واضحة." },
+        { title: "من المطار إلى Unawatuna", location: "Colombo Airport, Unawatuna", text: "نقل خاص إلى الفندق أو الفيلا مع خطة استقبال واضحة." },
         { title: "جولة Kandy Temple", location: "Kandy", text: "Temple of the Tooth والبحيرة والحدائق ونقاط المشاهدة والسوق." },
         { title: "يوم Blue Beach", location: "Nilwella, Hiriketiya", text: "يوم ساحلي هادئ مع مياه زرقاء وتوقيت محلي مريح." },
       ],
@@ -2125,7 +2125,7 @@ Object.assign(multilingualExpansion, {
         { title: "مركبات نظيفة", text: "سيارات وفانات مريحة للعائلات والأزواج والمجموعات الصغيرة." },
         { title: "حجز واتساب سهل", text: "أرسل مكان الاستقبال والوجهة والتاريخ ونرد بخطة بسيطة." },
         { title: "خبرة محلية", text: "معرفة حقيقية بطرق Galle وUnawatuna وElla وSigiriya وMirissa وYala وColombo." },
-        { title: "سفر آمن", text: "قيادة هادئة وأوقات منظمة ودعم في الطريق." },
+        { title: "استقبال مخطط", text: "شارك تفاصيل وصولك وراجع ترتيب الاستقبال مع SKY قبل السفر." },
       ],
     },
     taxi: {
@@ -2672,7 +2672,7 @@ const sharedUiTranslationCoverage = {
       items: [
         { title: "South Coast Easy Day", label: "डे टूर", text: "Galle Fort, Unawatuna, Dalawella, Weligama और सनसेट बीच स्टॉप।", points: ["लचीला पिकअप", "साफ वाहन", "उचित रूट कोट"] },
         { title: "Ella View Route", label: "हिल कंट्री", text: "Nine Arch Bridge, चाय दृश्य, झरने, Little Adam's Peak area और आरामदायक फोटो स्टॉप।", points: ["आरामदायक लंबी राइड", "सुंदर स्टॉप", "WhatsApp प्लानिंग"] },
-        { title: "Airport to Beach", label: "ट्रांसफर", text: "एयरपोर्ट से Unawatuna, Galle, Mirissa, Weligama या Hikkaduwa तक सुरक्षित ट्रांसफर।", points: ["फ्लाइट टाइमिंग", "सामान की जगह", "होटल ड्रॉप"] },
+        { title: "Airport to Beach", label: "ट्रांसफर", text: "एयरपोर्ट से Unawatuna, Galle, Mirissa, Weligama या Hikkaduwa तक निजी ट्रांसफर।", points: ["फ्लाइट टाइमिंग", "सामान की जगह", "होटल ड्रॉप"] },
         { title: "Sigiriya Culture Day", label: "कल्चर टूर", text: "Sigiriya Rock Fortress, Dambulla Cave Temple, spice garden विकल्प और लोकल लंच स्टॉप।", points: ["प्राइवेट डे रूट", "लोकल स्टॉप", "आसान बुकिंग"] },
         { title: "Wildlife and Coast", label: "सफारी रूट", text: "Yala सफारी ट्रांसफर, साउथ कोस्ट पिकअप, होटल ड्रॉप और परिवार के लिए रूट प्लानिंग।", points: ["अर्ली पिकअप", "ग्रुप वाहन विकल्प", "रूट प्लानिंग"] },
         { title: "Kandy and Hill Views", label: "संस्कृति और पहाड़", text: "Kandy Temple, झील क्षेत्र, हिल व्यूपॉइंट और Ella या Sigiriya तक आगे की सहायता।", points: ["मंदिर स्टॉप", "हिल-कंट्री रोड", "प्राइवेट ड्राइवर"] },
@@ -2730,7 +2730,7 @@ const sharedUiTranslationCoverage = {
       items: [
         { title: "Día fácil en la costa sur", label: "Tour de día", text: "Galle Fort, Unawatuna, Dalawella, Weligama y paradas de playa al atardecer con conductor local amable.", points: ["Recogida flexible", "Vehículo limpio", "Precio justo por ruta"] },
         { title: "Ruta de vistas en Ella", label: "Hill country", text: "Nine Arch Bridge, vistas de té, cascadas, zona de Little Adam's Peak y paradas tranquilas para fotos.", points: ["Viaje largo cómodo", "Paradas panorámicas", "Planificación por WhatsApp"] },
-        { title: "Aeropuerto a la playa", label: "Traslado", text: "Traslado seguro desde el aeropuerto a Unawatuna, Galle, Mirissa, Weligama o Hikkaduwa.", points: ["Horario de vuelo", "Espacio para equipaje", "Llegada al hotel"] },
+        { title: "Aeropuerto a la playa", label: "Traslado", text: "Traslado privado desde el aeropuerto a Unawatuna, Galle, Mirissa, Weligama o Hikkaduwa.", points: ["Horario de vuelo", "Espacio para equipaje", "Llegada al hotel"] },
         { title: "Día cultural en Sigiriya", label: "Tour cultural", text: "Sigiriya Rock Fortress, Dambulla Cave Temple, opciones de jardín de especias y almuerzo local.", points: ["Ruta privada de día", "Paradas locales", "Reserva fácil"] },
         { title: "Wildlife y costa", label: "Ruta safari", text: "Traslado a safari Yala, recogida en la costa sur, llegada al hotel y ruta familiar.", points: ["Salida temprano", "Opciones para grupos", "Plan de ruta"] },
         { title: "Kandy y vistas de montaña", label: "Cultura y montañas", text: "Kandy Temple, lago, miradores y apoyo para continuar a Ella o Sigiriya.", points: ["Parada templo", "Carreteras de montaña", "Conductor privado"] },
@@ -2785,7 +2785,7 @@ const sharedUiTranslationCoverage = {
       items: [
         { title: "يوم سهل في الساحل الجنوبي", label: "جولة يومية", text: "Galle Fort وUnawatuna وDalawella وWeligama وتوقفات شاطئية مع سائق محلي ودود.", points: ["استقبال مرن", "مركبة نظيفة", "سعر عادل للطريق"] },
         { title: "طريق إطلالات Ella", label: "المرتفعات", text: "Nine Arch Bridge ومناظر الشاي والشلالات ومنطقة Little Adam's Peak وتوقفات تصوير هادئة.", points: ["رحلة طويلة مريحة", "توقفات جميلة", "تخطيط واتساب"] },
-        { title: "من المطار إلى الشاطئ", label: "نقل", text: "نقل آمن من المطار إلى Unawatuna أو Galle أو Mirissa أو Weligama أو Hikkaduwa.", points: ["توقيت الرحلة", "مساحة للحقائب", "توصيل الفندق"] },
+        { title: "من المطار إلى الشاطئ", label: "نقل", text: "نقل خاص من المطار إلى Unawatuna أو Galle أو Mirissa أو Weligama أو Hikkaduwa.", points: ["توقيت الرحلة", "مساحة للحقائب", "توصيل الفندق"] },
         { title: "يوم ثقافي في Sigiriya", label: "جولة ثقافية", text: "Sigiriya Rock Fortress وDambulla Cave Temple وخيارات حديقة التوابل وتوقف غداء محلي.", points: ["طريق يومي خاص", "توقفات محلية", "حجز سهل"] },
         { title: "Wildlife والساحل", label: "طريق سفاري", text: "نقل سفاري Yala واستقبال الساحل الجنوبي وتوصيل الفندق وتخطيط مناسب للعائلة.", points: ["انطلاق مبكر", "خيارات مركبات للمجموعات", "تخطيط الطريق"] },
         { title: "Kandy وإطلالات الجبال", label: "ثقافة وجبال", text: "Kandy Temple ومنطقة البحيرة والإطلالات ودعم الطريق إلى Ella أو Sigiriya.", points: ["توقف معبد", "طرق المرتفعات", "سائق خاص"] },
@@ -2840,7 +2840,7 @@ const sharedUiTranslationCoverage = {
       items: [
         { title: "Journée facile côte sud", label: "Tour de jour", text: "Galle Fort, Unawatuna, Dalawella, Weligama et plages au coucher du soleil avec chauffeur local.", points: ["Départ flexible", "Véhicule propre", "Prix route juste"] },
         { title: "Route vues Ella", label: "Hill country", text: "Nine Arch Bridge, vues de thé, cascades, zone Little Adam's Peak et arrêts photo.", points: ["Long trajet confortable", "Arrêts panoramiques", "Plan WhatsApp"] },
-        { title: "Aéroport à plage", label: "Transfert", text: "Transfert sûr de l'aéroport vers Unawatuna, Galle, Mirissa, Weligama ou Hikkaduwa.", points: ["Horaire de vol", "Place bagages", "Dépose hôtel"] },
+        { title: "Aéroport à plage", label: "Transfert", text: "Transfert privé de l'aéroport vers Unawatuna, Galle, Mirissa, Weligama ou Hikkaduwa.", points: ["Horaire de vol", "Place bagages", "Dépose hôtel"] },
         { title: "Journée culture Sigiriya", label: "Tour culturel", text: "Sigiriya Rock Fortress, Dambulla Cave Temple, options jardin d'épices et déjeuner local.", points: ["Route privée", "Arrêts locaux", "Réservation facile"] },
         { title: "Wildlife et côte", label: "Route safari", text: "Transfert safari Yala, départ côte sud, dépose hôtel et plan familial.", points: ["Départ tôt", "Options groupe", "Plan route"] },
         { title: "Kandy et vues de montagne", label: "Culture et montagnes", text: "Kandy Temple, lac, points de vue et aide pour continuer vers Ella ou Sigiriya.", points: ["Arrêt temple", "Routes de montagne", "Chauffeur privé"] },

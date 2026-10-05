@@ -19,12 +19,12 @@ const privateTourTypes = [
   },
   {
     title: "Airport pickup for tours",
-    text: "Start your private tours Sri Lanka journey from Colombo Airport with flight-time checking, luggage support, and WhatsApp confirmation.",
+    text: "Start your private tours Sri Lanka journey from Colombo Airport with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     image: images.airportWelcome,
   },
   {
     title: "Sri Lanka tours with driver",
-    text: "Travel with a friendly local driver who helps with route timing, safe transfers, comfort stops, luggage, and flexible tour planning.",
+    text: "Travel with a friendly local driver who helps with route timing, private transfers, comfort stops, luggage, and flexible tour planning.",
     image: images.trainRide,
   },
 ];
@@ -77,7 +77,7 @@ const highlights = [
   },
   {
     title: "Private driver support",
-    text: "Book Sri Lanka tours with driver for safe travel, simple route planning, luggage help, and friendly local support.",
+    text: "Book Sri Lanka tours with driver for flexible travel, simple route planning, luggage help, and friendly local support.",
     icon: Car,
   },
   {
@@ -106,7 +106,7 @@ const faqs = [
   {
     question: "Can private tours start from Colombo Airport?",
     answer:
-      "Yes. Airport pickup for tours is available, so your Sri Lanka private tours can begin directly after arrival with flight-time checking and luggage support.",
+      "Yes. Airport pickup for tours is available, so your Sri Lanka private tours can begin directly after arrival with flight details shared in advance and luggage support.",
   },
   {
     question: "Is the private tour price fixed online?",
@@ -125,7 +125,7 @@ export default function SriLankaPrivateTours({ setPage }) {
       <PageHero
         eyebrow="Sri Lanka Private Tours"
         title="Sri Lanka Private Tours"
-        description="Book Sri Lanka private tours with custom day tours, round tours, private driver service, airport pickup, and 24/7 WhatsApp booking."
+        description="Book Sri Lanka private tours with custom day tours, round tours, private driver service, airport pickup, and WhatsApp booking."
         image={images.galleFort}
         alt="Sri Lanka private tours with driver"
       >

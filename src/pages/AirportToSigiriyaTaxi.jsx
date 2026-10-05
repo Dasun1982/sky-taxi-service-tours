@@ -10,7 +10,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeDetails = [
   {
     title: "Colombo Airport to Sigiriya taxi",
-    text: "Private transfer from Bandaranaike International Airport to Sigiriya with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+    text: "Private transfer from Bandaranaike International Airport to Sigiriya with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -73,7 +73,7 @@ const faqs = [
   {
     question: "Can I book an airport to Sigiriya taxi after a late flight?",
     answer:
-      "Yes. SKY Taxi Service & Tours can arrange Sigiriya airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+      "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Sigiriya is available before travel.",
   },
   {
     question: "Can the taxi stop at Dambulla or Pidurangala?",
@@ -102,7 +102,7 @@ export default function AirportToSigiriyaTaxi({ setPage }) {
       <PageHero
         eyebrow="Airport to Sigiriya Taxi"
         title="Colombo Airport to Sigiriya Taxi"
-        description="Book a private taxi from Colombo Airport to Sigiriya with Cultural Triangle transfer, clean vehicles, private drivers, and 24/7 WhatsApp booking."
+        description="Book a private taxi from Colombo Airport to Sigiriya with Cultural Triangle transfer, clean vehicles, private drivers, and WhatsApp booking."
         image={images.sigiriya}
         alt="Colombo Airport to Sigiriya taxi private transfer Sri Lanka"
       >
@@ -131,7 +131,7 @@ export default function AirportToSigiriyaTaxi({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>
@@ -143,7 +143,7 @@ export default function AirportToSigiriyaTaxi({ setPage }) {
             <h2>Private airport to Sigiriya taxi for Cultural Triangle travel</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Sigiriya taxi before arrival. Your driver can meet you at the airport,
-              help with luggage, plan comfort stops, and take you safely to Sigiriya, Dambulla, Habarana, or nearby Cultural Triangle hotels.
+              help with luggage, plan comfort stops, and take you to Sigiriya, Dambulla, Habarana, or nearby Cultural Triangle hotels.
             </p>
             <div className="colombo-airport-link-row">
               <button type="button" onClick={() => setPage("home")}>
@@ -245,7 +245,7 @@ export default function AirportToSigiriyaTaxi({ setPage }) {
       <section className="section section--soft airport-to-sigiriya-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book your Sigiriya airport transfer</h2>
             <p>
               Send your flight number, arrival time, Sigiriya hotel, passenger count, and luggage details. We will reply with a fair route-based quote and confirm your driver.

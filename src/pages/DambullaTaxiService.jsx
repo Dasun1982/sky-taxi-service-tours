@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeCards = [
   {
     title: "Colombo airport to Dambulla taxi",
-    text: "Book a private Colombo airport to Dambulla taxi with flight-time checking, luggage space, and WhatsApp confirmation before pickup.",
+    text: "Book a private Colombo airport to Dambulla taxi with flight details shared in advance, luggage space, and WhatsApp confirmation before pickup.",
     image: images.airportWelcome,
   },
   {
@@ -60,7 +60,7 @@ const highlights = [
     icon: Mountain,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send your pickup place, hotel, date, time, and passenger count for a fair route-based quote.",
     icon: Clock3,
   },
@@ -75,7 +75,7 @@ const faqs = [
   {
     question: "Can I book a Colombo airport to Dambulla taxi?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Dambulla taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Dambulla taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
   },
   {
     question: "Can the taxi stop at Sigiriya or Pidurangala?",
@@ -104,7 +104,7 @@ export default function DambullaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Dambulla Taxi Service"
         title="Dambulla Taxi Service"
-        description="Book a private taxi to Dambulla Sri Lanka with Cultural Triangle stops, airport transfers, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book a private taxi to Dambulla Sri Lanka with Cultural Triangle stops, airport transfers, clean vehicles, and WhatsApp booking."
         image={images.dambulla}
         alt="Dambulla Cave Temple in Sri Lanka"
       >
@@ -145,7 +145,7 @@ export default function DambullaTaxiService({ setPage }) {
             <h2>Private Dambulla taxi service for airport transfers and Cultural Triangle rides</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a Dambulla taxi from Colombo Airport, Sigiriya, Kandy, and other Sri Lanka destinations.
-              Your private driver can plan a comfortable route with flexible stops, safe travel, and clean vehicle support.
+              Your private driver can plan a comfortable route with flexible stops and vehicle details confirmed before travel.
             </p>
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>
@@ -243,7 +243,7 @@ export default function DambullaTaxiService({ setPage }) {
       <section className="section section--soft dambulla-booking-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book a private taxi to Dambulla</h2>
             <p>
               Send your pickup location, Dambulla hotel, date, time, passengers, and luggage. We will reply with a fair quote and help plan Cultural Triangle stops if needed.

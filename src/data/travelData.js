@@ -174,7 +174,7 @@ export const pageMeta = {
   home: {
     title: "SKY Taxi Service & Tours | Sri Lanka Taxi Service",
     description:
-      "Book affordable Sri Lanka taxi service, safe airport transfers, private tours, and easy WhatsApp travel help all around Sri Lanka.",
+      "Explore Sri Lanka taxi service, private airport transfers, tours, and direct WhatsApp travel inquiries with SKY Taxi Service & Tours.",
   },
   acquire: {
     title: "Sky Taxi Sri Lanka Acquisition Opportunity",
@@ -264,7 +264,7 @@ export const pageMeta = {
   about: {
     title: "About SKY Taxi Service & Tours | Sri Lanka Travel Service",
     description:
-      "Learn about SKY Taxi Service & Tours, a Sri Lanka travel service offering local drivers, airport transfers, private tours, and 24/7 support.",
+      "Learn about SKY Taxi Service & Tours, a Sri Lanka travel service offering local drivers, airport transfers, private tours, and direct trip inquiries.",
   },
   contact: {
     title: "Contact SKY Taxi Service & Tours | Sri Lanka Travel Help",
@@ -304,92 +304,92 @@ export const pageMeta = {
   "colombo-airport-taxi": {
     title: "Colombo Airport Taxi Service | SKY Taxi Sri Lanka",
     description:
-      "Book Colombo Airport taxi service in Sri Lanka. Private airport transfers to Ella, Kandy, Galle and more. 24/7 reliable taxi service.",
+      "Book Colombo Airport taxi service in Sri Lanka. Private airport transfers to Ella, Kandy, Galle and more, with the quote confirmed on WhatsApp.",
   },
   "airport-to-ella": {
     title: "Colombo Airport to Ella Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Ella with SKY Taxi Service & Tours. Scenic hill country transfer, clean vehicles, flexible stops, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Ella with SKY Taxi Service & Tours. Scenic hill country transfer, clean vehicles, flexible stops, and WhatsApp booking.",
   },
   "airport-to-galle": {
     title: "Colombo Airport to Galle Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Galle with SKY Taxi Service & Tours. Safe coastal transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Galle with SKY Taxi Service & Tours. Private coastal transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-hiriketiya": {
     title: "Colombo Airport to Hiriketiya Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Hiriketiya with SKY Taxi Service & Tours. Safe surf beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Hiriketiya with SKY Taxi Service & Tours. Private surf beach transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-kandy": {
     title: "Colombo Airport to Kandy Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Kandy with SKY Taxi Service & Tours. Comfortable airport transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Kandy with SKY Taxi Service & Tours. Comfortable airport transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-mirissa": {
     title: "Colombo Airport to Mirissa Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Mirissa with SKY Taxi Service & Tours. Safe beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Mirissa with SKY Taxi Service & Tours. Private beach transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-sigiriya": {
     title: "Colombo Airport to Sigiriya Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Sigiriya with SKY Taxi Service & Tours. Cultural Triangle transfer, clean vehicles, private drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Sigiriya with SKY Taxi Service & Tours. Cultural Triangle transfer, clean vehicles, private drivers, and WhatsApp booking.",
   },
   "airport-to-unawatuna": {
     title: "Colombo Airport to Unawatuna Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Unawatuna with SKY Taxi Service & Tours. Safe beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Unawatuna with SKY Taxi Service & Tours. Private beach transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-weligama": {
     title: "Colombo Airport to Weligama Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Weligama with SKY Taxi Service & Tours. Safe surf beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Weligama with SKY Taxi Service & Tours. Private surf beach transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-transfer-sri-lanka": {
     title: "Airport Transfer Sri Lanka | Private Taxi & Driver Service",
     description:
-      "Book private airport transfers in Sri Lanka with SKY Taxi Service & Tours. Reliable Colombo airport pickup, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book private airport transfers in Sri Lanka with SKY Taxi Service & Tours. Reliable Colombo airport pickup, private drivers, clean vehicles, and WhatsApp booking.",
   },
   "ella-taxi-service": {
     title: "Ella Taxi Service | Private Taxi to Ella Sri Lanka",
     description:
-      "Book a private taxi to Ella Sri Lanka with SKY Taxi Service & Tours. Airport transfers, scenic hill country rides, flexible stops, and 24/7 WhatsApp booking.",
+      "Book a private taxi to Ella Sri Lanka with SKY Taxi Service & Tours. Airport transfers, scenic hill country rides, flexible stops, and WhatsApp booking.",
   },
   "kandy-taxi-service": {
     title: "Kandy Taxi Service | Private Taxi to Kandy Sri Lanka",
     description:
-      "Book a private taxi to Kandy Sri Lanka with SKY Taxi Service & Tours. Colombo airport transfers, hill country trips, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book a private taxi to Kandy Sri Lanka with SKY Taxi Service & Tours. Colombo airport transfers, hill country trips, clean vehicles, and WhatsApp booking.",
   },
   "galle-taxi-service": {
     title: "Galle Taxi Service | Private Taxi to Galle Sri Lanka",
     description:
-      "Book a private taxi to Galle Sri Lanka with SKY Taxi Service & Tours. Colombo airport transfers, Galle Fort trips, beach routes, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book a private taxi to Galle Sri Lanka with SKY Taxi Service & Tours. Colombo airport transfers, Galle Fort trips, beach routes, clean vehicles, and WhatsApp booking.",
   },
   "sigiriya-taxi-service": {
     title: "Sigiriya Taxi Service | Private Taxi to Sigiriya Sri Lanka",
     description:
-      "Book a private taxi to Sigiriya Sri Lanka with SKY Taxi Service & Tours. Airport transfers, cultural triangle trips, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book a private taxi to Sigiriya Sri Lanka with SKY Taxi Service & Tours. Airport transfers, cultural triangle trips, clean vehicles, and WhatsApp booking.",
   },
   "mirissa-taxi-service": {
     title: "Mirissa Taxi Service | Private Taxi to Mirissa Sri Lanka",
     description:
-      "Book a private taxi to Mirissa Sri Lanka with SKY Taxi Service & Tours. Airport transfers, beach routes, whale watching transfers, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book a private taxi to Mirissa Sri Lanka with SKY Taxi Service & Tours. Airport transfers, beach routes, whale watching transfers, clean vehicles, and WhatsApp booking.",
   },
   "private-driver-sri-lanka": {
     title: "Private Driver Sri Lanka | Flexible Day-by-Day Hire",
     description:
-      "Hire a private driver in Sri Lanka by the day with SKY Taxi Service & Tours. Airport transfers, single-day trips, point-to-point transfers, clean vehicles, and 24/7 WhatsApp booking — no fixed multi-day plan required.",
+      "Hire a private driver in Sri Lanka by the day with SKY Taxi Service & Tours. Airport transfers, single-day trips, point-to-point transfers, clean vehicles, and WhatsApp booking — no fixed multi-day plan required.",
   },
   "budget-taxi-sri-lanka": {
     title: "Budget Taxi Sri Lanka | Affordable Taxi & Airport Transfers",
     description:
-      "Book a budget taxi in Sri Lanka with SKY Taxi Service & Tours. Affordable airport transfers, private drivers, clean vehicles, fair prices, and 24/7 WhatsApp booking.",
+      "Book a budget taxi in Sri Lanka with SKY Taxi Service & Tours. Affordable airport transfers, private drivers, clean vehicles, fair prices, and WhatsApp booking.",
   },
   "driver-guide-sri-lanka": {
-    title: "Private Driver + Guide Sri Lanka | Driver Only or Driver With Guide",
+    title: "Private Driver + Guide Sri Lanka | Driver Only vs With Guide",
     description:
-      "Compare Driver Only and Driver + Guide in Sri Lanka with SKY Taxi Service & Tours. A private driver for every trip, plus a specialist licensed guide arranged where you want deeper insight.",
+      "Compare Driver Only and Driver + Guide in Sri Lanka with SKY Taxi Service & Tours. A private driver for every trip, plus a specialist guide arranged where you want deeper insight.",
   },
   "chauffeur-guide-sri-lanka": {
     title: "Chauffeur Guide Sri Lanka | Private Multi-Day Tours",
@@ -399,97 +399,97 @@ export const pageMeta = {
   "sri-lanka-tour-driver": {
     title: "Sri Lanka Tour Driver | One Driver, Your Whole Multi-Day Trip",
     description:
-      "Hire one dedicated driver for your entire multi-day Sri Lanka trip with SKY Taxi Service & Tours. Continuous chauffeur tours, flexible itineraries, clean vehicles, and 24/7 WhatsApp booking.",
+      "Hire one dedicated driver for your entire multi-day Sri Lanka trip with SKY Taxi Service & Tours. Continuous chauffeur tours, flexible itineraries, clean vehicles, and WhatsApp booking.",
   },
   "sri-lanka-taxi-service": {
     title: "Sri Lanka Taxi Service | Private Taxi & Airport Transfers",
     description:
-      "Book a reliable Sri Lanka taxi service with SKY Taxi Service & Tours. Airport transfers, private drivers, city rides, long-distance taxis, and 24/7 WhatsApp booking.",
+      "Book a reliable Sri Lanka taxi service with SKY Taxi Service & Tours. Airport transfers, private drivers, city rides, long-distance taxis, and WhatsApp booking.",
   },
   "sri-lanka-private-tours": {
     title: "Sri Lanka Private Tours | Custom Tours with Driver",
     description:
-      "Book Sri Lanka private tours with SKY Taxi Service & Tours. Custom day tours, round tours, private driver service, airport pickup, and 24/7 WhatsApp booking.",
+      "Book Sri Lanka private tours with SKY Taxi Service & Tours. Custom day tours, round tours, private driver service, airport pickup, and WhatsApp booking.",
   },
   "sri-lanka-round-tours": {
     title: "Sri Lanka Round Tours | Private Driver Round Trips",
     description:
-      "Book Sri Lanka round tours with SKY Taxi Service & Tours. Private driver round trips, custom routes, airport pickup, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book Sri Lanka round tours with SKY Taxi Service & Tours. Private driver round trips, custom routes, airport pickup, clean vehicles, and WhatsApp booking.",
   },
   "day-tours-sri-lanka": {
     title: "Day Tours Sri Lanka | Private One Day Trips with Driver",
     description:
-      "Book private day tours in Sri Lanka with SKY Taxi Service & Tours. Ella, Kandy, Galle, Sigiriya, Mirissa, Yala, airport pickup, and 24/7 WhatsApp booking.",
+      "Book private day tours in Sri Lanka with SKY Taxi Service & Tours. Ella, Kandy, Galle, Sigiriya, Mirissa, Yala, airport pickup, and WhatsApp booking.",
   },
   "yala-safari-transfer": {
     title: "Yala Safari Transfer | Taxi to Yala National Park Sri Lanka",
     description:
-      "Book a private Yala safari transfer with SKY Taxi Service & Tours. Taxi to Yala National Park, airport pickup, safari transport, private drivers, and 24/7 WhatsApp booking.",
+      "Book a private Yala safari transfer with SKY Taxi Service & Tours. Taxi to Yala National Park, airport pickup, safari transport, private drivers, and WhatsApp booking.",
   },
   "unawatuna-taxi-service": {
     title: "Unawatuna Taxi Service | Airport Transfers & Private Taxi",
     description:
-      "Book Unawatuna taxi service with SKY Taxi Service & Tours. Airport transfers, Galle trips, Mirissa transfers, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book Unawatuna taxi service with SKY Taxi Service & Tours. Airport transfers, Galle trips, Mirissa transfers, private drivers, clean vehicles, and WhatsApp booking.",
   },
   "weligama-taxi-service": {
     title: "Weligama Taxi Service | Airport Transfers & Private Taxi",
     description:
-      "Book Weligama taxi service with SKY Taxi Service & Tours. Colombo airport transfers, Mirissa trips, Galle routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book Weligama taxi service with SKY Taxi Service & Tours. Colombo airport transfers, Mirissa trips, Galle routes, private drivers, clean vehicles, and WhatsApp booking.",
   },
   "hiriketiya-taxi-service": {
     title: "Hiriketiya Taxi Service | Airport Transfers & Private Taxi",
     description:
-      "Book Hiriketiya taxi service with SKY Taxi Service & Tours. Colombo airport transfers, surf beach transfers, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book Hiriketiya taxi service with SKY Taxi Service & Tours. Colombo airport transfers, surf beach transfers, private drivers, clean vehicles, and WhatsApp booking.",
   },
   "nuwara-eliya-taxi-service": {
     title: "Nuwara Eliya Taxi Service | Airport Transfers & Private Taxi",
     description:
-      "Book Nuwara Eliya taxi service with SKY Taxi Service & Tours. Colombo airport transfers, hill country routes, tea plantation trips, private drivers, and 24/7 WhatsApp booking.",
+      "Book Nuwara Eliya taxi service with SKY Taxi Service & Tours. Colombo airport transfers, hill country routes, tea plantation trips, private drivers, and WhatsApp booking.",
   },
   "bentota-taxi-service": {
     title: "Bentota Taxi Service | Airport Transfers & Private Taxi",
     description:
-      "Book Bentota taxi service with SKY Taxi Service & Tours. Colombo airport transfers, beach routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book Bentota taxi service with SKY Taxi Service & Tours. Colombo airport transfers, beach routes, private drivers, clean vehicles, and WhatsApp booking.",
   },
   "negombo-taxi-service": {
     title: "Negombo Taxi Service | Airport Transfers & Private Taxi",
     description:
-      "Book Negombo taxi service with SKY Taxi Service & Tours. Colombo airport transfers, beach routes, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book Negombo taxi service with SKY Taxi Service & Tours. Colombo airport transfers, beach routes, private drivers, clean vehicles, and WhatsApp booking.",
   },
   "arugam-bay-taxi-service": {
     title: "Arugam Bay Taxi Service | Airport Transfers & Private Taxi",
     description:
-      "Book Arugam Bay taxi service with SKY Taxi Service & Tours. Colombo airport transfers, surf trips, private drivers, clean vehicles, and 24/7 WhatsApp booking.",
+      "Book Arugam Bay taxi service with SKY Taxi Service & Tours. Colombo airport transfers, surf trips, private drivers, clean vehicles, and WhatsApp booking.",
   },
   "dambulla-taxi-service": {
     title: "Dambulla Taxi Service | Cave Temple & Cultural Triangle Taxi",
     description:
-      "Book a private Dambulla taxi with SKY Taxi Service & Tours. Colombo airport transfers, Dambulla Cave Temple, Cultural Triangle stops, and 24/7 WhatsApp booking.",
+      "Book a private Dambulla taxi with SKY Taxi Service & Tours. Colombo airport transfers, Dambulla Cave Temple, Cultural Triangle stops, and WhatsApp booking.",
   },
   "airport-to-negombo": {
     title: "Colombo Airport to Negombo Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Negombo with SKY Taxi Service & Tours. Quick near-airport transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Negombo with SKY Taxi Service & Tours. Quick near-airport transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-bentota": {
     title: "Colombo Airport to Bentota Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Bentota with SKY Taxi Service & Tours. Safe beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Bentota with SKY Taxi Service & Tours. Private beach transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-nuwara-eliya": {
     title: "Colombo Airport to Nuwara Eliya Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Nuwara Eliya with SKY Taxi Service & Tours. Scenic hill country transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Nuwara Eliya with SKY Taxi Service & Tours. Scenic hill country transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-arugam-bay": {
     title: "Colombo Airport to Arugam Bay Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Arugam Bay with SKY Taxi Service & Tours. East coast surf transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Arugam Bay with SKY Taxi Service & Tours. East coast surf transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "airport-to-dambulla": {
     title: "Colombo Airport to Dambulla Taxi | Private Transfer Sri Lanka",
     description:
-      "Book a private taxi from Colombo Airport to Dambulla with SKY Taxi Service & Tours. Cultural Triangle transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Dambulla with SKY Taxi Service & Tours. Cultural Triangle transfer, clean vehicles, local drivers, and WhatsApp booking.",
   },
   "not-found": {
     title: "Page Not Found | SKY Taxi Service & Tours",
@@ -516,7 +516,7 @@ export const pageMeta = {
       "A practical answer for how many days to spend in Sri Lanka, based on SKY's real 1, 2, 3, 5, 7, and 10-day private tour routes and what each one actually covers.",
   },
   "is-a-private-driver-worth-it": {
-    title: "Is a Private Driver Worth It in Sri Lanka? | SKY Taxi Service & Tours",
+    title: "Is a Private Driver Worth It in Sri Lanka? | SKY Taxi",
     description:
       "An honest comparison of private driver, self-drive, and public transport in Sri Lanka — traffic side, roads, flexibility, and what a private-driver day actually looks like.",
   },
@@ -531,7 +531,7 @@ export const pageMeta = {
       "The real south coast beaches near Galle — Unawatuna, Mirissa, Weligama, and Bentota — compared for swimming, surf, and how far each is by private driver.",
   },
   "galle-to-ella": {
-    title: "Galle to Ella | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    title: "Galle to Ella by Private Driver | SKY Taxi",
     description:
       "Planning a private transfer from Galle to Ella? What the route covers, what to expect from south coast to hill country, and how to get an exact quote.",
   },
@@ -540,7 +540,7 @@ export const pageMeta = {
     description: "Colombo's temples, markets, Galle Face, and the Lotus Tower — a real, priced one-day tour with SKY Taxi Service & Tours.",
   },
   sinharaja: {
-    title: "Sinharaja, Sri Lanka | Rainforest Reserve Guide | SKY Taxi Service & Tours",
+    title: "Sinharaja Rainforest, Sri Lanka | Travel Guide | SKY Taxi",
     description: "Sinharaja rainforest reserve — birdwatching, waterfalls, and tea plantation views on a real, priced one-day tour.",
   },
   "things-to-do-in-galle": {
@@ -592,23 +592,23 @@ export const pageMeta = {
     description: "Sigiriya's ancient sites compared with Ella's hiking and viewpoints — plus the real 3-day tour that combines both.",
   },
   "ella-to-kandy": {
-    title: "Ella to Kandy | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    title: "Ella to Kandy by Private Driver | SKY Taxi",
     description: "Planning a private transfer from Ella to Kandy? What the route covers and how to get an exact quote.",
   },
   "kandy-to-sigiriya": {
-    title: "Kandy to Sigiriya | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    title: "Kandy to Sigiriya by Private Driver | SKY Taxi",
     description: "Planning a private transfer from Kandy to Sigiriya? What the route covers and how to get an exact quote.",
   },
   "sigiriya-to-yala": {
-    title: "Sigiriya to Yala | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    title: "Sigiriya to Yala by Private Driver | SKY Taxi",
     description: "Planning a private transfer from Sigiriya to Yala? What the route covers and how to get an exact quote.",
   },
   "galle-to-mirissa": {
-    title: "Galle to Mirissa | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    title: "Galle to Mirissa by Private Driver | SKY Taxi",
     description: "Planning a private transfer from Galle to Mirissa? What the route covers and how to get an exact quote.",
   },
   "mirissa-to-ella": {
-    title: "Mirissa to Ella | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    title: "Mirissa to Ella by Private Driver | SKY Taxi",
     description: "Planning a private transfer from Mirissa to Ella? What the route covers and how to get an exact quote.",
   },
   "best-places-to-visit-from-ella": {
@@ -648,35 +648,35 @@ export const pageMeta = {
     description: "Real quiet beaches and hill country stops for a couples trip, with the flexibility a private driver adds — no invented package.",
   },
   "sri-lanka-family-travel": {
-    title: "Sri Lanka Family Travel | Traveling with Children | SKY Taxi Service & Tours",
+    title: "Sri Lanka Family Travel with Children | SKY Taxi",
     description: "Practical advice for traveling with children in Sri Lanka — flexible stops, vehicle sizing, and a real family-friendly beach.",
   },
   "sri-lanka-budget-travel": {
-    title: "Sri Lanka Budget Travel | Real Lower-Cost Options | SKY Taxi Service & Tours",
+    title: "Sri Lanka Budget Travel: Lower-Cost Options | SKY Taxi",
     description: "Real, lower-cost ways to see Sri Lanka with SKY — one-day tours priced for the whole vehicle, and a dedicated budget taxi option.",
   },
   "how-to-travel-around-sri-lanka": {
-    title: "How to Travel Around Sri Lanka | Private Driver, Self-Drive & Public Transport",
+    title: "How to Travel Around Sri Lanka: Transport Options",
     description: "The real transport options in Sri Lanka — private driver, self-drive, and public transport — and when each one makes sense.",
   },
   "how-much-does-a-sri-lanka-trip-cost": {
-    title: "How Much Does a Sri Lanka Trip Cost? | Real Prices | SKY Taxi Service & Tours",
+    title: "How Much Does a Sri Lanka Trip Cost? | Real Prices",
     description: "Real prices from SKY's own catalog for private tours and transfers, priced per vehicle — no invented averages.",
   },
   "best-places-to-visit-in-sri-lanka": {
-    title: "What Are the Best Places to Visit in Sri Lanka? | SKY Taxi Service & Tours",
+    title: "What Are the Best Places to Visit in Sri Lanka? | SKY Taxi",
     description: "A region-by-region answer based on SKY's real destination data — hill country, south coast, Cultural Triangle, and wildlife.",
   },
   "best-time-to-visit-sri-lanka": {
-    title: "What Is the Best Time to Visit Sri Lanka? | SKY Taxi Service & Tours",
+    title: "What Is the Best Time to Visit Sri Lanka? | SKY Taxi",
     description: "Sri Lanka's two separate monsoon systems explained — general seasonal patterns for the west, south, hill country, and east coast.",
   },
   "first-time-visitor-sri-lanka": {
-    title: "Is Sri Lanka Good for a First-Time Visitor? | SKY Taxi Service & Tours",
+    title: "Is Sri Lanka Good for a First-Time Visitor? | SKY Taxi",
     description: "A practical, honest answer for first-time visitors — what makes Sri Lanka easy to travel, and how routes are usually built.",
   },
   "train-vs-private-car-sri-lanka": {
-    title: "Is Sri Lanka Better by Train or Private Car? | SKY Taxi Service & Tours",
+    title: "Is Sri Lanka Better by Train or Private Car? | SKY Taxi",
     description: "An honest comparison of the hill country train and a private car — and how many travelers combine both.",
   },
   "ella-vs-kandy": {
@@ -684,11 +684,11 @@ export const pageMeta = {
     description: "Ella's hiking and viewpoints compared with Kandy's culture and the Temple of the Tooth — plus the real 3-day tour that combines both.",
   },
   "galle-to-yala": {
-    title: "Galle to Yala | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    title: "Galle to Yala by Private Driver | SKY Taxi",
     description: "Planning a private transfer from Galle to Yala for a safari? What the route covers and how to get an exact quote.",
   },
   "unawatuna-to-ella": {
-    title: "Unawatuna to Ella | Private Driver Travel Guide | SKY Taxi Service & Tours",
+    title: "Unawatuna to Ella by Private Driver | SKY Taxi",
     description: "Planning a private transfer from Unawatuna to Ella? What the route covers and how to get an exact quote.",
   },
   "is-sri-lanka-safe-for-tourists": {
@@ -733,7 +733,7 @@ export const heroStats = [
 export const homeHighlights = [
   {
     title: "Airport Transfers",
-    text: "Safe airport pickups and drop-offs with clear timing, clean vehicles, and friendly local drivers.",
+    text: "Airport pickups and drop-offs with timing and vehicle details reviewed before travel.",
   },
   {
     title: "Private Tours",
@@ -1086,7 +1086,7 @@ export const popularTours = [
     title: "Airport to Unawatuna",
     image: airportTransfer,
     location: "Colombo Airport, Unawatuna",
-    text: "Safe airport transfer to your hotel or villa with a clear pickup plan.",
+    text: "Private airport transfer to your hotel or villa with a clear pickup plan.",
   },
   {
     title: "Kandy Temple Tour",
@@ -1126,7 +1126,7 @@ export const packages = [
     label: "Transfer",
     image: airportWelcome,
     alt: "Airport welcome transfer in Sri Lanka",
-    text: "Safe airport transfer to Unawatuna, Galle, Mirissa, Weligama, or Hikkaduwa with clear pickup timing.",
+    text: "Private airport transfer to Unawatuna, Galle, Mirissa, Weligama, or Hikkaduwa with clear pickup timing.",
     points: ["Flight timing", "Luggage space", "Hotel drop-off"],
     destinations: ["unawatuna", "galle", "mirissa", "weligama"],
   },

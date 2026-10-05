@@ -9,7 +9,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const transferRoutes = [
   {
     title: "Colombo airport pickup",
-    text: "Meet your driver at Bandaranaike International Airport with WhatsApp confirmation, flight-time checking, and private vehicle support.",
+    text: "Meet your driver at Bandaranaike International Airport with WhatsApp confirmation, flight details shared in advance, and private vehicle support.",
     image: images.airportWelcome,
   },
   {
@@ -54,7 +54,7 @@ const servicePoints = [
     icon: ShieldCheck,
   },
   {
-    title: "24/7 service",
+    title: "Pickup by arrangement",
     text: "Early morning arrivals, late night flights, and delayed flight pickups can be arranged by WhatsApp.",
     icon: Clock3,
   },
@@ -75,8 +75,8 @@ const faqs = [
     answer: "Yes. SKY Taxi Service & Tours offers private airport transfers from Colombo Airport to Ella, Kandy, Galle, Unawatuna, Mirissa, Sigiriya, and many other Sri Lanka destinations.",
   },
   {
-    question: "Are airport taxis available 24/7?",
-    answer: "Yes. Colombo Airport taxi pickups can be arranged day or night, including early morning and late night arrivals.",
+    question: "Can I request an early or late airport pickup?",
+    answer: "Share your flight time on WhatsApp. SKY will confirm availability and the pickup details before travel.",
   },
   {
     question: "Is the final airport taxi price fixed online?",
@@ -115,7 +115,7 @@ export default function ColomboAirportTaxi({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 service
+            Pickup by arrangement
           </span>
           <span>
             <ShieldCheck size={16} />

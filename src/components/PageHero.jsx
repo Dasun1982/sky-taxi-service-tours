@@ -1,7 +1,7 @@
 export default function PageHero({ eyebrow, title, description, image, alt, children }) {
   return (
     <section className="page-hero">
-      <img className="page-hero__image" src={image} alt={alt} loading="eager" />
+      <img className="page-hero__image" src={image} alt={alt} loading="eager" fetchPriority="high" decoding="async" />
       <div className="page-hero__shade" />
       {/* MOBILE PERFORMANCE: not "reveal" (the site-wide scroll-fade-in
           class) — this is the hero on every page using PageHero, visible

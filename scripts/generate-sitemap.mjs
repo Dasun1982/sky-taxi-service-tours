@@ -43,6 +43,7 @@ const excludedPageTypes = new Set([
   pageTypes.INVESTOR_NOINDEX,
   pageTypes.SOFT_DEINDEXED,
   pageTypes.NOT_FOUND,
+  pageTypes.UTILITY_NOINDEX,
 ]);
 
 // Simple, defensible three-tier weighting. Google has said it largely

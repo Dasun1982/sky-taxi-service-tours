@@ -14351,7 +14351,7 @@ body.sky-scroll-lock .premium-cursor__ring {
   margin-top: 2px;
 }
 
-/* Legal / policy draft pages — parallel launch acceleration */
+/* Legal / policy draft pages ï¿½ parallel launch acceleration */
 .prose-block {
   max-width: 720px;
   margin: 0 auto;
@@ -14384,4 +14384,247 @@ body.sky-scroll-lock .premium-cursor__ring {
   margin-top: 2rem;
   font-size: 0.92rem;
   opacity: 0.85;
+}
+
+
+/* ==========================================================================
+   W10 â€” launch polish
+   Polish only: same SKY palette, components, and layout. These rules fix
+   real defects found in the W10 visual audit (hero contrast, button-looking
+   info chips, card fatigue on phones) and are kept here, at the end of the
+   cascade, so they read as one reviewable layer.
+   ========================================================================== */
+
+/* Photo heroes: the brand-red eyebrow was unreadable over the dark shade.
+   Booking, Contact, and Vehicle Rentals use light heroes and keep it. */
+.page:not(.booking-page):not(.contact-page):not(.vehicle-rentals-page) .page-hero__content > .eyebrow {
+  color: #ffd2b8;
+  text-shadow: 0 1px 14px rgba(20, 16, 50, 0.5);
+}
+
+/* `.app a { color: inherit }` outranked `.button--light`, so light-button
+   links inside a photo hero inherited white text on a white fill. */
+.app .page-hero a.button--light {
+  color: var(--navy);
+}
+
+.app[data-theme="dark"] .page-hero a.button--light {
+  color: #fff8fb;
+}
+
+/* Home reassurance cards stay compact (kept from the first W10 pass). */
+.home-page .why-grid-home {
+  gap: clamp(12px, 1.4vw, 18px);
+}
+
+.home-page .why-card-home {
+  min-height: 0;
+  padding: clamp(19px, 2vw, 24px);
+  box-shadow: 0 12px 34px rgba(37, 38, 111, 0.075);
+}
+
+/* The Home map is a lazy third-party embed; show a calm brand surface
+   instead of an empty white box until (or unless) it loads. */
+.home-map-card {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 210, 184, 0.45), transparent 55%),
+    linear-gradient(160deg, rgba(140, 87, 153, 0.12), rgba(37, 38, 111, 0.08));
+}
+
+@media (max-width: 640px) {
+  /* Informational chips (not links): wrap as compact chips instead of
+     stacking as full-width rows that look like extra buttons. */
+  .app .home-trust-row,
+  .app .premium-hero-badges,
+  .app .airport-hero__badges,
+  .app .ai-planner-badges,
+  .app .booking-form-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .app .home-trust-row {
+    justify-content: center;
+  }
+
+  .app .home-trust-row span,
+  .app .premium-hero-badges span,
+  .app .airport-hero__badges span,
+  .app .ai-planner-badges span,
+  .app .booking-form-highlights span {
+    width: auto;
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.82rem;
+    box-shadow: none;
+    transform: none;
+  }
+
+  /* Related-page links: a wrapped row of compact chips, not a column of
+     full-width buttons (13 stacked pills on Private Driver). */
+  .app .colombo-airport-link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .app .colombo-airport-link-row a,
+  .app .colombo-airport-link-row button {
+    width: auto;
+    max-width: 100%;
+    min-height: 40px;
+    padding: 6px 14px;
+    font-size: 0.86rem;
+    font-weight: 800;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  /* Reassurance cards read as compact icon rows on phones. */
+  .home-page .why-card-home,
+  .app .airport-benefit-card {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 14px;
+    align-items: start;
+    align-content: start;
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .home-page .why-card-home p,
+  .app .airport-benefit-card p {
+    margin: 6px 0 0;
+  }
+
+  .home-page .why-card-home > span,
+  .app .airport-benefit-card > span {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .home-page .why-card-home h3,
+  .app .airport-benefit-card h3 {
+    margin-top: 2px;
+  }
+
+  .app .airport-benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Airport vehicle cards: shorter photo and side-by-side route prices. */
+  .app .airport-transfer-card__media img {
+    height: 168px;
+    object-fit: contain;
+  }
+
+  .app .airport-transfer-card__prices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .app .airport-transfer-card__prices div {
+    overflow-wrap: normal;
+  }
+
+  /* Region photos: wide crop so four regions are not four full screens. */
+  .explore-region-card img {
+    aspect-ratio: 16 / 10;
+  }
+
+  /* Booking: keep the form close; travel photos become a thumbnail row. */
+  .app .booking-visual-stack {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .app .booking-visual-stack figure {
+    min-height: 0;
+    margin: 0;
+  }
+
+  .app .booking-visual-stack img {
+    height: 104px;
+    aspect-ratio: auto;
+  }
+
+  .app .booking-visual-stack figcaption {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+  }
+
+  /* Footer: two link columns instead of one long list. */
+  .footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+  }
+
+  .footer__brand,
+  .footer__social {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Two-word nav labels ("Travel Guide") stay on one line on desktop. */
+.navbar__link {
+  white-space: nowrap;
+}
+
+/* RTL: directional icons point the way the page reads. */
+html[dir="rtl"] .lucide-arrow-right,
+html[dir="rtl"] .lucide-arrow-left,
+html[dir="rtl"] .lucide-chevron-right,
+html[dir="rtl"] .lucide-chevron-left {
+  transform: scaleX(-1);
+}
+
+/* RTL: Arabic descenders were clipped by the tight gradient-title leading. */
+html[dir="rtl"] .hero-gradient-title {
+  line-height: 1.24;
+  padding-bottom: 0.08em;
+}
+
+/* RTL: English fallback copy keeps its own punctuation order inside the
+   Arabic layout ("travel help." instead of ".travel help"). */
+html[dir="rtl"] :where(p, li, h1, h2, h3, figcaption, .eyebrow, label) {
+  unicode-bidi: plaintext;
+}
+
+/* RTL: the English brand name truncates at its end, like LTR. */
+html[dir="rtl"] .brand-name {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Touch targets: text-style actions and footer contact links get a 32px
+   hit area (WCAG 2.5.8 asks for at least 24px) without changing their look. */
+.text-button,
+.footer__social a {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Screen-reader-only text (keeps the heading outline complete). */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.explore-region-card__places a {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
 }

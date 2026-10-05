@@ -101,7 +101,7 @@ export default function FiveDaySriLankaTour({ setPage }) {
                 <UserCheck size={20} />
               </span>
               <h3>Driver + Guide</h3>
-              <p>Add a specialist licensed local guide for the Cultural Triangle or Kandy stops where deeper history helps most.</p>
+              <p>Add a specialist local guide for the Cultural Triangle or Kandy stops where deeper history helps most.</p>
             </article>
           </Reveal>
         </div>
@@ -213,7 +213,7 @@ export default function FiveDaySriLankaTour({ setPage }) {
               <h3>Is a guide included?</h3>
               <div>
                 <p>
-                  Not by default. Your driver handles transportation, timing, and route knowledge. A specialist licensed local guide can be
+                  Not by default. Your driver handles transportation, timing, and route knowledge. A specialist local guide can be
                   arranged separately for the Cultural Triangle or Kandy stops — see Driver + Guide.
                 </p>
               </div>

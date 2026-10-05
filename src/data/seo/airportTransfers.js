@@ -16,7 +16,7 @@ export const airportTransferTowns = {
     heroAlt: "Colombo Airport to Negombo taxi private transfer Sri Lanka",
     heroTitle: "Colombo Airport to Negombo Taxi",
     heroDescription:
-      "Book a private taxi from Colombo Airport to Negombo with a quick near-airport transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Negombo with a quick near-airport transfer, clean vehicles, local drivers, and WhatsApp booking.",
     introEyebrow: "Colombo Airport to Negombo transfer",
     introTitle: "Private airport to Negombo taxi for a quick near-airport transfer",
     introText:
@@ -45,7 +45,7 @@ export const airportTransferTowns = {
     routeDetails: [
       {
         title: "Colombo Airport to Negombo taxi",
-        text: "Private transfer from Bandaranaike International Airport to Negombo with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+        text: "Private transfer from Bandaranaike International Airport to Negombo with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
         image: images.airportWelcome,
       },
       {
@@ -85,7 +85,7 @@ export const airportTransferTowns = {
       {
         question: "Can I book an airport to Negombo taxi after a late flight?",
         answer:
-          "Yes. SKY Taxi Service & Tours can arrange Negombo airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+          "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Negombo is available before travel.",
       },
       {
         question: "Is Negombo a good first stop after landing?",
@@ -111,11 +111,11 @@ export const airportTransferTowns = {
     heroAlt: "Colombo Airport to Bentota taxi private transfer Sri Lanka",
     heroTitle: "Colombo Airport to Bentota Taxi",
     heroDescription:
-      "Book a private taxi from Colombo Airport to Bentota with a safe beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Bentota with a private beach transfer, clean vehicles, local drivers, and WhatsApp booking.",
     introEyebrow: "Colombo Airport to Bentota transfer",
-    introTitle: "Private airport to Bentota taxi with safe beach transfer",
+    introTitle: "Private airport to Bentota taxi with private beach transfer",
     introText:
-      "SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Bentota taxi before arrival. Your driver can meet you at the airport, help with luggage, and take you safely to Bentota's beach hotels and resorts.",
+      "SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Bentota taxi before arrival. Your driver can meet you at the airport, help with luggage, and take you to Bentota's beach hotels and resorts.",
     travelTimeText:
       "The airport to Bentota taxi route usually takes around 1.5 to 2 hours by Southern Expressway depending on traffic, pickup time, and hotel location.",
     badgeText: "1.5–2 hr route",
@@ -123,7 +123,7 @@ export const airportTransferTowns = {
     summaryStops: [
       {
         title: "Southern Expressway route",
-        text: "A faster coastal transfer route from Colombo Airport to Bentota with clean vehicles and safe local driver support.",
+        text: "A faster coastal transfer route from Colombo Airport to Bentota with clean vehicles and local driver support.",
         icon: "route",
       },
       {
@@ -140,7 +140,7 @@ export const airportTransferTowns = {
     routeDetails: [
       {
         title: "Colombo Airport to Bentota taxi",
-        text: "Private transfer from Bandaranaike International Airport to Bentota with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+        text: "Private transfer from Bandaranaike International Airport to Bentota with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
         image: images.airportWelcome,
       },
       {
@@ -150,7 +150,7 @@ export const airportTransferTowns = {
       },
       {
         title: "Southern Expressway transfer",
-        text: "Travel safely on the Southern Expressway with a clean private vehicle, comfort breaks when needed, and fair route-based pricing confirmed on WhatsApp.",
+        text: "Travel on the Southern Expressway with a clean private vehicle, comfort breaks when needed, and fair route-based pricing confirmed on WhatsApp.",
         image: images.blueBeach,
       },
       {
@@ -180,7 +180,7 @@ export const airportTransferTowns = {
       {
         question: "Can I book an airport to Bentota taxi after a late flight?",
         answer:
-          "Yes. SKY Taxi Service & Tours can arrange Bentota airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+          "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Bentota is available before travel.",
       },
       {
         question: "Does the taxi use the Southern Expressway?",
@@ -206,11 +206,11 @@ export const airportTransferTowns = {
     heroAlt: "Colombo Airport to Nuwara Eliya taxi private transfer Sri Lanka",
     heroTitle: "Colombo Airport to Nuwara Eliya Taxi",
     heroDescription:
-      "Book a private taxi from Colombo Airport to Nuwara Eliya with a scenic hill country transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Nuwara Eliya with a scenic hill country transfer, clean vehicles, local drivers, and WhatsApp booking.",
     introEyebrow: "Colombo Airport to Nuwara Eliya transfer",
     introTitle: "Private airport to Nuwara Eliya taxi through scenic hill country",
     introText:
-      "SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Nuwara Eliya taxi before arrival. Your driver can meet you at the airport, help with luggage, and take you safely through hill country to Sri Lanka's tea country town.",
+      "SKY Taxi Service & Tours helps travelers request a private Colombo Airport to Nuwara Eliya taxi before arrival. Share pickup and luggage details so SKY can confirm the arrangement for your hill country journey.",
     travelTimeText:
       "The airport to Nuwara Eliya taxi route usually takes around 5 to 6 hours depending on traffic, pickup time, comfort stops, and hotel location.",
     badgeText: "5–6 hr route",
@@ -218,7 +218,7 @@ export const airportTransferTowns = {
     summaryStops: [
       {
         title: "Hill country route",
-        text: "A longer scenic transfer route from Colombo Airport to Nuwara Eliya with clean vehicles and safe local driver support.",
+        text: "A longer scenic transfer route from Colombo Airport to Nuwara Eliya with clean vehicles and local driver support.",
         icon: "route",
       },
       {
@@ -235,7 +235,7 @@ export const airportTransferTowns = {
     routeDetails: [
       {
         title: "Colombo Airport to Nuwara Eliya taxi",
-        text: "Private transfer from Bandaranaike International Airport to Nuwara Eliya with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+        text: "Private transfer from Bandaranaike International Airport to Nuwara Eliya with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
         image: images.airportWelcome,
       },
       {
@@ -275,7 +275,7 @@ export const airportTransferTowns = {
       {
         question: "Can I book an airport to Nuwara Eliya taxi after a late flight?",
         answer:
-          "Yes. SKY Taxi Service & Tours can arrange Nuwara Eliya airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+          "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Nuwara Eliya is available before travel.",
       },
       {
         question: "Can we stop at tea estates or viewpoints on the way?",
@@ -301,11 +301,11 @@ export const airportTransferTowns = {
     heroAlt: "Colombo Airport to Arugam Bay taxi private transfer Sri Lanka",
     heroTitle: "Colombo Airport to Arugam Bay Taxi",
     heroDescription:
-      "Book a private taxi from Colombo Airport to Arugam Bay with an east coast surf transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Arugam Bay with an east coast surf transfer, clean vehicles, local drivers, and WhatsApp booking.",
     introEyebrow: "Colombo Airport to Arugam Bay transfer",
     introTitle: "Private airport to Arugam Bay taxi for the east coast",
     introText:
-      "SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Arugam Bay taxi before arrival. Your driver can meet you at the airport, help with luggage and surfboards, and take you safely across the island to the east coast.",
+      "SKY Taxi Service & Tours helps travelers request a private Colombo Airport to Arugam Bay taxi before arrival. Share pickup, luggage, and surfboard details so SKY can confirm the arrangement for your east coast journey.",
     travelTimeText:
       "The airport to Arugam Bay taxi route usually takes around 7 to 8 hours depending on traffic, pickup time, and comfort stops.",
     badgeText: "7–8 hr route",
@@ -313,7 +313,7 @@ export const airportTransferTowns = {
     summaryStops: [
       {
         title: "Long east coast route",
-        text: "A full-day transfer route from Colombo Airport to Arugam Bay with clean vehicles and safe local driver support.",
+        text: "A full-day transfer route from Colombo Airport to Arugam Bay with clean vehicles and local driver support.",
         icon: "route",
       },
       {
@@ -330,7 +330,7 @@ export const airportTransferTowns = {
     routeDetails: [
       {
         title: "Colombo Airport to Arugam Bay taxi",
-        text: "Private transfer from Bandaranaike International Airport to Arugam Bay with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+        text: "Private transfer from Bandaranaike International Airport to Arugam Bay with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
         image: images.airportWelcome,
       },
       {
@@ -370,7 +370,7 @@ export const airportTransferTowns = {
       {
         question: "Can I book an airport to Arugam Bay taxi after a late flight?",
         answer:
-          "Yes. SKY Taxi Service & Tours can arrange Arugam Bay airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+          "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Arugam Bay is available before travel.",
       },
       {
         question: "Is there space for surfboards?",
@@ -396,11 +396,11 @@ export const airportTransferTowns = {
     heroAlt: "Colombo Airport to Dambulla taxi private transfer Sri Lanka",
     heroTitle: "Colombo Airport to Dambulla Taxi",
     heroDescription:
-      "Book a private taxi from Colombo Airport to Dambulla with a Cultural Triangle transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking.",
+      "Book a private taxi from Colombo Airport to Dambulla with a Cultural Triangle transfer, clean vehicles, local drivers, and WhatsApp booking.",
     introEyebrow: "Colombo Airport to Dambulla transfer",
     introTitle: "Private airport to Dambulla taxi for the Cultural Triangle",
     introText:
-      "SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Dambulla taxi before arrival. Your driver can meet you at the airport, help with luggage, and take you safely to Dambulla and the Cultural Triangle.",
+      "SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Dambulla taxi before arrival. Your driver can meet you at the airport, help with luggage, and take you to Dambulla and the Cultural Triangle.",
     travelTimeText:
       "The airport to Dambulla taxi route usually takes around 3.5 to 4.5 hours depending on traffic, pickup time, and comfort stops.",
     badgeText: "3.5–4.5 hr route",
@@ -408,7 +408,7 @@ export const airportTransferTowns = {
     summaryStops: [
       {
         title: "Cultural Triangle route",
-        text: "A direct transfer route from Colombo Airport to Dambulla with clean vehicles and safe local driver support.",
+        text: "A direct transfer route from Colombo Airport to Dambulla with clean vehicles and local driver support.",
         icon: "route",
       },
       {
@@ -425,7 +425,7 @@ export const airportTransferTowns = {
     routeDetails: [
       {
         title: "Colombo Airport to Dambulla taxi",
-        text: "Private transfer from Bandaranaike International Airport to Dambulla with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+        text: "Private transfer from Bandaranaike International Airport to Dambulla with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
         image: images.airportWelcome,
       },
       {
@@ -435,7 +435,7 @@ export const airportTransferTowns = {
       },
       {
         title: "Cultural Triangle transfer",
-        text: "Travel safely toward the Cultural Triangle with a clean private vehicle, comfort breaks when needed, and fair route-based pricing confirmed on WhatsApp.",
+        text: "Travel toward the Cultural Triangle with a clean private vehicle, comfort breaks when needed, and fair route-based pricing confirmed on WhatsApp.",
         image: images.dambulla,
       },
       {
@@ -465,7 +465,7 @@ export const airportTransferTowns = {
       {
         question: "Can I book an airport to Dambulla taxi after a late flight?",
         answer:
-          "Yes. SKY Taxi Service & Tours can arrange Dambulla airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+          "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Dambulla is available before travel.",
       },
       {
         question: "Can the taxi stop at Sigiriya or Pidurangala?",

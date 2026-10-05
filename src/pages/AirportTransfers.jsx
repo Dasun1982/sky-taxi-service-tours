@@ -148,6 +148,7 @@ export default function AirportTransfers({ setPage }) {
 
       <section className="section airport-benefits-section">
         <div className="section__inner">
+          <h2 className="visually-hidden">{t("airport.w8.benefitsHeading", "How SKY airport transfers work")}</h2>
           <div className="airport-benefit-grid">
             {airportBenefits.map((benefit, index) => {
               const Icon = benefit.icon;

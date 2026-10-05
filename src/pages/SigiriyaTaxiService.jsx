@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const sigiriyaRoutes = [
   {
     title: "Colombo airport to Sigiriya taxi",
-    text: "Book a private Colombo airport to Sigiriya taxi with flight-time checking, luggage space, and WhatsApp confirmation before pickup.",
+    text: "Book a private Colombo airport to Sigiriya taxi with flight details shared in advance, luggage space, and WhatsApp confirmation before pickup.",
     image: images.airportWelcome,
   },
   {
@@ -60,7 +60,7 @@ const highlights = [
     icon: Car,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send pickup place, drop-off location, date, time, passenger count, and luggage for a fair route-based quote.",
     icon: Clock3,
   },
@@ -75,7 +75,7 @@ const faqs = [
   {
     question: "Can I book a Colombo airport to Sigiriya taxi?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Sigiriya taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Sigiriya taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
   },
   {
     question: "Can the taxi stop at Dambulla or Pidurangala?",
@@ -104,7 +104,7 @@ export default function SigiriyaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Sigiriya Taxi Service"
         title="Sigiriya Taxi Service"
-        description="Book a private taxi to Sigiriya Sri Lanka with airport transfers, cultural triangle trips, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book a private taxi to Sigiriya Sri Lanka with airport transfers, cultural triangle trips, clean vehicles, and WhatsApp booking."
         image={images.sigiriya}
         alt="Sigiriya taxi service to Sigiriya Rock Fortress Sri Lanka"
       >
@@ -145,7 +145,7 @@ export default function SigiriyaTaxiService({ setPage }) {
             <h2>Private Sigiriya taxi service for airport transfers and cultural triangle trips</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a Sigiriya taxi from Colombo Airport, Kandy, Ella, Galle, Unawatuna, and other Sri Lanka destinations.
-              Your private driver can plan a comfortable route with flexible stops, safe travel, and clean vehicle support.
+              Your private driver can plan a comfortable route with flexible stops and vehicle details confirmed before travel.
             </p>
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>

@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeCards = [
   {
     title: "Colombo Airport to Nuwara Eliya taxi",
-    text: "Book a private Colombo airport to Nuwara Eliya taxi with flight-time checking, luggage support, hill country route planning, and WhatsApp confirmation.",
+    text: "Book a private Colombo airport to Nuwara Eliya taxi with flight details shared in advance, luggage support, hill country route planning, and WhatsApp confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -55,7 +55,7 @@ const hillCountryTransfers = [
   },
   {
     title: "Nuwara Eliya airport transfer support",
-    text: "Plan Nuwara Eliya airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and 24/7 WhatsApp booking.",
+    text: "Plan Nuwara Eliya airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and WhatsApp booking.",
     image: images.ambuluwawe,
   },
 ];
@@ -86,11 +86,11 @@ const highlights = [
   },
   {
     title: "Airport transfer support",
-    text: "Book Colombo airport to Nuwara Eliya taxi service with flight-time checking, fair quotes, clean vehicles, and luggage help.",
+    text: "Book Colombo airport to Nuwara Eliya taxi service with flight details shared in advance, fair quotes, clean vehicles, and luggage help.",
     icon: Plane,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send your route, date, time, passengers, and luggage anytime to confirm a private driver Nuwara Eliya quote.",
     icon: Clock3,
   },
@@ -105,7 +105,7 @@ const faqs = [
   {
     question: "Do you provide Colombo airport to Nuwara Eliya taxi service?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Nuwara Eliya taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Nuwara Eliya taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
     question: "Can I book taxi in Nuwara Eliya for Ella, Kandy, Galle, Mirissa, or Yala?",
@@ -134,7 +134,7 @@ export default function NuwaraEliyaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Nuwara Eliya Taxi Service"
         title="Nuwara Eliya Taxi Service"
-        description="Book Nuwara Eliya taxi service for Colombo airport transfers, hill country routes, tea plantation trips, private drivers, and 24/7 WhatsApp booking."
+        description="Book Nuwara Eliya taxi service for Colombo airport transfers, hill country routes, tea plantation trips, private drivers, and WhatsApp booking."
         image={images.trainRide}
         alt="Nuwara Eliya taxi service hill country airport transfer"
       >

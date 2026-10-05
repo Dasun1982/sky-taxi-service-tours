@@ -422,7 +422,7 @@ function AppShell() {
     const robotsValue =
       activePage === "not-found"
         ? "noindex, nofollow"
-        : activePage === "vehicle-rentals"
+        : ["vehicle-rentals", "privacy", "terms", "account-deletion", "support"].includes(activePage)
           ? "noindex, follow"
           : "index, follow";
     ensureMetaTag("robots", robotsValue);

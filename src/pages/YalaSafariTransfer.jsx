@@ -11,7 +11,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const transferSections = [
   {
     title: "Taxi from Colombo Airport to Yala",
-    text: "Book a Colombo airport to Yala taxi with flight-time checking, luggage support, clean private vehicles, and WhatsApp confirmation before pickup.",
+    text: "Book a Colombo airport to Yala taxi with flight details shared in advance, luggage support, clean private vehicles, and WhatsApp confirmation before pickup.",
     image: images.airportWelcome,
   },
   {
@@ -76,7 +76,7 @@ const faqs = [
   {
     question: "Can I book a taxi to Yala National Park from Colombo Airport?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides Colombo airport to Yala taxi service with private vehicles, flight-time checking, luggage support, and WhatsApp confirmation.",
+      "Yes. SKY Taxi Service & Tours provides Colombo airport to Yala taxi service with private vehicles, flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
     question: "Do you arrange safari transport Sri Lanka hotel pickup?",
@@ -105,7 +105,7 @@ export default function YalaSafariTransfer({ setPage }) {
       <PageHero
         eyebrow="Yala Safari Transfer"
         title="Yala Safari Transfer"
-        description="Book a private Yala safari transfer for taxi to Yala National Park, airport pickup, safari transport, private drivers, and 24/7 WhatsApp booking."
+        description="Book a private Yala safari transfer for taxi to Yala National Park, airport pickup, safari transport, private drivers, and WhatsApp booking."
         image={images.safari}
         alt="Yala safari transfer taxi to Yala National Park Sri Lanka"
       >

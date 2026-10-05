@@ -13,7 +13,7 @@ import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js
 const routeDetails = [
   {
     title: "Colombo Airport to Mirissa taxi",
-    text: "Private transfer from Bandaranaike International Airport to Mirissa with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+    text: "Private transfer from Bandaranaike International Airport to Mirissa with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -23,7 +23,7 @@ const routeDetails = [
   },
   {
     title: "Southern Expressway beach transfer",
-    text: "Travel safely toward the south coast using the Southern Expressway with a clean private vehicle, fair route quote, and local driver support.",
+    text: "Travel toward the south coast using the Southern Expressway with a clean private vehicle, fair route quote, and local driver support.",
     image: images.blueBeach,
   },
   {
@@ -36,7 +36,7 @@ const routeDetails = [
 const coastalStops = [
   {
     title: "Southern Expressway route",
-    text: "A comfortable airport to Mirissa taxi route with safe coastal travel, clean vehicles, and flexible comfort stops.",
+    text: "A comfortable airport to Mirissa taxi route with a private coastal route, clean vehicles, and flexible comfort stops.",
     icon: Route,
   },
   {
@@ -74,7 +74,7 @@ const faqs = [
   {
     question: "Can I book an airport to Mirissa taxi after a late flight?",
     answer:
-      "Yes. SKY Taxi Service & Tours can arrange Mirissa airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+      "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Mirissa is available before travel.",
   },
   {
     question: "Does the taxi use the Southern Expressway?",
@@ -105,7 +105,7 @@ export default function AirportToMirissaTaxi({ setPage }) {
       <PageHero
         eyebrow="Airport to Mirissa Taxi"
         title="Colombo Airport to Mirissa Taxi"
-        description="Book a private taxi from Colombo Airport to Mirissa with safe beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking."
+        description="Book a private taxi from Colombo Airport to Mirissa with private beach transfer, clean vehicles, local drivers, and WhatsApp booking."
         image={images.whaleWatching}
         alt="Colombo Airport to Mirissa taxi private beach transfer Sri Lanka"
       >
@@ -135,7 +135,7 @@ export default function AirportToMirissaTaxi({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>
@@ -146,10 +146,10 @@ export default function AirportToMirissaTaxi({ setPage }) {
         <div className="section__inner split-layout">
           <Reveal className="split-layout__copy">
             <span className="eyebrow">Colombo Airport to Mirissa transfer</span>
-            <h2>Private airport to Mirissa taxi with safe beach transfer</h2>
+            <h2>Private airport to Mirissa taxi with private beach transfer</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Mirissa taxi before arrival. Your driver can meet you at the airport,
-              help with luggage, use the Southern Expressway route, and take you safely to Mirissa Beach, whale watching pickups, or nearby south coast hotels.
+              help with luggage, use the Southern Expressway route, and take you to Mirissa Beach, whale watching pickups, or nearby south coast hotels.
             </p>
             <div className="colombo-airport-link-row">
               <button type="button" onClick={() => setPage("home")}>

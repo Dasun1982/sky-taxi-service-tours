@@ -60,7 +60,9 @@ test("products, vehicles, and credentials stay separate", () => {
   assert.doesNotMatch(page, /licensed|certified|government.approved|official guide|English.speaking|German.speaking|Russian.speaking|French.speaking/i);
   assert.match(page, /href="\/private-driver-sri-lanka"/);
   assert.match(page, /href="\/driver-guide-sri-lanka"/);
-  assert.match(driverGuide, /specialist licensed local guide can be\s+arranged alongside your driver/);
+  // W10: the unverified "licensed" guide claim was removed from Driver + Guide.
+  assert.match(driverGuide, /specialist local guide can be\s+arranged alongside your driver/);
+  assert.doesNotMatch(driverGuide, /licensed/i);
   assert.match(privateDriver, /No specialist guiding is included in the Private Driver daily price/);
 });
 

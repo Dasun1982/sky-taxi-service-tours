@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const galleRoutes = [
   {
     title: "Colombo airport to Galle taxi",
-    text: "Book a private Colombo airport to Galle taxi with flight-time checking, luggage space, highway route planning, and WhatsApp confirmation before pickup.",
+    text: "Book a private Colombo airport to Galle taxi with flight details shared in advance, luggage space, highway route planning, and WhatsApp confirmation before pickup.",
     image: images.airportWelcome,
   },
   {
@@ -60,7 +60,7 @@ const highlights = [
     icon: Car,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send pickup place, drop-off location, date, time, passenger count, and luggage for a fair route-based quote.",
     icon: Clock3,
   },
@@ -75,7 +75,7 @@ const faqs = [
   {
     question: "Can I book a Colombo airport to Galle taxi?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Galle taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Galle taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
   },
   {
     question: "Can the taxi stop at Galle Fort or south coast beaches?",
@@ -104,7 +104,7 @@ export default function GalleTaxiService({ setPage }) {
       <PageHero
         eyebrow="Galle Taxi Service"
         title="Galle Taxi Service"
-        description="Book a private taxi to Galle Sri Lanka with Colombo airport transfers, Galle Fort trips, beach routes, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book a private taxi to Galle Sri Lanka with Colombo airport transfers, Galle Fort trips, beach routes, clean vehicles, and WhatsApp booking."
         image={images.galleFort}
         alt="Galle taxi service to Galle Fort Sri Lanka"
       >
@@ -145,7 +145,7 @@ export default function GalleTaxiService({ setPage }) {
             <h2>Private Galle taxi service for airport transfers and south coast travel</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a Galle taxi from Colombo Airport, Ella, Kandy, Unawatuna, Mirissa, and other Sri Lanka destinations.
-              Your private driver can plan a comfortable route with flexible stops, safe travel, and clean vehicle support.
+              Your private driver can plan a comfortable route with flexible stops and vehicle details confirmed before travel.
             </p>
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>

@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeCards = [
   {
     title: "Colombo Airport to Hiriketiya taxi",
-    text: "Book a private Colombo airport to Hiriketiya taxi with flight-time checking, luggage support, highway route planning, and WhatsApp confirmation.",
+    text: "Book a private Colombo airport to Hiriketiya taxi with flight details shared in advance, luggage support, highway route planning, and WhatsApp confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -60,7 +60,7 @@ const surfTransfers = [
   },
   {
     title: "Airport and surf route support",
-    text: "Plan Hiriketiya airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and 24/7 WhatsApp booking.",
+    text: "Plan Hiriketiya airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and WhatsApp booking.",
     image: images.beach,
   },
 ];
@@ -91,11 +91,11 @@ const highlights = [
   },
   {
     title: "Airport transfer support",
-    text: "Book Colombo airport to Hiriketiya taxi service with flight-time checking, fair quotes, clean vehicles, and luggage help.",
+    text: "Book Colombo airport to Hiriketiya taxi service with flight details shared in advance, fair quotes, clean vehicles, and luggage help.",
     icon: Plane,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send your route, date, time, passengers, and luggage anytime to confirm a private driver Hiriketiya quote.",
     icon: Clock3,
   },
@@ -110,7 +110,7 @@ const faqs = [
   {
     question: "Do you provide Colombo airport to Hiriketiya taxi service?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Hiriketiya taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Hiriketiya taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
     question: "Can I book taxi in Hiriketiya for Mirissa, Weligama, Galle, Ella, Yala, or Unawatuna?",
@@ -139,7 +139,7 @@ export default function HiriketiyaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Hiriketiya Taxi Service"
         title="Hiriketiya Taxi Service"
-        description="Book Hiriketiya taxi service for Colombo airport transfers, surf beach transfers, private drivers, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book Hiriketiya taxi service for Colombo airport transfers, surf beach transfers, private drivers, clean vehicles, and WhatsApp booking."
         image={images.hiriketiyaBeach}
         alt="Hiriketiya taxi service private airport transfer"
       >

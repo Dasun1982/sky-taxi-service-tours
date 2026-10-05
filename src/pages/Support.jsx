@@ -16,7 +16,7 @@ export default function Support({ setPage }) {
           <p>
             Need help with a transport request, quote, booking, driver coordination, cancellation,
             or app question? Reach the same SKY channels used across the website and apps.
-            Support covers published operating hours and is not claimed here as 24/7 emergency dispatch.
+            Replies are handled by the SKY team as soon as practical; this is not a 24/7 emergency dispatch service.
           </p>
 
           <div className="feature-grid" style={{ marginTop: "1.5rem" }}>

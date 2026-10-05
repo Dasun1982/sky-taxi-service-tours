@@ -103,7 +103,7 @@ export default function HowMuchDoesASriLankaTripCost({ setPage }) {
             <article className="faq-item">
               <h3>Does a specialist guide cost extra?</h3>
               <div>
-                <p>Yes — a driver alone is included in the base price; a specialist licensed guide is an optional add-on, confirmed on WhatsApp.</p>
+                <p>Yes — a driver alone is included in the base price; a specialist guide is an optional add-on, confirmed on WhatsApp.</p>
               </div>
             </article>
             <article className="faq-item">

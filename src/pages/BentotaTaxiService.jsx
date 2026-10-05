@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeCards = [
   {
     title: "Colombo Airport to Bentota taxi",
-    text: "Book a private Colombo airport to Bentota taxi with flight-time checking, luggage support, highway route planning, and WhatsApp confirmation.",
+    text: "Book a private Colombo airport to Bentota taxi with flight details shared in advance, luggage support, highway route planning, and WhatsApp confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -55,7 +55,7 @@ const beachTransfers = [
   },
   {
     title: "Airport and beach route support",
-    text: "Plan Bentota airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and 24/7 WhatsApp booking.",
+    text: "Plan Bentota airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and WhatsApp booking.",
     image: images.boatTour,
   },
 ];
@@ -86,11 +86,11 @@ const highlights = [
   },
   {
     title: "Airport transfer support",
-    text: "Book Colombo airport to Bentota taxi service with flight-time checking, fair quotes, clean vehicles, and luggage help.",
+    text: "Book Colombo airport to Bentota taxi service with flight details shared in advance, fair quotes, clean vehicles, and luggage help.",
     icon: Plane,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send your route, date, time, passengers, and luggage anytime to confirm a private driver Bentota quote.",
     icon: Clock3,
   },
@@ -105,7 +105,7 @@ const faqs = [
   {
     question: "Do you provide Colombo airport to Bentota taxi service?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Bentota taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Bentota taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
     question: "Can I book taxi in Bentota for Galle, Mirissa, Unawatuna, Ella, or Yala?",
@@ -134,7 +134,7 @@ export default function BentotaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Bentota Taxi Service"
         title="Bentota Taxi Service"
-        description="Book Bentota taxi service for Colombo airport transfers, beach routes, private drivers, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book Bentota taxi service for Colombo airport transfers, beach routes, private drivers, clean vehicles, and WhatsApp booking."
         image={images.blueBeach}
         alt="Bentota taxi service private airport transfer"
       >

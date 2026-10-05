@@ -65,7 +65,7 @@ const highlights = [
   },
   {
     title: "Driver support for the day",
-    text: "Book Sri Lanka day tours with driver for safe private travel, route timing, comfort stops, luggage help, and friendly local support.",
+    text: "Book Sri Lanka day tours with driver for private travel, route timing, comfort stops, luggage help, and friendly local support.",
     icon: Car,
   },
   {
@@ -94,7 +94,7 @@ const faqs = [
   {
     question: "Do you provide Sri Lanka day tours with driver?",
     answer:
-      "Yes. Each private day tour includes a clean vehicle and friendly local driver support. Specialist licensed site guides can be arranged separately where needed.",
+      "Yes. Each private day tour includes a clean vehicle and friendly local driver support. Specialist site guides can be arranged separately where needed.",
   },
   {
     question: "Is the day tour price fixed online?",
@@ -113,7 +113,7 @@ export default function DayToursSriLanka({ setPage }) {
       <PageHero
         eyebrow="Day Tours Sri Lanka"
         title="Day Tours Sri Lanka"
-        description="Book private day tours in Sri Lanka for Ella, Kandy, Galle, Sigiriya, Mirissa, Yala, airport pickup, and 24/7 WhatsApp booking."
+        description="Book private day tours in Sri Lanka for Ella, Kandy, Galle, Sigiriya, Mirissa, Yala, airport pickup, and WhatsApp booking."
         image={images.blueBeach}
         alt="Day tours Sri Lanka private one day trips with driver"
       >

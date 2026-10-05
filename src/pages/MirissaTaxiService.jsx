@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const mirissaRoutes = [
   {
     title: "Colombo airport to Mirissa taxi",
-    text: "Book a private Colombo airport to Mirissa taxi with flight-time checking, luggage space, highway route planning, and WhatsApp confirmation before pickup.",
+    text: "Book a private Colombo airport to Mirissa taxi with flight details shared in advance, luggage space, highway route planning, and WhatsApp confirmation before pickup.",
     image: images.airportWelcome,
   },
   {
@@ -60,7 +60,7 @@ const highlights = [
     icon: Car,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send pickup place, drop-off location, date, time, passenger count, and luggage for a fair route-based quote.",
     icon: Clock3,
   },
@@ -75,7 +75,7 @@ const faqs = [
   {
     question: "Can I book a Colombo airport to Mirissa taxi?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Mirissa taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Mirissa taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
   },
   {
     question: "Can I book a whale watching transfer Mirissa pickup?",
@@ -104,7 +104,7 @@ export default function MirissaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Mirissa Taxi Service"
         title="Mirissa Taxi Service"
-        description="Book a private taxi to Mirissa Sri Lanka with airport transfers, beach routes, whale watching transfers, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book a private taxi to Mirissa Sri Lanka with airport transfers, beach routes, whale watching transfers, clean vehicles, and WhatsApp booking."
         image={images.whaleWatching}
         alt="Mirissa taxi service and whale watching transfer Sri Lanka"
       >
@@ -145,7 +145,7 @@ export default function MirissaTaxiService({ setPage }) {
             <h2>Private Mirissa taxi service for airport transfers and beach routes</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a Mirissa taxi from Colombo Airport, Galle, Ella, Kandy, Unawatuna, and other Sri Lanka destinations.
-              Your private driver can plan a comfortable route with flexible stops, safe travel, and clean vehicle support.
+              Your private driver can plan a comfortable route with flexible stops and vehicle details confirmed before travel.
             </p>
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>

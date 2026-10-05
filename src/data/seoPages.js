@@ -70,6 +70,7 @@ export const pageTypes = {
 
   // Core / utility (not acquisition-intent SEO pages, but real indexable pages)
   CORE: "core",
+  UTILITY_NOINDEX: "utility-noindex", // public support and draft legal routes, accessible but not search landing pages
 
   // Explicitly excluded from the public index
   INVESTOR_NOINDEX: "investor-noindex",
@@ -109,6 +110,10 @@ export const seoPages = [
   { slug: "experiences", pageType: pageTypes.CORE, intentFamily: "core" },
   { slug: "wildlife", pageType: pageTypes.CORE, intentFamily: "core" },
   { slug: "travel-guide", pageType: pageTypes.CORE, intentFamily: "core" },
+  { slug: "privacy", pageType: pageTypes.UTILITY_NOINDEX, intentFamily: "utility" },
+  { slug: "terms", pageType: pageTypes.UTILITY_NOINDEX, intentFamily: "utility" },
+  { slug: "account-deletion", pageType: pageTypes.UTILITY_NOINDEX, intentFamily: "utility" },
+  { slug: "support", pageType: pageTypes.UTILITY_NOINDEX, intentFamily: "utility" },
 
   // ---- AI ----
   { slug: "ai-trip-planner", pageType: pageTypes.AI_PLANNER, intentFamily: "ai" },

@@ -10,7 +10,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeDetails = [
   {
     title: "Colombo Airport to Kandy taxi",
-    text: "Private transfer from Bandaranaike International Airport to Kandy with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+    text: "Private transfer from Bandaranaike International Airport to Kandy with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -73,7 +73,7 @@ const faqs = [
   {
     question: "Can I book an airport to Kandy taxi after a late flight?",
     answer:
-      "Yes. SKY Taxi Service & Tours can arrange Kandy airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+      "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Kandy is available before travel.",
   },
   {
     question: "Can we stop at Temple of the Tooth or hill country viewpoints?",
@@ -102,7 +102,7 @@ export default function AirportToKandyTaxi({ setPage }) {
       <PageHero
         eyebrow="Airport to Kandy Taxi"
         title="Colombo Airport to Kandy Taxi"
-        description="Book a private taxi from Colombo Airport to Kandy with comfortable airport transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking."
+        description="Book a private taxi from Colombo Airport to Kandy with comfortable airport transfer, clean vehicles, local drivers, and WhatsApp booking."
         image={images.kandyTemple}
         alt="Colombo Airport to Kandy taxi private transfer Sri Lanka"
       >
@@ -131,7 +131,7 @@ export default function AirportToKandyTaxi({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>
@@ -143,7 +143,7 @@ export default function AirportToKandyTaxi({ setPage }) {
             <h2>Private airport to Kandy taxi with clean vehicles and local drivers</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Kandy taxi before arrival. Your driver can meet you at the airport,
-              help with luggage, plan comfort stops, and take you safely toward Kandy and Sri Lanka's central hill country.
+              help with luggage, plan comfort stops, and take you toward Kandy and Sri Lanka's central hill country.
             </p>
             <div className="colombo-airport-link-row">
               <button type="button" onClick={() => setPage("home")}>
@@ -243,7 +243,7 @@ export default function AirportToKandyTaxi({ setPage }) {
       <section className="section section--soft airport-to-kandy-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book your Kandy airport transfer</h2>
             <p>
               Send your flight number, arrival time, Kandy hotel, passenger count, and luggage details. We will reply with a fair route-based quote and confirm your driver.

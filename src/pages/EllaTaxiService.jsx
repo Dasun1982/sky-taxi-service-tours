@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const scenicStops = [
   {
     title: "Colombo airport to Ella taxi",
-    text: "Book a private Colombo airport to Ella taxi with flight-time checking, luggage space, and WhatsApp confirmation before pickup.",
+    text: "Book a private Colombo airport to Ella taxi with flight details shared in advance, luggage space, and WhatsApp confirmation before pickup.",
     image: images.airportWelcome,
   },
   {
@@ -60,7 +60,7 @@ const highlights = [
     icon: Car,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send your pickup place, hotel, date, time, and passenger count for a fair route-based quote.",
     icon: Clock3,
   },
@@ -75,7 +75,7 @@ const faqs = [
   {
     question: "Can I book a Colombo airport to Ella taxi?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Ella taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Ella taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
   },
   {
     question: "Can we stop on the scenic route to Ella?",
@@ -104,7 +104,7 @@ export default function EllaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Ella Taxi Service"
         title="Ella Taxi Service"
-        description="Book a private taxi to Ella Sri Lanka with scenic hill country stops, airport transfers, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book a private taxi to Ella Sri Lanka with scenic hill country stops, airport transfers, clean vehicles, and WhatsApp booking."
         image={images.nineArchBridge}
         alt="Ella taxi service to Nine Arch Bridge Sri Lanka"
       >
@@ -145,7 +145,7 @@ export default function EllaTaxiService({ setPage }) {
             <h2>Private Ella taxi service for airport transfers and hill country rides</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book an Ella taxi from Colombo Airport, Galle, Unawatuna, Kandy, Nuwara Eliya, and other Sri Lanka destinations.
-              Your private driver can plan a comfortable route with flexible stops, safe travel, and clean vehicle support.
+              Your private driver can plan a comfortable route with flexible stops and vehicle details confirmed before travel.
             </p>
             <div className="colombo-airport-link-row">
               <a href="/">Homepage</a>
@@ -249,7 +249,7 @@ export default function EllaTaxiService({ setPage }) {
       <section className="section section--soft ella-booking-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book a private taxi to Ella</h2>
             <p>
               Send your pickup location, Ella hotel, date, time, passengers, and luggage. We will reply with a fair quote and help plan scenic stops if needed.

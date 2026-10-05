@@ -83,7 +83,7 @@ export default function AirportTransferLanding({ townId, setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>
@@ -193,7 +193,7 @@ export default function AirportTransferLanding({ townId, setPage }) {
       <section className="section section--soft">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book your {town.townName} airport transfer</h2>
             <p>
               Send your flight number, arrival time, {town.townName} hotel or drop-off place, passenger count, and luggage details. We will reply with a fair

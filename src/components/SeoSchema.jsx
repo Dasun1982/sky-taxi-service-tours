@@ -34,7 +34,6 @@ function makeLocalBusinessSchema() {
       "@type": "Country",
       name: "Sri Lanka",
     },
-    priceRange: "$$",
   };
 }
 

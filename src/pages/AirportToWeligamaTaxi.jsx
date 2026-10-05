@@ -13,7 +13,7 @@ import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js
 const routeDetails = [
   {
     title: "Colombo Airport to Weligama taxi",
-    text: "Private transfer from Bandaranaike International Airport to Weligama with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+    text: "Private transfer from Bandaranaike International Airport to Weligama with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -23,7 +23,7 @@ const routeDetails = [
   },
   {
     title: "Southern Expressway surf beach transfer",
-    text: "Travel safely toward the south coast using the Southern Expressway with a clean private vehicle, fair route quote, and local driver support.",
+    text: "Travel toward the south coast using the Southern Expressway with a clean private vehicle, fair route quote, and local driver support.",
     image: images.surfing,
   },
   {
@@ -74,7 +74,7 @@ const faqs = [
   {
     question: "Can I book an airport to Weligama taxi after a late flight?",
     answer:
-      "Yes. SKY Taxi Service & Tours can arrange Weligama airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+      "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Weligama is available before travel.",
   },
   {
     question: "Does the taxi use the Southern Expressway?",
@@ -105,7 +105,7 @@ export default function AirportToWeligamaTaxi({ setPage }) {
       <PageHero
         eyebrow="Airport to Weligama Taxi"
         title="Colombo Airport to Weligama Taxi"
-        description="Book a private taxi from Colombo Airport to Weligama with safe surf beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking."
+        description="Book a private taxi from Colombo Airport to Weligama with private surf beach transfer, clean vehicles, local drivers, and WhatsApp booking."
         image={images.surfing}
         alt="Colombo Airport to Weligama taxi private surf beach transfer Sri Lanka"
       >
@@ -135,7 +135,7 @@ export default function AirportToWeligamaTaxi({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>
@@ -146,10 +146,10 @@ export default function AirportToWeligamaTaxi({ setPage }) {
         <div className="section__inner split-layout">
           <Reveal className="split-layout__copy">
             <span className="eyebrow">Colombo Airport to Weligama transfer</span>
-            <h2>Private airport to Weligama taxi with safe surf beach transfer</h2>
+            <h2>Private airport to Weligama taxi with private surf beach transfer</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Weligama taxi before arrival. Your driver can meet you at the airport,
-              help with luggage or surfboards, use the Southern Expressway route, and take you safely to Weligama surf beach, Mirissa, Ahangama, or nearby hotels.
+              help with luggage or surfboards, use the Southern Expressway route, and take you to Weligama surf beach, Mirissa, Ahangama, or nearby hotels.
             </p>
             <div className="colombo-airport-link-row">
               <button type="button" onClick={() => setPage("home")}>

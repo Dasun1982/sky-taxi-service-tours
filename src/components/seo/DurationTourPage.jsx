@@ -92,7 +92,7 @@ export default function DurationTourPage({ pageKey, setPage }) {
                 <UserCheck size={20} />
               </span>
               <h3>Driver + Guide</h3>
-              <p>Add a specialist licensed local guide for stops where deeper history helps most.</p>
+              <p>Add a specialist local guide for stops where deeper history helps most.</p>
             </article>
           </Reveal>
         </div>

@@ -9,7 +9,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const taxiServices = [
   {
     title: "Sri Lanka airport taxi",
-    text: "Book Colombo Airport pickup with flight-time checking, luggage support, clean vehicles, and WhatsApp confirmation before your driver arrives.",
+    text: "Book Colombo Airport pickup with flight details shared in advance, luggage support, clean vehicles, and WhatsApp confirmation before your driver arrives.",
     image: images.airportWelcome,
   },
   {
@@ -24,7 +24,7 @@ const taxiServices = [
   },
   {
     title: "Private taxi Sri Lanka travel",
-    text: "Choose a private car, SUV, or van with a friendly local driver for safe transfers, custom stops, and flexible travel plans.",
+    text: "Choose a private car, SUV, or van with a friendly local driver for private transfers, custom stops, and flexible travel plans.",
     image: images.sigiriya,
   },
 ];
@@ -82,7 +82,7 @@ const highlights = [
     icon: Route,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Message anytime for private taxi Sri Lanka prices, driver confirmation, vehicle options, and route help.",
     icon: Clock3,
   },
@@ -97,7 +97,7 @@ const faqs = [
   {
     question: "Do you provide Sri Lanka airport taxi pickup?",
     answer:
-      "Yes. We provide Colombo Airport pickup with private vehicles, flight-time checking, luggage support, and WhatsApp confirmation before pickup.",
+      "Yes. We provide Colombo Airport pickup with private vehicles, flight details shared in advance, luggage support, and WhatsApp confirmation before pickup.",
   },
   {
     question: "Can I book a long distance taxi Sri Lanka route?",
@@ -126,7 +126,7 @@ export default function SriLankaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Sri Lanka Taxi Service"
         title="Sri Lanka Taxi Service"
-        description="Book a reliable Sri Lanka taxi service for airport transfers, private drivers, city rides, long-distance taxis, and 24/7 WhatsApp booking."
+        description="Book a reliable Sri Lanka taxi service for airport transfers, private drivers, city rides, long-distance taxis, and WhatsApp booking."
         image={images.airportTransfer}
         alt="Sri Lanka taxi service private airport transfer"
       >
@@ -292,7 +292,7 @@ export default function SriLankaTaxiService({ setPage }) {
       <section className="section sri-lanka-taxi-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book a private taxi Sri Lanka ride</h2>
             <p>
               Send your pickup location, drop-off location, date, time, passengers, luggage, and route needs. We will reply with a fair taxi quote and vehicle option.

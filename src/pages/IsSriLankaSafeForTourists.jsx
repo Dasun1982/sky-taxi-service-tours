@@ -60,7 +60,7 @@ export default function IsSriLankaSafeForTourists({ setPage }) {
           <div className="colombo-airport-route-grid">
             <Reveal className="colombo-airport-route-card">
               <div>
-                <h3>Licensed, known drivers</h3>
+                <h3>A driver arranged in advance</h3>
                 <p>A private driver you've booked directly, rather than an unfamiliar arrangement — one known factor removed from an unfamiliar country.</p>
               </div>
             </Reveal>

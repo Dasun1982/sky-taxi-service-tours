@@ -10,7 +10,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeDetails = [
   {
     title: "Colombo Airport to Hiriketiya taxi",
-    text: "Private transfer from Bandaranaike International Airport to Hiriketiya with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+    text: "Private transfer from Bandaranaike International Airport to Hiriketiya with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -20,7 +20,7 @@ const routeDetails = [
   },
   {
     title: "Southern Expressway surf transfer",
-    text: "Travel safely toward the deep south using the Southern Expressway with a clean private vehicle, fair route quote, and local driver support.",
+    text: "Travel toward the deep south using the Southern Expressway with a clean private vehicle, fair route quote, and local driver support.",
     image: images.surfing,
   },
   {
@@ -73,7 +73,7 @@ const faqs = [
   {
     question: "Can I book an airport to Hiriketiya taxi after a late flight?",
     answer:
-      "Yes. SKY Taxi Service & Tours can arrange Hiriketiya airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+      "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Hiriketiya is available before travel.",
   },
   {
     question: "Does the taxi use the Southern Expressway?",
@@ -102,7 +102,7 @@ export default function AirportToHiriketiyaTaxi({ setPage }) {
       <PageHero
         eyebrow="Airport to Hiriketiya Taxi"
         title="Colombo Airport to Hiriketiya Taxi"
-        description="Book a private taxi from Colombo Airport to Hiriketiya with safe surf beach transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking."
+        description="Book a private taxi from Colombo Airport to Hiriketiya with private surf beach transfer, clean vehicles, local drivers, and WhatsApp booking."
         image={images.hiriketiyaBeach}
         alt="Colombo Airport to Hiriketiya taxi private surf beach transfer Sri Lanka"
       >
@@ -131,7 +131,7 @@ export default function AirportToHiriketiyaTaxi({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>
@@ -140,10 +140,10 @@ export default function AirportToHiriketiyaTaxi({ setPage }) {
         <div className="section__inner split-layout">
           <Reveal className="split-layout__copy">
             <span className="eyebrow">Colombo Airport to Hiriketiya transfer</span>
-            <h2>Private airport to Hiriketiya taxi with safe surf beach transfer</h2>
+            <h2>Private airport to Hiriketiya taxi with private surf beach transfer</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Hiriketiya taxi before arrival. Your driver can meet you at the airport,
-              help with luggage or surfboards, use the Southern Expressway route, and take you safely to Hiriketiya Beach, Dickwella, Tangalle, or nearby south coast hotels.
+              help with luggage or surfboards, use the Southern Expressway route, and take you to Hiriketiya Beach, Dickwella, Tangalle, or nearby south coast hotels.
             </p>
             <div className="colombo-airport-link-row">
               <button type="button" onClick={() => setPage("home")}>
@@ -245,7 +245,7 @@ export default function AirportToHiriketiyaTaxi({ setPage }) {
       <section className="section section--soft airport-to-hiriketiya-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book your Hiriketiya airport transfer</h2>
             <p>
               Send your flight number, arrival time, Hiriketiya hotel or surf stay, passenger count, luggage, and surfboard details. We will reply with a fair route-based quote and confirm your driver.

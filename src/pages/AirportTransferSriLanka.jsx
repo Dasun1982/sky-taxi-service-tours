@@ -9,7 +9,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const destinations = [
   {
     title: "Colombo Airport pickup",
-    text: "Book reliable Colombo airport pickup with flight-time checking, WhatsApp confirmation, and a private driver waiting for your arrival.",
+    text: "Book reliable Colombo airport pickup with flight details shared in advance, WhatsApp confirmation, and a private driver waiting for your arrival.",
     image: images.airportWelcome,
   },
   {
@@ -62,8 +62,8 @@ const benefits = [
     icon: ShieldCheck,
   },
   {
-    title: "24/7 WhatsApp booking",
-    text: "Book early morning arrivals, late night pickups, and delayed flights with quick WhatsApp confirmation.",
+    title: "WhatsApp booking",
+    text: "Ask about early or late arrivals on WhatsApp; SKY confirms availability and pickup details before travel.",
     icon: Clock3,
   },
   {
@@ -85,8 +85,8 @@ const faqs = [
       "Yes. SKY Taxi Service & Tours provides private airport transfers from Colombo Airport to Ella, Kandy, Galle, Unawatuna, Mirissa, Sigiriya, and many other destinations across Sri Lanka.",
   },
   {
-    question: "Are airport transfers available 24/7?",
-    answer: "Yes. Airport transfer service is available for day and night arrivals, including early morning and late night flights.",
+    question: "Can I request an early or late airport pickup?",
+    answer: "Share your flight time on WhatsApp. SKY will confirm availability and the pickup details before travel.",
   },
   {
     question: "Do you provide private drivers and clean vehicles?",
@@ -110,7 +110,7 @@ export default function AirportTransferSriLanka({ setPage }) {
       <PageHero
         eyebrow="Airport Transfer Sri Lanka"
         title="Airport Transfer Sri Lanka"
-        description="Book private airport transfers in Sri Lanka with reliable Colombo airport pickup, private drivers, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book private airport transfers in Sri Lanka with reliable Colombo airport pickup, private drivers, clean vehicles, and WhatsApp booking."
         image={images.airportTransfer}
         alt="Airport transfer Sri Lanka private taxi service"
       >
@@ -135,7 +135,7 @@ export default function AirportTransferSriLanka({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 service
+            Pickup by arrangement
           </span>
           <span>
             <Languages size={16} />
@@ -246,7 +246,7 @@ export default function AirportTransferSriLanka({ setPage }) {
       <section className="section section--soft airport-transfer-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book your Sri Lanka airport transfer before arrival</h2>
             <p>
               Send your flight number, arrival time, destination, passengers, and luggage. We will confirm your private driver and route price on WhatsApp.

@@ -27,7 +27,7 @@ const whoThisIsFor = [
   { title: "First-time visitors", text: "Get local route knowledge and, where useful, a specialist guide at key sites.", icon: Compass },
   { title: "Families", text: "Comfortable private vehicles with flexible stops for kids and luggage.", icon: Users },
   { title: "Couples", text: "A relaxed, private way to see Sri Lanka at your own pace.", icon: Heart },
-  { title: "Culture and history travelers", text: "Add a specialist licensed guide for temples, ancient cities, and heritage stops.", icon: UserCheck },
+  { title: "Culture and history travelers", text: "Add a specialist guide for temples, ancient cities, and heritage stops.", icon: UserCheck },
 ];
 
 const cultureRouteSlugs = ["airport-to-kandy", "airport-to-sigiriya", "airport-to-dambulla"];
@@ -53,7 +53,7 @@ export default function DriverGuideSriLanka({ setPage }) {
       <PageHero
         eyebrow="Private Driver + Guide"
         title="Private Driver + Guide in Sri Lanka"
-        description="Travel with a private driver, and arrange a specialist licensed local guide when you want deeper cultural or historical insight. Not every driver is a licensed guide — here's the honest difference."
+        description="Travel with a private driver, and arrange a specialist local guide when you want deeper cultural or historical insight. Not every driver is a guide — here's the honest difference."
         image={images.kandyTemple}
         alt="Temple of the Tooth in Kandy, a common Driver + Guide route"
       >
@@ -89,7 +89,7 @@ export default function DriverGuideSriLanka({ setPage }) {
             <h2>Driver Only, or Driver + Guide</h2>
             <p>
               SKY Taxi Service & Tours provides a private driver and vehicle for every trip. If you already know where you're going, that's all
-              you need. If you want deeper explanation at temples, ancient cities, or cultural sites, a specialist licensed local guide can be
+              you need. If you want deeper explanation at temples, ancient cities, or cultural sites, a specialist local guide can be
               arranged alongside your driver — subject to availability, confirmed on WhatsApp.
             </p>
             <div className="colombo-airport-link-row">

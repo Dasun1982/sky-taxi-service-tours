@@ -62,51 +62,11 @@ export const articleSchemaPages = [
 ];
 
 export const schemaFaqs = {
-  wildlife: [
-    {
-      question: "What wildlife can be seen in Sri Lanka?",
-      answer:
-        "Sri Lanka's national parks and wetlands are home to leopards, elephants, sloth bears, crocodiles, jackals, and a wide range of birdlife, among many other species.",
-    },
-    {
-      question: "Is wildlife photography on this page from real sightings?",
-      answer: "Yes. Every wildlife photograph on this page is a real sighting, not a stock image or an AI-generated photo.",
-    },
-    {
-      question: "Can SKY Taxi Service & Tours arrange a safari transfer?",
-      answer:
-        "Yes. A private transfer to the Yala safari gate can be arranged with early pickup planning. Send your dates on WhatsApp for a fair quote.",
-    },
-  ],
-  experiences: [
-    {
-      question: "What kinds of Sri Lanka experiences can be combined into one trip?",
-      answer:
-        "Wildlife safaris, ancient kingdoms, tea country, coastal south, local life, and adventure viewpoints can all be combined into one private route, depending on your travel dates.",
-    },
-    {
-      question: "How is a Sri Lanka experience route priced?",
-      answer:
-        "The final price depends on route, dates, vehicle type, and number of days, and is confirmed on WhatsApp before travel.",
-    },
-  ],
-  "travel-guide": [
-    {
-      question: "When is the best time to visit Sri Lanka?",
-      answer:
-        "It depends on the coast. The west and south coasts and hill country are generally driest from around December to March, while the east coast is generally driest from around May to September.",
-    },
-    {
-      question: "Is a private driver necessary in Sri Lanka?",
-      answer:
-        "It is not required, but most visitors find a private driver easier than self-driving, since it avoids adjusting to left-hand traffic and mixed-use roads outside main highways.",
-    },
-    {
-      question: "How long should a Sri Lanka trip be?",
-      answer:
-        "It depends on how many regions you want to cover. SKY Taxi Service & Tours currently arranges real itineraries from one-day trips up to 10-day round tours.",
-    },
-  ],
+  // W10: FAQPage schema only for pages that show the same questions and
+  // answers on the page. Guide pages without a visible FAQ (wildlife,
+  // experiences, travel-guide, best-beaches-near-galle, ella-vs-nuwara-eliya,
+  // galle-to-ella, how-many-days-in-sri-lanka, is-a-private-driver-worth-it)
+  // intentionally have no entry here.
   "colombo-airport-taxi": [
     {
       question: "How do I book a Colombo Airport taxi?",
@@ -119,8 +79,8 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours offers private airport transfers from Colombo Airport to Ella, Kandy, Galle, Unawatuna, Mirissa, Sigiriya, and many other Sri Lanka destinations.",
     },
     {
-      question: "Are airport taxis available 24/7?",
-      answer: "Yes. Colombo Airport taxi pickups can be arranged day or night, including early morning and late night arrivals.",
+      question: "Can I request an early or late airport pickup?",
+      answer: "Share your flight time on WhatsApp. SKY will confirm availability and the pickup details before travel.",
     },
     {
       question: "Is the final airport taxi price fixed online?",
@@ -137,7 +97,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Ella taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Ella airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Ella is available before travel.",
     },
     {
       question: "Can we stop on the scenic route to Ella?",
@@ -164,7 +124,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Galle taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Galle airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Galle is available before travel.",
     },
     {
       question: "Does the taxi use the Southern Expressway?",
@@ -191,7 +151,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Hiriketiya taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Hiriketiya airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Hiriketiya is available before travel.",
     },
     {
       question: "Does the taxi use the Southern Expressway?",
@@ -218,7 +178,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Kandy taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Kandy airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Kandy is available before travel.",
     },
     {
       question: "Can we stop at Temple of the Tooth or hill country viewpoints?",
@@ -245,7 +205,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Mirissa taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Mirissa airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Mirissa is available before travel.",
     },
     {
       question: "Does the taxi use the Southern Expressway?",
@@ -272,7 +232,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Sigiriya taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Sigiriya airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Sigiriya is available before travel.",
     },
     {
       question: "Can the taxi stop at Dambulla or Pidurangala?",
@@ -299,7 +259,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Unawatuna taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Unawatuna airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Unawatuna is available before travel.",
     },
     {
       question: "Does the taxi use the Southern Expressway?",
@@ -326,7 +286,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Weligama taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Weligama airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Weligama is available before travel.",
     },
     {
       question: "Does the taxi use the Southern Expressway?",
@@ -356,8 +316,8 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides private airport transfers from Colombo Airport to Ella, Kandy, Galle, Unawatuna, Mirissa, Sigiriya, and many other destinations across Sri Lanka.",
     },
     {
-      question: "Are airport transfers available 24/7?",
-      answer: "Yes. Airport transfer service is available for day and night arrivals, including early morning and late night flights.",
+      question: "Can I request an early or late airport pickup?",
+      answer: "Share your flight time on WhatsApp. SKY will confirm availability and the pickup details before travel.",
     },
     {
       question: "Do you provide private drivers and clean vehicles?",
@@ -378,7 +338,7 @@ export const schemaFaqs = {
     {
       question: "Can I book a Colombo airport to Ella taxi?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Ella taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Ella taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
     },
     {
       question: "Can we stop on the scenic route to Ella?",
@@ -404,7 +364,7 @@ export const schemaFaqs = {
     {
       question: "Can I book a Colombo airport to Kandy taxi?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Kandy taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Kandy taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
     },
     {
       question: "Can the taxi stop at Temple of the Tooth or hill country viewpoints?",
@@ -431,7 +391,7 @@ export const schemaFaqs = {
     {
       question: "Can I book a Colombo airport to Galle taxi?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Galle taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Galle taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
     },
     {
       question: "Can the taxi stop at Galle Fort or south coast beaches?",
@@ -458,7 +418,7 @@ export const schemaFaqs = {
     {
       question: "Can I book a Colombo airport to Sigiriya taxi?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Sigiriya taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Sigiriya taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
     },
     {
       question: "Can the taxi stop at Dambulla or Pidurangala?",
@@ -485,7 +445,7 @@ export const schemaFaqs = {
     {
       question: "Can I book a Colombo airport to Mirissa taxi?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Mirissa taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Mirissa taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
     },
     {
       question: "Can I book a whale watching transfer Mirissa pickup?",
@@ -544,19 +504,19 @@ export const schemaFaqs = {
     {
       question: "Is a guide included?",
       answer:
-        "Not by default. Your driver handles transportation, timing, and route knowledge. A specialist licensed local guide can be arranged separately for the Cultural Triangle or Kandy stops — see Driver + Guide.",
+        "Not by default. Your driver handles transportation, timing, and route knowledge. A specialist local guide can be arranged separately for the Cultural Triangle or Kandy stops — see Driver + Guide.",
     },
   ],
   "driver-guide-sri-lanka": [
     {
       question: "Is my driver also a tour guide?",
       answer:
-        "Your driver helps with routes, timing, comfort stops, and local travel support, but is not automatically a licensed tour guide. If you want a specialist guide at specific sites, choose Driver + Guide instead.",
+        "Your driver helps with routes, timing, comfort stops, and local travel support, but is not automatically a tour guide. If you want a specialist guide at specific sites, choose Driver + Guide instead.",
     },
     {
       question: "Is a guide available for my whole trip?",
       answer:
-        "A specialist licensed guide can be arranged for specific sites or days where deeper explanation is useful, subject to availability. Tell us which stops matter most and we'll confirm what's possible on WhatsApp.",
+        "A specialist guide can be arranged for specific sites or days where deeper explanation is useful, subject to availability. Tell us which stops matter most and we'll confirm what's possible on WhatsApp.",
     },
     {
       question: "Is the price fixed online?",
@@ -582,7 +542,7 @@ export const schemaFaqs = {
     {
       question: "Is this a Sri Lanka driver guide service?",
       answer:
-        "Your driver helps with routes, timing, comfort stops, luggage, and local travel support. Specialist licensed site guides can be arranged separately where needed.",
+        "Your driver helps with routes, timing, comfort stops, luggage, and local travel support. Specialist site guides can be arranged separately where needed.",
     },
     {
       question: "What if I only need a driver for one day?",
@@ -612,7 +572,7 @@ export const schemaFaqs = {
     },
     {
       question: "Can private tours start from Colombo Airport?",
-      answer: "Yes. Airport pickup for tours is available, so your Sri Lanka private tours can begin directly after arrival with flight-time checking and luggage support.",
+      answer: "Yes. Airport pickup for tours is available, so your Sri Lanka private tours can begin directly after arrival with flight details shared in advance and luggage support.",
     },
     {
       question: "Is the private tour price fixed online?",
@@ -632,7 +592,7 @@ export const schemaFaqs = {
     },
     {
       question: "Do round tours include airport pickup?",
-      answer: "Yes. Your Sri Lanka round tours can start from Colombo Airport with flight-time checking, luggage support, and private driver pickup.",
+      answer: "Yes. Your Sri Lanka round tours can start from Colombo Airport with flight details shared in advance, luggage support, and private driver pickup.",
     },
     {
       question: "Can I book a Sri Lanka tour package with driver for 3, 5, or 7 days?",
@@ -653,7 +613,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Colombo airport to Unawatuna taxi service?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Unawatuna taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Unawatuna taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
       question: "Can I book taxi in Unawatuna for Galle, Mirissa, Ella, Yala, or Kandy?",
@@ -680,7 +640,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Colombo airport to Weligama taxi service?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Weligama taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Weligama taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
       question: "Can I book taxi in Weligama for Mirissa, Galle, Unawatuna, Ella, or Yala?",
@@ -707,7 +667,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Colombo airport to Hiriketiya taxi service?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Hiriketiya taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Hiriketiya taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
       question: "Can I book taxi in Hiriketiya for Mirissa, Weligama, Galle, Ella, Yala, or Unawatuna?",
@@ -734,7 +694,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Colombo airport to Nuwara Eliya taxi service?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Nuwara Eliya taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Nuwara Eliya taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
       question: "Can I book taxi in Nuwara Eliya for Ella, Kandy, Galle, Mirissa, or Yala?",
@@ -761,7 +721,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Colombo airport to Bentota taxi service?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Bentota taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Bentota taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
       question: "Can I book taxi in Bentota for Galle, Mirissa, Unawatuna, Ella, or Yala?",
@@ -788,7 +748,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Colombo airport to Negombo taxi service?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Negombo taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Negombo taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
       question: "Can I book taxi in Negombo for Colombo, Galle, Kandy, Ella, Sigiriya, or Mirissa?",
@@ -815,7 +775,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Colombo airport to Arugam Bay taxi service?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Arugam Bay taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Arugam Bay taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
       question: "Can I book taxi in Arugam Bay for Ella, Yala, Kandy, Mirissa, or Galle?",
@@ -842,7 +802,7 @@ export const schemaFaqs = {
     {
       question: "Can I book a Colombo airport to Dambulla taxi?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Dambulla taxi service with flight-time checking, clean vehicles, and friendly local drivers.",
+        "Yes. SKY Taxi Service & Tours provides private Colombo airport to Dambulla taxi service with flight details shared in advance, clean vehicles, and friendly local drivers.",
     },
     {
       question: "Can the taxi stop at Sigiriya or Pidurangala?",
@@ -869,7 +829,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Sri Lanka airport taxi pickup?",
       answer:
-        "Yes. We provide Colombo Airport pickup with private vehicles, flight-time checking, luggage support, and WhatsApp confirmation before pickup.",
+        "Yes. We provide Colombo Airport pickup with private vehicles, flight details shared in advance, luggage support, and WhatsApp confirmation before pickup.",
     },
     {
       question: "Can I book a long distance taxi Sri Lanka route?",
@@ -933,7 +893,7 @@ export const schemaFaqs = {
     {
       question: "Do you provide Sri Lanka day tours with driver?",
       answer:
-        "Yes. Each private day tour includes a clean vehicle and friendly local driver support. Specialist licensed site guides can be arranged separately where needed.",
+        "Yes. Each private day tour includes a clean vehicle and friendly local driver support. Specialist site guides can be arranged separately where needed.",
     },
     {
       question: "Is the day tour price fixed online?",
@@ -950,7 +910,7 @@ export const schemaFaqs = {
     {
       question: "Can I book a taxi to Yala National Park from Colombo Airport?",
       answer:
-        "Yes. SKY Taxi Service & Tours provides Colombo airport to Yala taxi service with private vehicles, flight-time checking, luggage support, and WhatsApp confirmation.",
+        "Yes. SKY Taxi Service & Tours provides Colombo airport to Yala taxi service with private vehicles, flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
       question: "Do you arrange safari transport Sri Lanka hotel pickup?",
@@ -977,7 +937,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Negombo taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Negombo airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Negombo is available before travel.",
     },
     {
       question: "Is Negombo a good first stop after landing?",
@@ -1004,7 +964,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Bentota taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Bentota airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Bentota is available before travel.",
     },
     {
       question: "Does the taxi use the Southern Expressway?",
@@ -1031,7 +991,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Nuwara Eliya taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Nuwara Eliya airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Nuwara Eliya is available before travel.",
     },
     {
       question: "Can we stop at tea estates or viewpoints on the way?",
@@ -1058,7 +1018,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Arugam Bay taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Arugam Bay airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Arugam Bay is available before travel.",
     },
     {
       question: "Is there space for surfboards?",
@@ -1084,7 +1044,7 @@ export const schemaFaqs = {
     {
       question: "Can I book an airport to Dambulla taxi after a late flight?",
       answer:
-        "Yes. SKY Taxi Service & Tours can arrange Dambulla airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+        "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Dambulla is available before travel.",
     },
     {
       question: "Can the taxi stop at Sigiriya or Pidurangala?",
@@ -1125,116 +1085,6 @@ export const schemaFaqs = {
       question: "Do I still need to contact SKY after using the AI planner?",
       answer:
         "Yes. The AI route is a starting point. Send it to SKY Taxi Service & Tours on WhatsApp so a real driver, vehicle, and route price can be confirmed before you travel.",
-    },
-  ],
-  "how-many-days-in-sri-lanka": [
-    {
-      question: "How many days do I need in Sri Lanka?",
-      answer:
-        "It depends on how many regions you want to cover. A single day is enough for one destination like Kandy or Colombo. 2 to 3 days suits the hill country alone. 5 days can combine the east coast, Cultural Triangle, hill country, and a safari. 7 to 10 days allows a fuller route across the north, east, cultural sites, hill country, and south coast.",
-    },
-    {
-      question: "Is 5 days enough for Sri Lanka?",
-      answer:
-        "5 days is enough for a real, priced multi-region route — SKY's 5-day tour covers Trincomalee, the Cultural Triangle, hill country, and a wildlife safari in one continuous trip. It won't cover the whole island, but it covers several distinct regions without feeling rushed.",
-    },
-    {
-      question: "What if I only have 2 or 3 days?",
-      answer:
-        "SKY has real 2-day and 3-day private tour routes built around the hill country and Cultural Triangle — both are priced, existing itineraries, not a shortened version of a longer trip.",
-    },
-    {
-      question: "Can I customize the number of days?",
-      answer:
-        "Yes. These are starting itineraries. Send your travel dates and interests on WhatsApp, or ask SKY AI, and days, stops, or pace can be adjusted.",
-    },
-  ],
-  "is-a-private-driver-worth-it": [
-    {
-      question: "Is a private driver worth it in Sri Lanka?",
-      answer:
-        "For most visitors, yes — it removes the learning curve of left-hand traffic and mixed-use roads shared with tuk-tuks, buses, and pedestrians, and keeps a multi-stop day flexible without needing to rebook anything for a changed plan.",
-    },
-    {
-      question: "Is it safe to self-drive in Sri Lanka?",
-      answer:
-        "Self-driving is possible, but it means adjusting to left-hand traffic and road conditions that vary a lot outside main highways, with no local knowledge of routes or timing to fall back on.",
-    },
-    {
-      question: "How much does a private driver cost?",
-      answer:
-        "There is no fixed online price — final pricing depends on route, vehicle type, and passenger count, confirmed directly on WhatsApp before travel.",
-    },
-    {
-      question: "Do I need a driver and a guide, or just a driver?",
-      answer:
-        "A driver alone handles transportation, timing, and route knowledge. A specialist licensed guide is a separate addition for deeper historical or cultural insight at specific stops — see Driver + Guide for the difference.",
-    },
-  ],
-  "ella-vs-nuwara-eliya": [
-    {
-      question: "Ella or Nuwara Eliya — which should I visit?",
-      answer:
-        "Ella suits travelers who want hiking, viewpoints like Little Adam's Peak, the Nine Arch Bridge, and a livelier small-town base. Nuwara Eliya suits travelers who want tea plantations, Gregory Lake, and a cooler colonial-era hill town with a quieter pace.",
-    },
-    {
-      question: "Can I visit both Ella and Nuwara Eliya?",
-      answer:
-        "Yes — they're close enough that SKY's real 2-day private tour already combines Kandy, Nuwara Eliya, and Ella in one continuous route.",
-    },
-    {
-      question: "Which is better for hiking?",
-      answer:
-        "Ella has the stronger hiking draw, with Little Adam's Peak and nearby viewpoints. Nuwara Eliya is more about tea estate walks and Gregory Lake than dedicated hiking trails.",
-    },
-    {
-      question: "Which is cooler, Ella or Nuwara Eliya?",
-      answer:
-        "Nuwara Eliya sits higher and has the cooler, more distinctly colonial-era climate of the two. Ella is still hill country and noticeably cooler than the coast, but milder than Nuwara Eliya.",
-    },
-  ],
-  "best-beaches-near-galle": [
-    {
-      question: "What are the best beaches near Galle?",
-      answer:
-        "Unawatuna, Mirissa, Weligama, and Bentota are the real, nearby south coast beaches SKY regularly drives to from Galle, each with a different character — Unawatuna for a calm family-friendly beach, Mirissa for whale watching, Weligama for surfing, and Bentota further north for beach resorts.",
-    },
-    {
-      question: "Which beach near Galle is best for swimming?",
-      answer:
-        "Unawatuna is generally the calmer, more swim-friendly option of the group, which is part of why it's tagged as family-friendly.",
-    },
-    {
-      question: "Which beach near Galle is best for surfing?",
-      answer:
-        "Weligama is the south coast's main surf-school beach, with Hiriketiya (a little further along the coast) also known for its horseshoe-shaped surf bay.",
-    },
-    {
-      question: "Can a private driver combine Galle with these beaches in one day?",
-      answer:
-        "Yes — a private route from Galle can include flexible stops at any of these beaches depending on your time and interests. Send your plan on WhatsApp for a route-based quote.",
-    },
-  ],
-  "galle-to-ella": [
-    {
-      question: "How do I get from Galle to Ella?",
-      answer:
-        "By private driver is the most direct option — one continuous journey from the south coast up into the hill country, with flexible stops along the way. Exact duration depends on your pickup point, road conditions, and any stops, and is confirmed on WhatsApp before travel.",
-    },
-    {
-      question: "How long does the Galle to Ella journey take?",
-      answer:
-        "There's no single fixed time — it depends on your exact pickup location, stops, and road conditions on the day. Send your travel date and pickup point on WhatsApp for a realistic estimate before booking.",
-    },
-    {
-      question: "Can the driver stop along the way from Galle to Ella?",
-      answer:
-        "Yes — a private route can include flexible stops for viewpoints, food, or photos between the south coast and hill country, unlike a fixed-schedule public transport option.",
-    },
-    {
-      question: "Is there a direct train or bus from Galle to Ella?",
-      answer:
-        "Public transport between the south coast and hill country typically involves a transfer rather than a single direct route. A private driver avoids that transfer and keeps the journey to one continuous trip.",
     },
   ],
   // The entries below are pulled directly from each page's own SEO data
@@ -1302,7 +1152,7 @@ export const schemaFaqs = {
   ],
   "how-much-does-a-sri-lanka-trip-cost": [
     { question: "What isn't included in these prices?", answer: "Entrance tickets, meals, and hotel stays are not included in the tour prices above — see the individual tour pages for a full breakdown of what's included." },
-    { question: "Does a specialist guide cost extra?", answer: "Yes — a driver alone is included in the base price; a specialist licensed guide is an optional add-on, confirmed on WhatsApp." },
+    { question: "Does a specialist guide cost extra?", answer: "Yes — a driver alone is included in the base price; a specialist guide is an optional add-on, confirmed on WhatsApp." },
     { question: "Are airport transfers priced separately?", answer: "Yes — airport transfers have their own per-vehicle pricing, separate from tour packages. See Airport Transfer Sri Lanka for details." },
   ],
   "best-time-to-visit-sri-lanka": [
@@ -1320,7 +1170,7 @@ export const schemaFaqs = {
   taxi: [
     { question: "How much is a taxi in Sri Lanka?", answer: "SKY's standard rate is Rs. 150 / km for one-way trips and Rs. 100 / km for round trips, without waiting charges or highway tickets. Send your exact pickup and drop-off on WhatsApp for a fair, route-based quote." },
     { question: "Can I book a private driver from any city?", answer: "Yes — SKY's taxi and private driver network covers Colombo, the south coast, hill country, and the Cultural Triangle. See Private Driver Sri Lanka for the flexible, multi-stop hire option." },
-    { question: "Is the per-km rate the final price?", answer: "It's the standard starting rate. Waiting time, highway tickets, and route specifics are confirmed on WhatsApp before travel." },
+    { question: "Is the per-km rate the final price?", answer: "It's the standard starting rate. Waiting time, highway tickets, and route specifics are confirmed on WhatsApp before travel — see the pricing notes above." },
   ],
   // PHASE 3 additions
   "ella-vs-kandy": comparisonPages["ella-vs-kandy"].faqs,

@@ -12,7 +12,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeCards = [
   {
     title: "Colombo Airport to Unawatuna taxi",
-    text: "Book a private Colombo airport to Unawatuna taxi with flight-time checking, luggage support, highway route planning, and WhatsApp confirmation.",
+    text: "Book a private Colombo airport to Unawatuna taxi with flight details shared in advance, luggage support, highway route planning, and WhatsApp confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -55,7 +55,7 @@ const beachTransfers = [
   },
   {
     title: "Airport and beach route support",
-    text: "Plan Unawatuna airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and 24/7 WhatsApp booking.",
+    text: "Plan Unawatuna airport transfer pickup or drop-off with fair route-based quotes, clean vehicles, and WhatsApp booking.",
     image: images.beach,
   },
 ];
@@ -86,11 +86,11 @@ const highlights = [
   },
   {
     title: "Airport transfer support",
-    text: "Book Colombo airport to Unawatuna taxi service with flight-time checking, fair quotes, clean vehicles, and luggage help.",
+    text: "Book Colombo airport to Unawatuna taxi service with flight details shared in advance, fair quotes, clean vehicles, and luggage help.",
     icon: Plane,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send your route, date, time, passengers, and luggage anytime to confirm a private driver Unawatuna quote.",
     icon: Clock3,
   },
@@ -105,7 +105,7 @@ const faqs = [
   {
     question: "Do you provide Colombo airport to Unawatuna taxi service?",
     answer:
-      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Unawatuna taxi service with flight-time checking, luggage support, and WhatsApp confirmation.",
+      "Yes. SKY Taxi Service & Tours provides private Colombo airport to Unawatuna taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
     question: "Can I book taxi in Unawatuna for Galle, Mirissa, Ella, Yala, or Kandy?",
@@ -134,7 +134,7 @@ export default function UnawatunaTaxiService({ setPage }) {
       <PageHero
         eyebrow="Unawatuna Taxi Service"
         title="Unawatuna Taxi Service"
-        description="Book Unawatuna taxi service for airport transfers, Galle trips, Mirissa transfers, private drivers, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book Unawatuna taxi service for airport transfers, Galle trips, Mirissa transfers, private drivers, clean vehicles, and WhatsApp booking."
         image={images.jungleBeach}
         alt="Unawatuna taxi service private airport transfer"
       >

@@ -75,7 +75,7 @@ const highlights = [
   },
   {
     title: "Airport pickup for round trips",
-    text: "Start your Sri Lanka round tours directly from Colombo Airport with flight-time checking and private vehicle support.",
+    text: "Start your Sri Lanka round tours directly from Colombo Airport with flight details shared in advance and private vehicle support.",
     icon: Plane,
   },
   {
@@ -99,7 +99,7 @@ const faqs = [
   {
     question: "Do round tours include airport pickup?",
     answer:
-      "Yes. Your Sri Lanka round tours can start from Colombo Airport with flight-time checking, luggage support, and private driver pickup.",
+      "Yes. Your Sri Lanka round tours can start from Colombo Airport with flight details shared in advance, luggage support, and private driver pickup.",
   },
   {
     question: "Can I book a Sri Lanka tour package with driver for 3, 5, or 7 days?",
@@ -123,7 +123,7 @@ export default function SriLankaRoundTours({ setPage }) {
       <PageHero
         eyebrow="Sri Lanka Round Tours"
         title="Sri Lanka Round Tours"
-        description="Book Sri Lanka round tours with private driver round trips, custom routes, airport pickup, clean vehicles, and 24/7 WhatsApp booking."
+        description="Book Sri Lanka round tours with private driver round trips, custom routes, airport pickup, clean vehicles, and WhatsApp booking."
         image={images.nineArchBridge}
         alt="Sri Lanka round tours with private driver"
       >

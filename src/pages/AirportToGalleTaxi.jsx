@@ -13,7 +13,7 @@ import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js
 const routeDetails = [
   {
     title: "Colombo Airport to Galle taxi",
-    text: "Private transfer from Bandaranaike International Airport to Galle with flight-time checking, luggage support, and WhatsApp driver confirmation.",
+    text: "Private transfer from Bandaranaike International Airport to Galle with flight details shared in advance, luggage support, and WhatsApp driver confirmation.",
     image: images.airportWelcome,
   },
   {
@@ -23,7 +23,7 @@ const routeDetails = [
   },
   {
     title: "Southern Expressway transfer",
-    text: "Travel safely on the Southern Expressway with a clean private vehicle, comfort breaks when needed, and fair route-based pricing confirmed on WhatsApp.",
+    text: "Travel on the Southern Expressway with a clean private vehicle, comfort breaks when needed, and fair route-based pricing confirmed on WhatsApp.",
     image: images.galle,
   },
   {
@@ -36,7 +36,7 @@ const routeDetails = [
 const coastalStops = [
   {
     title: "Southern Expressway route",
-    text: "A faster coastal transfer route from Colombo Airport to Galle with clean vehicles and safe local driver support.",
+    text: "A faster coastal transfer route from Colombo Airport to Galle with clean vehicles and local driver support.",
     icon: Route,
   },
   {
@@ -74,7 +74,7 @@ const faqs = [
   {
     question: "Can I book an airport to Galle taxi after a late flight?",
     answer:
-      "Yes. SKY Taxi Service & Tours can arrange Galle airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+      "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Galle is available before travel.",
   },
   {
     question: "Does the taxi use the Southern Expressway?",
@@ -105,7 +105,7 @@ export default function AirportToGalleTaxi({ setPage }) {
       <PageHero
         eyebrow="Airport to Galle Taxi"
         title="Colombo Airport to Galle Taxi"
-        description="Book a private taxi from Colombo Airport to Galle with safe coastal transfer, clean vehicles, local drivers, and 24/7 WhatsApp booking."
+        description="Book a private taxi from Colombo Airport to Galle with private coastal transfer, clean vehicles, local drivers, and WhatsApp booking."
         image={images.galleFort}
         alt="Colombo Airport to Galle taxi private transfer Sri Lanka"
       >
@@ -135,7 +135,7 @@ export default function AirportToGalleTaxi({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>
@@ -146,10 +146,10 @@ export default function AirportToGalleTaxi({ setPage }) {
         <div className="section__inner split-layout">
           <Reveal className="split-layout__copy">
             <span className="eyebrow">Colombo Airport to Galle transfer</span>
-            <h2>Private airport to Galle taxi with safe coastal transfer</h2>
+            <h2>Private airport to Galle taxi with private coastal transfer</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Galle taxi before arrival. Your driver can meet you at the airport,
-              help with luggage, use the Southern Expressway route, and take you safely to Galle Fort, beach hotels, or nearby south coast destinations.
+              help with luggage, use the Southern Expressway route, and take you to Galle Fort, beach hotels, or nearby south coast destinations.
             </p>
             <div className="colombo-airport-link-row">
               <button type="button" onClick={() => setPage("home")}>

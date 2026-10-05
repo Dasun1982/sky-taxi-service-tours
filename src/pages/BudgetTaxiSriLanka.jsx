@@ -58,7 +58,7 @@ const pricePoints = [
   },
   {
     title: "Clean vehicles, friendly drivers",
-    text: "Budget-friendly travel still includes clean vehicles, local driver support, and safe private transfers.",
+    text: "Budget-friendly travel still includes clean vehicles, local driver support, and private transfers.",
     icon: ShieldCheck,
   },
 ];
@@ -101,7 +101,7 @@ export default function BudgetTaxiSriLanka({ setPage }) {
       <PageHero
         eyebrow="Budget Taxi Sri Lanka"
         title="Budget Taxi Sri Lanka"
-        description="Book a budget taxi in Sri Lanka with affordable airport transfers, private drivers, clean vehicles, fair prices, and 24/7 WhatsApp booking."
+        description="Book a budget taxi in Sri Lanka with affordable airport transfers, private drivers, clean vehicles, fair prices, and WhatsApp booking."
         image={images.toyotaPrius}
         alt="Budget taxi Sri Lanka private car"
       >
@@ -130,7 +130,7 @@ export default function BudgetTaxiSriLanka({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>

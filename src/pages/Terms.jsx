@@ -40,7 +40,7 @@ export default function Terms() {
           <p>
             Messaging and notifications help coordinate your trip. They do not by themselves mutate
             booking authority. Support is available through published SKY WhatsApp, phone, and email
-            channels during published operating hours — not claimed here as 24/7 emergency dispatch.
+            channels; reply times can vary, and this is not a 24/7 emergency dispatch service.
           </p>
 
           <h2>Cancellations</h2>

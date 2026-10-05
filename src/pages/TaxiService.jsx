@@ -64,7 +64,7 @@ const bookingSteps = [
     icon: CalendarCheck,
   },
   {
-    title: "Travel safely",
+    title: "Start your trip",
     text: "Meet your friendly local driver and enjoy a comfortable ride.",
     icon: ShieldCheck,
   },

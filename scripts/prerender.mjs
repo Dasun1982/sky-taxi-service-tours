@@ -106,10 +106,9 @@ function waitForServer(url, timeoutMs = 20000) {
 }
 
 async function main() {
-  const server = spawn("npx", ["vite", "preview", "--port", String(PORT), "--strictPort"], {
+  const server = spawn(process.execPath, ["node_modules/vite/bin/vite.js", "preview", "--port", String(PORT), "--strictPort", "--configLoader", "native"], {
     cwd: ROOT,
     stdio: "pipe",
-    shell: true,
   });
   server.stdout.on("data", () => {});
   let serverErr = "";

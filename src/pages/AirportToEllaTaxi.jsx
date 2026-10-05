@@ -10,7 +10,7 @@ import { buildWhatsAppLink } from "../utils/whatsapp";
 const routeDetails = [
   {
     title: "Colombo Airport to Ella taxi",
-    text: "Private transfer from Bandaranaike International Airport to Ella with flight-time checking, luggage support, and WhatsApp confirmation before pickup.",
+    text: "Private transfer from Bandaranaike International Airport to Ella with flight details shared in advance, luggage support, and WhatsApp confirmation before pickup.",
     image: images.airportWelcome,
   },
   {
@@ -43,7 +43,7 @@ const scenicStops = [
   },
   {
     title: "Flexible food breaks",
-    text: "Your private driver can help with clean rest stops, local food breaks, and safe timing for the long-distance transfer.",
+    text: "Your private driver can help with clean rest stops, local food breaks, and sensible timing for the long-distance transfer.",
     icon: MapPinned,
   },
 ];
@@ -73,7 +73,7 @@ const faqs = [
   {
     question: "Can I book an airport to Ella taxi after a late flight?",
     answer:
-      "Yes. SKY Taxi Service & Tours can arrange Ella airport transfer service for day or night arrivals with flight-time checking and WhatsApp confirmation.",
+      "Yes, you can request one. Share your flight time on WhatsApp and SKY will confirm whether a late-arrival pickup to Ella is available before travel.",
   },
   {
     question: "Can we stop on the scenic route to Ella?",
@@ -102,7 +102,7 @@ export default function AirportToEllaTaxi({ setPage }) {
       <PageHero
         eyebrow="Airport to Ella Taxi"
         title="Colombo Airport to Ella Taxi"
-        description="Book a private taxi from Colombo Airport to Ella with scenic hill country transfer, clean vehicles, flexible stops, and 24/7 WhatsApp booking."
+        description="Book a private taxi from Colombo Airport to Ella with scenic hill country transfer, clean vehicles, flexible stops, and WhatsApp booking."
         image={images.nineArchBridge}
         alt="Colombo Airport to Ella taxi private transfer Sri Lanka"
       >
@@ -131,7 +131,7 @@ export default function AirportToEllaTaxi({ setPage }) {
           </span>
           <span>
             <Clock3 size={16} />
-            24/7 WhatsApp
+            WhatsApp
           </span>
         </div>
       </PageHero>
@@ -143,7 +143,7 @@ export default function AirportToEllaTaxi({ setPage }) {
             <h2>Private airport to Ella taxi with friendly local driver support</h2>
             <p>
               SKY Taxi Service & Tours helps travelers book a private Colombo Airport to Ella taxi before arrival. Your driver can meet you at the airport,
-              help with luggage, plan comfort stops, and take you safely into Sri Lanka's hill country.
+              help with luggage, plan comfort stops, and take you into Sri Lanka's hill country.
             </p>
             <div className="colombo-airport-link-row">
               <button type="button" onClick={() => setPage("home")}>
@@ -242,7 +242,7 @@ export default function AirportToEllaTaxi({ setPage }) {
       <section className="section section--soft airport-to-ella-cta">
         <div className="section__inner">
           <Reveal className="booking-cta-panel">
-            <span className="eyebrow">24/7 WhatsApp booking</span>
+            <span className="eyebrow">WhatsApp booking</span>
             <h2>Book your Ella airport transfer</h2>
             <p>
               Send your flight number, arrival time, Ella hotel, passenger count, and luggage details. We will reply with a fair route-based quote and confirm your driver.

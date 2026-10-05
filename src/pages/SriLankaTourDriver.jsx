@@ -25,7 +25,7 @@ const tourDriverServices = [
   },
   {
     title: "Local route knowledge across the island",
-    text: "Travel with a friendly local driver who helps with routes, timing, stops, luggage, simple travel advice, and safe private transfers day after day.",
+    text: "Travel with a friendly local driver who helps with routes, timing, stops, luggage, simple travel advice, and private transfers day after day.",
     image: images.kandyTemple,
   },
 ];
@@ -81,7 +81,7 @@ const highlights = [
     icon: Car,
   },
   {
-    title: "24/7 WhatsApp booking",
+    title: "WhatsApp booking",
     text: "Send your travel details anytime and get a fair quote for a Sri Lanka tour driver.",
     icon: Clock3,
   },
@@ -106,7 +106,7 @@ const faqs = [
   {
     question: "Is this a Sri Lanka driver guide service?",
     answer:
-      "Your driver helps with routes, timing, comfort stops, luggage, and local travel support. Specialist licensed site guides can be arranged separately where needed.",
+      "Your driver helps with routes, timing, comfort stops, luggage, and local travel support. Specialist site guides can be arranged separately where needed.",
   },
   {
     question: "What if I only need a driver for one day?",
@@ -130,7 +130,7 @@ export default function SriLankaTourDriver({ setPage }) {
       <PageHero
         eyebrow="Sri Lanka Tour Driver"
         title="Sri Lanka Tour Driver"
-        description="One dedicated driver for your entire Sri Lanka trip — a continuous multi-day chauffeur tour with flexible itineraries, clean vehicles, and 24/7 WhatsApp booking."
+        description="One dedicated driver for your entire Sri Lanka trip — a continuous multi-day chauffeur tour with flexible itineraries, clean vehicles, and WhatsApp booking."
         image={images.sigiriya}
         alt="Sri Lanka tour driver private chauffeur tour"
       >
