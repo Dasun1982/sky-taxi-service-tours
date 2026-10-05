@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const dayTourRoutes = [
   {
@@ -77,7 +78,7 @@ const highlights = [
 
 const faqs = [
   {
-    question: "How do I book day tours Sri Lanka with SKY Taxi Service & Tours?",
+    question: "How do I book a day tour in Sri Lanka with SKY Taxi Service & Tours?",
     answer:
       "Send your pickup location, date, places you want to visit, number of people, luggage, and budget on WhatsApp. We will help plan a private one-day route and confirm the vehicle.",
   },
@@ -280,17 +281,14 @@ export default function DayToursSriLanka({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Day tours FAQ"
-            title="Day tours Sri Lanka questions"
+            title="Day Tours Sri Lanka FAQs"
             text="Helpful answers before booking Sri Lanka day trips, a private day tour Sri Lanka route, or Sri Lanka day tours with driver."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

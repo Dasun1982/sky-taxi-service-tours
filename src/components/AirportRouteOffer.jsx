@@ -115,7 +115,7 @@ export default function AirportRouteOffer({ offer }) {
           <div>
             <span className="eyebrow">Quote before confirmation</span>
             <h2>Request your {offer.destinationName} transfer quote</h2>
-            <p>Pickup and vehicle choices appear in your WhatsApp message only when selected. Add your flight, date, traveler, and luggage details there.</p>
+            <p>Pickup and vehicle choices appear in your WhatsApp message only when selected. Add your flight, date, traveler, and luggage details there, and ask for today&apos;s best available price.</p>
           </div>
           <div className="cta-actions">
             <a className="button button--primary" href={quoteHref} target="_blank" rel="noreferrer" onClick={() => trackEvent("whatsapp_clicked", { page_source: offer.pageSlug, service: "airport-transfer" })}>

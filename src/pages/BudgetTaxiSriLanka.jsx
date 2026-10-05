@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const budgetServices = [
   {
@@ -266,17 +267,14 @@ export default function BudgetTaxiSriLanka({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Budget taxi FAQ"
-            title="Budget taxi Sri Lanka questions"
+            title="Budget Taxi Sri Lanka FAQs"
             text="Helpful answers before booking an affordable taxi Sri Lanka ride or airport transfer."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

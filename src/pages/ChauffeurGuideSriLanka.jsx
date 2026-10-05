@@ -5,7 +5,8 @@ import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
-import { getChauffeurGuideOffer } from "../data/chauffeurGuideOffer.js";
+import { chauffeurGuideFaqs, getChauffeurGuideOffer } from "../data/chauffeurGuideOffer.js";
+import { FaqItem } from "../components/FaqList";
 import { formatCommercialPrice } from "../data/pricing.js";
 import { buildQuoteWhatsAppLink } from "../utils/whatsapp";
 import { whatsappIntents } from "../utils/whatsappQuote.js";
@@ -149,6 +150,19 @@ export default function ChauffeurGuideSriLanka() {
               ["Receive travel details", "SKY provides the relevant service and vehicle arrangements before the confirmed journey."],
             ].map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><strong>{title}</strong><p>{description}</p></li>)}
           </ol>
+        </div>
+      </section>
+
+      <section className="section chauffeur-guide-faq">
+        <div className="section__inner">
+          <SectionHeader eyebrow="Chauffeur Guide FAQ" title="Chauffeur Guide Sri Lanka FAQs" text="Helpful answers before planning a multi-day private journey." />
+          <div className="faq-list faq-accordion">
+            {chauffeurGuideFaqs.map((faq) => (
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
+            ))}
+          </div>
         </div>
       </section>
 

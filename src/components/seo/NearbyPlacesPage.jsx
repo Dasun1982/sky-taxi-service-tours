@@ -7,6 +7,7 @@ import { nearbyPlacesPages } from "../../data/seo/nearbyPlaces";
 import { aiPlannerUrl } from "../../data/business";
 import { buildWhatsAppLink } from "../../utils/whatsapp";
 import { trackEvent } from "../../utils/analytics";
+import { FaqItem } from "../FaqList";
 
 /**
  * Shared template for "Best Places to Visit from <X>" pages (the pattern
@@ -86,14 +87,11 @@ export default function NearbyPlacesPage({ pageKey, setPage }) {
         <section className="section">
           <div className="section__inner">
             <SectionHeader eyebrow="Planning your route" title="Common questions" align="left" />
-            <div className="faq-list">
+            <div className="faq-list faq-accordion">
               {config.faqs.map((faq) => (
-                <article className="faq-item" key={faq.question}>
-                  <h3>{faq.question}</h3>
-                  <div>
-                    <p>{faq.answer}</p>
-                  </div>
-                </article>
+                <FaqItem key={faq.question} question={faq.question}>
+                  <p>{faq.answer}</p>
+                </FaqItem>
               ))}
             </div>
           </div>

@@ -7,6 +7,7 @@ import { findDestination } from "../data/destinations";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 // Real destinations honestly suited to a quieter, scenic pace — chosen
 // from destinations.js's own real content, not a fabricated "romantic"
@@ -83,25 +84,16 @@ export default function SriLankaHoneymoon({ setPage }) {
       <section className="section">
         <div className="section__inner">
           <SectionHeader eyebrow="Planning" title="Common questions" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Does SKY offer a honeymoon package?</h3>
-              <div>
-                <p>Not as a separate product — SKY's private driver and round tour services already offer the flexibility a couples trip needs. Tell us your interests and we'll suggest a real route.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Is Sri Lanka good for a honeymoon?</h3>
-              <div>
-                <p>Many couples combine hill country scenery with south coast beaches on one private route — SKY's real multi-day tours already cover both in a single continuous trip.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Can we customize a route just for two people?</h3>
-              <div>
-                <p>Yes — a private vehicle and driver work the same whether it's two passengers or a larger group; pricing depends on route and vehicle, confirmed on WhatsApp.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Does SKY offer a honeymoon package?">
+              <p>Not as a separate product — SKY's private driver and round tour services already offer the flexibility a couples trip needs. Tell us your interests and we'll suggest a real route.</p>
+            </FaqItem>
+            <FaqItem question="Is Sri Lanka good for a honeymoon?">
+              <p>Many couples combine hill country scenery with south coast beaches on one private route — SKY's real multi-day tours already cover both in a single continuous trip.</p>
+            </FaqItem>
+            <FaqItem question="Can we customize a route just for two people?">
+              <p>Yes — a private vehicle and driver work the same whether it's two passengers or a larger group; pricing depends on route and vehicle, confirmed on WhatsApp.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

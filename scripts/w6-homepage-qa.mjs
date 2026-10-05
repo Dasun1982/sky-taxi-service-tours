@@ -58,10 +58,11 @@ try {
     equal(data.serviceHeadings.join("|"), "Airport Transfers|Private Driver|Chauffeur Guide|Tours & Itineraries", "four product paths");
     equal(data.serviceLinks.map(({ path }) => path).join("|"), "/airport|/private-driver-sri-lanka|/chauffeur-guide-sri-lanka|/tours", "crawlable product URLs");
     equal(data.serviceLinkColor, "rgb(255, 255, 255)", "chooser action contrast");
-    equal(data.serviceRates[0], "See route-specific prices", "airport price context");
-    equal(data.serviceRates[1], `From ${formatCommercialPrice(getPrivateDriverOffer().startingPrice, getPrivateDriverOffer().currency, true)}`, "driver W1 starting price");
-    equal(data.serviceRates[2], `From ${formatCommercialPrice(getChauffeurGuideOffer().startingPrice, getChauffeurGuideOffer().currency, true)}`, "guide W1 starting price");
-    equal(data.serviceRates[3], "Tailored to your route", "tour price context");
+    // Founder polish: Home chooser sells fit and value; prices live on the product pages.
+    equal(data.serviceRates.join("|"), "Best for arrival and departure days|Best for flexible travel on your own plan|Best for longer, guided journeys|Best for ready routes you can adjust", "who each service is for");
+    const driverPrice = formatCommercialPrice(getPrivateDriverOffer().startingPrice, getPrivateDriverOffer().currency, true);
+    const guidePrice = formatCommercialPrice(getChauffeurGuideOffer().startingPrice, getChauffeurGuideOffer().currency, true);
+    ok(data.serviceRates.every((rate) => !rate.includes(driverPrice) && !rate.includes(guidePrice) && !/LKR|\$\d/.test(rate)), "no detailed prices on Home chooser");
     ok(data.whatsappLinks.length >= 3, "direct inquiry CTAs");
     const expectedQuote = new URL(buildQuoteWhatsAppLink({ intent: whatsappIntents.GENERAL, sourcePage: "home" }));
     ok(data.whatsappLinks.every((href) => {

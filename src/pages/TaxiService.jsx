@@ -19,6 +19,7 @@ import { images } from "../data/travelData";
 import { taxiFleet } from "../data/vehicles";
 import { taxiRatePerKm } from "../data/pricing";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const vehicleFeatures = [
   { label: "AC", icon: Wind },
@@ -244,29 +245,20 @@ export default function TaxiService({ setPage }) {
 
       <section className="section">
         <div className="section__inner">
-          <SectionHeader eyebrow="Taxi FAQ" title="Sri Lanka taxi questions" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>How much is a taxi in Sri Lanka?</h3>
-              <div>
-                <p>
-                  SKY's standard rate is {taxiRatePerKm.oneWay} for one-way trips and {taxiRatePerKm.roundTrip} for round trips, without waiting
-                  charges or highway tickets. Send your exact pickup and drop-off on WhatsApp for a fair, route-based quote.
-                </p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Can I book a private driver from any city?</h3>
-              <div>
-                <p>Yes — SKY's taxi and private driver network covers Colombo, the south coast, hill country, and the Cultural Triangle. See Private Driver Sri Lanka for the flexible, multi-stop hire option.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Is the per-km rate the final price?</h3>
-              <div>
-                <p>It's the standard starting rate. Waiting time, highway tickets, and route specifics are confirmed on WhatsApp before travel — see the pricing notes above.</p>
-              </div>
-            </article>
+          <SectionHeader eyebrow="Taxi FAQ" title="Sri Lanka Taxi FAQs" align="left" />
+          <div className="faq-list faq-accordion">
+            <FaqItem question="How much is a taxi in Sri Lanka?">
+              <p>
+                SKY's standard rate is {taxiRatePerKm.oneWay} for one-way trips and {taxiRatePerKm.roundTrip} for round trips, without waiting
+                charges or highway tickets. Send your exact pickup and drop-off on WhatsApp for a fair, route-based quote.
+              </p>
+            </FaqItem>
+            <FaqItem question="Can I book a private driver from any city?">
+              <p>Yes — SKY's taxi and private driver network covers Colombo, the south coast, hill country, and the Cultural Triangle. See Private Driver Sri Lanka for the flexible, multi-stop hire option.</p>
+            </FaqItem>
+            <FaqItem question="Is the per-km rate the final price?">
+              <p>It's the standard starting rate. Waiting time, highway tickets, and route specifics are confirmed on WhatsApp before travel — see the pricing notes above.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

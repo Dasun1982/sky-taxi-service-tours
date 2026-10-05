@@ -20,6 +20,7 @@ import { airportTransferTowns } from "../../data/seo/airportTransfers";
 import { findTaxiVehicle } from "../../data/vehicles";
 import { buildWhatsAppLink } from "../../utils/whatsapp";
 import { buildWhatsAppMessage, whatsappIntents } from "../../utils/whatsappQuote.js";
+import { FaqItem } from "../FaqList";
 
 const icons = {
   plane: Plane,
@@ -220,14 +221,11 @@ export default function AirportTransferLanding({ townId, setPage }) {
             title={`Colombo Airport to ${town.townName} taxi questions`}
             text={`Helpful answers before booking your private airport transfer to ${town.townName}.`}
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {town.faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

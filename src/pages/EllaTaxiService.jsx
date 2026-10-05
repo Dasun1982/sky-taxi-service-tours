@@ -8,6 +8,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const scenicStops = [
   {
@@ -272,17 +273,14 @@ export default function EllaTaxiService({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Ella taxi FAQ"
-            title="Ella taxi service questions"
+            title="Ella Taxi Service FAQs"
             text="Helpful answers before booking a private driver to Ella Sri Lanka."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

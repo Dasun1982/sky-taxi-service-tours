@@ -4,6 +4,7 @@ import { cityToCityRoutes } from "./seo/cityRoutes";
 import { nearbyPlacesPages } from "./seo/nearbyPlaces";
 import { themeHubPages } from "./seo/themeHubs";
 import { schemaPageLabels } from "./schemaLabels";
+import { chauffeurGuideFaqs } from "./chauffeurGuideOffer.js";
 
 // Re-exported so every existing `import { schemaPageLabels } from
 // "./schemaData"` / "../data/schemaData" keeps working unchanged — only
@@ -463,6 +464,7 @@ export const schemaFaqs = {
         "The final price is confirmed on WhatsApp depending on pickup place, drop-off place, travel date, vehicle type, waiting time, highway tickets, luggage, and special requests.",
     },
   ],
+  "chauffeur-guide-sri-lanka": chauffeurGuideFaqs,
   "private-driver-sri-lanka": [
     {
       question: "How do I hire a private driver in Sri Lanka?",
@@ -616,7 +618,7 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides private Colombo airport to Unawatuna taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
-      question: "Can I book taxi in Unawatuna for Galle, Mirissa, Ella, Yala, or Kandy?",
+      question: "Can I book a taxi in Unawatuna for Galle, Mirissa, Ella, Yala, or Kandy?",
       answer:
         "Yes. You can book private taxi routes from Unawatuna to Galle, Mirissa, Ella, Yala, Kandy, Colombo Airport, and other destinations across Sri Lanka.",
     },
@@ -643,7 +645,7 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides private Colombo airport to Weligama taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
-      question: "Can I book taxi in Weligama for Mirissa, Galle, Unawatuna, Ella, or Yala?",
+      question: "Can I book a taxi in Weligama for Mirissa, Galle, Unawatuna, Ella, or Yala?",
       answer:
         "Yes. You can book private taxi routes from Weligama to Mirissa, Galle, Unawatuna, Ella, Yala, Colombo Airport, and other destinations across Sri Lanka.",
     },
@@ -670,7 +672,7 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides private Colombo airport to Hiriketiya taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
-      question: "Can I book taxi in Hiriketiya for Mirissa, Weligama, Galle, Ella, Yala, or Unawatuna?",
+      question: "Can I book a taxi in Hiriketiya for Mirissa, Weligama, Galle, Ella, Yala, or Unawatuna?",
       answer:
         "Yes. You can book private taxi routes from Hiriketiya to Mirissa, Weligama, Galle, Ella, Yala, Unawatuna, Colombo Airport, and other destinations across Sri Lanka.",
     },
@@ -697,7 +699,7 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides private Colombo airport to Nuwara Eliya taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
-      question: "Can I book taxi in Nuwara Eliya for Ella, Kandy, Galle, Mirissa, or Yala?",
+      question: "Can I book a taxi in Nuwara Eliya for Ella, Kandy, Galle, Mirissa, or Yala?",
       answer:
         "Yes. You can book private taxi routes from Nuwara Eliya to Ella, Kandy, Galle, Mirissa, Yala, Colombo Airport, and other destinations across Sri Lanka.",
     },
@@ -724,7 +726,7 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides private Colombo airport to Bentota taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
-      question: "Can I book taxi in Bentota for Galle, Mirissa, Unawatuna, Ella, or Yala?",
+      question: "Can I book a taxi in Bentota for Galle, Mirissa, Unawatuna, Ella, or Yala?",
       answer:
         "Yes. You can book private taxi routes from Bentota to Galle, Mirissa, Unawatuna, Ella, Yala, Colombo Airport, and other destinations across Sri Lanka.",
     },
@@ -751,7 +753,7 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides private Colombo airport to Negombo taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
-      question: "Can I book taxi in Negombo for Colombo, Galle, Kandy, Ella, Sigiriya, or Mirissa?",
+      question: "Can I book a taxi in Negombo for Colombo, Galle, Kandy, Ella, Sigiriya, or Mirissa?",
       answer:
         "Yes. You can book private taxi routes from Negombo to Colombo, Galle, Kandy, Ella, Sigiriya, Mirissa, Colombo Airport, and other destinations across Sri Lanka.",
     },
@@ -778,7 +780,7 @@ export const schemaFaqs = {
         "Yes. SKY Taxi Service & Tours provides private Colombo airport to Arugam Bay taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
     },
     {
-      question: "Can I book taxi in Arugam Bay for Ella, Yala, Kandy, Mirissa, or Galle?",
+      question: "Can I book a taxi in Arugam Bay for Ella, Yala, Kandy, Mirissa, or Galle?",
       answer:
         "Yes. You can book private taxi routes from Arugam Bay to Ella, Yala, Kandy, Mirissa, Galle, Colombo Airport, and other destinations across Sri Lanka.",
     },
@@ -832,7 +834,7 @@ export const schemaFaqs = {
         "Yes. We provide Colombo Airport pickup with private vehicles, flight details shared in advance, luggage support, and WhatsApp confirmation before pickup.",
     },
     {
-      question: "Can I book a long distance taxi Sri Lanka route?",
+      question: "Can I book a long-distance taxi route in Sri Lanka?",
       answer:
         "Yes. You can book long-distance taxi routes to Ella, Kandy, Galle, Sigiriya, Mirissa, Unawatuna, Nuwara Eliya, and many other destinations around Sri Lanka.",
     },
@@ -876,7 +878,7 @@ export const schemaFaqs = {
   ],
   "day-tours-sri-lanka": [
     {
-      question: "How do I book day tours Sri Lanka with SKY Taxi Service & Tours?",
+      question: "How do I book a day tour in Sri Lanka with SKY Taxi Service & Tours?",
       answer:
         "Send your pickup location, date, places you want to visit, number of people, luggage, and budget on WhatsApp. We will help plan a private one-day route and confirm the vehicle.",
     },

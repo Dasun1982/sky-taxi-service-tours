@@ -8,6 +8,7 @@ import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const routeCards = [
   {
@@ -108,7 +109,7 @@ const faqs = [
       "Yes. SKY Taxi Service & Tours provides private Colombo airport to Bentota taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
-    question: "Can I book taxi in Bentota for Galle, Mirissa, Unawatuna, Ella, or Yala?",
+    question: "Can I book a taxi in Bentota for Galle, Mirissa, Unawatuna, Ella, or Yala?",
     answer:
       "Yes. You can book private taxi routes from Bentota to Galle, Mirissa, Unawatuna, Ella, Yala, Colombo Airport, and other destinations across Sri Lanka.",
   },
@@ -322,17 +323,14 @@ export default function BentotaTaxiService({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Bentota taxi FAQ"
-            title="Bentota taxi service questions"
+            title="Bentota Taxi Service FAQs"
             text="Helpful answers before booking taxi in Bentota, Colombo airport to Bentota taxi service, or private driver Bentota routes."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

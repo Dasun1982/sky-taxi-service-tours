@@ -7,6 +7,7 @@ import { tours, findTourPricing } from "../data/tours";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 const typeLabels = {
   "day-tour": "One-day tour",
@@ -118,25 +119,19 @@ export default function HowManyDaysInSriLanka({ setPage }) {
             text="These are real starting itineraries, not the only options — days, stops, and pace can all be adjusted."
             align="left"
           />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Can I combine or shorten these routes?</h3>
-              <div>
-                <p>
-                  Yes. Every route above is a real starting point. Send your interests and available dates on WhatsApp, or describe your trip to
-                  SKY AI, and days or stops can be added, removed, or reordered.
-                </p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>What if I only have a weekend?</h3>
-              <div>
-                <p>
-                  A single focused day trip (Ella, Kandy, Sinharaja, or Colombo) is realistic for a short stay near one region — see the 1-day
-                  options above rather than trying to combine multiple regions in too little time.
-                </p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Can I combine or shorten these routes?">
+              <p>
+                Yes. Every route above is a real starting point. Send your interests and available dates on WhatsApp, or describe your trip to
+                SKY AI, and days or stops can be added, removed, or reordered.
+              </p>
+            </FaqItem>
+            <FaqItem question="What if I only have a weekend?">
+              <p>
+                A single focused day trip (Ella, Kandy, Sinharaja, or Colombo) is realistic for a short stay near one region — see the 1-day
+                options above rather than trying to combine multiple regions in too little time.
+              </p>
+            </FaqItem>
           </div>
         </div>
       </section>

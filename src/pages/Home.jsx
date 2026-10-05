@@ -5,7 +5,6 @@ import {
   Car,
   CheckCircle2,
   Compass,
-  HeartHandshake,
   Mail,
   MapPin,
   MessageCircle,
@@ -13,11 +12,11 @@ import {
   Plane,
   Route,
   Sparkles,
-  Wallet,
 } from "lucide-react";
 import CinematicVideoCard from "../components/CinematicVideoCard";
 import Reveal from "../components/Reveal";
 import SectionHeader from "../components/SectionHeader";
+import RouteRail from "../components/RouteRail";
 import { useLanguage } from "../context/LanguageContext";
 import {
   coastalStory,
@@ -32,9 +31,9 @@ import {
   wildSriLanka,
 } from "../data/travelData";
 import { aiPlannerUrl } from "../data/business";
-import { getPrivateDriverOffer } from "../data/privateDriverOffer";
+import { routes } from "../data/routes";
+import { findDestination } from "../data/destinations";
 import { getChauffeurGuideOffer } from "../data/chauffeurGuideOffer";
-import { formatCommercialPrice } from "../data/pricing";
 import { buildQuoteWhatsAppLink } from "../utils/whatsapp";
 import { whatsappIntents } from "../utils/whatsappQuote";
 import { trackEvent } from "../utils/analytics";
@@ -122,7 +121,7 @@ const tripFlowSteps = [
   { label: "Travel", text: "Meet your driver and enjoy the journey you agreed with SKY." },
 ];
 
-const whyIcons = [Wallet, HeartHandshake, CheckCircle2, MessageCircle, MapPin, Route];
+const whyIcons = [Car, Route, MapPin, Plane, MessageCircle, CheckCircle2];
 
 const taxiRouteLinks = [
   {
@@ -130,6 +129,7 @@ const taxiRouteLinks = [
     description: "Ask about private Colombo Airport taxi service with clean vehicles, route-based prices, and direct WhatsApp support.",
     image: images.airportWelcome,
     href: "/colombo-airport-taxi",
+    meta: "Colombo Airport (CMB)",
   },
   {
     title: "Ella Taxi Service",
@@ -166,64 +166,52 @@ const taxiRouteLinks = [
     description: "Island-wide airport transfers with flight-time planning, clean private vehicles, and a direct quote request.",
     image: images.airportTransfer,
     href: "/airport-transfer-sri-lanka",
+    meta: "Island-wide transfers",
   },
   {
     title: "Sri Lanka Round Tours",
     description: "Flexible Sri Lanka round tours with private driver support, custom routes, hotel stops, and fair WhatsApp quotes.",
     image: images.trainRide,
     href: "/sri-lanka-round-tours",
+    meta: "Multi-day routes",
   },
   {
     title: "Budget Taxi Sri Lanka",
     description: "Affordable Sri Lanka taxi service for airport transfers, long-distance rides, private drivers, and fair prices.",
     image: images.toyotaPrius,
     href: "/budget-taxi-sri-lanka",
+    meta: "Island-wide",
   },
 ];
+
+// Every other live Colombo Airport route (src/data/routes.js) joins the rail
+// with its own published travel time and destination copy — real route
+// pages only, so the section shows SKY's actual network instead of three cards.
+const shortTravelTime = (time) =>
+  time
+    .replace(/ by Southern Expressway$/, "")
+    .replace(/^([\d.]+) to ([\d.]+) hours$/, "$1–$2 hrs")
+    .replace(/^([\d.]+) to ([\d.]+) minutes$/, "$1–$2 min");
+const routeByTaxiPage = new Map(routes.map((route) => [route.taxiServiceSlug, route]));
+const routeMeta = (route) => {
+  const destination = findDestination(route.destinationId);
+  return `${destination?.region ?? "Sri Lanka"} · ${shortTravelTime(route.travelTime)} from CMB`;
+};
+const withMeta = (card) => (card.meta ? card : { ...card, meta: routeMeta(routeByTaxiPage.get(card.href)) });
+const linkedTaxiPages = new Set(taxiRouteLinks.map((card) => card.href));
+const extraRouteCards = routes
+  .filter((route) => !linkedTaxiPages.has(route.taxiServiceSlug))
+  .map((route) => {
+    const destination = findDestination(route.destinationId);
+    return { title: `${route.destinationName} Taxi Service`, description: destination.description, image: destination.image, href: route.taxiServiceSlug };
+  });
+const routeRailCards = [...taxiRouteLinks.slice(0, 6), ...extraRouteCards, ...taxiRouteLinks.slice(6)].map(withMeta);
 
 export default function Home({ setPage }) {
   const { t } = useLanguage();
   const carouselRef = useRef(null);
-  const privateDriverOffer = getPrivateDriverOffer();
   const chauffeurGuideOffer = getChauffeurGuideOffer();
   const homeQuoteHref = buildQuoteWhatsAppLink({ intent: whatsappIntents.GENERAL, sourcePage: "home" });
-
-  const renderTaxiRouteCard = (route, isClone = false) => {
-    const linkProps = isClone ? { tabIndex: -1 } : {};
-    const cardContent = (
-      <>
-        <a className="home-seo-route-card__media" href={route.href} aria-label={route.title} {...linkProps}>
-          <img src={route.image} alt="" loading="lazy" />
-        </a>
-        <div className="home-seo-route-card__body">
-          <h3>
-            <a href={route.href} {...linkProps}>
-              {route.title}
-            </a>
-          </h3>
-          <p>{route.description}</p>
-          <a className="home-seo-route-card__button" href={route.href} aria-label={`View Route — ${route.title}`} {...linkProps}>
-            View Route
-            <ArrowRight size={16} />
-          </a>
-        </div>
-      </>
-    );
-
-    if (isClone) {
-      return (
-        <article className="home-seo-route-card" key={`clone-${route.href}`}>
-          {cardContent}
-        </article>
-      );
-    }
-
-    return (
-      <Reveal as="article" className="home-seo-route-card" key={route.href}>
-        {cardContent}
-      </Reveal>
-    );
-  };
 
   const scrollTours = (direction) => {
     carouselRef.current?.scrollBy({ left: direction * 360, behavior: "smooth" });
@@ -302,13 +290,7 @@ export default function Home({ setPage }) {
                     </span>
                     <h3>{t(`home.commercial.${service.id}.title`)}</h3>
                     <p>{t(`home.commercial.${service.id}.text`, undefined, { days: chauffeurGuideOffer.normallyMinDays })}</p>
-                    <strong className="home-service-card__rate">
-                      {service.id === "privateDriver"
-                        ? `${t("home.commercial.from")} ${formatCommercialPrice(privateDriverOffer.startingPrice, privateDriverOffer.currency, true)}`
-                        : service.id === "chauffeurGuide"
-                          ? `${t("home.commercial.from")} ${formatCommercialPrice(chauffeurGuideOffer.startingPrice, chauffeurGuideOffer.currency, true)}`
-                          : t(`home.commercial.${service.id}.rate`)}
-                    </strong>
+                    <strong className="home-service-card__rate">{t(`home.commercial.${service.id}.bestFor`)}</strong>
                     <a
                       className="service-detail-button"
                       href={`/${service.page}`}
@@ -487,17 +469,20 @@ export default function Home({ setPage }) {
           <SectionHeader
             eyebrow="Taxi routes"
             title="Popular Sri Lanka Taxi Routes"
-            text="Plan your most requested airport transfers, private taxi routes, and island-wide Sri Lanka travel options."
+            text="Private airport transfers and taxi routes across Sri Lanka. Swipe or use the arrows to browse, then open a route for details."
           />
 
-          <div className="home-seo-route-grid" aria-label="Popular Sri Lanka Taxi Routes">
-            <div className="home-seo-route-track">
-              <div className="home-seo-route-group">{taxiRouteLinks.map((route) => renderTaxiRouteCard(route))}</div>
-              <div className="home-seo-route-group home-seo-route-group--clone" aria-hidden="true">
-                {taxiRouteLinks.map((route) => renderTaxiRouteCard(route, true))}
-              </div>
-            </div>
-          </div>
+          <RouteRail
+            label="Popular Sri Lanka taxi routes"
+            items={routeRailCards}
+            summary={`${routeRailCards.length} routes across the coast, hill country, and Cultural Triangle`}
+            footer={
+              <a className="text-button route-rail__all" href="/transport">
+                See all routes
+                <ArrowRight size={16} />
+              </a>
+            }
+          />
         </div>
       </section>
 

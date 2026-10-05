@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { findDestination } from "../data/destinations";
 import { relatedRoutes, transportOptionLabels } from "../data/routes";
@@ -42,6 +43,10 @@ export default function RelatedRoutes({ destinationId, eyebrow = "Popular journe
             </a>
           ))}
         </div>
+        <a className="text-button related-see-all" href="/transport">
+          See all routes
+          <ArrowRight size={16} />
+        </a>
       </div>
     </section>
   );

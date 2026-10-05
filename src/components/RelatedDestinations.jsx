@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { findRelatedDestinations } from "../data/destinations";
 
@@ -50,6 +51,10 @@ export default function RelatedDestinations({ destinationId, eyebrow = "Explore 
             </a>
           ))}
         </div>
+        <a className="text-button related-see-all" href="/destinations">
+          View all destinations
+          <ArrowRight size={16} />
+        </a>
       </div>
     </section>
   );

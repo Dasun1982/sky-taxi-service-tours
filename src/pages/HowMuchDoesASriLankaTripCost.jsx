@@ -8,6 +8,7 @@ import { tours } from "../data/tours";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 function costMessage() {
   return "Hello SKY Taxi Service & Tours, I want an estimate for my Sri Lanka trip. Route/interests: ___ Travel dates: ___ Number of passengers: ___";
@@ -93,25 +94,16 @@ export default function HowMuchDoesASriLankaTripCost({ setPage }) {
       <section className="section section--soft">
         <div className="section__inner">
           <SectionHeader eyebrow="What affects the final price" title="Not included in the base prices above" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>What isn't included in these prices?</h3>
-              <div>
-                <p>Entrance tickets, meals, and hotel stays are not included in the tour prices above — see the individual tour pages for a full breakdown of what's included.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Does a specialist guide cost extra?</h3>
-              <div>
-                <p>Yes — a driver alone is included in the base price; a specialist guide is an optional add-on, confirmed on WhatsApp.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Are airport transfers priced separately?</h3>
-              <div>
-                <p>Yes — airport transfers have their own per-vehicle pricing, separate from tour packages. See Airport Transfer Sri Lanka for details.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="What isn't included in these prices?">
+              <p>Entrance tickets, meals, and hotel stays are not included in the tour prices above — see the individual tour pages for a full breakdown of what's included.</p>
+            </FaqItem>
+            <FaqItem question="Does a specialist guide cost extra?">
+              <p>Yes — a driver alone is included in the base price; a specialist guide is an optional add-on, confirmed on WhatsApp.</p>
+            </FaqItem>
+            <FaqItem question="Are airport transfers priced separately?">
+              <p>Yes — airport transfers have their own per-vehicle pricing, separate from tour packages. See Airport Transfer Sri Lanka for details.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

@@ -10,6 +10,7 @@ import { formatCommercialPrice } from "../data/pricing.js";
 import { buildQuoteWhatsAppLink } from "../utils/whatsapp";
 import { whatsappIntents } from "../utils/whatsappQuote.js";
 import "../styles/privateDriverConversion.css";
+import { FaqItem } from "../components/FaqList";
 
 const offer = getPrivateDriverOffer();
 
@@ -320,7 +321,7 @@ export default function PrivateDriverSriLanka() {
             <span className="eyebrow">Your route, your quote</span>
             <h2>Request your Private Driver quote</h2>
             <p>
-              Send your dates, number of days, starting location, destinations, and traveler details. SKY confirms the current route quote; you decide whether to proceed after reviewing it.
+              Send your dates, number of days, starting location, destinations, and traveler details. SKY confirms the current route quote; you decide whether to proceed after reviewing it. Want to adjust the route or number of days? Ask us for a tailored quote.
             </p>
             <div className="cta-actions">
               <a className="button button--primary" href={quoteHref()} target="_blank" rel="noreferrer">
@@ -339,17 +340,14 @@ export default function PrivateDriverSriLanka() {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Private driver FAQ"
-            title="Private driver Sri Lanka questions"
+            title="Private Driver Sri Lanka FAQs"
             text="Helpful answers before requesting a Private Driver quote."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

@@ -8,6 +8,7 @@ import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const routeCards = [
   {
@@ -108,7 +109,7 @@ const faqs = [
       "Yes. SKY Taxi Service & Tours provides private Colombo airport to Arugam Bay taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
-    question: "Can I book taxi in Arugam Bay for Ella, Yala, Kandy, Mirissa, or Galle?",
+    question: "Can I book a taxi in Arugam Bay for Ella, Yala, Kandy, Mirissa, or Galle?",
     answer:
       "Yes. You can book private taxi routes from Arugam Bay to Ella, Yala, Kandy, Mirissa, Galle, Colombo Airport, and other destinations across Sri Lanka.",
   },
@@ -322,17 +323,14 @@ export default function ArugamBayTaxiService({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Arugam Bay taxi FAQ"
-            title="Arugam Bay taxi service questions"
+            title="Arugam Bay Taxi Service FAQs"
             text="Helpful answers before booking taxi in Arugam Bay, Colombo airport to Arugam Bay taxi service, or private driver Arugam Bay routes."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

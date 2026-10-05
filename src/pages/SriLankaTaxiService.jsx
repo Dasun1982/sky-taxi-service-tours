@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const taxiServices = [
   {
@@ -100,7 +101,7 @@ const faqs = [
       "Yes. We provide Colombo Airport pickup with private vehicles, flight details shared in advance, luggage support, and WhatsApp confirmation before pickup.",
   },
   {
-    question: "Can I book a long distance taxi Sri Lanka route?",
+    question: "Can I book a long-distance taxi route in Sri Lanka?",
     answer:
       "Yes. You can book long-distance taxi routes to Ella, Kandy, Galle, Sigiriya, Mirissa, Unawatuna, Nuwara Eliya, and many other destinations around Sri Lanka.",
   },
@@ -315,17 +316,14 @@ export default function SriLankaTaxiService({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Sri Lanka taxi FAQ"
-            title="Sri Lanka taxi service questions"
+            title="Sri Lanka Taxi Service FAQs"
             text="Helpful answers before booking a Sri Lanka airport taxi, city ride, or long-distance private taxi route."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

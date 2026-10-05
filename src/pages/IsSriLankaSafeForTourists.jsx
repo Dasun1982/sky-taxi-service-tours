@@ -6,6 +6,7 @@ import { images } from "../data/travelData";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 function safetyMessage() {
   return "Hello SKY Taxi Service & Tours, I have questions about traveling safely in Sri Lanka. Travel dates: ___";
@@ -83,19 +84,13 @@ export default function IsSriLankaSafeForTourists({ setPage }) {
       <section className="section">
         <div className="section__inner">
           <SectionHeader eyebrow="Practical advice" title="Common questions" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Should I check official travel advisories?</h3>
-              <div>
-                <p>Yes — your own government's foreign travel advisory (updated regularly by official sources) is the right place for current, authoritative safety guidance, not a tour operator's website.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Is it safe to travel around Sri Lanka at night?</h3>
-              <div>
-                <p>A private driver with a confirmed pickup time removes much of the uncertainty of unfamiliar late-night transport — see Is a Private Driver Worth It? for the fuller comparison against self-drive or public transport.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Should I check official travel advisories?">
+              <p>Yes — your own government's foreign travel advisory (updated regularly by official sources) is the right place for current, authoritative safety guidance, not a tour operator's website.</p>
+            </FaqItem>
+            <FaqItem question="Is it safe to travel around Sri Lanka at night?">
+              <p>A private driver with a confirmed pickup time removes much of the uncertainty of unfamiliar late-night transport — see Is a Private Driver Worth It? for the fuller comparison against self-drive or public transport.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

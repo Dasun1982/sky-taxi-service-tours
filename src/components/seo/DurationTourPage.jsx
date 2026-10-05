@@ -10,6 +10,7 @@ import { aiPlannerUrl } from "../../data/business";
 import { buildWhatsAppLink } from "../../utils/whatsapp";
 import { setBookingContext } from "../../utils/bookingContext";
 import { trackEvent } from "../../utils/analytics";
+import { FaqItem } from "../FaqList";
 
 /**
  * Shared template for duration-anchored landing pages ("2 Days in Sri
@@ -199,25 +200,19 @@ export default function DurationTourPage({ pageKey, setPage }) {
             title="Questions about this route"
             text="Answers based only on what SKY's tour catalog and pricing actually support."
           />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Is {tour.price} the final price?</h3>
-              <div>
-                <p>
-                  It's the confirmed starting price for the entire private vehicle. The final price is confirmed on WhatsApp based on your exact
-                  dates, vehicle choice, hotel needs, entrance tickets, and whether you add a specialist guide.
-                </p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Can I change the route or number of days?</h3>
-              <div>
-                <p>
-                  Yes. This is one real example route — tell us your interests or send a message to SKY AI, and we can adjust stops, add or
-                  remove days, or swap this for a different existing tour package.
-                </p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question={<>Is {tour.price} the final price?</>}>
+              <p>
+                It's the confirmed starting price for the entire private vehicle. The final price is confirmed on WhatsApp based on your exact
+                dates, vehicle choice, hotel needs, entrance tickets, and whether you add a specialist guide.
+              </p>
+            </FaqItem>
+            <FaqItem question="Can I change the route or number of days?">
+              <p>
+                Yes. This is one real example route — tell us your interests or send a message to SKY AI, and we can adjust stops, add or
+                remove days, or swap this for a different existing tour package.
+              </p>
+            </FaqItem>
           </div>
         </div>
       </section>

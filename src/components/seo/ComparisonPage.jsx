@@ -8,6 +8,7 @@ import { comparisonPages } from "../../data/seo/comparisons";
 import { aiPlannerUrl } from "../../data/business";
 import { buildWhatsAppLink } from "../../utils/whatsapp";
 import { trackEvent } from "../../utils/analytics";
+import { FaqItem } from "../FaqList";
 
 /**
  * Shared template for destination-vs-destination comparison pages (the
@@ -135,14 +136,11 @@ export default function ComparisonPage({ pageKey, setPage }) {
         <section className="section">
           <div className="section__inner">
             <SectionHeader eyebrow="Common questions" title={`${a.name} vs ${b.name} FAQ`} align="left" />
-            <div className="faq-list">
+            <div className="faq-list faq-accordion">
               {config.faqs.map((faq) => (
-                <article className="faq-item" key={faq.question}>
-                  <h3>{faq.question}</h3>
-                  <div>
-                    <p>{faq.answer}</p>
-                  </div>
-                </article>
+                <FaqItem key={faq.question} question={faq.question}>
+                  <p>{faq.answer}</p>
+                </FaqItem>
               ))}
             </div>
           </div>

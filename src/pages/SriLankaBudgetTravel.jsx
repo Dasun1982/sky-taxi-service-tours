@@ -8,6 +8,7 @@ import { tours } from "../data/tours";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 function budgetMessage() {
   return "Hello SKY Taxi Service & Tours, I'm planning a budget-friendly Sri Lanka trip. Travel dates: ___ Interests: ___";
@@ -85,19 +86,13 @@ export default function SriLankaBudgetTravel({ setPage }) {
       <section className="section section--soft">
         <div className="section__inner">
           <SectionHeader eyebrow="Planning" title="Common questions" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Are prices per person or per vehicle?</h3>
-              <div>
-                <p>Per vehicle — the price shown covers the whole private tour or transfer, not each traveler individually, which makes group and family trips more cost-effective.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Is there a cheaper way to see multiple destinations?</h3>
-              <div>
-                <p>One-day tours are the lower-cost option per destination; a multi-day round tour costs more overall but covers several regions in one continuous booking. See How Many Days Do You Need in Sri Lanka? to compare.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Are prices per person or per vehicle?">
+              <p>Per vehicle — the price shown covers the whole private tour or transfer, not each traveler individually, which makes group and family trips more cost-effective.</p>
+            </FaqItem>
+            <FaqItem question="Is there a cheaper way to see multiple destinations?">
+              <p>One-day tours are the lower-cost option per destination; a multi-day round tour costs more overall but covers several regions in one continuous booking. See How Many Days Do You Need in Sri Lanka? to compare.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

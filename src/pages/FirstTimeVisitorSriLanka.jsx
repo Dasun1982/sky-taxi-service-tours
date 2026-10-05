@@ -6,6 +6,7 @@ import { images } from "../data/travelData";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 function firstTimeMessage() {
   return "Hello SKY Taxi Service & Tours, this is my first trip to Sri Lanka and I'd like help planning. Travel dates: ___ Number of days: ___";
@@ -82,19 +83,13 @@ export default function FirstTimeVisitorSriLanka({ setPage }) {
       <section className="section">
         <div className="section__inner">
           <SectionHeader eyebrow="Common questions" title="What first-time visitors ask" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>How many days should a first trip be?</h3>
-              <div>
-                <p>See How Many Days Do You Need in Sri Lanka? for a full breakdown by real, priced route length.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Should I self-drive on my first trip?</h3>
-              <div>
-                <p>Most first-time visitors use a private driver rather than self-driving — see Is a Private Driver Worth It in Sri Lanka? for the full comparison.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="How many days should a first trip be?">
+              <p>See How Many Days Do You Need in Sri Lanka? for a full breakdown by real, priced route length.</p>
+            </FaqItem>
+            <FaqItem question="Should I self-drive on my first trip?">
+              <p>Most first-time visitors use a private driver rather than self-driving — see Is a Private Driver Worth It in Sri Lanka? for the full comparison.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

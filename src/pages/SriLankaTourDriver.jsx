@@ -6,6 +6,7 @@ import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
+import { FaqItem } from "../components/FaqList";
 
 const tourDriverServices = [
   {
@@ -320,17 +321,14 @@ export default function SriLankaTourDriver({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Tour driver FAQ"
-            title="Sri Lanka tour driver questions"
+            title="Sri Lanka Tour Driver FAQs"
             text="Helpful answers before booking a private tour driver Sri Lanka route or chauffeur tour Sri Lanka service."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

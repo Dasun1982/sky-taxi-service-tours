@@ -7,6 +7,7 @@ import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const transferSections = [
   {
@@ -270,17 +271,14 @@ export default function YalaSafariTransfer({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Yala transfer FAQ"
-            title="Yala safari transfer questions"
+            title="Yala Safari Transfer FAQs"
             text="Helpful answers before booking taxi to Yala National Park, Yala taxi service, or safari transfer Sri Lanka transport."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

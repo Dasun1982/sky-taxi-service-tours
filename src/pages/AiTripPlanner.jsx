@@ -6,6 +6,7 @@ import { images } from "../data/travelData";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 const openPlanner = () => trackEvent("ai_planner_opened", { page_source: "ai-trip-planner-page" });
 
@@ -168,14 +169,11 @@ export default function AiTripPlanner({ setPage }) {
       <section className="section section--soft">
         <div className="section__inner">
           <SectionHeader eyebrow="AI trip planner FAQ" title="Common questions" text="Helpful answers before you start planning with SKY AI." />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

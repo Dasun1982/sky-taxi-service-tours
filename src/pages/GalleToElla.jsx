@@ -7,6 +7,7 @@ import { findDestination } from "../data/destinations";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 const galle = findDestination("galle");
 const ella = findDestination("ella");
@@ -121,31 +122,22 @@ export default function GalleToElla({ setPage }) {
       <section className="section section--soft">
         <div className="section__inner">
           <SectionHeader eyebrow="Practical advice" title="What to know before you book" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Is there a direct train or bus?</h3>
-              <div>
-                <p>
-                  Public transport between the south coast and hill country typically involves a transfer rather than one direct route. A
-                  private driver avoids that transfer and keeps the trip to one continuous journey.
-                </p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Can we stop along the way?</h3>
-              <div>
-                <p>Yes — tell your driver what you'd like to see, and stops can be added within reason without booking a separate trip.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>How is the price worked out?</h3>
-              <div>
-                <p>
-                  There's no fixed online price for this route. Final pricing depends on your exact pickup point, vehicle type, and passenger
-                  count, confirmed on WhatsApp before travel.
-                </p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Is there a direct train or bus?">
+              <p>
+                Public transport between the south coast and hill country typically involves a transfer rather than one direct route. A
+                private driver avoids that transfer and keeps the trip to one continuous journey.
+              </p>
+            </FaqItem>
+            <FaqItem question="Can we stop along the way?">
+              <p>Yes — tell your driver what you'd like to see, and stops can be added within reason without booking a separate trip.</p>
+            </FaqItem>
+            <FaqItem question="How is the price worked out?">
+              <p>
+                There's no fixed online price for this route. Final pricing depends on your exact pickup point, vehicle type, and passenger
+                count, confirmed on WhatsApp before travel.
+              </p>
+            </FaqItem>
           </div>
         </div>
       </section>

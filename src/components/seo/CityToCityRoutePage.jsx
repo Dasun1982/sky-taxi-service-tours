@@ -8,6 +8,7 @@ import { aiPlannerUrl } from "../../data/business";
 import { buildWhatsAppLink } from "../../utils/whatsapp";
 import { buildWhatsAppMessage, whatsappIntents } from "../../utils/whatsappQuote.js";
 import { trackEvent } from "../../utils/analytics";
+import { FaqItem } from "../FaqList";
 
 /**
  * Shared template for city-to-city route guides (the pattern
@@ -125,14 +126,11 @@ export default function CityToCityRoutePage({ pageKey, setPage }) {
       <section className="section section--soft">
         <div className="section__inner">
           <SectionHeader eyebrow="Practical advice" title="What to know before you book" align="left" />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {config.faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

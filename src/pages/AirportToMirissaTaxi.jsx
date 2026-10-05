@@ -9,6 +9,7 @@ import { findTaxiVehicle } from "../data/vehicles";
 import { getAirportConversionOffer } from "../data/airportConversion.js";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { buildWhatsAppMessage, whatsappIntents } from "../utils/whatsappQuote.js";
+import { FaqItem } from "../components/FaqList";
 
 const routeDetails = [
   {
@@ -266,17 +267,14 @@ export default function AirportToMirissaTaxi({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Airport to Mirissa FAQ"
-            title="Colombo Airport to Mirissa taxi questions"
+            title="Colombo Airport to Mirissa Taxi FAQs"
             text="Helpful answers before booking your private airport transfer to Mirissa."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

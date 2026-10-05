@@ -7,6 +7,7 @@ import { findDestination } from "../data/destinations";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 // Real destinations tagged to each region in destinations.js — nothing
 // invented, no destination listed here that doesn't already have a real
@@ -111,25 +112,16 @@ export default function SouthCoastVsEastCoast({ setPage }) {
       <section className="section section--soft">
         <div className="section__inner">
           <SectionHeader eyebrow="Choosing a coast" title="Which fits your trip" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>I'm traveling December to March — which coast?</h3>
-              <div>
-                <p>The south and west coasts are generally driest in this window, making Galle, Unawatuna, Mirissa, Weligama, and Hiriketiya a reasonable focus.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>I'm traveling May to September — which coast?</h3>
-              <div>
-                <p>The east coast, including Arugam Bay, tends to be driest in this window — a reasonable time to prioritize the east over the south.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Can I visit both coasts on one trip?</h3>
-              <div>
-                <p>Yes, on a longer route — SKY's real 10-day tour combines the east coast, hill country, and south coast in one continuous private trip.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="I'm traveling December to March — which coast?">
+              <p>The south and west coasts are generally driest in this window, making Galle, Unawatuna, Mirissa, Weligama, and Hiriketiya a reasonable focus.</p>
+            </FaqItem>
+            <FaqItem question="I'm traveling May to September — which coast?">
+              <p>The east coast, including Arugam Bay, tends to be driest in this window — a reasonable time to prioritize the east over the south.</p>
+            </FaqItem>
+            <FaqItem question="Can I visit both coasts on one trip?">
+              <p>Yes, on a longer route — SKY's real 10-day tour combines the east coast, hill country, and south coast in one continuous private trip.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

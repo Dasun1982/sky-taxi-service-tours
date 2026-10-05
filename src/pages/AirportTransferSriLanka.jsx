@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const destinations = [
   {
@@ -269,17 +270,14 @@ export default function AirportTransferSriLanka({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Airport transfer FAQ"
-            title="Sri Lanka airport transfer questions"
+            title="Sri Lanka Airport Transfer FAQs"
             text="Helpful answers before you book a private airport taxi or driver in Sri Lanka."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

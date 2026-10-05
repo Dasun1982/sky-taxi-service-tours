@@ -55,7 +55,7 @@ try {
       same(errors.length, 0, `${route} ${width} runtime errors`);
       if (route === "/") {
         same(state.whyCards, 6, `${width} six Home reassurance cards`);
-        ok(state.body.includes("Visible starting prices") && state.body.includes("Clear confirmation"), `${width} Home factual reassurance`);
+        ok(state.body.includes("Your route, your stops, your pace") && state.body.includes("Clear confirmation"), `${width} Home factual reassurance`);
         ok(!state.body.includes("Safe Travel"), `${width} no unsupported Home safety card`);
       }
       if (route === "/airport") {

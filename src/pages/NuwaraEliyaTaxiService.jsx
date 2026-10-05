@@ -8,6 +8,7 @@ import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const routeCards = [
   {
@@ -108,7 +109,7 @@ const faqs = [
       "Yes. SKY Taxi Service & Tours provides private Colombo airport to Nuwara Eliya taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
-    question: "Can I book taxi in Nuwara Eliya for Ella, Kandy, Galle, Mirissa, or Yala?",
+    question: "Can I book a taxi in Nuwara Eliya for Ella, Kandy, Galle, Mirissa, or Yala?",
     answer:
       "Yes. You can book private taxi routes from Nuwara Eliya to Ella, Kandy, Galle, Mirissa, Yala, Colombo Airport, and other destinations across Sri Lanka.",
   },
@@ -324,17 +325,14 @@ export default function NuwaraEliyaTaxiService({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Nuwara Eliya taxi FAQ"
-            title="Nuwara Eliya taxi service questions"
+            title="Nuwara Eliya Taxi Service FAQs"
             text="Helpful answers before booking taxi in Nuwara Eliya, Colombo airport to Nuwara Eliya taxi service, or private driver Nuwara Eliya routes."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

@@ -6,6 +6,7 @@ import { images } from "../data/travelData";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 function timeMessage() {
   return "Hello SKY Taxi Service & Tours, I want advice on the best time to visit Sri Lanka. Planned travel dates: ___ Regions of interest: ___";
@@ -83,25 +84,16 @@ export default function BestTimeToVisitSriLanka({ setPage }) {
       <section className="section section--soft">
         <div className="section__inner">
           <SectionHeader eyebrow="Common questions" title="Planning your dates" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Is there a single best month to visit Sri Lanka?</h3>
-              <div>
-                <p>Not really — it depends which coast you're prioritizing. December to March suits the south and west; May to September suits the east coast.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Can I visit both coasts on one trip regardless of season?</h3>
-              <div>
-                <p>Yes, but see South Coast vs East Coast for how to think about timing if you want to prioritize good weather on both.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>What if it rains during my trip?</h3>
-              <div>
-                <p>Rain in Sri Lanka is often short and localized rather than an all-day washout — a private driver can adjust the day's plan around it more easily than a fixed-schedule tour.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Is there a single best month to visit Sri Lanka?">
+              <p>Not really — it depends which coast you're prioritizing. December to March suits the south and west; May to September suits the east coast.</p>
+            </FaqItem>
+            <FaqItem question="Can I visit both coasts on one trip regardless of season?">
+              <p>Yes, but see South Coast vs East Coast for how to think about timing if you want to prioritize good weather on both.</p>
+            </FaqItem>
+            <FaqItem question="What if it rains during my trip?">
+              <p>Rain in Sri Lanka is often short and localized rather than an all-day washout — a private driver can adjust the day's plan around it more easily than a fixed-schedule tour.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

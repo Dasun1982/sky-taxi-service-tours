@@ -8,6 +8,7 @@ import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const routeCards = [
   {
@@ -113,7 +114,7 @@ const faqs = [
       "Yes. SKY Taxi Service & Tours provides private Colombo airport to Negombo taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
-    question: "Can I book taxi in Negombo for Colombo, Galle, Kandy, Ella, Sigiriya, or Mirissa?",
+    question: "Can I book a taxi in Negombo for Colombo, Galle, Kandy, Ella, Sigiriya, or Mirissa?",
     answer:
       "Yes. You can book private taxi routes from Negombo to Colombo, Galle, Kandy, Ella, Sigiriya, Mirissa, Colombo Airport, and other destinations across Sri Lanka.",
   },
@@ -327,17 +328,14 @@ export default function NegomboTaxiService({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Negombo taxi FAQ"
-            title="Negombo taxi service questions"
+            title="Negombo Taxi Service FAQs"
             text="Helpful answers before booking taxi in Negombo, Colombo airport to Negombo taxi service, or private driver Negombo routes."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

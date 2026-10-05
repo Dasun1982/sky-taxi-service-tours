@@ -12,6 +12,7 @@ import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { setBookingContext } from "../utils/bookingContext";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 const driverOnly = findService("driver-only");
 const driverGuide = findService("driver-guide");
@@ -232,17 +233,14 @@ export default function DriverGuideSriLanka({ setPage }) {
             title="Questions before you choose"
             text="Honest answers about what's actually included."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {[...driverOnly.faq, ...driverGuide.faq, {
               question: "Is the price fixed online?",
               answer: "No. The final price is confirmed on WhatsApp depending on route, dates, vehicle type, number of days, and whether a guide is arranged.",
             }].map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
           <div className="colombo-airport-link-row">

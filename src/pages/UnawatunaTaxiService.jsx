@@ -8,6 +8,7 @@ import RelatedTours from "../components/RelatedTours";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const routeCards = [
   {
@@ -108,7 +109,7 @@ const faqs = [
       "Yes. SKY Taxi Service & Tours provides private Colombo airport to Unawatuna taxi service with flight details shared in advance, luggage support, and WhatsApp confirmation.",
   },
   {
-    question: "Can I book taxi in Unawatuna for Galle, Mirissa, Ella, Yala, or Kandy?",
+    question: "Can I book a taxi in Unawatuna for Galle, Mirissa, Ella, Yala, or Kandy?",
     answer:
       "Yes. You can book private taxi routes from Unawatuna to Galle, Mirissa, Ella, Yala, Kandy, Colombo Airport, and other destinations across Sri Lanka.",
   },
@@ -325,17 +326,14 @@ export default function UnawatunaTaxiService({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Unawatuna taxi FAQ"
-            title="Unawatuna taxi service questions"
+            title="Unawatuna Taxi Service FAQs"
             text="Helpful answers before booking taxi in Unawatuna, Colombo airport to Unawatuna taxi service, or private driver Unawatuna routes."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

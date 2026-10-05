@@ -6,6 +6,7 @@ import { images } from "../data/travelData";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 function noCarMessage() {
   return "Hello SKY Taxi Service & Tours, I want to travel Sri Lanka without renting my own car. Travel dates: ___ Route: ___";
@@ -82,19 +83,13 @@ export default function TravelSriLankaWithoutACar({ setPage }) {
       <section className="section">
         <div className="section__inner">
           <SectionHeader eyebrow="Planning" title="Common questions" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Do I need to rent a car to see multiple destinations?</h3>
-              <div>
-                <p>No — a private driver covers multi-stop, multi-region routes without you needing to rent or drive anything yourself. See How to Travel Around Sri Lanka for the full comparison of options.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Is a private driver more expensive than a rental car?</h3>
-              <div>
-                <p>There's no fixed online price for either — see How Much Does a Sri Lanka Trip Cost? for real figures from SKY's own catalog, and Private Driver vs Rental Car for the fuller comparison.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Do I need to rent a car to see multiple destinations?">
+              <p>No — a private driver covers multi-stop, multi-region routes without you needing to rent or drive anything yourself. See How to Travel Around Sri Lanka for the full comparison of options.</p>
+            </FaqItem>
+            <FaqItem question="Is a private driver more expensive than a rental car?">
+              <p>There's no fixed online price for either — see How Much Does a Sri Lanka Trip Cost? for real figures from SKY's own catalog, and Private Driver vs Rental Car for the fuller comparison.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

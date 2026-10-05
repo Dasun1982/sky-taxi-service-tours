@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const tourIdeas = [
   {
@@ -314,17 +315,14 @@ export default function SriLankaRoundTours({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Round tours FAQ"
-            title="Sri Lanka round tours questions"
+            title="Sri Lanka Round Tours FAQs"
             text="Helpful answers before booking a Sri Lanka round trip, Sri Lanka tour package with driver, or custom island itinerary."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

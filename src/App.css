@@ -14628,3 +14628,331 @@ html[dir="rtl"] .brand-name {
   display: inline-flex;
   align-items: center;
 }
+
+/* ==========================================================================
+   Founder polish — site-wide FAQ accordion (FaqList.jsx)
+   One readable column, compact rows, question first. Answers stay in the
+   DOM (crawler-visible); collapsed panels are visually closed and inert.
+   ========================================================================== */
+.app .faq-accordion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.app .section__inner:has(> .section-header--left) > .faq-accordion {
+  margin-inline: 0;
+}
+
+.app .faq-accordion .faq-item {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(37, 38, 111, 0.06);
+  transform: none !important;
+  transition: box-shadow 180ms ease;
+}
+
+.app .faq-accordion .faq-item:hover,
+.app .faq-accordion .faq-item--open {
+  box-shadow: 0 14px 34px rgba(37, 38, 111, 0.1);
+}
+
+.app .faq-accordion .faq-item__heading {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.app .faq-accordion .faq-item__button {
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px 16px 22px;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-radius: inherit;
+  text-align: start;
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 800;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+.app .faq-accordion .faq-item__button:focus-visible {
+  outline: 3px solid rgba(140, 87, 153, 0.45);
+  outline-offset: -3px;
+}
+
+.app .faq-accordion .faq-item__question {
+  display: block;
+}
+
+.app .faq-accordion .faq-item__icon {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  color: #8c5799;
+  background: rgba(140, 87, 153, 0.1);
+  border-radius: 999px;
+  transition: transform 200ms ease, background 200ms ease, color 200ms ease;
+}
+
+.app .faq-accordion .faq-item__icon svg {
+  color: inherit;
+}
+
+.app .faq-accordion .faq-item--open .faq-item__icon {
+  color: #fff;
+  background: linear-gradient(135deg, #25266f, #8c5799);
+  transform: rotate(45deg);
+}
+
+.app .faq-accordion .faq-item__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 220ms ease;
+}
+
+.app .faq-accordion .faq-item--open .faq-item__panel {
+  grid-template-rows: 1fr;
+}
+
+.app .faq-accordion .faq-item__answer {
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app .faq-accordion .faq-item__answer > * {
+  max-width: 72ch;
+  margin: 0;
+  padding: 0 22px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.app .faq-accordion .faq-item__answer > * + * {
+  padding-top: 10px;
+}
+
+.app .faq-accordion .faq-item__answer > :last-child {
+  padding-bottom: 20px;
+}
+
+.app[data-theme="dark"] .faq-accordion .faq-item__icon {
+  color: #f7c6d0;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 640px) {
+  .app .faq-accordion {
+    gap: 8px;
+  }
+
+  .app .faq-accordion .faq-item__button {
+    min-height: 56px;
+    padding: 14px 14px 14px 16px;
+    font-size: 0.98rem;
+  }
+
+  .app .faq-accordion .faq-item__answer > * {
+    padding-inline: 16px;
+  }
+
+  .app .faq-accordion .faq-item__answer > :last-child {
+    padding-bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app .faq-accordion .faq-item__panel,
+  .app .faq-accordion .faq-item__icon {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Founder polish — route browse rail (RouteRail.jsx)
+   Replaces the auto-scrolling marquee, which froze on the first three cards
+   whenever the OS asked for reduced motion and had no manual controls.
+   ========================================================================== */
+.route-rail__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.route-rail__summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.route-rail__controls {
+  display: flex;
+  gap: 8px;
+  margin-inline-start: auto;
+}
+
+.route-rail__controls .icon-button:disabled {
+  opacity: 0.38;
+  cursor: default;
+  box-shadow: none;
+}
+
+.app .route-rail__scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 2px 22px;
+  mask-image: none;
+  -webkit-mask-image: none;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 2px;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.app .route-rail__scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.app .route-rail__scroller:focus-visible {
+  outline: 3px solid rgba(140, 87, 153, 0.4);
+  outline-offset: 4px;
+  border-radius: 24px;
+}
+
+.app .route-rail__list {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app .route-rail .home-seo-route-card {
+  flex: 0 0 clamp(264px, 24vw, 330px);
+  scroll-snap-align: start;
+}
+
+.route-rail__meta {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--brand-accent-text);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.route-rail__all {
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .route-rail__summary {
+    font-size: 0.84rem;
+  }
+
+  .app .route-rail__list {
+    gap: 14px;
+  }
+
+  .app .route-rail .home-seo-route-card {
+    flex-basis: min(78vw, 320px);
+  }
+}
+
+.app .route-rail .home-seo-route-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.app .route-rail .home-seo-route-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app .route-rail a.home-seo-route-card__button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.app .route-rail .route-rail__meta {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.8rem;
+}
+
+/* Home chooser: the four "Explore" actions share one baseline on desktop. */
+@media (min-width: 901px) {
+  .home-page .home-service-grid--commercial .home-service-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-page .home-service-grid--commercial .home-service-card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-page .home-service-grid--commercial .service-detail-button {
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .app .route-rail .home-seo-route-card__media {
+    height: 168px;
+  }
+}
+
+.related-see-all {
+  margin-top: 18px;
+}
+
+/* Rail cards are browsing, not the page's primary action: quiet secondary pill. */
+.app .route-rail a.home-seo-route-card__button {
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(37, 38, 111, 0.14);
+  box-shadow: none;
+}
+
+.app .route-rail a.home-seo-route-card__button:hover {
+  border-color: rgba(140, 87, 153, 0.36);
+  box-shadow: 0 10px 24px rgba(37, 38, 111, 0.1);
+}
+
+.app[data-theme="dark"] .route-rail a.home-seo-route-card__button {
+  color: #fff8fb;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.app .route-rail__all,
+.app .related-see-all {
+  display: inline-flex;
+  width: auto;
+  justify-content: flex-start;
+  gap: 6px;
+  text-align: start;
+}

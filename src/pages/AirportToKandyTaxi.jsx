@@ -6,6 +6,7 @@ import SectionHeader from "../components/SectionHeader";
 import { images } from "../data/travelData";
 import { findTaxiVehicle } from "../data/vehicles";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { FaqItem } from "../components/FaqList";
 
 const routeDetails = [
   {
@@ -266,17 +267,14 @@ export default function AirportToKandyTaxi({ setPage }) {
         <div className="section__inner">
           <SectionHeader
             eyebrow="Airport to Kandy FAQ"
-            title="Colombo Airport to Kandy taxi questions"
+            title="Colombo Airport to Kandy Taxi FAQs"
             text="Helpful answers before booking your private airport transfer to Kandy."
           />
-          <div className="faq-list">
+          <div className="faq-list faq-accordion">
             {faqs.map((faq) => (
-              <article className="faq-item" key={faq.question}>
-                <h3>{faq.question}</h3>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </article>
+              <FaqItem key={faq.question} question={faq.question}>
+                <p>{faq.answer}</p>
+              </FaqItem>
             ))}
           </div>
         </div>

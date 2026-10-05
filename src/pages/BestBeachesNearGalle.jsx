@@ -7,6 +7,7 @@ import { findRelatedDestinations } from "../data/destinations";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 // Real, verified relationship from destinations.js — Galle's own
 // relatedDestinations list — not a hand-picked or invented set.
@@ -115,19 +116,13 @@ export default function BestBeachesNearGalle({ setPage }) {
       <section className="section">
         <div className="section__inner">
           <SectionHeader eyebrow="Planning your beach day" title="How a private route works" align="left" text="A private driver from Galle can include flexible stops at more than one beach in the same day, unlike a fixed public-transport route." />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Can I visit more than one beach in a day?</h3>
-              <div>
-                <p>Yes — a private route from Galle can include flexible stops, so you can see two or more of these beaches in one day if your schedule allows.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Which beach is closest to Galle?</h3>
-              <div>
-                <p>Unawatuna is the closest of the four, just south of Galle Fort — see the individual taxi service pages above for route details.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Can I visit more than one beach in a day?">
+              <p>Yes — a private route from Galle can include flexible stops, so you can see two or more of these beaches in one day if your schedule allows.</p>
+            </FaqItem>
+            <FaqItem question="Which beach is closest to Galle?">
+              <p>Unawatuna is the closest of the four, just south of Galle Fort — see the individual taxi service pages above for route details.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

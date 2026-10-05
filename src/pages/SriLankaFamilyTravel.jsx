@@ -7,6 +7,7 @@ import { findDestination } from "../data/destinations";
 import { aiPlannerUrl } from "../data/business";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
+import { FaqItem } from "../components/FaqList";
 
 // Unawatuna is destinations.js's only destination explicitly tagged
 // "family" — that real tag, not a guess, is why it's the anchor here.
@@ -74,25 +75,16 @@ export default function SriLankaFamilyTravel({ setPage }) {
       <section className="section">
         <div className="section__inner">
           <SectionHeader eyebrow="Planning" title="Common questions" align="left" />
-          <div className="faq-list">
-            <article className="faq-item">
-              <h3>Do you have larger vehicles for families?</h3>
-              <div>
-                <p>Yes — SKY's fleet includes SUVs and vans suited to families needing more passenger and luggage space; mention your group size when booking.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Which beach is best for children?</h3>
-              <div>
-                <p>Unawatuna is the destination specifically noted for calmer swimming conditions in SKY's data, making it a reasonable starting point.</p>
-              </div>
-            </article>
-            <article className="faq-item">
-              <h3>Can we take breaks more often with a private driver?</h3>
-              <div>
-                <p>Yes — a private route isn't locked to a fixed schedule, so stops for food, rest, or a change of plan can be added as needed.</p>
-              </div>
-            </article>
+          <div className="faq-list faq-accordion">
+            <FaqItem question="Do you have larger vehicles for families?">
+              <p>Yes — SKY's fleet includes SUVs and vans suited to families needing more passenger and luggage space; mention your group size when booking.</p>
+            </FaqItem>
+            <FaqItem question="Which beach is best for children?">
+              <p>Unawatuna is the destination specifically noted for calmer swimming conditions in SKY's data, making it a reasonable starting point.</p>
+            </FaqItem>
+            <FaqItem question="Can we take breaks more often with a private driver?">
+              <p>Yes — a private route isn't locked to a fixed schedule, so stops for food, rest, or a change of plan can be added as needed.</p>
+            </FaqItem>
           </div>
         </div>
       </section>

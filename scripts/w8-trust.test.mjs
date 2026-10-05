@@ -28,9 +28,12 @@ test("unverified review stories and ratings are no longer source-backed UI", () 
 test("Home reassurance uses six factual service and quote statements", () => {
   assert.equal((homeReasons.match(/title:/g) || []).length, 6);
   assert.match(home, /home\.w8Trust\.reasons/);
-  assert.match(homeReasons, /current route-specific quote/);
+  // Founder polish: value-led reasons. The only price wording allowed is the
+  // honest "today's best available price" route to a WhatsApp quote.
+  assert.match(homeReasons, /Your route, your stops, your pace/);
+  assert.match(homeReasons, /today's best available price/);
   assert.match(homeReasons, /confirmed only after you agree/);
-  assert.doesNotMatch(homeReasons, /safe travel|best|guarantee|licensed|certified|verified driver|24\/7|five.star|happy travelers/i);
+  assert.doesNotMatch(homeReasons.replace(/today's best available price/g, ""), /safe travel|best|guarantee|licensed|certified|verified driver|24\/7|five.star|happy travelers|starting price|LKR|\$\d/i);
 });
 
 test("airport hub does not promise monitoring or instant confirmation", () => {

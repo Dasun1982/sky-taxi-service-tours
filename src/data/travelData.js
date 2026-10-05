@@ -759,24 +759,24 @@ export const homeHighlights = [
 
 export const whyChooseUs = [
   {
-    title: "Visible starting prices",
-    text: "Compare published starting prices where available, then ask SKY for a current route-specific quote.",
+    title: "Private travel for your group",
+    text: "A private vehicle and driver for your group only, from airport pickups to multi-day journeys.",
   },
   {
-    title: "Private travel choices",
-    text: "Choose a transfer, a daily driver, a Chauffeur Guide journey, or an existing tour itinerary.",
+    title: "Your route, your stops, your pace",
+    text: "Choose the places, the stops, and the number of days. SKY plans the transport around them.",
   },
   {
-    title: "Vehicle preferences",
-    text: "Tell SKY which vehicle class suits your group. SKY confirms the actual arrangement with your quote.",
+    title: "Island-wide routes",
+    text: "South coast, hill country, Cultural Triangle, and east coast routes, planned in one conversation.",
   },
   {
-    title: "Direct WhatsApp inquiry",
-    text: "Share your route and dates with SKY, then review the current quote before you decide.",
+    title: "Airport meeting choices",
+    text: "Meet your driver in the arrival lobby or outside near the post office. The choice is yours.",
   },
   {
-    title: "Flexible route planning",
-    text: "Start with an itinerary or describe your own stops. SKY reviews the route before quoting.",
+    title: "Direct WhatsApp assistance",
+    text: "Talk to the SKY team directly, and ask on WhatsApp for today's best available price.",
   },
   {
     title: "Clear confirmation",
