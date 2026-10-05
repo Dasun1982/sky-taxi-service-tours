@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import PageHero from "../components/PageHero";
 import { useLanguage } from "../context/LanguageContext";
@@ -13,6 +13,7 @@ import {
 } from "../data/customJourneyRequest";
 import { buildQuoteWhatsAppLink } from "../utils/whatsapp";
 import { buildWhatsAppMessage } from "../utils/whatsappQuote";
+import { trackEvent } from "../utils/analytics";
 import "../styles/customJourney.css";
 
 export default function CustomJourney() {
@@ -20,12 +21,17 @@ export default function CustomJourney() {
   const [draft, setDraft] = useState(() => journeyDraftFromSearch(window.location.search));
   const [attempted, setAttempted] = useState(false);
   const [handoffHref, setHandoffHref] = useState("");
+  const startedRef = useRef(false);
   const currentErrors = validateJourneyDraft(draft);
   const valid = Object.keys(currentErrors).length === 0;
   const quote = valid ? toCompleteJourneyQuote(draft) : null;
   const preview = quote ? buildWhatsAppMessage(quote) : "";
 
   const updateField = (event) => {
+    if (!startedRef.current) {
+      startedRef.current = true;
+      trackEvent("custom_journey_start", { service: "custom_journey", source_surface: "custom_journey" });
+    }
     const { name, value } = event.target;
     setDraft((current) => ({ ...current, [name]: value }));
     setHandoffHref("");
@@ -40,6 +46,7 @@ export default function CustomJourney() {
     }
     const href = buildQuoteWhatsAppLink(quote);
     setHandoffHref(href);
+    trackEvent("whatsapp_handoff", { service: "custom_journey", source_surface: "custom_journey" });
     try {
       window.open(href, "_blank", "noopener,noreferrer");
     } catch {

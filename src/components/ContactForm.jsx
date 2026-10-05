@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { buildWhatsAppLink } from "../utils/whatsapp";
+import { trackEvent } from "../utils/analytics";
 
 const initialForm = {
   name: "",
@@ -55,6 +56,7 @@ export default function ContactForm() {
 
     setErrors({});
     setStatus(t("contact.form.status"));
+    trackEvent("whatsapp_handoff", { service: "general", source_surface: "contact" });
     window.open(buildWhatsAppLink(message), "_blank", "noopener,noreferrer");
   };
 

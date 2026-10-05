@@ -102,5 +102,7 @@ test("W2 message stays compact, truthful, and excludes source metadata", () => {
   assert.match(output, /Please review my journey and let me know suitable options and a current quote\./);
   assert.doesNotMatch(output, /secret-route|hidden@example|booking confirmed|payment|availability|driver assigned|vehicle reserved/i);
   assert.ok(output.length < 500);
-  assert.doesNotMatch(source("../src/pages/CustomJourney.jsx"), /trackEvent|analytics/);
+  const page = source("../src/pages/CustomJourney.jsx");
+  assert.match(page, /trackEvent\("whatsapp_handoff", \{ service: "custom_journey", source_surface: "custom_journey" \}\)/);
+  assert.doesNotMatch(page, /trackEvent\([^\n]*(draft|quote|preview|route|travelers|notes)/);
 });

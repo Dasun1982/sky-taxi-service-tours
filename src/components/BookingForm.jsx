@@ -6,7 +6,7 @@ import { buildBookingWhatsAppMessage } from "../utils/buildBookingMessage";
 import { consumeBookingContext } from "../utils/bookingContext";
 import { submitBookingLead } from "../utils/bookingSubmission";
 import { usePlacesAutocomplete } from "../utils/usePlacesAutocomplete";
-import { trackEvent } from "../utils/analytics";
+import { bookingResultEvent, trackEvent } from "../utils/analytics";
 
 // Optional — same graceful-fallback pattern as VITE_GOOGLE_MAPS_API_KEY
 // (googleMaps.js): when unset, the reference still shows as plain text the
@@ -146,26 +146,21 @@ export default function BookingForm() {
     setStatus(t("booking.form.status"));
     setReference(null);
 
-    // trip_type/source only — never name, phone, or message text (no PII in analytics).
-    trackEvent("booking_submitted", { trip_type: form.tripType, source: context?.source || "booking-page" });
-
     // Best-effort: never blocks or delays WhatsApp opening below, and never
     // throws — see bookingSubmission.js. WhatsApp is the fallback of record.
     // The reference is shown once this resolves (a moment after WhatsApp
     // already opened) — never awaited before window.open, so a slow or
     // failed save can never delay the one thing that must always work.
     submitBookingLead({ form: trimmedForm, tripTypeLabel, message, context }).then((result) => {
-      if (result.saved && result.bookingId) {
-        setReference(result.bookingId);
-      } else {
-        // PHASE 7 — visibility into how often the Supabase save silently
-        // fails behind the WhatsApp fallback. `reason` here is always a
-        // system/error code ("not-configured", "network-error", or a
-        // Postgres/Supabase error message) — never customer-entered text.
-        trackEvent("booking_save_failed", { reason: result.reason || "unknown", trip_type: form.tripType });
+      const measured = bookingResultEvent(result);
+      trackEvent(measured.name, measured.properties);
+      if (result.saved) {
+        // Supabase insert succeeded; this is a request, not a confirmation.
+        if (result.bookingId) setReference(result.bookingId);
       }
     });
 
+    trackEvent("whatsapp_handoff", { service: "general", source_surface: "booking" });
     window.open(buildWhatsAppLink(message), "_blank", "noopener,noreferrer");
 
     // Re-enable after a short window rather than locking the form forever —

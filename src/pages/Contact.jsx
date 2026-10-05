@@ -7,6 +7,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { contactInfo, images } from "../data/travelData";
 import { buildWhatsAppLink } from "../utils/whatsapp";
 import { setBookingContext } from "../utils/bookingContext";
+import { trackEvent } from "../utils/analytics";
 
 const inquiryPaths = [
   { title: "Custom Tour", text: "Multi-day private route across the destinations you choose.", icon: Compass, tripType: "Private tour" },
@@ -51,6 +52,7 @@ export default function Contact({ setPage }) {
 
   const startInquiry = (path) => {
     setBookingContext({ tripType: path.tripType, message: path.title, source: "contact-page" });
+    trackEvent("quote_start", { service: "general", source_surface: "contact" });
     setPage("booking");
   };
 
