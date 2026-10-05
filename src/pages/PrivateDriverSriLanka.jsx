@@ -327,9 +327,8 @@ export default function PrivateDriverSriLanka() {
                 <MessageCircle size={18} />
                 Get My Driver Quote
               </a>
-              <a className="button button--light" href="/airport-transfer-sri-lanka">
-                <Plane size={18} />
-                Airport Transfers
+              <a className="button button--light" href="/chauffeur-guide-sri-lanka">
+                Explore Chauffeur Guide
               </a>
             </div>
           </Reveal>

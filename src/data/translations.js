@@ -298,6 +298,19 @@ const en = {
       { tag: "Wildlife", title: "Wildlife Routes", text: "Private transfers to Yala and safari routes with space for families and groups." },
       { tag: "Adventure", title: "Viewpoint Drives", text: "Scenic drives to Ambuluwawa, Pidurangala, Ella, and other photogenic stops." },
     ],
+    w8Trust: {
+      eyebrow: "Why continue with SKY",
+      title: "Clear choices from inquiry to confirmation",
+      text: "See the starting-price context, share your route, and decide after SKY reviews the details with you.",
+      reasons: [
+        { title: "Visible starting prices", text: "Compare published starting prices where available, then ask SKY for a current route-specific quote." },
+        { title: "Private travel choices", text: "Choose a transfer, a daily driver, a Chauffeur Guide journey, or an existing tour itinerary." },
+        { title: "Vehicle preferences", text: "Tell SKY which vehicle class suits your group. SKY confirms the actual arrangement with your quote." },
+        { title: "Direct WhatsApp inquiry", text: "Share your route and dates with SKY, then review the current quote before you decide." },
+        { title: "Flexible route planning", text: "Start with an itinerary or describe your own stops. SKY reviews the route before quoting." },
+        { title: "Clear confirmation", text: "A request starts a conversation. Your service is confirmed only after you agree the details with SKY." },
+      ],
+    },
     whyHeader: {
       eyebrow: "Why choose us",
       title: "Friendly travel that feels easy",
@@ -1050,35 +1063,6 @@ const en = {
       { title: "Clean hybrid car", location: "Taxi service" },
       { title: "Comfortable wagon", location: "Taxi service" },
       { title: "Group van option", location: "Airport transfers" },
-    ],
-  },
-  testimonials: {
-    hero: {
-      eyebrow: "Testimonials",
-      title: "Traveler feedback themes from Sri Lanka tours and transfers.",
-      description: "Use the slider to highlight the service qualities visitors look for: smooth pickup, flexible routes, and helpful local planning.",
-    },
-    header: {
-      eyebrow: "Testimonials slider",
-      title: "What travelers value most",
-      text: "The strongest travel experiences usually come from clear communication, calm driving, and route flexibility.",
-    },
-    items: [
-      {
-        title: "Smooth airport pickup",
-        traveler: "Airport transfer guest",
-        text: "Clear WhatsApp communication, on-time pickup, and a comfortable drive from the airport to the south coast.",
-      },
-      {
-        title: "Flexible private day tour",
-        traveler: "South coast family trip",
-        text: "The route was adjusted during the day so we could spend more time in Galle Fort and still reach Unawatuna for sunset.",
-      },
-      {
-        title: "Helpful local planning",
-        traveler: "Round-trip traveler",
-        text: "The driver knew practical stops for food, viewpoints, and travel breaks between Ella, Sigiriya, and the beach.",
-      },
     ],
   },
   footer: {
@@ -2642,15 +2626,6 @@ const sharedUiTranslationCoverage = {
         { title: "Чистый гибридный автомобиль", location: "Taxi service" },
         { title: "Комфортный wagon", location: "Taxi service" },
         { title: "Вариант фургона для группы", location: "Airport transfers" },
-      ],
-    },
-    testimonials: {
-      hero: { eyebrow: "Отзывы", title: "Что путешественники ценят в турах и трансферах.", description: "Слайдер показывает важные качества сервиса: плавная встреча, гибкие маршруты и полезное локальное планирование." },
-      header: { eyebrow: "Слайдер отзывов", title: "Что путешественники ценят больше всего", text: "Лучшие впечатления обычно строятся на ясной коммуникации, спокойном вождении и гибкости маршрута." },
-      items: [
-        { title: "Плавная встреча в аэропорту", traveler: "Гость трансфера аэропорта", text: "Понятная связь в WhatsApp, своевременная встреча и комфортная поездка из аэропорта на южное побережье." },
-        { title: "Гибкий частный дневной тур", traveler: "Семейная поездка на южном побережье", text: "Маршрут изменили в течение дня, чтобы провести больше времени в Galle Fort и успеть на закат в Unawatuna." },
-        { title: "Полезное локальное планирование", traveler: "Путешественник round trip", text: "Водитель знал практичные остановки для еды, видов и перерывов между Ella, Sigiriya и пляжем." },
       ],
     },
   },

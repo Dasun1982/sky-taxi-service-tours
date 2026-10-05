@@ -153,7 +153,7 @@ export default function ChauffeurGuideSriLanka() {
       </section>
 
       <section className="section private-driver-cta">
-        <div className="section__inner"><Reveal className="booking-cta-panel"><div><span className="eyebrow">Your journey, your quote</span><h2>Request your Chauffeur Guide quote</h2><p>Send your arrival date, number of days, travelers, and places you want to visit. SKY will discuss the route and current service details with you; you confirm only after reviewing the quote.</p></div><div className="cta-actions"><a className="button button--primary" href={quoteHref()} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Get My Tour Quote</a><a className="button button--light" href="/private-driver-sri-lanka">Compare Private Driver</a></div></Reveal></div>
+        <div className="section__inner"><Reveal className="booking-cta-panel"><div><span className="eyebrow">Your journey, your quote</span><h2>Request your Chauffeur Guide quote</h2><p>Send your arrival date, number of days, travelers, and places you want to visit. SKY will discuss the route and current service details with you; you confirm only after reviewing the quote.</p></div><div className="cta-actions"><a className="button button--primary" href={quoteHref()} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Get My Tour Quote</a><a className="button button--light" href="/private-driver-sri-lanka">Compare Private Driver</a></div><a className="text-button" href="/custom-journey">Still deciding your route? Tell SKY about your journey</a></Reveal></div>
       </section>
     </div>
   );

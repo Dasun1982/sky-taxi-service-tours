@@ -54,31 +54,31 @@ const airportDestinationLinks = [
 ];
 
 const airportHeroBadges = [
-  { label: "Flight-time checking", icon: Clock },
-  { label: "Clean private vehicles", icon: Car },
-  { label: "WhatsApp confirmation", icon: MessageCircle },
-  { label: "Fair route-based prices", icon: ShieldCheck },
+  { label: "Pickup details reviewed", icon: Clock },
+  { label: "Private vehicle options", icon: Car },
+  { label: "Direct WhatsApp inquiry", icon: MessageCircle },
+  { label: "Route-specific prices", icon: ShieldCheck },
 ];
 
 const airportBenefits = [
   {
-    title: "Flight-time checking",
-    text: "Share your flight details and we help plan the pickup time before you travel.",
+    title: "Pickup details reviewed",
+    text: "Share your flight and destination details so SKY can discuss the meeting arrangement with you.",
     icon: Clock,
   },
   {
-    title: "Fair route-based prices",
-    text: "Clear starting prices for popular airport routes, with custom quotes by WhatsApp.",
+    title: "Route-specific prices",
+    text: "Compare published starting prices for popular routes, then ask SKY for a current quote.",
     icon: ShieldCheck,
   },
   {
-    title: "Clean private vehicles",
-    text: "Choose a private car or van with comfortable space for passengers and luggage.",
+    title: "Private vehicle options",
+    text: "Share your group and luggage needs. SKY confirms a suitable vehicle with your quote.",
     icon: Car,
   },
   {
-    title: "Easy WhatsApp booking",
-    text: "Send pickup place, date, time, passengers, and luggage for quick confirmation.",
+    title: "Direct WhatsApp inquiry",
+    text: "Send your pickup, date, passengers, and luggage. Review the quote before confirming.",
     icon: MessageCircle,
   },
 ];
@@ -108,7 +108,7 @@ export default function AirportTransfers({ setPage }) {
           <span className="eyebrow">{t("airport.hero.eyebrow")}</span>
           <h1>{t("airport.hero.title")}</h1>
           <p>
-            {t("airport.hero.description")}
+            {t("airport.w8.heroDescription", "Compare published route prices, share your arrival details, and review SKY's current transfer quote before confirming.")}
           </p>
           <div className="airport-hero__badges">
             {airportHeroBadges.map((badge, index) => {
@@ -116,14 +116,14 @@ export default function AirportTransfers({ setPage }) {
               return (
                 <span key={badge.label}>
                   <Icon size={16} />
-                  {t(`airport.badges.${index}`, badge.label)}
+                  {t(`airport.w8.badges.${index}`, badge.label)}
                 </span>
               );
             })}
           </div>
           <div className="airport-hero__actions">
             <button className="button button--primary" type="button" onClick={() => setPage("booking")}>
-              {t("airport.hero.book")}
+              {t("airport.w8.requestTransfer", "Request a Transfer")}
               <ArrowRight size={19} />
             </button>
             <a className="button button--light" href={buildWhatsAppLink(getCustomAirportMessage())} target="_blank" rel="noreferrer">
@@ -137,7 +137,7 @@ export default function AirportTransfers({ setPage }) {
           <img src={images.airportWelcome} alt="Airport welcome pickup in Sri Lanka" />
           <div className="airport-hero__glass-card airport-hero__glass-card--top">
             <Plane size={18} />
-            <span>{t("airport.hero.pickupReady")}</span>
+            <span>{t("airport.w8.pickupPlan", "Discuss your pickup")}</span>
           </div>
           <div className="airport-hero__glass-card airport-hero__glass-card--bottom">
             <Luggage size={18} />
@@ -156,8 +156,8 @@ export default function AirportTransfers({ setPage }) {
                   <span className="airport-benefit-card__icon">
                     <Icon size={22} />
                   </span>
-                  <h3>{t(`airport.benefits.${index}.title`, benefit.title)}</h3>
-                  <p>{t(`airport.benefits.${index}.text`, benefit.text)}</p>
+                  <h3>{t(`airport.w8.benefits.${index}.title`, benefit.title)}</h3>
+                  <p>{t(`airport.w8.benefits.${index}.text`, benefit.text)}</p>
                 </Reveal>
               );
             })}
@@ -226,10 +226,10 @@ export default function AirportTransfers({ setPage }) {
                     href={buildWhatsAppLink(getTransferMessage(vehicle.name))}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`${t("common.bookTransfer")} — ${vehicle.name}`}
+                    aria-label={`${t("airport.w8.requestQuote", "Request transfer quote")} — ${vehicle.name}`}
                   >
                     <MessageCircle size={18} />
-                    {t("common.bookTransfer")}
+                    {t("airport.w8.requestQuote", "Request transfer quote")}
                   </a>
                 </div>
               </Reveal>
@@ -241,7 +241,7 @@ export default function AirportTransfers({ setPage }) {
               <span className="airport-custom-transfer__eyebrow">{t("airport.labels.customEyebrow")}</span>
               <h2>{t("airport.labels.customTitle")}</h2>
               <p>
-                {t("airport.labels.customText")}
+                {t("airport.w8.customText", "Share your pickup location, airport, date, time, passengers, and luggage. SKY will review the route and discuss a current quote on WhatsApp.")}
               </p>
               <a
                 className="button button--primary airport-custom-transfer__button"
@@ -274,6 +274,23 @@ export default function AirportTransfers({ setPage }) {
                   </span>
                 ))}
               </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section airport-continue-journey">
+        <div className="section__inner">
+          <Reveal className="booking-cta-panel">
+            <div>
+              <span className="eyebrow">{t("airport.w8.nextEyebrow", "Beyond your transfer")}</span>
+              <h2>{t("airport.w8.nextTitle", "Need private transport after arrival?")}</h2>
+              <p>{t("airport.w8.nextText", "Explore Private Driver for travel with your own stops or across several days. SKY quotes that journey separately.")}</p>
+            </div>
+            <div className="cta-actions">
+              <a className="button button--light" href="/private-driver-sri-lanka">
+                {t("airport.w8.nextAction", "Explore Private Driver")} <ArrowRight size={18} />
+              </a>
             </div>
           </Reveal>
         </div>

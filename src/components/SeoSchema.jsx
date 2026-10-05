@@ -181,7 +181,7 @@ export default function SeoSchema({ activePage }) {
     if (!schemaEnabledPages.includes(activePage)) return [];
 
     const meta = pageMeta[activePage] || pageMeta.home;
-    const serviceSchema = activePage === "custom-journey"
+    const serviceSchema = activePage === "custom-journey" || activePage === "testimonials"
       ? makeJourneyRequestSchema(activePage, meta)
       : activePage === "chauffeur-guide-sri-lanka"
         ? makeChauffeurGuideServiceSchema(activePage, meta)

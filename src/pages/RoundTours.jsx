@@ -572,6 +572,7 @@ export default function RoundTours() {
                 <MessageCircle size={18} />
                 {t("round.custom.button")}
               </a>
+              <a className="text-button" href="/custom-journey">Have several stops in mind? Describe your journey to SKY</a>
             </div>
 
             <div className="one-day-custom-tour__planner" aria-label={t("round.custom.stepsAria")}>

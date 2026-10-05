@@ -12,7 +12,6 @@ import {
   Phone,
   Plane,
   Route,
-  ShieldCheck,
   Sparkles,
   Wallet,
 } from "lucide-react";
@@ -123,7 +122,7 @@ const tripFlowSteps = [
   { label: "Travel", text: "Meet your driver and enjoy the journey you agreed with SKY." },
 ];
 
-const whyIcons = [Wallet, HeartHandshake, CheckCircle2, MessageCircle, MapPin, ShieldCheck];
+const whyIcons = [Wallet, HeartHandshake, CheckCircle2, MessageCircle, MapPin, Route];
 
 const taxiRouteLinks = [
   {
@@ -676,9 +675,9 @@ export default function Home({ setPage }) {
       <section className="section" id="why">
         <div className="section__inner">
           <SectionHeader
-            eyebrow={t("home.whyHeader.eyebrow")}
-            title={t("home.whyHeader.title")}
-            text={t("home.whyHeader.text")}
+            eyebrow={t("home.w8Trust.eyebrow")}
+            title={t("home.w8Trust.title")}
+            text={t("home.w8Trust.text")}
           />
           <div className="why-grid-home">
             {whyChooseUs.map((item, index) => {
@@ -688,8 +687,8 @@ export default function Home({ setPage }) {
                   <span>
                     <Icon size={22} />
                   </span>
-                  <h3>{index === 3 ? t("home.commercial.whatsappReassuranceTitle") : t(`home.why.${index}.title`, item.title)}</h3>
-                  <p>{index === 3 ? t("home.commercial.whatsappReassuranceText") : t(`home.why.${index}.text`, item.text)}</p>
+                  <h3>{t(`home.w8Trust.reasons.${index}.title`, item.title)}</h3>
+                  <p>{t(`home.w8Trust.reasons.${index}.text`, item.text)}</p>
                 </Reveal>
               );
             })}

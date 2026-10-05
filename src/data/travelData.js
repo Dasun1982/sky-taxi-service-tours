@@ -292,9 +292,9 @@ export const pageMeta = {
       "Contact SKY support by WhatsApp, phone, or email for transport requests, bookings, and trip questions.",
   },
   testimonials: {
-    title: "Traveler Testimonials | SKY Taxi Service & Tours",
+    title: "Customer Reviews | SKY Taxi Service & Tours",
     description:
-      "Read traveler feedback themes for SKY Taxi Service & Tours private Sri Lanka tours, airport transfers, and local travel support.",
+      "SKY does not publish unverified customer reviews. Check its starting-price context, service details, and quote process before planning your trip.",
   },
   "vehicle-rentals": {
     title: "Vehicle Rentals in Sri Lanka | SKY Taxi Service & Tours",
@@ -759,28 +759,28 @@ export const homeHighlights = [
 
 export const whyChooseUs = [
   {
-    title: "Fair Prices",
-    text: "Clear quotes before you travel, with affordable options for short rides, tours, and airport transfers.",
+    title: "Visible starting prices",
+    text: "Compare published starting prices where available, then ask SKY for a current route-specific quote.",
   },
   {
-    title: "Friendly Drivers",
-    text: "Helpful local drivers who know Sri Lanka routes, timing, viewpoints, and practical travel stops.",
+    title: "Private travel choices",
+    text: "Choose a transfer, a daily driver, a Chauffeur Guide journey, or an existing tour itinerary.",
   },
   {
-    title: "Clean Vehicles",
-    text: "Comfortable cars and vans prepared for families, couples, solo travelers, and small groups.",
+    title: "Vehicle preferences",
+    text: "Tell SKY which vehicle class suits your group. SKY confirms the actual arrangement with your quote.",
   },
   {
-    title: "Easy WhatsApp Booking",
-    text: "Send pickup, drop place, date, and message. We reply with a simple plan and fair quote.",
+    title: "Direct WhatsApp inquiry",
+    text: "Share your route and dates with SKY, then review the current quote before you decide.",
   },
   {
-    title: "Local Experience",
-    text: "Real local route knowledge for Galle, Unawatuna, Ella, Sigiriya, Mirissa, Yala, and Colombo.",
+    title: "Flexible route planning",
+    text: "Start with an itinerary or describe your own stops. SKY reviews the route before quoting.",
   },
   {
-    title: "Safe Travel",
-    text: "Safe airport transfers, calm driving, planned pickup times, and route support across Sri Lanka.",
+    title: "Clear confirmation",
+    text: "A request starts a conversation. Your service is confirmed only after you agree the details with SKY.",
   },
 ];
 
@@ -1619,24 +1619,6 @@ export const galleryImages = [
     alt: "Small bird perched among tall grass",
     title: "Grassland bird",
     location: "Wildlife safari",
-  },
-];
-
-export const testimonials = [
-  {
-    title: "Smooth airport pickup",
-    traveler: "Airport transfer guest",
-    text: "Clear WhatsApp communication, on-time pickup, and a comfortable drive from the airport to the south coast.",
-  },
-  {
-    title: "Flexible private day tour",
-    traveler: "South coast family trip",
-    text: "The route was adjusted during the day so we could spend more time in Galle Fort and still reach Unawatuna for sunset.",
-  },
-  {
-    title: "Helpful local planning",
-    traveler: "Round-trip traveler",
-    text: "The driver knew practical stops for food, viewpoints, and travel breaks between Ella, Sigiriya, and the beach.",
   },
 ];
 
